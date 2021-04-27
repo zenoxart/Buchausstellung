@@ -57,7 +57,7 @@ Anmeldung
 			Bücherverwaltung
 
 			// Nach der Veranstallung
-			Bestellverwaltung
+			Ausstellungsabschluss
 			Abholungsverwaltung
 			Lieferverwaltung
 
