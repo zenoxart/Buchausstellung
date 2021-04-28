@@ -39,7 +39,7 @@ ein Verlag besitzt
 	Id
 	Name
 
-eine Veranstallung besitzt
+eine Veranstaltung besitzt
 	DatumVon
 	DatumBis
 	Ort
@@ -47,19 +47,21 @@ eine Veranstallung besitzt
 
 
 # Masken
-Anmeldung
-	+ Benutzer
+Anwendung
+
+		// Vor der Veranstaltung
+		Neue Veranstaltung
+		Bücherverwaltung
+
+		// Wärend der Veranstaltung
 		Ausstellung
 		Warenkorb
 
-	+ Veranstallter
-		Veranstaltlungsverwaltung
-			Bücherverwaltung
-
-			// Nach der Veranstallung
-			Ausstellungsabschluss
-			Abholungsverwaltung
-			Lieferverwaltung
+		// Nach der Veranstaltung
+		Ausstellungsabschluss
+		Lieferverwaltung
+		Abholungsverwaltung
+		
 
 
 

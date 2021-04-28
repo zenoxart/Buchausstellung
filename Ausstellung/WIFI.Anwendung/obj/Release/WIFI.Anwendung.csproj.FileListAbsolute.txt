@@ -1,0 +1,8 @@
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\bin\Release\WIFI.Anwendung.dll
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\bin\Release\de\WIFI.Anwendung.resources.dll
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Release\WIFI.Anwendung.Properties.Resources.resources
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Release\WIFI.Anwendung.Properties.Resources.de.resources
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Release\WIFI.Anwendung.csproj.GenerateResource.cache
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Release\WIFI.Anwendung.csproj.CoreCompileInputs.cache
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Release\de\WIFI.Anwendung.resources.dll
+C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Release\WIFI.Anwendung.dll

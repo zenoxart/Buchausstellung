@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Ausstellung", "WIFI.Ausstellung\WIFI.Ausstellung.csproj", "{6EC461CA-784D-4C67-8740-D8F3605A6423}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung", "WIFI.Anwendung\WIFI.Anwendung.csproj", "{C3BF0E4F-40E2-4975-8ABF-0898087C6F27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung.Datenbank", "WIFI.Anwendung.Datenbank\WIFI.Anwendung.Datenbank.csproj", "{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EC461CA-784D-4C67-8740-D8F3605A6423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC461CA-784D-4C67-8740-D8F3605A6423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC461CA-784D-4C67-8740-D8F3605A6423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC461CA-784D-4C67-8740-D8F3605A6423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BF0E4F-40E2-4975-8ABF-0898087C6F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BF0E4F-40E2-4975-8ABF-0898087C6F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BF0E4F-40E2-4975-8ABF-0898087C6F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BF0E4F-40E2-4975-8ABF-0898087C6F27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0F6F0C0-EB3F-43C4-B03A-03B3DEFD1E39}
+	EndGlobalSection
+EndGlobal
