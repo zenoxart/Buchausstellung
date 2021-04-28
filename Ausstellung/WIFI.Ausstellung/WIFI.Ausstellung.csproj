@@ -82,6 +82,9 @@
     <Compile Include="Views\Aufgaben\Lieferverwaltung.xaml.cs">
       <DependentUpon>Lieferverwaltung.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Aufgaben\Offlineanzeige.xaml.cs">
+      <DependentUpon>Offlineanzeige.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Aufgaben\Veranstaltungserstellung.xaml.cs">
       <DependentUpon>Veranstaltungserstellung.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Aufgaben\Lieferverwaltung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Offlineanzeige.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Models\Aufgabenbereiche\Abholung.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Models\Aufgabenbereiche\Fehler.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

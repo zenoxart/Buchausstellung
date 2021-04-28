@@ -71,7 +71,7 @@ namespace WIFI.Ausstellung.ViewModels
                     this.InitialisiereAufgabenAsync();
 
                     // Starte den Task 
-                    AufgabenSektionenAktuellHalten();
+                    AufgabenSektionAktuellHalten();
                 }
 
                 return AufgabenManager._Liste;
@@ -101,7 +101,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Ruft in einem gewissen Interval die Datenbank und zeigt die Sektion an, welche in der Datenbank vorgegeben ist
         /// </summary>
-        public void AufgabenSektionenAktuellHalten()
+        public void AufgabenSektionAktuellHalten()
         {
 
             System.Threading.Tasks.Task.Run(() =>

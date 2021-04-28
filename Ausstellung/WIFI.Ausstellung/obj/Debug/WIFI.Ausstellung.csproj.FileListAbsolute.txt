@@ -43,3 +43,5 @@ C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Lief
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Veranstaltungserstellung.baml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Warenkorb.baml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Offlineanzeige.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Offlineanzeige.baml
