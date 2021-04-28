@@ -3,8 +3,8 @@ Software zum Abwickeln einer Buchausstellung
 
 
 # Pflichtenheft
-Verwalterung der Bücher 
-die Bücher besitzen Gruppen nachdenen man filtern kann
+Verwalterung der BÃ¼cher 
+die BÃ¼cher besitzen Gruppen nachdenen man filtern kann
 
 # Datenbank-Skizze
 ein Buch besitzt
@@ -27,10 +27,10 @@ ein Benutzer besitzt
 
 eine Bestellung besitzt
 	Id
-	Bestellung_hat_Bücher_Id
+	Bestellung_hat_BÃ¼cher_Id
 	Anzahl
 
-eine Bestellung_hat_Bücher bsitzt
+eine Bestellung_hat_BÃ¼cher bsitzt
 	Id
 	Buch_Id
 	Benutzer_Id
@@ -51,9 +51,9 @@ Anwendung
 
 		// Vor der Veranstaltung
 		Neue Veranstaltung
-		Bücherverwaltung
+		BÃ¼cherverwaltung
 
-		// Wärend der Veranstaltung
+		// WÃ¤rend der Veranstaltung
 		Ausstellung
 		Warenkorb
 
@@ -61,6 +61,9 @@ Anwendung
 		Ausstellungsabschluss
 		Lieferverwaltung
 		Abholungsverwaltung
+		
+		// Wenn keine Datenbankverbindung aufgebaut werden kann
+		Offlineanzeige
 		
 
 
