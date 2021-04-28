@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<aufgaben>
+  <aufgabe name="Abholungsverwaltung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Abholungsverwaltung" />
+</aufgaben>

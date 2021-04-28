@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DatenHolen" xml:space="preserve">
+    <value>Daten abrufen...</value>
+  </data>
   <data name="FensterSchließenFrage" xml:space="preserve">
     <value>Alle Fenster werden geschlossen! Sind Sie sicher?</value>
   </data>

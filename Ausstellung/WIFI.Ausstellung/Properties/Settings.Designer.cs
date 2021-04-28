@@ -43,5 +43,17 @@ namespace WIFI.Ausstellung.Properties {
                 this["DunklesDesign"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IndexAktuelleAufgabe {
+            get {
+                return ((int)(this["IndexAktuelleAufgabe"]));
+            }
+            set {
+                this["IndexAktuelleAufgabe"] = value;
+            }
+        }
     }
 }

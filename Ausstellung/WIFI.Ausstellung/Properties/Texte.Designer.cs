@@ -61,6 +61,15 @@ namespace WIFI.Ausstellung.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Daten abrufen... ähnelt.
+        /// </summary>
+        internal static string DatenHolen {
+            get {
+                return ResourceManager.GetString("DatenHolen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Alle Fenster werden geschlossen! Sind Sie sicher? ähnelt.
         /// </summary>
         internal static string FensterSchließenFrage {

@@ -54,12 +54,40 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Aufgaben.cs" />
+    <Compile Include="Models\AufgabenXmlController.cs" />
+    <Compile Include="Models\Generisch\XmlController.cs" />
     <Compile Include="Properties\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ViewModels\Anwendung.cs" />
+    <Compile Include="ViewModels\AufgabenManager.cs" />
+    <Compile Include="Views\AufgabenView.xaml.cs">
+      <DependentUpon>AufgabenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Abholungsverwaltung.xaml.cs">
+      <DependentUpon>Abholungsverwaltung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Ausstellung.xaml.cs">
+      <DependentUpon>Ausstellung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Ausstellungsabschluss.xaml.cs">
+      <DependentUpon>Ausstellungsabschluss.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Buchverwaltung.xaml.cs">
+      <DependentUpon>Buchverwaltung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Lieferverwaltung.xaml.cs">
+      <DependentUpon>Lieferverwaltung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Veranstaltungserstellung.xaml.cs">
+      <DependentUpon>Veranstaltungserstellung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Warenkorb.xaml.cs">
+      <DependentUpon>Warenkorb.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Einstellungsfenster.xaml.cs">
       <DependentUpon>Einstellungsfenster.xaml</DependentUpon>
     </Compile>
@@ -83,6 +111,38 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AufgabenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Abholungsverwaltung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Ausstellung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Ausstellungsabschluss.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Buchverwaltung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Lieferverwaltung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Veranstaltungserstellung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Warenkorb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Einstellungsfenster.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,7 +189,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Resource Include="Models\Aufgabenbereiche\Vorbereitung.xml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Bilder\Logo.ico" />
@@ -145,6 +205,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Bilder\EinstellungDunkel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Models\Aufgabenbereiche\Veranstaltung.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Models\Aufgabenbereiche\Lieferung.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Models\Aufgabenbereiche\Abholung.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

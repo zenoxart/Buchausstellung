@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-4603926010
+121619292919
 
-862784047
+20-1991954969
 15325386716
-App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;Views\Einstellungsfenster.xaml;
+App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Aufgaben\Warenkorb.xaml;Views\Einstellungsfenster.xaml;
 
 False
 

@@ -174,7 +174,19 @@ namespace WIFI.Anwendung
             get; set;
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _AktuelleAufgabenSektion = string.Empty;
 
+        /// <summary>
+        /// Ruft den Pfad der aktuellen Aufgaben-Datei ab, oder legt diese fest
+        /// </summary>
+        public string AktuelleAufgabenSektion
+        {
+            get { return this._AktuelleAufgabenSektion; }
+            set { this._AktuelleAufgabenSektion = value; }
+        }
 
     }
 }

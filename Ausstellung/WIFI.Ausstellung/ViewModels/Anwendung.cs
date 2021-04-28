@@ -415,5 +415,29 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
         #endregion
+
+        #region Aufgaben
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private ViewModels.AufgabenManager _Aufgaben = null;
+
+        /// <summary>
+        /// Ruft die aktuellen Aufgaben ab oder legt diese fest
+        /// </summary>
+        public ViewModels.AufgabenManager Aufgaben
+        {
+            get {
+                if (this._Aufgaben == null)
+                {
+                    this._Aufgaben = this.AppKontext.Produziere<ViewModels.AufgabenManager>();
+                    this._Aufgaben.DunklesDesign = this.DunklesDesign;
+                }
+                
+                return _Aufgaben; }
+            set { _Aufgaben = value; }
+        }
+
+        #endregion
     }
 }

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WIFI.Ausstellung"
         xmlns:p="clr-namespace:WIFI.Ausstellung.Properties"
         mc:Ignorable="d"
+        xmlns:views="clr-namespace:WIFI.Ausstellung.Views"
         
         Name="HauptfensterView"
         Title="BAVS (Buchausstellungs Verwaltungs Software)" 
@@ -158,8 +159,7 @@
                 />
 
         </StackPanel>
-        
-        
-    
+        <views:AufgabenView Grid.Row="1" />
+
     </Grid>
 </Window>

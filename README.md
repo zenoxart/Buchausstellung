@@ -43,7 +43,7 @@ eine Veranstaltung besitzt
 	DatumVon
 	DatumBis
 	Ort
-	Stadium		enum(Verbereitung, Veranstaltung, Auswertung)
+	Stadium		enum(Vorbereitung, Veranstaltung, Lieferung, Abholung)
 
 
 # Masken
