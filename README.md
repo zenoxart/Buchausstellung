@@ -8,7 +8,7 @@ die Bücher besitzen Gruppen nachdenen man filtern kann
 
 # Datenbank-Skizze
 ein Buch besitzt
-	Id
++	Id
 	Titel
 	Author
 	Verlag_Id
@@ -17,7 +17,7 @@ ein Buch besitzt
 	Kat.Gr Kategoriegruppe
 	
 ein Benutzer besitzt
-	Id
++	Id
 	Name
 	Anschrift
 	Telnummer
@@ -26,21 +26,21 @@ ein Benutzer besitzt
 
 
 eine Bestellung besitzt
-	Id
++	Id
 	Bestellung_hat_Bücher_Id
 	Anzahl
 
 eine Bestellung_hat_Bücher bsitzt
-	Id
++	Id
 	Buch_Id
 	Benutzer_Id
 
 ein Verlag besitzt
-	Id
++	Id
 	Name
 
 eine Veranstaltung besitzt
-	DatumVon
++	DatumVon
 	DatumBis
 	Ort
 	Stadium		enum(Vorbereitung, Veranstaltung, Lieferung, Abholung)
