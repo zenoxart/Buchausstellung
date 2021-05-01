@@ -109,7 +109,7 @@ namespace WIFI.Ausstellung.ViewModels
                 while (true)
                 {
                     // TODO: Frage die Datenbank ab
-                    string response = "Vorbereitung";
+                    string response = "Veranstaltung";
 
                     // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                     switch (response)

@@ -22,3 +22,15 @@ C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwend
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CopyComplete
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.dll
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\MySqlConnector.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Buffers.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Memory.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Numerics.Vectors.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\MySqlConnector.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Buffers.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Memory.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Numerics.Vectors.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\System.Threading.Tasks.Extensions.xml

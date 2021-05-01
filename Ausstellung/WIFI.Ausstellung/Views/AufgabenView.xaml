@@ -51,6 +51,7 @@
                                 HorizontalAlignment="Center"
                                 Width="30" 
                                />
+                            
                             <TextBlock 
                                 Text="{Binding Name}"
                                 TextAlignment="Center"
