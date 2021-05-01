@@ -1,0 +1,50 @@
+Arbeitsverteilung
+
+Masken
+	Veranstaltungs-Erstellung	Peter
+	Bücherverwaltung		Peter
+	Ausstellung			Daniel
+	Ausstellungsabschluss		Daniel
+
+	Warenkorb			Daniel
+	Offlineanzeige			Peter
+	Lieferverwaltung		Daniel
+	Abholverwaltung			Peter
+
+Daten-Controller
+	Grundcontroller
+		Verschlüsselung			Daniel
+		
+
+	Veranstaltungs-Erstellung-Controller	Peter
+	Bücherverwaltung-Controller		Peter
+	Ausstellung-Controller			Daniel
+	Ausstellungsabschluss-Controller	Daniel
+
+	Warenkorb-Controller			Daniel
+	Offlineanzeige				Peter
+	Lieferverwaltung-Controller		Daniel
+	Abholverwaltung-Controller		Peter
+	
+
+Datentransferobjekte
+	Datenbasis
+
+	Veranstaltungs-Erstellung-DTO	Peter
+	Bücherverwaltung-DTO		Peter
+	Ausstellung-DTO			Daniel
+	Ausstellungsabschluss-DTO	Daniel
+
+	Warenkorb-DTO			Daniel
+	Offlineanzeige-DTO		Peter
+	Lieferverwaltung-DTO		Daniel
+	Abholverwaltung-DTO		Peter
+
+Datenbank
+	modellieren der Tabellen	Daniel
+	stored Procedures		Daniel, Peter
+	
+Raspberry aufstetzen 
+	Packete Installieren für mysql und x2go		Daniel
+	Öffnet mit SSH
+	x2go-client installieren
