@@ -27,12 +27,13 @@ ein Benutzer besitzt
 
 eine Bestellung besitzt
 +	Id
++	Bestellung_Nummer
 +	Bestellung_hat_Bücher_Id
-+	Anzahl
 
 eine Bestellung_hat_Bücher bsitzt
 +	Id
 +	Buch_Id
++	Anzahl
 +	Benutzer_Id
 
 ein Verlag besitzt

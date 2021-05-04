@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung", "WIFI.Anwe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung.Datenbank", "WIFI.Anwendung.Datenbank\WIFI.Anwendung.Datenbank.csproj", "{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Ausstellung.Controller", "WIFI.Ausstellung.Controller\WIFI.Ausstellung.Controller.csproj", "{AE65E812-98E5-430D-A227-FB9A7F6279E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Ausstellung.DTO", "WIFI.Ausstellung.DTO\WIFI.Ausstellung.DTO.csproj", "{18E9C129-32B6-4D7C-ACD6-56633D902E51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE65E812-98E5-430D-A227-FB9A7F6279E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE65E812-98E5-430D-A227-FB9A7F6279E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE65E812-98E5-430D-A227-FB9A7F6279E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE65E812-98E5-430D-A227-FB9A7F6279E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18E9C129-32B6-4D7C-ACD6-56633D902E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E9C129-32B6-4D7C-ACD6-56633D902E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E9C129-32B6-4D7C-ACD6-56633D902E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E9C129-32B6-4D7C-ACD6-56633D902E51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
