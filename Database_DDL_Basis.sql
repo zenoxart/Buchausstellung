@@ -78,6 +78,8 @@ DROP DATABASE IF EXISTS buchausstellung;
 # Erstellt die Datenbank, wenn sie noch nicht existiert
 CREATE DATABASE IF NOT EXISTS buchausstellung;
 
+USE buchausstellung;
+
 # Erstellt eine Verlag-Tabelle
 CREATE TABLE verlag (id INT PRIMARY KEY NOT NULL auto_increment,
 					 name VARCHAR(150) NOT NULL);
@@ -124,7 +126,7 @@ CREATE TABLE bestellung ( id INT PRIMARY KEY NOT NULL auto_increment,
 #				Berechtigung auf die 
 # 					 Datenbank
 #################################################
-use mysql;
+USE mysql;
 
 # Erstellen eines Datenbank-Benutzers
 CREATE USER 'clientbenutzer'@'%' IDENTIFIED BY 'cl1.entp4ssW0rt';
@@ -136,6 +138,9 @@ GRANT SELECT,UPDATE,INSERT ON buchausstellung . * TO 'clientbenutzer'@'%';
 #################################################
 #				Datenbankprozeduren
 #################################################
+
+USE buchausstellung;
+
 
 # Erstellen der Veranstaltung
 DELIMITER $$
@@ -194,4 +199,4 @@ BEGIN
 END$$
 DELIMITER ;
 
-
+SHOW PROCEDURE STATUS;
