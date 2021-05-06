@@ -7,6 +7,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label>Veranstaltungserstellung</Label>
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="Titel" Height="100"/>
+            <RowDefinition x:Name="Ort" Height="70"/>
+            <RowDefinition x:Name="DatumVon" Height="70"/>
+            <RowDefinition x:Name="DatumBis"  Height="70"/>
+            <RowDefinition x:Name="Erstellen" Height="70"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontFamily="Arial"
+            FontSize="24"
+            FontWeight="Bold"
+            >
+            Veranstaltung erstellen
+        </Label>
+        <Label
+            Grid.Row="1">Test</Label>
     </Grid>
 </UserControl>
