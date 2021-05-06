@@ -1,7 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Datenbank-Controller">
+    <Position X="1.292" Y="12.794" Height="0.306" Width="8.671" />
+  </Comment>
+  <Comment CommentText="Befehl-Elemente">
+    <Position X="0.5" Y="2.218" Height="0.291" Width="5.122" />
+  </Comment>
+  <Comment CommentText="Anwendungs-Struktur">
+    <Position X="7.863" Y="2.151" Height="0.291" Width="8.037" />
+  </Comment>
+  <Comment CommentText="Protokoll">
+    <Position X="13.581" Y="5.694" Height="0.306" Width="7.435" />
+  </Comment>
+  <Comment CommentText="Datenbasis">
+    <Position X="13.234" Y="12.648" Height="0.306" Width="4.742" />
+  </Comment>
   <Class Name="WIFI.Anwendung.ViewModelAppObjekt">
-    <Position X="8" Y="3.75" Width="2" />
+    <Position X="8" Y="6.25" Width="2" />
     <Members>
       <Field Name="_HttpClient" Hidden="true" />
       <Field Name="_IstBeschäftigtZähler" Hidden="true" />
@@ -16,7 +31,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIFI.Anwendung.AppObjekt">
-    <Position X="8" Y="0.5" Width="2" />
+    <Position X="8" Y="3.5" Width="2" />
     <TypeIdentifier />
     <ShowAsAssociation>
       <Property Name="AppKontext" />
@@ -24,15 +39,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="System.Object">
-    <Position X="0.5" Y="0.5" Width="2" />
+    <Position X="0.5" Y="3" Width="2" />
     <TypeIdentifier />
   </Class>
   <Class Name="WIFI.Anwendung.AppKontext">
-    <Position X="11.25" Y="0.5" Width="2" />
+    <Position X="11.25" Y="3" Width="2" />
     <TypeIdentifier />
   </Class>
   <Class Name="WIFI.Anwendung.Befehl">
-    <Position X="0.5" Y="3.75" Width="2" />
+    <Position X="0.5" Y="6.25" Width="2" />
     <Members>
       <Field Name="_CanExecuteMethode" Hidden="true" />
       <Field Name="_ExecuteMethode" Hidden="true" />
@@ -44,7 +59,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIFI.Anwendung.ProtokollManager">
-    <Position X="13.75" Y="3.75" Width="2" />
+    <Position X="13.75" Y="6.25" Width="2" />
     <Members>
       <Field Name="_Einträge" Hidden="true" />
       <Field Name="_EnthältFehler" Hidden="true" />
@@ -52,27 +67,42 @@
       <Field Name="_Pfad" Hidden="true" />
       <Field Name="_Rückrufe" Hidden="true" />
     </Members>
+    <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.531" Y="6.25" />
+        <Point X="9.531" Y="5.856" />
+        <Point X="12.167" Y="5.856" Type="JumpStart" />
+        <Point X="12.333" Y="5.856" Type="JumpEnd" />
+        <Point X="14.75" Y="5.856" />
+        <Point X="14.75" Y="6.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAQCAAAAJAALEAFQAASABAEIABAgAAEAgAA=</HashCode>
       <FileName>ProtokollManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WIFI.Anwendung.DatenbankAppKontext">
-    <Position X="11.25" Y="3.75" Width="2" />
+    <Position X="11.25" Y="6.25" Width="2" />
     <Members>
+      <Field Name="_AktuelleAufgabenSektion" Hidden="true" />
       <Field Name="_Cache" Hidden="true" />
+      <Field Name="_DBContollerManager" Hidden="true" />
       <Field Name="_EnthältFehler" Hidden="true" />
       <Field Name="_KreisProzessbarSichtbarkeit" Hidden="true" />
       <Field Name="_Protokoll" Hidden="true" />
       <Field Name="OffeneEinstellungsFenster" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAoAAACQAAAIAEAAAFCAIAAAAAAAQAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAoAAACQAASIAEAAAFCgIAAQAAAAQAAAAAAAAI=</HashCode>
       <FileName>DatenbankAppKontext.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DBControllerManager" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="WIFI.Anwendung.Daten.SchwacherMethodenVerweis">
-    <Position X="3.25" Y="0.5" Width="2.5" />
+    <Position X="3.25" Y="3" Width="2.5" />
     <Members>
       <Field Name="_Methode" Hidden="true" />
     </Members>
@@ -82,33 +112,208 @@
     </TypeIdentifier>
   </Class>
   <Class Name="WIFI.Anwendung.Daten.SchwacherMethodenVerweisListe">
-    <Position X="3.25" Y="2.75" Width="2.5" />
+    <Position X="3.25" Y="5.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Daten\SchwacherMethodenVerweis.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WIFI.Anwendung.BenachrichtigungsManager">
-    <Position X="16" Y="6.75" Width="2.25" />
+  <Class Name="WIFI.Anwendung.DatenbankControllerManager">
+    <Position X="8" Y="11.25" Width="2" />
     <Members>
-      <Field Name="_Aufgabenbenachrichtigungen" Hidden="true" />
+      <Field Name="_VeranstaltungsController" Hidden="true" />
     </Members>
-    <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DatenbankControllerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.MySqlClient.Basiscontroller">
+    <Position X="0.5" Y="13.5" Width="2" />
+    <Members>
+      <Field Name="_ConnectionString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAAA=</HashCode>
+      <FileName>MySqlClient\Basiscontroller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.DatenController.VeranstaltungsSqlClientController">
+    <Position X="8" Y="13.5" Width="2" />
+    <InheritanceLine Type="WIFI.Anwendung.MySqlClient.Basiscontroller" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
-        <Point X="10" Y="6.375" />
-        <Point X="13.505" Y="6.375" />
-        <Point X="13.505" Y="8.186" />
-        <Point X="13.75" Y="8.186" />
+        <Point X="1.5" Y="13.5" />
+        <Point X="1.5" Y="13.011" />
+        <Point X="9" Y="13.011" />
+        <Point X="9" Y="15.502" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>BenachrichtigungsManager.cs</FileName>
+      <HashCode>AAAAAAAAAAIABAAAAAgAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DatenController\VeranstaltungsSqlClientController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.Daten.ProtokollEinträge">
+    <Position X="18.5" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Daten\Protokoll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.Daten.ProtokollEintrag">
+    <Position X="16.25" Y="6.25" Width="2" />
+    <Members>
+      <Field Name="_Text" Hidden="true" />
+      <Field Name="_Typ" Hidden="true" />
+      <Field Name="_Zeitstempel" Hidden="true" />
+    </Members>
+    <InheritanceLine Type="WIFI.Anwendung.Daten.DatenBasis" ManuallyRouted="true">
+      <Path>
+        <Point X="14.25" Y="13.25" />
+        <Point X="14.25" Y="11.619" />
+        <Point X="16.01" Y="11.619" />
+        <Point X="16.01" Y="7.059" />
+        <Point X="16.25" Y="7.059" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAIAAAIAEAAAAAAAAACAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Daten\Protokoll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.Daten.InToStringAttribute">
+    <Position X="15.75" Y="13.25" Width="2" />
+    <Members>
+      <Field Name="_Index" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Daten\DatenBasis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.Daten.DatenBasis" HideInheritanceLine="true">
+    <Position X="13.25" Y="13.25" Width="2" />
+    <Members>
+      <Field Name="_InToStringCache" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="WIFI.Anwendung.Daten.DatenBasis.InToStringEigenschaftBeschreibung" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Daten\DatenBasis.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="WIFI.Anwendung.Daten.DatenBasis.InToStringEigenschafBeschreibungen" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Daten\DatenBasis.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="WIFI.Anwendung.Daten.DatenBasis.InToStringEigenschaftBeschreibungenWörterbuch" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Daten\DatenBasis.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAEIACAAAAAgAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Daten\DatenBasis.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WIFI.Anwendung.DTO.Veranstaltung">
+    <Position X="14.5" Y="17.25" Width="2" />
+    <Members>
+      <Field Name="_DatumBis" Hidden="true" />
+      <Field Name="_DatumVon" Hidden="true" />
+      <Field Name="_ID" Hidden="true" />
+      <Field Name="_Ort" Hidden="true" />
+      <Field Name="_Stadium" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Stadium" Type="WIFI.Anwendung.DTO.AusstellungsstadiumTyp">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.028" Y="0.427" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BACAAAAAAAAAgAAAAACAAAIAAAABAAAgCAAAAAAEAAA=</HashCode>
+      <FileName>DTO\Veranstaltung.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Stadium" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WIFI.Anwendung.DTO.Bestellungen">
+    <Position X="10" Y="20" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\Bestellung.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.DTO.Bestellung">
+    <Position X="10" Y="17.25" Width="2" />
+    <Members>
+      <Field Name="_BestellNr" Hidden="true" />
+      <Field Name="_Buchliste" Hidden="true" />
+      <Field Name="_ID" Hidden="true" />
+      <Field Name="_ZugehörigerBesucher" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAgAAAIAAAAACAABAAAAAAAAAAAAIEBAA=</HashCode>
+      <FileName>DTO\Bestellung.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.DTO.Besucher">
+    <Position X="16.75" Y="17.25" Width="2" />
+    <Members>
+      <Field Name="_Anschrift" Hidden="true" />
+      <Field Name="_Id" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_Telefon" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAgAAAAAAAAAIAQAAAAAAAACAAAAAAANAAA=</HashCode>
+      <FileName>DTO\Besucher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.DTO.Bücher">
+    <Position X="12.25" Y="20" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\Buch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Anwendung.DTO.Buch">
+    <Position X="12.25" Y="17.25" Width="2" />
+    <Members>
+      <Field Name="_AutorName" Hidden="true" />
+      <Field Name="_ID" Hidden="true" />
+      <Field Name="_Kategoriegruppe" Hidden="true" />
+      <Field Name="_Preis" Hidden="true" />
+      <Field Name="_Rabattgruppe" Hidden="true" />
+      <Field Name="_Titel" Hidden="true" />
+      <Field Name="_VerlagName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAgAAAAABgAAAAAAAAAAGMAAgAAABWAAQ=</HashCode>
+      <FileName>DTO\Buch.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="System.Windows.Input.ICommand">
-    <Position X="0.5" Y="6.5" Width="2" />
+    <Position X="0.5" Y="9" Width="2" />
     <TypeIdentifier />
   </Interface>
+  <Enum Name="WIFI.Anwendung.Daten.ProtokollEintragTyp">
+    <Position X="16.25" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Daten\Protokoll.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WIFI.Anwendung.DTO.AusstellungsstadiumTyp">
+    <Position X="14.5" Y="20" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAgCgAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DTO\Veranstaltung.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
