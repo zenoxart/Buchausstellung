@@ -108,6 +108,8 @@ namespace WIFI.Anwendung.DatenController
                 {
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
+                    if (Verbindung.Ping() == false)
+                        return Stadium;
 
                     Verbindung.Open();
 
