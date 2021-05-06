@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WIFI.Ausstellung.Properties {
+namespace WIFI.Ausstellung.Controller.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,43 +25,19 @@ namespace WIFI.Ausstellung.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ProtokollKomprimieren {
+        [global::System.Configuration.DefaultSettingValueAttribute("clientbenutzer")]
+        public string Datenbankbenutzer {
             get {
-                return ((bool)(this["ProtokollKomprimieren"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DunklesDesign {
-            get {
-                return ((bool)(this["DunklesDesign"]));
-            }
-            set {
-                this["DunklesDesign"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int IndexAktuelleAufgabe {
-            get {
-                return ((int)(this["IndexAktuelleAufgabe"]));
-            }
-            set {
-                this["IndexAktuelleAufgabe"] = value;
+                return ((string)(this["Datenbankbenutzer"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.7")]
-        public string DBServerAdresse {
+        [global::System.Configuration.DefaultSettingValueAttribute("cl1.entp4ssW0rt")]
+        public string Datenbankpasswort {
             get {
-                return ((string)(this["DBServerAdresse"]));
+                return ((string)(this["Datenbankpasswort"]));
             }
         }
     }

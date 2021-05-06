@@ -65,5 +65,48 @@ namespace WIFI.Ausstellung.DTO
                 }
             }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private Dictionary<Buch, int> _Buchliste;
+
+        /// <summary>
+        /// Ruft eine Auflistung der bestellten Bücher und dessen Anzahl
+        /// </summary>
+        public Dictionary<Buch, int> Buchliste
+        {
+            get { return this._Buchliste; }
+            set
+            {
+                if (this._Buchliste != value)
+                {
+                    this._Buchliste = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private Besucher _ZugehörigerBesucher;
+
+        /// <summary>
+        /// Ruft den Besucher der Bestellung ab oder legt diesen fest
+        /// </summary>
+        public Besucher ZugehörigerBesucher
+        {
+            get { return this._ZugehörigerBesucher; }
+            set
+            {
+                if (this._ZugehörigerBesucher != value)
+                {
+                    this._ZugehörigerBesucher = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
     }
 }

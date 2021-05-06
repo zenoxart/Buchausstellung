@@ -37,7 +37,10 @@ namespace WIFI.Ausstellung.Controller
 
 
                     // Auf alle Fälle den Server einstellen
-                    CB.Database = this.AppKontext.SqlServer;
+                    CB.Server = this.AppKontext.SqlServer;
+
+                    // Einstellen der Datenbank
+                    CB.Database = "buchausstellung";
 
                     //// Abhängig davon, ob es eine angehängte Datebank ist oder nicht
                     //if (this.AppKontext.DatenbankPfad != null
@@ -60,8 +63,11 @@ namespace WIFI.Ausstellung.Controller
                     // Das die Zugangsdaten sicher gespeichert werden muss eine .conf Datei verschlüsselt mit ausgeliefert werden
                     // Und erst wärend der Laufzeit entschlüsselt und gesetzt werden
                     // Hier gehört 
-                    CB.UserID = "";
-                    CB.Password = "";
+                    // Port einer MySQL-Datenbank
+                    CB.Port = 3306;
+
+                    CB.UserID = Properties.Settings.Default.Datenbankbenutzer;
+                    CB.Password = Properties.Settings.Default.Datenbankpasswort;
 
                   
 

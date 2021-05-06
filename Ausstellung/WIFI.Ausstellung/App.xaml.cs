@@ -32,6 +32,9 @@ namespace WIFI.Ausstellung
             // Damit das eigene ViewModel intialisieren
             var VM = AppKontext.Produziere<ViewModels.Anwendung>();
 
+            // Benutzt die Server-Adresse für die Datenbank aus den Settings
+            VM.AppKontext.SqlServer = WIFI.Ausstellung.Properties.Settings.Default.DBServerAdresse;
+
             // Damit die WPF Ressourcen geladen werden,
             // die WPF Anwendung intialisieren
             // (Damit System.Windows.Application.Current

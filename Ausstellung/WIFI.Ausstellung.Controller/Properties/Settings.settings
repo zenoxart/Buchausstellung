@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WIFI.Ausstellung.Controller.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Datenbankbenutzer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">clientbenutzer</Value>
+    </Setting>
+    <Setting Name="Datenbankpasswort" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cl1.entp4ssW0rt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

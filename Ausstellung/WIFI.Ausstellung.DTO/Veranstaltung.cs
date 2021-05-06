@@ -29,7 +29,12 @@ namespace WIFI.Ausstellung.DTO
         /// Beschreibt, dass die Bestellungen geliefert wurden und
         /// die Bestellungen nun von den Bestellern abgeholt werden
         /// </summary>
-        Abholung = 3
+        Abholung = 3,
+        /// <summary>
+        /// Beschreibt, dass die Datenbankverbindung nicht 
+        /// hergestellt werden konnte
+        /// </summary>
+        Verbindungsfehler = 4
     }
 
     /// <summary>
@@ -147,6 +152,7 @@ namespace WIFI.Ausstellung.DTO
         {
             get
             {
+                
                 return this._Stadium;
             }
             set
