@@ -132,3 +132,66 @@ CREATE USER 'clientbenutzer'@'%' IDENTIFIED BY 'cl1.entp4ssW0rt';
 
 # Vergeben der Berechtigung Daten zu lesen, updaten oder einzufügen auf die Buchausstellung-DB
 GRANT SELECT,UPDATE,INSERT ON buchausstellung . * TO 'clientbenutzer'@'%';
+
+#################################################
+#				Datenbankprozeduren
+#################################################
+
+# Erstellen der Veranstaltung
+DELIMITER $$
+CREATE PROCEDURE ErstelleVeranstaltung()
+BEGIN
+	INSERT INTO veranstaltung (stadium) VALUES('Vorbereitung');
+END$$
+DELIMITER ;
+
+# Starte Veranstaltung
+DELIMITER $$ 
+CREATE PROCEDURE StarteVeranstaltung(
+	StartDatum VARCHAR(10),
+	EndDatum VARCHAR(10),
+	Ort VARCHAR(150)
+	)
+BEGIN 
+	UPDATE veranstaltung
+		SET datumvon = StartDatum,
+			datumbis = EndDatum,
+			ort = Ort,
+			stadium = 'Veranstaltung'
+	WHERE stadium = 'Vorbereitung';
+END$$
+DELIMITER ;
+
+# Updaten der Veranstaltung
+DELIMITER $$ 
+CREATE PROCEDURE UpdateVeranstaltung(
+	Stadium VARCHAR(100)
+	)
+BEGIN 
+	UPDATE veranstaltung
+		SET stadium = Stadium;
+END$$
+DELIMITER ;
+
+# Bereinigen aller Tabellen und beenden der Veranstaltung
+DELIMITER $$ 
+CREATE PROCEDURE BeendeVeranstaltung()
+BEGIN 
+	DELETE FROM verlag;
+	DELETE FROM buch;
+	DELETE FROM besucher;
+	DELETE FROM bestellung_hat_buch;
+	DELETE FROM bestellung;
+	DELETE FROM veranstaltung;
+END$$
+DELIMITER ;
+
+# Rückgabe des Veranstaltuns-Stadiums
+DELIMITER $$ 
+CREATE PROCEDURE VeranstaltungsStadium()
+BEGIN 
+	SELECT stadium FROM veranstaltung;
+END$$
+DELIMITER ;
+
+

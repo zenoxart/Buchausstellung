@@ -67,30 +67,6 @@ namespace WIFI.Ausstellung.DTO
             }
         }
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private int _AutorID = 0;
-
-        /// <summary>
-        /// Ruft die interne ID des Autors des Buches ab,
-        /// oder legt diese fest
-        /// </summary>
-        public int AutorID
-        {
-            get
-            {
-                return this._AutorID;
-            }
-            set
-            {
-                if (this._AutorID != value)
-                {
-                    this._AutorID = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -110,31 +86,6 @@ namespace WIFI.Ausstellung.DTO
             set
             {
                 this._AutorName = value;
-            }
-        }
-
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private int _VerlagID = 0;
-
-        /// <summary>
-        /// Ruft die interne Nr des Verlags des Buches ab,
-        /// oder legt diese fest
-        /// </summary>
-        public int VerlagID
-        {
-            get
-            {
-                return this._VerlagID;
-            }
-            set
-            {
-                if (this._VerlagID != value)
-                {
-                    this._VerlagID = value;
-                    this.OnPropertyChanged();
-                }
             }
         }
 

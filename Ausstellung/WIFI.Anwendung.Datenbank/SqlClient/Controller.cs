@@ -60,6 +60,8 @@ namespace WIFI.Anwendung.SqlClient
                     //CB.UserID=...
                     //CB.Password=...
 
+                    
+
                     Controller._ConnectionString = CB.ConnectionString;
                     this.AppKontext.Protokoll.Eintragen(
                         $"{this} hat den ConnectionString für die Datenbank berechnet und gecached."
