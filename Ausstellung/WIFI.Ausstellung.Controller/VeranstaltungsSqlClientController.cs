@@ -47,7 +47,7 @@ namespace WIFI.Ausstellung.Controller
                 using (var Befehl = new MySqlConnector.MySqlCommand("StarteVeranstaltung", Verbindung))
                 {
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
+                    
                     Befehl.Parameters.AddWithValue("StartDatum", StartDatum.ToString("yyyy-MM-dd"));
                     Befehl.Parameters.AddWithValue("EndDatum", EndDatum.ToString("yyyy-MM-dd"));
                     Befehl.Parameters.AddWithValue("Ort", Ort);
@@ -109,7 +109,10 @@ namespace WIFI.Ausstellung.Controller
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
 
+                    Verbindung.Open();
+
                     Befehl.Prepare();
+
 
                     using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                     {
@@ -122,7 +125,10 @@ namespace WIFI.Ausstellung.Controller
                                     typeof(WIFI.Ausstellung.DTO.AusstellungsstadiumTyp), 
                                     Ergebnis))
                             {
-                                Stadium = (WIFI.Ausstellung.DTO.AusstellungsstadiumTyp)Enum.Parse(typeof(WIFI.Ausstellung.DTO.AusstellungsstadiumTyp), "", true);
+                                Stadium = (WIFI.Ausstellung.DTO.AusstellungsstadiumTyp)Enum.Parse(
+                                    typeof(WIFI.Ausstellung.DTO.AusstellungsstadiumTyp), 
+                                    Ergebnis, 
+                                    true);
                             }
                         }
                     }

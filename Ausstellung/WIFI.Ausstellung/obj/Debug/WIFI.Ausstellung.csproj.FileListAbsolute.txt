@@ -92,3 +92,15 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\MySqlConnector.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Memory.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Buffers.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Numerics.Vectors.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\MySqlConnector.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Memory.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Buffers.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Numerics.Vectors.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

@@ -19,7 +19,7 @@ namespace WIFI.Ausstellung.DTO
         /// <summary>
         /// Beschreibt, dass die Ausstellung aktuell stattfindet
         /// </summary>
-        Laufend = 1,
+        Veranstaltung = 1,
         /// <summary>
         /// Beschreibt, dass die Austellung beendet ist und 
         /// die Bestellungen geliefert werden müssen

@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 WIFI.Ausstellung
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 131753274907
 
 21-1972801247
-151177205162
+11952242399
 App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Aufgaben\Warenkorb.xaml;Views\Einstellungsfenster.xaml;
 
 False

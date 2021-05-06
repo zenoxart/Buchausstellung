@@ -68,6 +68,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="VeranstaltungsSqlClientController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WIFI.Anwendung.Datenbank\WIFI.Anwendung.Datenbank.csproj">
@@ -77,6 +78,10 @@
     <ProjectReference Include="..\WIFI.Anwendung\WIFI.Anwendung.csproj">
       <Project>{c3bf0e4f-40e2-4975-8abf-0898087c6f27}</Project>
       <Name>WIFI.Anwendung</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WIFI.Ausstellung.DTO\WIFI.Ausstellung.DTO.csproj">
+      <Project>{18e9c129-32b6-4d7c-acd6-56633d902e51}</Project>
+      <Name>WIFI.Ausstellung.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

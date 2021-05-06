@@ -31,5 +31,23 @@ namespace WIFI.Anwendung.Properties {
                 return ((int)(this["KomprimierungsInterval"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("clientbenutzer")]
+        public string DatenbankBenutzer {
+            get {
+                return ((string)(this["DatenbankBenutzer"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cl1.entp4ssW0rt")]
+        public string DatenbankPasswort {
+            get {
+                return ((string)(this["DatenbankPasswort"]));
+            }
+        }
     }
 }

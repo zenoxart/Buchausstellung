@@ -188,5 +188,25 @@ namespace WIFI.Anwendung
             set { this._AktuelleAufgabenSektion = value; }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private DatenbankControllerManager _DBContollerManager = null;
+
+        /// <summary>
+        /// Ruft einen Manager zum Verwalten der Datenbank-Controller ab
+        /// </summary>
+        public DatenbankControllerManager DBControllerManager
+        {
+            get
+            {
+                if (this._DBContollerManager == null)
+                {
+                    this._DBContollerManager = this.Produziere<DatenbankControllerManager>();
+                }
+                return this._DBContollerManager;
+            }
+        }
+
     }
 }

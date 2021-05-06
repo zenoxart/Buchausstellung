@@ -64,7 +64,7 @@ namespace WIFI.Ausstellung.Controller
                     // Und erst wärend der Laufzeit entschlüsselt und gesetzt werden
                     // Hier gehört 
                     // Port einer MySQL-Datenbank
-                    CB.Port = 3306;
+                    //CB.Port = 3306;
 
                     CB.UserID = Properties.Settings.Default.Datenbankbenutzer;
                     CB.Password = Properties.Settings.Default.Datenbankpasswort;

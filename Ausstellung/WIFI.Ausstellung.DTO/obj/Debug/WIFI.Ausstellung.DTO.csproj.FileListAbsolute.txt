@@ -1,0 +1,14 @@
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Ausstellung.DTO.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Ausstellung.DTO.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Anwendung.Datenbank.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Anwendung.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Anwendung.Datenbank.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Anwendung.Datenbank.dll.config
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Anwendung.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\WIFI.Anwendung.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\bin\Debug\de\WIFI.Anwendung.resources.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\obj\Debug\WIFI.Ausstellung.DTO.csprojAssemblyReference.cache
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\obj\Debug\WIFI.Ausstellung.DTO.csproj.CoreCompileInputs.cache
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\obj\Debug\WIFI.Ausstellung.DTO.csproj.CopyComplete
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\obj\Debug\WIFI.Ausstellung.DTO.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung.DTO\obj\Debug\WIFI.Ausstellung.DTO.pdb

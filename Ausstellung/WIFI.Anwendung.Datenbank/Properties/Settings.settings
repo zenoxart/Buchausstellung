@@ -5,5 +5,11 @@
     <Setting Name="KomprimierungsInterval" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">60000</Value>
     </Setting>
+    <Setting Name="DatenbankBenutzer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">clientbenutzer</Value>
+    </Setting>
+    <Setting Name="DatenbankPasswort" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cl1.entp4ssW0rt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

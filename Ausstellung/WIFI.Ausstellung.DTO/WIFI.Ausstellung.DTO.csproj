@@ -42,16 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bestellung.cs" />
+    <Compile Include="Besucher.cs" />
     <Compile Include="Buch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Veranstaltung.cs" />
-    <Compile Include="Verlag.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WIFI.Anwendung.Datenbank\WIFI.Anwendung.Datenbank.csproj">
-      <Project>{76cbb1f3-ff4e-45f7-99bd-fb59143c08c3}</Project>
-      <Name>WIFI.Anwendung.Datenbank</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

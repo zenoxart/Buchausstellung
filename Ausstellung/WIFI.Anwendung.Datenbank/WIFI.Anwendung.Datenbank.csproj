@@ -63,10 +63,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Befehl.cs" />
+    <Compile Include="DatenbankControllerManager.cs" />
+    <Compile Include="DatenController\VeranstaltungsSqlClientController.cs" />
     <Compile Include="DatenbankAppKontext.cs" />
     <Compile Include="Daten\DatenBasis.cs" />
     <Compile Include="Daten\Protokoll.cs" />
     <Compile Include="Daten\SchwacherMethodenVerweis.cs" />
+    <Compile Include="DTO\Bestellung.cs" />
+    <Compile Include="DTO\Besucher.cs" />
+    <Compile Include="DTO\Buch.cs" />
+    <Compile Include="DTO\Veranstaltung.cs" />
+    <Compile Include="MySqlClient\Basiscontroller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -93,5 +100,6 @@
     <None Include="Protokolldienst.cd" />
     <None Include="WIFI_Anwendung_Datenbank_Design.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

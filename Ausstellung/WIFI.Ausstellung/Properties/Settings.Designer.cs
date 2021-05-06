@@ -58,7 +58,7 @@ namespace WIFI.Ausstellung.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.7")]
+        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
         public string DBServerAdresse {
             get {
                 return ((string)(this["DBServerAdresse"]));
