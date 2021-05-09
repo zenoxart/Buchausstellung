@@ -4,9 +4,70 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
+             xmlns:uc="clr-namespace:WIFI.Ausstellung.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label>Ausstellung</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="0.*" MinHeight="45" MaxHeight="165" />
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Titel -->
+        <Label Style="{DynamicResource TitleStyle}">
+            Ausstellung</Label>
+        
+        <!-- Filterbereich -->
+        <StackPanel Grid.Row="1" Style="{DynamicResource ForgroundPanel}">
+                <uc:Ausstellungsfilter />
+           
+        </StackPanel>
+        <GridSplitter 
+            Grid.Row="2" 
+            ShowsPreview="True" 
+            HorizontalAlignment="Stretch" 
+            Style="{DynamicResource HellDunkelSplitter}"
+            >
+        </GridSplitter>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+                <ListBox 
+                    Background="Transparent" 
+                    HorizontalContentAlignment="Center"
+                    ItemsSource="{Binding Ausstelltung.Buchausstellungsliste}">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
+                            <uc:Ausstellungslistitem
+                            Id="{Binding ID}"
+                            Title="{Binding Titel}"
+                            Author="{Binding AutorName}"
+                            Verlag="{Binding VerlagName}"
+                            Preis="{Binding Preis}"
+                            Kategorie="{Binding Kategoriegruppe}"
+                            Rabatt="{Binding Rabattgruppe}"
+                            DunkelModus="{Binding DunklesDesign}"
+                            />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    
+                    <ListBox.Style>
+                        <Style TargetType="ListBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                                    <Setter Property="Foreground" Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.Style>
+                </ListBox>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+
+
     </Grid>
 </UserControl>

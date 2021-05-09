@@ -12,6 +12,9 @@
         Title="BAVS (Buchausstellungs Verwaltungs Software)" 
         Icon="Assets/Bilder/Logo.ico"
         Height="450" 
+        
+        MinHeight="450"
+        MinWidth="680"
         Width="800"
         Style="{DynamicResource Windowbackground}">
     

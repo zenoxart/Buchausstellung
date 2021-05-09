@@ -32,4 +32,3 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\W
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
-C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache

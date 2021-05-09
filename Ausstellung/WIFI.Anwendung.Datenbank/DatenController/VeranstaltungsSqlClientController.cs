@@ -24,9 +24,10 @@ namespace WIFI.Anwendung.DatenController
                 {
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
+                    Verbindung.Open();
+
                     Befehl.Prepare();
 
-                    Verbindung.Open();
 
                     Befehl.ExecuteScalar();
 
@@ -52,9 +53,10 @@ namespace WIFI.Anwendung.DatenController
                     Befehl.Parameters.AddWithValue("EndDatum", EndDatum.ToString("yyyy-MM-dd"));
                     Befehl.Parameters.AddWithValue("Ort", Ort);
 
+                    Verbindung.Open();
+
                     Befehl.Prepare();
 
-                    Verbindung.Open();
 
                     Befehl.ExecuteScalar();
 
@@ -79,6 +81,8 @@ namespace WIFI.Anwendung.DatenController
 
                     Befehl.Parameters.AddWithValue("Stadium", stadium.ToString());
 
+                    Verbindung.Open();
+                    
                     Befehl.Prepare();
 
                     Befehl.ExecuteScalar();

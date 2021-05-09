@@ -82,19 +82,8 @@
             Grid.RowSpan="2" 
             ShowsPreview="True" 
             HorizontalAlignment="Stretch" 
+            Style="{DynamicResource HellDunkelSplitter}"
             >
-                <GridSplitter.Style>
-                    <Style TargetType="GridSplitter" >
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
-                                <Setter Property="Background" Value="#1e1e1e"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
-                                <Setter Property="Background" Value="LightGray"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </GridSplitter.Style>
             </GridSplitter>
 
             <!-- Status LEDs -->

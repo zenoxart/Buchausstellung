@@ -113,13 +113,13 @@ namespace WIFI.Anwendung.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private decimal _Preis = 0m;
+        private double _Preis = 0;
 
         /// <summary>
         /// Ruft den Preis des Buches ab,
         /// oder legt diesen fest
         /// </summary>
-        public decimal Preis
+        public double Preis
         {
             get
             {

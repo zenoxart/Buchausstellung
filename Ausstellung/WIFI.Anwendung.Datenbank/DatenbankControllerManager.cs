@@ -14,11 +14,11 @@ namespace WIFI.Anwendung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private DatenController.VeranstaltungsSqlClientController _VeranstaltungsController;
+        private DatenController.VeranstaltungsSqlClientController _VeranstaltungsController = null;
 
 
         /// <summary>
-        /// Ruft deinen Controller zur Verwaltung der Veranstaltung ab 
+        /// Ruft einen Controller zur Verwaltung der Veranstaltung ab 
         /// </summary>
         public DatenController.VeranstaltungsSqlClientController VeranstaltungsController
         {
@@ -29,6 +29,26 @@ namespace WIFI.Anwendung
                     this._VeranstaltungsController = this.AppKontext.Produziere<DatenController.VeranstaltungsSqlClientController>();
                 }
                 return this._VeranstaltungsController;
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private DatenController.BücherSqlClientController _BücherController = null;
+
+        /// <summary>
+        /// Ruft einen Controller zur Verwaltung der Bücher der Ausstellung ab
+        /// </summary>
+        public DatenController.BücherSqlClientController BücherController
+        {
+            get
+            {
+                if (this._BücherController == null)
+                {
+                    this._BücherController = this.AppKontext.Produziere<DatenController.BücherSqlClientController>();
+                }
+                return this._BücherController;
             }
         }
 

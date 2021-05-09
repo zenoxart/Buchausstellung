@@ -62,8 +62,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="UserControls\Ausstellungsfilter.xaml.cs">
+      <DependentUpon>Ausstellungsfilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Ausstellungslistitem.xaml.cs">
+      <DependentUpon>Ausstellungslistitem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bestellungsfilter.xaml.cs">
+      <DependentUpon>Bestellungsfilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Anwendung.cs" />
     <Compile Include="ViewModels\AufgabenManager.cs" />
+    <Compile Include="ViewModels\AusstellungsManager.cs" />
     <Compile Include="Views\AufgabenView.xaml.cs">
       <DependentUpon>AufgabenView.xaml</DependentUpon>
     </Compile>
@@ -75,6 +85,9 @@
     </Compile>
     <Compile Include="Views\Aufgaben\Ausstellungsabschluss.xaml.cs">
       <DependentUpon>Ausstellungsabschluss.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Bestellungen.xaml.cs">
+      <DependentUpon>Bestellungen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Aufgaben\Buchverwaltung.xaml.cs">
       <DependentUpon>Buchverwaltung.xaml</DependentUpon>
@@ -88,8 +101,8 @@
     <Compile Include="Views\Aufgaben\Veranstaltungserstellung.xaml.cs">
       <DependentUpon>Veranstaltungserstellung.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Aufgaben\Warenkorb.xaml.cs">
-      <DependentUpon>Warenkorb.xaml</DependentUpon>
+    <Compile Include="Views\Bestellungsfentser.xaml.cs">
+      <DependentUpon>Bestellungsfentser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Einstellungsfenster.xaml.cs">
       <DependentUpon>Einstellungsfenster.xaml</DependentUpon>
@@ -114,6 +127,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Ausstellungsfilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Ausstellungslistitem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Bestellungsfilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AufgabenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Aufgaben\Ausstellungsabschluss.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Bestellungen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +175,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Aufgaben\Warenkorb.xaml">
+    <Page Include="Views\Bestellungsfentser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +210,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="UML.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

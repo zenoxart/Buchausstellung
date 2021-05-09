@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.ViewModels
-{   
+{
     /// <summary>
     /// Stellt das Haupt-ViewModel für
     /// die WIFI C# Teil 2 MVVM Anwendung bereit.
@@ -427,17 +427,40 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         public ViewModels.AufgabenManager Aufgaben
         {
-            get {
+            get
+            {
                 if (this._Aufgaben == null)
                 {
                     this._Aufgaben = this.AppKontext.Produziere<ViewModels.AufgabenManager>();
                     this._Aufgaben.DunklesDesign = this.DunklesDesign;
                 }
-                
-                return _Aufgaben; }
+
+                return _Aufgaben;
+            }
             set { _Aufgaben = value; }
         }
 
         #endregion
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private ViewModels.AusstellungsManager _Ausstellung = null;
+
+        /// <summary>
+        /// Ruft die aktuelle Ausstellung ab oder legt diese fest
+        /// </summary>
+        public ViewModels.AusstellungsManager Ausstelltung
+        {
+            get
+            {
+                if (this._Ausstellung == null)
+                {
+                    this._Ausstellung = this.AppKontext.Produziere<ViewModels.AusstellungsManager>();
+                }
+                return _Ausstellung;
+            }
+            set { _Ausstellung = value; }
+        }
+
     }
 }

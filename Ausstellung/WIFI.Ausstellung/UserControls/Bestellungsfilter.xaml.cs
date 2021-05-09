@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WIFI.Ausstellung.Views.Aufgaben
+namespace WIFI.Ausstellung.UserControls
 {
     /// <summary>
-    /// Interaktionslogik für Warenkorb.xaml
+    /// Interaktionslogik für Bestellungsfilter.xaml
     /// </summary>
-    public partial class Warenkorb : UserControl
+    public partial class Bestellungsfilter : UserControl
     {
-        public Warenkorb()
+        public Bestellungsfilter()
         {
             InitializeComponent();
         }

@@ -199,4 +199,18 @@ BEGIN
 END$$
 DELIMITER ;
 
+
+###	Testdatensatz
+###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Harry Potter","J.K.Rowling",13.5,1,0,1);
+###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Peter Pan","James Matthew Barrie",13.5,1,0,1);
+### INSERT INTO verlag (id,name) VALUES (1,"Thalia");
+
+# Rückgabe aller Bücher
+DELIMITER $$
+CREATE PROCEDURE HoleBücher()
+BEGIN
+	SELECT b.id AS "buchid",title,author,preis,rabgr,katgr, name FROM buch b JOIN verlag v ON v.id = b.verlag_id;
+END$$
+DELIMITER ;
+
 SHOW PROCEDURE STATUS;
