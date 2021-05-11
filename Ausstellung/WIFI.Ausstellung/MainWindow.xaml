@@ -115,53 +115,8 @@
 
         </StackPanel>
 
-        <!-- Für die Anwendungssymbole 
-             -->
-        <StackPanel
-            Grid.Row="0"
-            Orientation="Horizontal"
-            >
-            <!-- Für ein neues Fenster -->
-            <Button
-                
-                Style="{DynamicResource AppSymbol}"
-                
-                Content="&#x34;"
-                
-                Command="{Binding NeuesFenster}"
-                
-                
-                />
-
-            <!-- Zum Schließen aller Fenster -->
-            <Button
-                
-                Style="{DynamicResource AppSymbol}"
-                
-                Content="&#x53;"
-                
-                Command="{Binding FensterSchließen}"
-                Template="{DynamicResource AppSymbolCanExecute}"
-                
-                />
-
-            <!-- Zum Schließen aller anderen Fenster.
-                 Das nicht zu schließende Fenster wird
-                 im Parameter des Befehls übergeben -->
-            <Button
-                
-                Style="{DynamicResource AppSymbol}"
-                
-                Content="&#x52;"
-                
-                Command="{Binding FensterSchließen}"
-                CommandParameter="{Binding ElementName=HauptfensterView}"
-                
-                Template="{DynamicResource AppSymbolCanExecute}"
-                
-                />
-
-        </StackPanel>
+        <!-- TODOs: Labels zur Information der Ausstellung -->
+       
         <views:AufgabenView Grid.Row="1" />
 
     </Grid>

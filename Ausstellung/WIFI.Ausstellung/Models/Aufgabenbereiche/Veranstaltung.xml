@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aufgaben>
   <aufgabe name="Ausstellung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Ausstellung" />
+  <aufgabe name="Aktuelle Bestellung" symbol="(" view="WIFI.Ausstellung.Views.Aufgaben.Bestellung" />
   <aufgabe name="Bestellungen" symbol="$" view="WIFI.Ausstellung.Views.Aufgaben.Bestellungen" />
   <aufgabe name="Ausstellungsabschluss" symbol="@" view="WIFI.Ausstellung.Views.Aufgaben.Ausstellungsabschluss" />
 </aufgaben>

@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WIFI.Ausstellung.Views"
         mc:Ignorable="d"
+        xmlns:su="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
         Title="Bestellungsfentser" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <su:Bestellung/>
 </Window>

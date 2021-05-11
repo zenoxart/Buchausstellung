@@ -12,17 +12,19 @@ namespace WIFI.Ausstellung.ViewModels
     /// </summary>
     public class AusstellungsManager : WIFI.Anwendung.ViewModelAppObjekt
     {
+        #region AusstellungView
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bücher _Liste = null  ;
+        private static WIFI.Anwendung.DTO.Bücher _Liste = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind ab oder legt diese fest
         /// </summary>
         public WIFI.Anwendung.DTO.Bücher Buchausstellungsliste
         {
-            get {
+            get
+            {
                 if (AusstellungsManager._Liste == null)
                 {
 
@@ -52,7 +54,8 @@ namespace WIFI.Ausstellung.ViewModels
                 return AusstellungsManager._Liste;
 
             }
-            set {
+            set
+            {
                 AusstellungsManager._Liste = value;
                 this.OnPropertyChanged();
             }
@@ -99,7 +102,7 @@ namespace WIFI.Ausstellung.ViewModels
                     System.Threading.Thread.Sleep(7000);
                     //this.Buchausstellungsliste = this.Controller.HoleAusRessourcen();
 
-                   this.Buchausstellungsliste = this.AppKontext.DBControllerManager.BücherController.HoleBücher();
+                    this.Buchausstellungsliste = this.AppKontext.DBControllerManager.BücherController.HoleBücher();
 
 
                     //this.Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher();
@@ -116,6 +119,37 @@ namespace WIFI.Ausstellung.ViewModels
                 );
 
         }
+        #endregion
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private static WIFI.Anwendung.DTO.Bücher _AktuelleBücherbestellung = null;
+
+        /// <summary>
+        /// Ruft die aktuell bestellten Bücher ab oder legt diese fest
+        /// </summary>
+        public static WIFI.Anwendung.DTO.Bücher AktuelleBücherbestellung
+        {
+            get
+            {
+                if (AusstellungsManager._AktuelleBücherbestellung == null)
+                {
+                    AusstellungsManager._AktuelleBücherbestellung = new WIFI.Anwendung.DTO.Bücher();
+                }
+                return AusstellungsManager._AktuelleBücherbestellung;
+            }
+            set
+            {
+                AusstellungsManager._AktuelleBücherbestellung = value;
+                //this.OnPropertyChanged();
+            }
+        }
+
+        
+
+
+
 
     }
 }

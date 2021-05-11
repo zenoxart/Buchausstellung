@@ -26,7 +26,6 @@ namespace WIFI.Ausstellung.UserControls
         {
             InitializeComponent();
 
-            this.DataContext = this;
 
         }
 
@@ -37,8 +36,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty TitleProperty =
-        DependencyProperty.Register("Title", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnTitleChanged)));
+        DependencyProperty.Register("Title", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -49,24 +47,6 @@ namespace WIFI.Ausstellung.UserControls
             set { SetValue(TitleProperty, value); }
         }
 
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnTitleChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnTitleChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnTitleChanged(DependencyPropertyChangedEventArgs e)
-        {
-            TitleField.Content = e.NewValue.ToString();
-        }
         #endregion
 
 
@@ -75,8 +55,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty AuthorProperty =
-        DependencyProperty.Register("Author", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnAuthorChanged)));
+        DependencyProperty.Register("Author", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -86,25 +65,6 @@ namespace WIFI.Ausstellung.UserControls
             get { return (string)GetValue(AuthorProperty); }
             set { SetValue(AuthorProperty, value); }
         }
-
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnAuthorChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnAuthorChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnAuthorChanged(DependencyPropertyChangedEventArgs e)
-        {
-            AuthorField.Content = e.NewValue.ToString();
-        }
         #endregion
 
 
@@ -113,8 +73,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty VerlagProperty =
-        DependencyProperty.Register("Verlag", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnVerlagChanged)));
+        DependencyProperty.Register("Verlag", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -124,25 +83,6 @@ namespace WIFI.Ausstellung.UserControls
             get { return (string)GetValue(VerlagProperty); }
             set { SetValue(VerlagProperty, value); }
         }
-
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnVerlagChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnVerlagChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnVerlagChanged(DependencyPropertyChangedEventArgs e)
-        {
-            VerlagField.Content = e.NewValue.ToString();
-        }
         #endregion
 
 
@@ -151,8 +91,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty RabattProperty =
-        DependencyProperty.Register("Rabatt", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnRabattChanged)));
+        DependencyProperty.Register("Rabatt", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -163,24 +102,6 @@ namespace WIFI.Ausstellung.UserControls
             set { SetValue(RabattProperty, value); }
         }
 
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnRabattChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnRabattChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnRabattChanged(DependencyPropertyChangedEventArgs e)
-        {
-            RabattField.Content = e.NewValue.ToString();
-        }
         #endregion
 
 
@@ -189,8 +110,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty KategorieProperty =
-        DependencyProperty.Register("Kategorie", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnKategorieChanged)));
+        DependencyProperty.Register("Kategorie", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -200,25 +120,6 @@ namespace WIFI.Ausstellung.UserControls
             get { return (string)GetValue(KategorieProperty); }
             set { SetValue(KategorieProperty, value); }
         }
-
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnKategorieChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnKategorieChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnKategorieChanged(DependencyPropertyChangedEventArgs e)
-        {
-            RabattField.Content = e.NewValue.ToString();
-        }
         #endregion
 
 
@@ -227,8 +128,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty PreisProperty =
-        DependencyProperty.Register("Preis", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnPreisChanged)));
+        DependencyProperty.Register("Preis", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -239,24 +139,6 @@ namespace WIFI.Ausstellung.UserControls
             set { SetValue(PreisProperty, value); }
         }
 
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnPreisChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnPreisChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnPreisChanged(DependencyPropertyChangedEventArgs e)
-        {
-            PreisField.Content = e.NewValue.ToString();
-        }
         #endregion
 
 
@@ -265,8 +147,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty DunkelModusProperty =
-        DependencyProperty.Register("DunkelModus", typeof(string), typeof(Ausstellungslistitem), new
-            PropertyMetadata("", new PropertyChangedCallback(OnDunkelModusChanged)));
+        DependencyProperty.Register("DunkelModus", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -275,25 +156,6 @@ namespace WIFI.Ausstellung.UserControls
         {
             get { return (string)GetValue(DunkelModusProperty); }
             set { SetValue(DunkelModusProperty, value); }
-        }
-
-        /// <summary>
-        /// Erstellt ein Event, wenn dieses Property sich ändert
-        /// </summary>
-        private static void OnDunkelModusChanged(DependencyObject d,
-         DependencyPropertyChangedEventArgs e)
-        {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
-            UCC.OnDunkelModusChanged(e);
-        }
-
-        /// <summary>
-        /// Setzt dieses Property auf das Angegebene Element
-        /// </summary>
-        /// <param name="e"></param>
-        private void OnDunkelModusChanged(DependencyPropertyChangedEventArgs e)
-        {
-            PreisField.Content = e.NewValue.ToString();
         }
         #endregion
 
@@ -335,16 +197,16 @@ namespace WIFI.Ausstellung.UserControls
         }
 
 
-        private string BuchId ="";
+        private string BuchId = "";
 
-        
+
 
         #endregion
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _BuchbestellungHinzufügen;
+        private WIFI.Anwendung.Befehl _BuchbestellungHinzufügen = null;
 
         public WIFI.Anwendung.Befehl BuchbestellungHinzufügen
         {
@@ -360,7 +222,42 @@ namespace WIFI.Ausstellung.UserControls
                         p =>
                         {
 
+                            if (ViewModels.AusstellungsManager.AktuelleBücherbestellung == null)
+                            {
 
+                                ViewModels.AusstellungsManager.AktuelleBücherbestellung = new WIFI.Anwendung.DTO.Bücher();
+                            }
+
+                            WIFI.Anwendung.DTO.Buch b = null;
+                            if (ViewModels.AusstellungsManager.AktuelleBücherbestellung.Count > 0)
+                            {
+                                b = (from l in ViewModels.AusstellungsManager.AktuelleBücherbestellung
+                                         where string.Compare(l.ID.ToString(), Id, ignoreCase: true) == 0
+                                         select l).FirstOrDefault();
+
+                            }
+                            // Nehme das Erste Element welches die selbe Id schon hat
+
+                            // Wenn kein Element mit der ID in der Liste existiert, füge es hinzu
+                            if (b == null)
+                            {
+                                ViewModels.AusstellungsManager.AktuelleBücherbestellung.Add(
+                                new Anwendung.DTO.Buch
+                                {
+
+                                    AutorName = Author,
+                                    ID = Convert.ToInt32(Id),
+                                    Kategoriegruppe = Convert.ToInt32(Kategorie),
+                                    Preis = Convert.ToDouble(Preis),
+                                    Rabattgruppe = Convert.ToInt32(Rabatt),
+                                    Titel = Title,
+                                    VerlagName = Verlag
+                                }
+                            );
+                            }
+
+                            
+                            //ParrentViewModel.Ausstellung.AktuelleBücherbestellung.add(new Buch() { Preis =  });
                         }
                         );
                 }
@@ -370,6 +267,7 @@ namespace WIFI.Ausstellung.UserControls
 
             set { this._BuchbestellungHinzufügen = value; }
         }
+
 
 
 

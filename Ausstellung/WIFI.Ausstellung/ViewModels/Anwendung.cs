@@ -449,7 +449,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Ruft die aktuelle Ausstellung ab oder legt diese fest
         /// </summary>
-        public ViewModels.AusstellungsManager Ausstelltung
+        public ViewModels.AusstellungsManager Ausstellung
         {
             get
             {

@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="WIFI.Ausstellung.Views.Aufgaben.Bestellung"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
+            <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="DarkBlue"/>
+                </Trigger>
+
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style TargetType="Button" x:Key="BestellButton">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+
+
+    </UserControl.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="3*" MinHeight="150"/>
+            <RowDefinition Height="5"  />
+            <RowDefinition Height="3*" MinHeight="150"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" 
+               Content="Bestellung" 
+               Style="{DynamicResource TitleStyle}"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+                <ListBox Background="Transparent" 
+                         HorizontalContentAlignment="Center"
+                         ItemsSource="{Binding Ausstellung.AktuelleBücherbestellung}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label
+                                    Grid.Column="0"
+                                    Content="{Binding Titel}"/>
+                                <Label 
+                                    Grid.Column="1"
+                                    Content="{Binding AutorName}"/>
+                                <Label
+                                    Grid.Column="2"
+                                    Content="{Binding VerlagName}"/>
+                                <Label
+                                    Grid.Column="3"
+                                    Content="{Binding Preis}"/>
+                                <Label
+                                    Grid.Column="4"
+                                    Content="{Binding Kategoriegruppe}"/>
+                                <Label
+                                    Grid.Column="5"
+                                    Content="{Binding Rabattgruppe}"/>
+
+                                <TextBox Grid.Column="6"
+                                         Width="70"
+                                         Height="40"
+                                         Template="{DynamicResource RoundFilterBox}"
+                                         VerticalContentAlignment="Center"
+                                         />
+                                <Button
+                                    Grid.Column="7"
+                                    Content="X"
+                                    Style="{DynamicResource BestellButton}"
+                                    Template="{DynamicResource AddBestellungRoundButton}"
+                                    />
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    
+                </ListBox>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+        <GridSplitter
+            Grid.Row="2" 
+            ShowsPreview="True" 
+            HorizontalAlignment="Stretch" 
+            Style="{DynamicResource HellDunkelSplitter}"/>
+
+    </Grid>
+</UserControl>

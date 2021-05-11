@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.UserControls"
-             mc:Ignorable="d" >
+             mc:Ignorable="d"
+             Name="Ausstellungsitem">
     <UserControl.Resources>
         <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
             <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
@@ -28,8 +29,19 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Margin" Value="2"/>
         </Style>
+
+        <Style x:Key="StandartFont" TargetType="Label">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DunkelModus}" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DunkelModus}" Value="False">
+                    <Setter Property="Foreground" Value="Black"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="150"/>
@@ -43,17 +55,43 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="TitleField" Grid.Column="0"/>
-        <Label x:Name="AuthorField" Grid.Column="1"/>
-        <Label x:Name="VerlagField" Grid.Column="2"/>
-        <Label x:Name="RabattField" Grid.Column="3"/>
-        <Label x:Name="KategorieField" Grid.Column="4"/>
-        <Label x:Name="PreisField" Grid.Column="5"/>
+        <Label VerticalContentAlignment="Center"
+                Grid.Column="0" 
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Title}"
+               />
+        <Label VerticalContentAlignment="Center"
+                Grid.Column="1"
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Author}"
+               />
+        <Label VerticalContentAlignment="Center"
+                Grid.Column="2"
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Verlag}"
+               />
+        <Label VerticalContentAlignment="Center"
+               Grid.Column="3"
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Rabatt}"
+               />
+        <Label VerticalContentAlignment="Center"
+               Grid.Column="4"
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Kategorie}"
+               />
+        <Label VerticalContentAlignment="Center"
+               Grid.Column="5"
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Preis}"
+               />
         <Button 
             Grid.Column="6" 
             ToolTip="Zu Bestellungen hinzufügen" 
             Style="{DynamicResource BestellButton}"
-            Template="{DynamicResource AddBestellungRoundButton}">
+            Template="{DynamicResource AddBestellungRoundButton}"
+            
+            Command="{Binding ElementName=Ausstellungsitem,Path=BuchbestellungHinzufügen}">
             +</Button>
     </Grid>
 </UserControl>

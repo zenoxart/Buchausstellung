@@ -35,7 +35,7 @@
                 <ListBox 
                     Background="Transparent" 
                     HorizontalContentAlignment="Center"
-                    ItemsSource="{Binding Ausstelltung.Buchausstellungsliste}">
+                    ItemsSource="{Binding Ausstellung.Buchausstellungsliste}">
 
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
@@ -48,6 +48,8 @@
                             Kategorie="{Binding Kategoriegruppe}"
                             Rabatt="{Binding Rabattgruppe}"
                             DunkelModus="{Binding DunklesDesign}"
+
+                                
                             />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
