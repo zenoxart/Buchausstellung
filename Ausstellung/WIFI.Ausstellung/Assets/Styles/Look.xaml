@@ -154,4 +154,22 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
+
+    <!-- Stellt einen Stil für alle im Programm 
+         verwendeten Labels zur Verfügung, 
+         in denen ein Standardtext erfasst it -->
+    <Style TargetType="Label" x:Key="LabelStandardDesign">
+        <Setter Property="FontFamily" Value="Arial" />
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                <Setter Property="Foreground" Value="Black"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
