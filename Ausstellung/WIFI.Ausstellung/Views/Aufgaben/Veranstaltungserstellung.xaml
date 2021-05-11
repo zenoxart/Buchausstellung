@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
 
@@ -48,6 +50,7 @@
             Margin="250,15,250,15"
             FontFamily="Arial"
             FontSize="20"
+            
             >
             Erstellen
         </Button>
@@ -58,18 +61,21 @@
             Margin="420,0,60,0"
             Height="36"
             FontFamily="Arial"
+            Template="{DynamicResource RoundTextBox}"
             >
         </TextBox>
         <DatePicker
             Name="Beginndatum"
-            VerticalAlignment="Center"
             Grid.Row="2"
             Margin="420,0,60,0"
             FontFamily="Arial"
             FontSize="24"
+            Height="40"
+            Style="{DynamicResource DatePickerIconResizingStyle}"
             >
-            
+
         </DatePicker>
+
         <DatePicker
             Name="Enddatum"
             VerticalAlignment="Center"
@@ -77,8 +83,9 @@
             Margin="420,0,60,0"
             FontFamily="Arial"
             FontSize="24"
+            Height="40"
+            Style="{DynamicResource DatePickerIconResizingStyle}"
             >
-
         </DatePicker>
 
     </Grid>
