@@ -114,3 +114,5 @@ C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.cs
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.baml

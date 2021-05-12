@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-18-1676769327
+191964543146
 
-282045520691
+29-2024411572
 15325386716
-App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungsfilter.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
+App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
 
 True
 

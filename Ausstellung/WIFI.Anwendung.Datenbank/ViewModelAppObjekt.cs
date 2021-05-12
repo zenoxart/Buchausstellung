@@ -44,6 +44,22 @@ namespace WIFI.Anwendung
             }
         }
 
+
+        /// <summary>
+        /// Wird ausgelöst, wenn sich der Inhalt einer statischen Eigenschaft ändert
+        /// </summary>
+        public static event System.ComponentModel.PropertyChangedEventHandler StaticPropertyChanged;
+
+        /// <summary>
+        /// Löst das Ereignis StaticPropertyChanged aus
+        /// </summary>
+        /// <param name="propertyName">der Name muss angegeben werden</param>
+        public static void OnStaticPropertyChanged(string propertyName)
+        {
+            StaticPropertyChanged?.Invoke(null, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+
+
         /// <summary>
         /// Ruft die erweiterte Infrastruktur
         /// ab oder legt diese fest

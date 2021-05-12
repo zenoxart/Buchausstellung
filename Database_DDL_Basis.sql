@@ -53,11 +53,12 @@
 # bestellung_hat_buch
 # +---------+---------+------+-----+---------+----------------+
 # | Field   | Type    | Null | Key | Default | Extra          |
-# +---------+---------+------+-----+---------+----------------+
-# | id      | int(11) | NO   | PRI | NULL    | auto_increment |
-# | buch_id | int(11) | NO   | MUL | NULL    |                |
-# | anzahl  | int(11) | NO   |     | 1       |                |
-# +---------+---------+------+-----+---------+----------------+
+# +----------------+---------+------+-----+---------+----------------+
+# | id      	   | int(11) | NO   | PRI | NULL    | auto_increment |
+# | buch_id 	   | int(11) | NO   | MUL | NULL    |                |
+# | anzahl  	   | int(11) | NO   |     | 1       |                |
+# | bestellung_id  | int(11) | NO   | MUL | NULL    |                |
+# +----------------+---------+------+-----+---------+----------------+
 
 # bestellung
 # +------------------------+---------+------+-----+---------+----------------+
@@ -65,7 +66,6 @@
 # +------------------------+---------+------+-----+---------+----------------+
 # | id                     | int(11) | NO   | PRI | NULL    | auto_increment |
 # | besucher_id            | int(11) | NO   | MUL | NULL    |                |
-# | bestellung_hat_buch_id | int(11) | NO   | MUL | NULL    |                |
 # +------------------------+---------+------+-----+---------+----------------+
 
 
@@ -107,19 +107,22 @@ CREATE TABLE veranstaltung ( datumvon DATE NOT NULL,
 							 ort VARCHAR(150) NOT NULL,
 							 stadium ENUM('Vorbereitung','Veranstaltung','Lieferung','Abholung') NOT NULL);
 							 
+# Erstellt eine Bestellungen-Tabelle
+CREATE TABLE bestellung ( id INT PRIMARY KEY NOT NULL auto_increment,
+						  besucher_id INT NOT NULL,
+						  FOREIGN KEY(besucher_id) REFERENCES besucher(id)
+						  );
+						  
 # Erstellt eine Buchbestellungen-Tabelle
 CREATE TABLE bestellung_hat_buch( id INT PRIMARY KEY NOT NULL auto_increment,
 								  buch_id INT NOT NULL,
 								  FOREIGN KEY(buch_id) REFERENCES buch(id),
-								  anzahl INT NOT NULL DEFAULT 1);
+								  anzahl INT NOT NULL DEFAULT 1,
+								  bestellung_id INT NOT NULL,
+								  FOREIGN KEY(bestellung_id) REFERENCES bestellung(id)
+								  );
 								  
-# Erstellt eine Bestellungen-Tabelle
-CREATE TABLE bestellung ( id INT PRIMARY KEY NOT NULL auto_increment,
-						  bestellnr INT NOT NULL ,
-						  besucher_id INT NOT NULL,
-						  FOREIGN KEY(besucher_id) REFERENCES besucher(id),
-						  bestellung_hat_buch_id INT NOT NULL,
-						  FOREIGN KEY(bestellung_hat_buch_id) REFERENCES bestellung_hat_buch(id));
+
 						  
 						  
 #################################################
@@ -202,7 +205,7 @@ DELIMITER ;
 
 ###	Testdatensatz
 ###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Harry Potter","J.K.Rowling",13.5,1,0,1);
-###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Peter Pan","James Matthew Barrie",13.5,1,0,1);
+###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Peter Pan","James Matthew Barrie",12.5,1,0,1);
 ### INSERT INTO verlag (id,name) VALUES (1,"Thalia");
 
 # Rückgabe aller Bücher
@@ -212,5 +215,64 @@ BEGIN
 	SELECT b.id AS "buchid",title,author,preis,rabgr,katgr, name FROM buch b JOIN verlag v ON v.id = b.verlag_id;
 END$$
 DELIMITER ;
+
+# Erstellt einen Besucher und eine zugehörige ID
+DELIMITER $$
+CREATE PROCEDURE ErstelleBesucher(
+	Name VARCHAR(150),
+	Anschrift VARCHAR(150),
+	Telefon VARCHAR(80)
+)
+BEGIN
+	INSERT INTO besucher (name,anschrift,telefon) VALUES ( Name,Anschrift,Telefon);
+END$$
+DELIMITER ;
+
+# Ruft vom Namen des Besuchers die automatisch generierte ID ab
+DELIMITER $$
+CREATE PROCEDURE BekommeBesucherId(
+	Name VARCHAR(150)
+)
+BEGIN
+	SELECT id FROM besucher WHERE name LIKE Name LIMIT 1;
+END$$
+DELIMITER ;
+
+
+# Erstellt eine Bestellung für den Benutzer 
+DELIMITER $$
+CREATE PROCEDURE ErstelleEinzelBestellung( PersonenId INT)
+BEGIN
+	INSERT INTO bestellung (besucher_id) VALUES (PersonenId);
+END$$
+DELIMITER ;
+
+
+# Gibt die ID einer Bestellung zurück
+DELIMITER $$
+CREATE PROCEDURE BekommeBestellungsId(
+	PersonId INT
+)
+BEGIN 
+	SELECT id FROM bestellung WHERE besucher_id = PersonId LIMIT 1;
+END$$
+DELIMITER ;
+
+
+
+# Fügt ein Buch auf die Aktuelle Bestellung mit der übergebenen Anzahl hinzu
+DELIMITER $$
+CREATE PROCEDURE BuchbestellungHinzufügen(
+	buchID INT,
+	bestellungID INT,
+	Anzahl INT
+)
+BEGIN
+	INSERT INTO bestellung_hat_buch (buch_id, anzahl, bestellung_id) VALUES (buchID,Anzahl,bestellungID);
+END$$
+DELIMITER ;
+
+
+
 
 SHOW PROCEDURE STATUS;

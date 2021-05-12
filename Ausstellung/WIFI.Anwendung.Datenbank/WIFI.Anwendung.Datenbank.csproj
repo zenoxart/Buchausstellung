@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Befehl.cs" />
     <Compile Include="DatenbankControllerManager.cs" />
+    <Compile Include="DatenController\BestellungSqlClientController.cs" />
+    <Compile Include="DatenController\BesucherSqlClientController.cs" />
     <Compile Include="DatenController\BücherSqlClientController.cs" />
     <Compile Include="DatenController\VeranstaltungsSqlClientController.cs" />
     <Compile Include="DatenbankAppKontext.cs" />

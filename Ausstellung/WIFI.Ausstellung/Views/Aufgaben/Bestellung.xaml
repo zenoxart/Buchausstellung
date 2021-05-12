@@ -5,31 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
              mc:Ignorable="d" 
+             xmlns:us="clr-namespace:WIFI.Ausstellung.UserControls"
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
-            <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Border>
-            <ControlTemplate.Triggers>
-
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" TargetName="border" Value="DarkBlue"/>
-                </Trigger>
-
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <Style TargetType="Button" x:Key="BestellButton">
-            <Setter Property="Background" Value="Red"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
+        
         <ControlTemplate x:Key="CheckBoxTemplate" TargetType="{x:Type CheckBox}">
             <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
                 <Grid.ColumnDefinitions>
@@ -137,71 +117,19 @@
                     HorizontalContentAlignment="Center"
                     
                     Style="{DynamicResource HellDunkelDesign}"
-                    ItemsSource="{Binding Ausstellung.AktuelleBücherbestellung}" >
+                    ItemsSource="{Binding Path=Ausstellung.AktuelleBücherbestellung}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid >
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="150"/>
-                                    <ColumnDefinition Width="150"/>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="70"/>
-                                    <ColumnDefinition Width="90"/>
-                                    <ColumnDefinition Width="40"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                </Grid.RowDefinitions>
-
-                                <Label
-                                    Grid.Column="0"
-                                    Content="{Binding Titel}"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource DunkelHellSchrift}"/>
-                                <Label 
-                                    Grid.Column="1"
-                                    Content="{Binding AutorName}"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource DunkelHellSchrift}"/>
-                                <Label
-                                    Grid.Column="2"
-                                    Content="{Binding VerlagName}"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource DunkelHellSchrift}"/>
-                                <Label
-                                    Grid.Column="3"
-                                    Content="{Binding Preis}"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource DunkelHellSchrift}"/>
-                                <Label
-                                    Grid.Column="4"
-                                    Content="{Binding Kategoriegruppe}"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource DunkelHellSchrift}"/>
-                                <Label
-                                    Grid.Column="5"
-                                    Content="{Binding Rabattgruppe}"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource DunkelHellSchrift}"/>
-
-                                <TextBox Grid.Column="6"
-                                         Width="70"
-                                         Height="25"
-                                         Template="{DynamicResource RoundTextBox}"
-                                         VerticalContentAlignment="Center"
-                                         HorizontalContentAlignment="Center"
-                                         />
-                                <Button
-                                    Grid.Column="7"
-                                    Content="X"
-                                    Style="{DynamicResource BestellButton}"
-                                    Template="{DynamicResource AddBestellungRoundButton}"
-                                    />
-
-                            </Grid>
-
+                            <us:Bestellungslistitem
+                            Id="{Binding ID}"
+                            Title="{Binding Titel}"
+                            Author="{Binding AutorName}"
+                            Verlag="{Binding VerlagName}"
+                            Preis="{Binding Preis}"
+                            Kategorie="{Binding Kategoriegruppe}"
+                            Rabatt="{Binding Rabattgruppe}"
+                                
+                                />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
 
@@ -246,7 +174,7 @@
                         <ColumnDefinition Width="120"/>
                     </Grid.ColumnDefinitions>
                     <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Name:</Label>
-                    <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                    <TextBox Text="{Binding Ausstellung.BesucherName}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
                 </Grid>
 
                 <Grid Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" >
@@ -255,7 +183,7 @@
                         <ColumnDefinition Width="120"/>
                     </Grid.ColumnDefinitions>
                     <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Anschrift:</Label>
-                    <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                    <TextBox Text="{Binding Ausstellung.BesucherAnschrift}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
                 </Grid>
 
                 <Grid Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" >
@@ -264,10 +192,18 @@
                         <ColumnDefinition Width="120"/>
                     </Grid.ColumnDefinitions>
                     <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Telefon:</Label>
-                    <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                    <TextBox Text="{Binding Ausstellung.BesucherTelefon}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
                 </Grid>
 
-                <Button  Grid.Column="3" Grid.Row="7" Width="220" HorizontalAlignment="Right" VerticalAlignment="Top" Height="35" Template="{DynamicResource RoundButton}">Bestellen</Button>
+                <Button  
+                    Grid.Column="3" 
+                    Grid.Row="7" 
+                    Width="220" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Height="35" 
+                    Template="{DynamicResource RoundButton}"
+                    Command="{Binding Ausstellung.BestellungHinzufügen}">Bestellen</Button>
             </Grid>
         </ScrollViewer>
 

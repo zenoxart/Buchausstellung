@@ -71,6 +71,9 @@
     <Compile Include="UserControls\Bestellungsfilter.xaml.cs">
       <DependentUpon>Bestellungsfilter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Bestellungslistitem.xaml.cs">
+      <DependentUpon>Bestellungslistitem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Anwendung.cs" />
     <Compile Include="ViewModels\AufgabenManager.cs" />
     <Compile Include="ViewModels\AusstellungsManager.cs" />
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Bestellungsfilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Bestellungslistitem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

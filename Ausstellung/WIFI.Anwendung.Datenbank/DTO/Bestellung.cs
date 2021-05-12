@@ -22,25 +22,7 @@ namespace WIFI.Anwendung.DTO
     /// </summary>
     public class Bestellung : WIFI.Anwendung.Daten.DatenBasis
     {
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private int _ID = 0;
-
-        /// <summary>
-        /// Die interne Nummer der Bestellung
-        /// </summary>
-        public int ID
-        {
-            get
-            {
-                return this._ID;
-            }
-            set
-            {
-                this._ID = value;
-            }
-        }
+       
 
         /// <summary>
         /// Internes Feld für die Eigenschaft

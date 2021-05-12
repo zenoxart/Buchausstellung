@@ -184,5 +184,30 @@ namespace WIFI.Anwendung.DTO
                 }
             }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private int _Anzahl = 1;
+
+        /// <summary>
+        /// Ruft die Anzahl der zu bestellenden Bücher ab oder legt diese fest
+        /// </summary>
+        public int Anzahl
+        {
+            get
+            {
+                return this._Anzahl;
+            }
+            set
+            {
+                if (this._Anzahl != value)
+                {
+                    this._Anzahl = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
     }
 }

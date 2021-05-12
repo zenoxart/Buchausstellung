@@ -12,6 +12,7 @@ namespace WIFI.Ausstellung.ViewModels
     /// </summary>
     public class AusstellungsManager : WIFI.Anwendung.ViewModelAppObjekt
     {
+
         #region AusstellungView
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -121,6 +122,10 @@ namespace WIFI.Ausstellung.ViewModels
         }
         #endregion
 
+
+
+
+
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
@@ -141,12 +146,223 @@ namespace WIFI.Ausstellung.ViewModels
             }
             set
             {
-                AusstellungsManager._AktuelleBücherbestellung = value;
-                //this.OnPropertyChanged();
+                if (AusstellungsManager._AktuelleBücherbestellung != value)
+                {
+
+                    AusstellungsManager._AktuelleBücherbestellung = value;
+
+                    OnStaticPropertyChanged("AktuelleBücherbestellung");
+                }
+
+                // Da statische Eigenschaften nicht OnPropertyChanged aufrufen können, wird das gesammte Layout geupdatet
+
+
             }
         }
 
-        
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private static WIFI.Anwendung.DTO.Bestellung _AktuelleBestellung = null;
+
+        /// <summary>
+        /// Ruft die Aktuelle Bestellung mit den zugehörigen Benutzerdaten 
+        /// und der Bestellnummer sowie dessen Bücher jeweilige Anzahl 
+        /// ab oder setzt diese
+        /// </summary>
+        public static WIFI.Anwendung.DTO.Bestellung AktuelleBestellung
+        {
+            get
+            {
+                if (AusstellungsManager._AktuelleBestellung == null)
+                {
+                    AusstellungsManager._AktuelleBestellung = new WIFI.Anwendung.DTO.Bestellung();
+                }
+                return AusstellungsManager._AktuelleBestellung;
+            }
+            set
+            {
+
+                if (AusstellungsManager._AktuelleBestellung != value)
+                {
+
+                    AusstellungsManager._AktuelleBestellung = value;
+
+                    OnStaticPropertyChanged("AktuelleBestellung");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private static WIFI.Anwendung.DTO.Bestellungen _BestellungenListe = null;
+
+        /// <summary>
+        /// Ruft eine Auflistung aller Bestellungen ab oder legt diese fest
+        /// </summary>
+        public static WIFI.Anwendung.DTO.Bestellungen BestellungenListe
+        {
+            get
+            {
+
+                if (AusstellungsManager._BestellungenListe == null)
+                {
+                    AusstellungsManager._BestellungenListe = new WIFI.Anwendung.DTO.Bestellungen();
+                }
+                return AusstellungsManager._BestellungenListe;
+            }
+            set
+            {
+                if (AusstellungsManager._BestellungenListe != value)
+                {
+                    AusstellungsManager._BestellungenListe = value;
+
+                    OnStaticPropertyChanged("BestellungenListe");
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _BestellungHinzufügen = null;
+
+        /// <summary>
+        /// Fügt die AktuelleBücherbestellungsliste mit der AktuellenBestellung zusammen
+        /// </summary>
+        public WIFI.Anwendung.Befehl BestellungHinzufügen
+        {
+            get
+            {
+                if (this._BestellungHinzufügen == null)
+                {
+                    // Den Befehl mit anoymen Methoden initialisieren
+
+                    this._BestellungHinzufügen = new WIFI.Anwendung.Befehl(
+
+                        // TODO: Werte des Buches in eine Bestellliste hinzufügen
+                        p =>
+                        {
+
+                            if (AusstellungsManager.AktuelleBestellung == null)
+                            {
+
+                                AusstellungsManager.AktuelleBestellung = new WIFI.Anwendung.DTO.Bestellung();
+                            }
+
+
+                            AusstellungsManager.AktuelleBestellung.Buchliste = new Dictionary<WIFI.Anwendung.DTO.Buch, int>();
+                            // Fügt jedes Buch mit der jeweiligen Anzahl der Bestellung hinzu
+                            foreach (var Buch in AusstellungsManager.AktuelleBücherbestellung)
+                            {
+                                AusstellungsManager.AktuelleBestellung.Buchliste.Add(Buch, Buch.Anzahl);
+                            }
+
+                            if (this.BesucherName != string.Empty
+
+                                && this.BesucherAnschrift != string.Empty
+
+                                && this.BesucherTelefon != string.Empty)
+                            {
+
+                                // Erstellt einen Zugehörigen Besucher (TODO: Noch OHNE ID)
+                                AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
+                                    new WIFI.Anwendung.DTO.Besucher
+                                    {
+                                        Anschrift = this.BesucherAnschrift,
+                                        Name = this.BesucherName,
+                                        Telefon = this.BesucherTelefon
+                                    };
+
+                                // Erstelle neuen Besucher oder lade dessen ID von der Datenbank
+
+                                AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
+                                    this.AppKontext.DBControllerManager.BesucherController.ErstelleBesucher(
+                                        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
+
+
+                                int AktuelleBestellNr =
+                                    this.AppKontext.DBControllerManager.BestellungController.ErstelleBestellung(
+                                        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
+
+                                if (AktuelleBestellNr != -1)
+                                {
+                                    AusstellungsManager.AktuelleBestellung.BestellNr = AktuelleBestellNr;
+
+                                    // Alles von der Aktuellen Bestellung auf die Datenbank schieben
+                                    this.AppKontext.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(
+                                        AusstellungsManager.AktuelleBestellung);
+
+                                    // Aktuelle Bestellung zu der Bestellungsliste hinzufügen
+                                    AusstellungsManager.BestellungenListe.Add(AusstellungsManager.AktuelleBestellung);
+
+
+                                    // Aktuelle Bestellung bereinigen
+                                    AusstellungsManager.AktuelleBestellung = null;
+                                    AusstellungsManager.AktuelleBücherbestellung = null;
+
+                                    this.BesucherAnschrift = string.Empty;
+                                    this.BesucherName = string.Empty;
+                                    this.BesucherTelefon = string.Empty;
+
+                                }
+
+                            }
+                        }
+                        );
+                }
+
+                return this._BestellungHinzufügen;
+            }
+
+            set { this._BestellungHinzufügen = value; }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _BesucherName = string.Empty;
+
+        /// <summary>
+        /// Ruft den Namen des Besucher ab oder legt diesen fest
+        /// </summary>
+        public string BesucherName
+        {
+            get { return this._BesucherName; }
+            set { this._BesucherName = value; this.OnPropertyChanged(); }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _BesucherAnschrift = string.Empty;
+
+        /// <summary>
+        /// Ruft die Anschrift des Besuchers ab oder legt diese fest
+        /// </summary>
+        public string BesucherAnschrift
+        {
+            get { return this._BesucherAnschrift; }
+            set { this._BesucherAnschrift = value; this.OnPropertyChanged(); }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _BesucherTelefon = string.Empty;
+
+        /// <summary>
+        /// Ruft die Telefonnummer des Besuchers ab oder legt diese fest
+        /// </summary>
+        public string BesucherTelefon
+        {
+            get { return this._BesucherTelefon; }
+            set { this._BesucherTelefon = value; this.OnPropertyChanged(); }
+        }
+
 
 
 
