@@ -143,6 +143,15 @@
         </Style.Triggers>
     </Style>
 
+    <!-- Style Hell Dunkel für ein ganzes Control-->
+    <Style x:Key="HellDunkelDesign" TargetType="Control">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource SchriftfarbeDunklesDesign}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
     <!-- Style für einen GridSplitter mit Hell und Dunkel -->
     <Style TargetType="GridSplitter" x:Key="HellDunkelSplitter" >
         <Style.Triggers>
@@ -338,4 +347,6 @@
         </Setter>
     </Style>
 
+
+    
 </ResourceDictionary>
