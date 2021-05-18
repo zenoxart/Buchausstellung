@@ -65,6 +65,9 @@
     <Compile Include="UserControls\Ausstellungsfilter.xaml.cs">
       <DependentUpon>Ausstellungsfilter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Ausstellungskopfzeile.xaml.cs">
+      <DependentUpon>Ausstellungskopfzeile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Ausstellungslistitem.xaml.cs">
       <DependentUpon>Ausstellungslistitem.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\Ausstellungsfilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Ausstellungskopfzeile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

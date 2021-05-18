@@ -30,19 +30,27 @@
             Style="{DynamicResource HellDunkelSplitter}"
             >
         </GridSplitter>
-        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <ScrollViewer.Content>
 
-                <ItemsControl 
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <ScrollViewer.Content>
+                    <uc:Ausstellungskopfzeile HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+                </ScrollViewer.Content>
+            </ScrollViewer>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ScrollViewer.Content>
+                    
+                    <ItemsControl 
                     HorizontalAlignment="Center"
                     Background="Transparent" 
                     HorizontalContentAlignment="Center"
                     Style="{DynamicResource HellDunkelDesign}"
                     ItemsSource="{Binding Ausstellung.Buchausstellungsliste}">
 
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
-                            <uc:Ausstellungslistitem
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
+                                <uc:Ausstellungslistitem
                             Id="{Binding ID}"
                             Title="{Binding Titel}"
                             Author="{Binding AutorName}"
@@ -54,14 +62,17 @@
 
                                 
                             />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
 
-                    
-                </ItemsControl>
-            </ScrollViewer.Content>
-        </ScrollViewer>
 
+                    </ItemsControl>
+                </ScrollViewer.Content>
+            </ScrollViewer>
+
+        </StackPanel>
+        
+        
 
     </Grid>
 </UserControl>

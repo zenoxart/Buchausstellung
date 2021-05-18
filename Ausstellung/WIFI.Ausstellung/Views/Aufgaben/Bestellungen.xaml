@@ -38,7 +38,7 @@
                     HorizontalAlignment="Center"
                     Background="Transparent" 
                     HorizontalContentAlignment="Center"
-                    ItemsSource="{Binding Path=Ausstellung.BestellungenListe}" >
+                    ItemsSource="{Binding Ausstellung.BestellungenListe}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate >
                             <uc:Bestellungenlistitem

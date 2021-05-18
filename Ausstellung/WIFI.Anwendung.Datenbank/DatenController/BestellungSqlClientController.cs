@@ -140,47 +140,54 @@ namespace WIFI.Anwendung.DatenController
                                 );
 
 
-                            using (var ZweiterBefehl = new MySqlConnector.MySqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
-                            {
-                                Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
-                                Befehl.Parameters.AddWithValue("bestellungsid", DatenLeser["ID"]);
-                                Befehl.Prepare();
-
-                                using (var ZweiterDatenLeser = Befehl.ExecuteReader())
-                                {
-                                    while (ZweiterDatenLeser.Read())
-                                    {
-                                        foreach (var item in bestellungen)
-                                        {
-                                            if (item.BestellNr == Convert.ToInt32(DatenLeser["ID"]))
-                                            {
-                                                item.Buchliste.Add(
-                                                    new DTO.Buch
-                                                    {
-                                                        AutorName = DatenLeser["Author"].ToString(),
-                                                        ID = Convert.ToInt32(DatenLeser["BuchId"]),
-                                                        Kategoriegruppe = Convert.ToInt32(DatenLeser["Kategorie"]),
-                                                        Preis = Convert.ToDouble(DatenLeser["Preis"]),
-                                                        Titel = DatenLeser["BuchTitle"].ToString(),
-                                                        VerlagName = DatenLeser["Verlag"].ToString(),
-                                                        Rabattgruppe = Convert.ToInt32(DatenLeser["Rabatt"]),
-                                                        Anzahl = Convert.ToInt32(DatenLeser["Buchanzahl"])
-                                                    }, Convert.ToInt32(DatenLeser["Buchanzahl"])
-
-                                                    );
-
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
+                            
                         }
                     }
 
                 }
+
+
             }
+
+            foreach (var item in bestellungen)
+            {
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                {
+                    using (var ZweiterBefehl = new MySqlConnector.MySqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
+                    {
+                        ZweiterBefehl.CommandType = System.Data.CommandType.StoredProcedure;
+                        Verbindung.Open();
+                        ZweiterBefehl.Parameters.AddWithValue("bestellungsid", item.BestellNr);
+                        ZweiterBefehl.Prepare();
+                        
+
+                        using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                        {
+                            while (ZweiterDatenLeser.Read())
+                            {
+                                        item.Buchliste.Add(
+                                            new DTO.Buch
+                                            {
+                                                AutorName = ZweiterDatenLeser["Author"].ToString(),
+                                                ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
+                                                Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
+                                                Preis = Convert.ToDouble(ZweiterDatenLeser["Preis"]),
+                                                Titel = ZweiterDatenLeser["BuchTitle"].ToString(),
+                                                VerlagName = ZweiterDatenLeser["Verlag"].ToString(),
+                                                Rabattgruppe = Convert.ToInt32(ZweiterDatenLeser["Rabatt"]),
+                                                Anzahl = Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
+                                            }, Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
+
+                                            );
+
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
 
             return bestellungen;
 
