@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 WIFI.Ausstellung
 none
 false
 DEBUG;TRACE
 
-20-1925935396
+211056204747
 
-301803453826
-15325386716
-App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
+311831001942
+151280685596
+App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;UserControls\Buchlistitem.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
 
 True
 
