@@ -227,10 +227,7 @@ GRANT EXECUTE ON PROCEDURE buchausstellung.VeranstaltungsStadium TO 'clientbenut
 USE buchausstellung;
 
 
-###	Testdatensatz
-###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Harry Potter","J.K.Rowling",13.5,1,0,1);
-###	INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Peter Pan","James Matthew Barrie",12.5,1,0,1);
-### INSERT INTO verlag (id,name) VALUES (1,"Thalia");
+
 
 # Rückgabe aller Bücher
 DELIMITER $$
@@ -270,7 +267,7 @@ CREATE PROCEDURE BekommeBesucherId(
 	
 )
 BEGIN
-	SELECT id FROM besucher WHERE name LIKE Name AND adresse LIKE Anschrift AND telefon LIKE Telefon LIMIT 1;
+	SELECT id FROM besucher WHERE name LIKE Name AND anschrift LIKE Anschrift AND telefon LIKE Telefon LIMIT 1;
 END$$
 DELIMITER ;
 
@@ -368,3 +365,13 @@ USE buchausstellung;
 
 
 SHOW PROCEDURE STATUS;
+
+
+###	Testdatensätze
+INSERT INTO verlag (id,name) VALUES (1,"Thalia");
+INSERT INTO verlag (id,name) VALUES (2,"Amazon");
+INSERT INTO verlag (id,name) VALUES (3,"Abenteuer Medien Verlag");
+INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Harry Potter","J.K.Rowling",13.5,1,0,3);
+INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Peter Pan","James Matthew Barrie",12.5,1,0,1);
+INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Herr der Ringe","J. R. R. Tolkien",18.3,0,1,3);
+INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Handbuch der Tonstudiotechnik","ARD.ZDF",30.87,1,1,2);

@@ -99,6 +99,9 @@ namespace WIFI.Ausstellung.ViewModels
         {
             this.AppKontext.AktuelleAufgabenSektion = xmlPfad;
             this.InitialisiereAufgabenAsync();
+
+           
+            this.AktiverViewer = null;
             this.OnPropertyChanged();
 
             this.AppKontext.Protokoll.Eintragen($"Aufgabensektion wurde auf {xmlPfad} geändert. ");

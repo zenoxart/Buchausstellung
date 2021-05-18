@@ -151,7 +151,6 @@ namespace WIFI.Ausstellung.ViewModels
 
                     AusstellungsManager._AktuelleBücherbestellung = value;
 
-                    OnStaticPropertyChanged("AktuelleBücherbestellung");
                 }
 
                 // Da statische Eigenschaften nicht OnPropertyChanged aufrufen können, wird das gesammte Layout geupdatet
@@ -188,7 +187,6 @@ namespace WIFI.Ausstellung.ViewModels
 
                     AusstellungsManager._AktuelleBestellung = value;
 
-                    OnStaticPropertyChanged("AktuelleBestellung");
                 }
             }
         }
@@ -223,7 +221,7 @@ namespace WIFI.Ausstellung.ViewModels
                 {
                     this._BestellungenListe = value;
 
-                    OnStaticPropertyChanged("BestellungenListe");
+                    this.OnPropertyChanged();
                 }
             }
         }

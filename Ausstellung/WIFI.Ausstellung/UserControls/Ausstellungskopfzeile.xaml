@@ -1,22 +1,21 @@
-﻿<UserControl x:Class="WIFI.Ausstellung.UserControls.Ausstellungslistitem"
+﻿<UserControl x:Class="WIFI.Ausstellung.UserControls.Ausstellungskopfzeile"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.UserControls"
-             mc:Ignorable="d"
-             Name="Ausstellungsitem">
+             mc:Ignorable="d" >
     <UserControl.Resources>
         <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
             <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                 <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
             <ControlTemplate.Triggers>
-               
+
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" TargetName="border" Value="DarkBlue"/>
                 </Trigger>
-             
+
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
@@ -42,58 +41,56 @@
         </Style>
     </UserControl.Resources>
     <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-        </Grid.RowDefinitions>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
 
-        <Label VerticalContentAlignment="Center"
-                Grid.Column="0" 
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Title}"
+                Grid.Column="0" 
+               Content="Titel"
                />
-        <Label VerticalContentAlignment="Center"
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                 Grid.Column="1"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Author}"
+               Content="Autor"
                />
-        <Label VerticalContentAlignment="Center"
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                 Grid.Column="2"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Verlag}"
+               Content="Verlag"
                />
-        <Label VerticalContentAlignment="Center"
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="3"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Rabatt}"
+               Content="Rabattgruppe"
                />
-        <Label VerticalContentAlignment="Center"
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="4"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Kategorie}"
+               Content="Kategorie"
                />
-        <Label VerticalContentAlignment="Center"
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="5"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Preis}"
+               Content="Preis"
                />
-        <Button 
-            Width="25"
-            Height="25"
-            Grid.Column="6" 
-            ToolTip="Zu Bestellungen hinzufügen" 
-            Style="{DynamicResource BestellButton}"
-            Template="{DynamicResource AddBestellungRoundButton}"
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+               Grid.Column="6"
+               Style="{DynamicResource StandartFont}"
+               Content="Bestellen"
+               />
             
-            Command="{Binding ElementName=Ausstellungsitem,Path=BuchbestellungHinzufügen}">
-            +</Button>
+        </Grid>
     </Grid>
 </UserControl>

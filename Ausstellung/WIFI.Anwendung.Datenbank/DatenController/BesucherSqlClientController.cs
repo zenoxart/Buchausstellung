@@ -17,37 +17,42 @@ namespace WIFI.Anwendung.DatenController
         public DTO.Besucher ErstelleBesucher(DTO.Besucher neuerBesucher)
         {
 
-            int BekommeBesucherId(MySqlConnector.MySqlConnection connection)
+            int BekommeBesucherId(DTO.Besucher NB)
             {
 
-                int userId = 0;
-
-                // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
-                using (var Befehl = new MySqlConnector.MySqlCommand("BekommeBesucherId", connection))
+                int userIdIntern = 0;
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
-                    Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-
-                    Befehl.Parameters.AddWithValue("Name", neuerBesucher.Name);
-
-
-                    Befehl.Prepare();
-
-                    using (var DatenLeser = Befehl.ExecuteReader())
+                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    using (var Befehl = new MySqlConnector.MySqlCommand("BekommeBesucherId", Verbindung))
                     {
-                        while (DatenLeser.Read())
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Verbindung.Open();
+
+                        Befehl.Parameters.AddWithValue("Name", NB.Name);
+                        Befehl.Parameters.AddWithValue("Anschrift", NB.Anschrift);
+                        Befehl.Parameters.AddWithValue("Telefon", NB.Telefon);
+
+                        Befehl.Prepare();
+
+                        using (var DatenLeser = Befehl.ExecuteReader())
                         {
-                            userId = Convert.ToInt32(DatenLeser["id"]);
+                            while (DatenLeser.Read())
+                            {
+                                userIdIntern = Convert.ToInt32(DatenLeser["id"]);
 
+                            }
                         }
+
+
+
                     }
-
-
-
                 }
-
-                return userId;
+                return userIdIntern;
             }
+
 
             // Zuerst Abfragen, gibt es schon einen BekommeBesucherId
 
@@ -55,18 +60,22 @@ namespace WIFI.Anwendung.DatenController
             // Erstelle eine Datenbankverbindung
 
 
-            using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
-            {
-                Verbindung.Open();
-                int userId = BekommeBesucherId(Verbindung);
 
-                if (userId == 0)
+            int userId = BekommeBesucherId(neuerBesucher);
+
+
+
+            if (userId == 0)
+            {
+
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
                     // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
                     using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleBesucher", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
+                        Verbindung.Open();
 
                         Befehl.Parameters.AddWithValue("Name", neuerBesucher.Name);
                         Befehl.Parameters.AddWithValue("Anschrift", neuerBesucher.Anschrift);
@@ -79,30 +88,27 @@ namespace WIFI.Anwendung.DatenController
 
                     }
 
-
-                    userId = BekommeBesucherId(Verbindung);
-
-
-
+                    Verbindung.Close();
 
 
 
 
                 }
-                else
-                {
 
-                }
+                userId = BekommeBesucherId(neuerBesucher);
 
-                Verbindung.Close();
 
-                neuerBesucher.Id = userId;
 
             }
+
+
+            neuerBesucher.Id = userId;
+
+
 
             // Falls Nein Erstellung und dann die Id dazu bekommen
             return neuerBesucher;
 
         }
-    }
+}
 }
