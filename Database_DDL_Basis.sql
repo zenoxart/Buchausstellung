@@ -131,12 +131,15 @@ CREATE TABLE bestellung_hat_buch( id INT PRIMARY KEY NOT NULL auto_increment,
 #################################################
 USE mysql;
 
+DROP USER 'clientbenutzer'@'%';
+
 # Erstellen eines Datenbank-Benutzers
 CREATE USER 'clientbenutzer'@'%' IDENTIFIED BY 'cl1.entp4ssW0rt';
 
 
 # Vergeben der Berechtigung Daten zu lesen, updaten oder einzufügen auf die Buchausstellung-DB
 GRANT SELECT,UPDATE,INSERT ON buchausstellung . * TO 'clientbenutzer'@'%';
+
 
 #################################################
 #				Datenbankprozeduren
@@ -152,6 +155,11 @@ BEGIN
 	INSERT INTO veranstaltung (stadium) VALUES('Vorbereitung');
 END$$
 DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleVeranstaltung TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
 
 # Starte Veranstaltung
 DELIMITER $$ 
@@ -170,6 +178,10 @@ BEGIN
 END$$
 DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.StarteVeranstaltung TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
 # Updaten der Veranstaltung
 DELIMITER $$ 
 CREATE PROCEDURE UpdateVeranstaltung(
@@ -180,6 +192,10 @@ BEGIN
 		SET stadium = Stadium;
 END$$
 DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.UpdateVeranstaltung TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 # Bereinigen aller Tabellen und beenden der Veranstaltung
 DELIMITER $$ 
@@ -194,6 +210,10 @@ BEGIN
 END$$
 DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.BeendeVeranstaltung TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
 # Rückgabe des Veranstaltuns-Stadiums
 DELIMITER $$ 
 CREATE PROCEDURE VeranstaltungsStadium()
@@ -201,6 +221,10 @@ BEGIN
 	SELECT stadium FROM veranstaltung;
 END$$
 DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.VeranstaltungsStadium TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 
 ###	Testdatensatz
@@ -216,6 +240,10 @@ BEGIN
 END$$
 DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBücher TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
 # Erstellt einen Besucher und eine zugehörige ID
 DELIMITER $$
 CREATE PROCEDURE ErstelleBesucher(
@@ -228,16 +256,27 @@ BEGIN
 END$$
 DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleBesucher TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+######################################## UPDATEN
 # Ruft vom Namen des Besuchers die automatisch generierte ID ab
 DELIMITER $$
 CREATE PROCEDURE BekommeBesucherId(
-	Name VARCHAR(150)
+	Name VARCHAR(150),
+	Anschrift VARCHAR(150),
+	Telefon VARCHAR(80)
+	
 )
 BEGIN
-	SELECT id FROM besucher WHERE name LIKE Name LIMIT 1;
+	SELECT id FROM besucher WHERE name LIKE Name AND adresse LIKE Anschrift AND telefon LIKE Telefon LIMIT 1;
 END$$
 DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.BekommeBesucherId TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 # Erstellt eine Bestellung für den Benutzer 
 DELIMITER $$
@@ -247,6 +286,9 @@ BEGIN
 END$$
 DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleEinzelBestellung TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 # Gibt die ID einer Bestellung zurück
 DELIMITER $$
@@ -258,7 +300,9 @@ BEGIN
 END$$
 DELIMITER ;
 
-
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.BekommeBestellungsId TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 # Fügt ein Buch auf die Aktuelle Bestellung mit der übergebenen Anzahl hinzu
 DELIMITER $$
@@ -271,6 +315,10 @@ BEGIN
 	INSERT INTO bestellung_hat_buch (buch_id, anzahl, bestellung_id) VALUES (buchID,Anzahl,bestellungID);
 END$$
 DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.BuchbestellungHinzufügen TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 # Gibt alle Bestellungen und dessen Besucher zurück
 DELIMITER $$
@@ -287,6 +335,10 @@ BEGIN
 		JOIN besucher ON besucher.id = bestellung.besucher_id;
 END$$
 DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBestellungsInfo TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 DELIMITER $$
 CREATE PROCEDURE HoleBücherZuBestellungsInfo(
@@ -308,6 +360,10 @@ BEGIN
 			WHERE bestellung_id = bestellungsid;
 END$$
 DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBücherZuBestellungsInfo TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 
 

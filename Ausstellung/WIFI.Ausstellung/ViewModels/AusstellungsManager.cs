@@ -196,31 +196,32 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bestellungen _BestellungenListe = null;
+        private WIFI.Anwendung.DTO.Bestellungen _BestellungenListe = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Bestellungen ab oder legt diese fest
         /// </summary>
-        public static WIFI.Anwendung.DTO.Bestellungen BestellungenListe
+        public WIFI.Anwendung.DTO.Bestellungen BestellungenListe
         {
             get
             {
 
-                if (AusstellungsManager._BestellungenListe == null)
+                if (this._BestellungenListe == null)
                 {
-                    
-                    AusstellungsManager._BestellungenListe = new WIFI.Anwendung.DTO.Bestellungen();
 
-                        
+                    this._BestellungenListe = new WIFI.Anwendung.DTO.Bestellungen();
+
+
                     // Aus der Datenbank laden
+                    InitialisiereBestellungenListe();
                 }
-                return AusstellungsManager._BestellungenListe;
+                return this._BestellungenListe;
             }
             set
             {
-                if (AusstellungsManager._BestellungenListe != value)
+                if (this._BestellungenListe != value)
                 {
-                    AusstellungsManager._BestellungenListe = value;
+                    this._BestellungenListe = value;
 
                     OnStaticPropertyChanged("BestellungenListe");
                 }
@@ -229,7 +230,7 @@ namespace WIFI.Ausstellung.ViewModels
 
         private void InitialisiereBestellungenListe()
         {
-            AusstellungsManager.BestellungenListe =
+            this.BestellungenListe =
                 this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
         }
 
