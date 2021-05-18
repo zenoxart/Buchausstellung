@@ -19,7 +19,7 @@ namespace WIFI.Anwendung.DatenController
             int BestellNr = -1;
             using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
             {
-                using(var Befehl = new MySqlConnector.MySqlCommand("ErstelleEinzelBestellung", Verbindung))
+                using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleEinzelBestellung", Verbindung))
                 {
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -65,7 +65,7 @@ namespace WIFI.Anwendung.DatenController
         /// <summary>
         /// Fügt 1 Buch der Bestellung hinzu
         /// </summary>
-        public void BuchbestellungHinzufügen(DTO.Buch buch, int bestellNr ,int anzahl)
+        public void BuchbestellungHinzufügen(DTO.Buch buch, int bestellNr, int anzahl)
         {
             using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
             {
@@ -84,7 +84,7 @@ namespace WIFI.Anwendung.DatenController
 
                     Befehl.ExecuteScalar();
 
-                    Verbindung.Clone();
+                    Verbindung.Close();
                 }
             }
         }
@@ -98,6 +98,92 @@ namespace WIFI.Anwendung.DatenController
             {
                 BuchbestellungHinzufügen(buch.Key, bestellung.BestellNr, buch.Value);
             }
+        }
+
+        /// <summary>
+        /// Ruft alle Bestellungen ab 
+        /// </summary>
+        public DTO.Bestellungen HoleBestellungen()
+        {
+            var bestellungen = new DTO.Bestellungen();
+
+            using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+            {
+                using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellungsInfo", Verbindung))
+                {
+
+                    Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                    Verbindung.Open();
+
+                    Befehl.Prepare();
+
+                    using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (DatenLeser.Read())
+                        {
+                            bestellungen.Add(
+                                new DTO.Bestellung
+                                {
+                                    BestellNr = Convert.ToInt32(DatenLeser["ID"]),
+                                    ZugehörigerBesucher = new DTO.Besucher
+                                    {
+                                        Id = Convert.ToInt32(DatenLeser["Besucherid"]),
+                                        Name = DatenLeser["Besuchername"].ToString(),
+                                        Anschrift = DatenLeser["Besucheranschrift"].ToString(),
+                                        Telefon = DatenLeser["Besuchertelefon"].ToString()
+                                    },
+                                    Buchliste = new Dictionary<DTO.Buch, int>() { }
+                                }
+
+                                );
+
+
+                            using (var ZweiterBefehl = new MySqlConnector.MySqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
+                            {
+                                Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                                Befehl.Parameters.AddWithValue("bestellungsid", DatenLeser["ID"]);
+                                Befehl.Prepare();
+
+                                using (var ZweiterDatenLeser = Befehl.ExecuteReader())
+                                {
+                                    while (ZweiterDatenLeser.Read())
+                                    {
+                                        foreach (var item in bestellungen)
+                                        {
+                                            if (item.BestellNr == Convert.ToInt32(DatenLeser["ID"]))
+                                            {
+                                                item.Buchliste.Add(
+                                                    new DTO.Buch
+                                                    {
+                                                        AutorName = DatenLeser["Author"].ToString(),
+                                                        ID = Convert.ToInt32(DatenLeser["BuchId"]),
+                                                        Kategoriegruppe = Convert.ToInt32(DatenLeser["Kategorie"]),
+                                                        Preis = Convert.ToDouble(DatenLeser["Preis"]),
+                                                        Titel = DatenLeser["BuchTitle"].ToString(),
+                                                        VerlagName = DatenLeser["Verlag"].ToString(),
+                                                        Rabattgruppe = Convert.ToInt32(DatenLeser["Rabatt"]),
+                                                        Anzahl = Convert.ToInt32(DatenLeser["Buchanzahl"])
+                                                    }, Convert.ToInt32(DatenLeser["Buchanzahl"])
+
+                                                    );
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+            return bestellungen;
+
         }
     }
 }

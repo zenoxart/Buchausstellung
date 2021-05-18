@@ -32,3 +32,4 @@ C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache

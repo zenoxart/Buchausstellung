@@ -161,6 +161,29 @@ namespace WIFI.Ausstellung.UserControls
         #endregion
 
 
+        #region Anzahl-Property
+        /// <summary>
+        /// Erstellt ein DependencyProperty
+        /// </summary>
+        public static readonly DependencyProperty AnzahlProperty =
+        DependencyProperty.Register("Anzahl", typeof(int), typeof(Bestellungslistitem));
+
+        /// <summary>
+        /// Erstellt eine Benutzbare Schnittstelle zu dem Property
+        /// </summary>
+        public int Anzahl
+        {
+            get { return (int)GetValue(AnzahlProperty); }
+            set { SetValue(AnzahlProperty, value); }
+        }
+
+
+
+
+
+        #endregion
+
+
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>

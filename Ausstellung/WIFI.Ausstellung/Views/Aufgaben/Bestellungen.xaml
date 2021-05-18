@@ -30,5 +30,26 @@
             Style="{DynamicResource HellDunkelSplitter}"
             >
         </GridSplitter>
+
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+                <ItemsControl
+                    
+                    HorizontalAlignment="Center"
+                    Background="Transparent" 
+                    HorizontalContentAlignment="Center"
+                    ItemsSource="{Binding Path=Ausstellung.BestellungenListe}" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate >
+                            <uc:Bestellungenlistitem
+                                 BestellNr="{Binding BestellNr}"
+                                 Besucher="{Binding ZugehörigerBesucher}"
+                                />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    
+                </ItemsControl>
+            </ScrollViewer.Content>
+        </ScrollViewer>
     </Grid>
 </UserControl>

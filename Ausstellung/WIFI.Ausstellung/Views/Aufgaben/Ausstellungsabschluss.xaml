@@ -7,6 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label>Ausstellungsabschluss</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Style="{DynamicResource TitleStyle}">Ausstellungsabschluss</Label>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <CheckBox Template="{DynamicResource CheckBoxTemplate}"/>
+            <Label Style="{DynamicResource DunkelHellSchrift}" FontSize="18" FontWeight="Bold" Content="Gesammtbestellliste als PDF speichern"/>
+        </StackPanel>
+
+        <Button 
+            Grid.Row="4" 
+            Template="{DynamicResource RoundOrangeButton}" 
+            Width="400" 
+            Background="Orange"
+            FontSize="18"
+            FontWeight="Bold"
+            
+            >Beenden der Ausstellung</Button>   
     </Grid>
 </UserControl>

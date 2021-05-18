@@ -272,6 +272,42 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Gibt alle Bestellungen und dessen Besucher zurück
+DELIMITER $$
+CREATE PROCEDURE HoleBestellungsInfo()
+BEGIN
+	SELECT 	bestellung.id AS "ID",
+			besucher.id AS "Besucherid" , 
+			besucher.name AS "Besuchername",
+			besucher.anschrift AS "Besucheranschrift",
+			besucher.telefon AS "Besuchertelefon"
+			
+			
+	FROM bestellung 
+		JOIN besucher ON besucher.id = bestellung.besucher_id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE HoleBücherZuBestellungsInfo(
+bestellungsid INT
+)
+BEGIN
+	SELECT
+	bb.buch_id AS "BuchId",
+	bb.anzahl AS "Buchanzahl",
+	b.title AS "BuchTitle",
+	b.author AS "Author",
+	b.preis AS "Preis",
+	b.rabgr AS "Rabatt",
+	b.katgr AS "Kategorie",
+	v.name AS "Verlag"
+	FROM bestellung_hat_buch bb 
+		JOIN buch b ON bb.buch_id = b.id 
+		JOIN verlag v ON v.id = b.verlag_id
+			WHERE bestellung_id = bestellungsid;
+END$$
+DELIMITER ;
 
 
 

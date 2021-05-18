@@ -116,3 +116,5 @@ C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.ex
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.g.cs
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenlistitem.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenlistitem.baml

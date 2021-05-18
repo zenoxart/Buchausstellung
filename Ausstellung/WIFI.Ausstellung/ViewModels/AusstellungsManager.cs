@@ -208,7 +208,11 @@ namespace WIFI.Ausstellung.ViewModels
 
                 if (AusstellungsManager._BestellungenListe == null)
                 {
+                    
                     AusstellungsManager._BestellungenListe = new WIFI.Anwendung.DTO.Bestellungen();
+
+                        
+                    // Aus der Datenbank laden
                 }
                 return AusstellungsManager._BestellungenListe;
             }
@@ -223,6 +227,11 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
+        private void InitialisiereBestellungenListe()
+        {
+            AusstellungsManager.BestellungenListe =
+                this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
+        }
 
 
         /// <summary>
@@ -296,8 +305,10 @@ namespace WIFI.Ausstellung.ViewModels
                                     this.AppKontext.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(
                                         AusstellungsManager.AktuelleBestellung);
 
+                                    // 20210514 -> Kasper, bei den Bestellungen wird beim Aufruf die Liste von der Datenbank abgefragt,
+                                    // desshalb muss hier nichtmehr die Bestellung der BestellungenListe hinzugefügt werden
                                     // Aktuelle Bestellung zu der Bestellungsliste hinzufügen
-                                    AusstellungsManager.BestellungenListe.Add(AusstellungsManager.AktuelleBestellung);
+                                    //AusstellungsManager.BestellungenListe.Add(AusstellungsManager.AktuelleBestellung);
 
 
                                     // Aktuelle Bestellung bereinigen
@@ -307,6 +318,8 @@ namespace WIFI.Ausstellung.ViewModels
                                     this.BesucherAnschrift = string.Empty;
                                     this.BesucherName = string.Empty;
                                     this.BesucherTelefon = string.Empty;
+
+                                    
 
                                 }
 
