@@ -3,10 +3,12 @@
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\App.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\MainWindow.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Ausstellungsfilter.xaml;;
+FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Ausstellungskopfzeile.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Ausstellungslistitem.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Bestellungenlistitem.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Bestellungsfilter.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Bestellungslistitem.xaml;;
+FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Buchlistitem.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\AufgabenView.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Aufgaben\Abholungsverwaltung.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Aufgaben\Ausstellung.xaml;;
@@ -19,5 +21,4 @@ FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Vi
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Aufgaben\Veranstaltungserstellung.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Bestellungsfentser.xaml;;
 FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Einstellungsfenster.xaml;;
-FC:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Buchlistitem.xaml;;
 
