@@ -6,62 +6,70 @@
              xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
              xmlns:uc="clr-namespace:WIFI.Ausstellung.UserControls"
              mc:Ignorable="d" 
+             Name="Buchitem"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="HinzufuegenButton">
+            <Setter Property="Background" Value="#1e90ff"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        
+        <!-- Placeholder für die Dateneingabe -->
+        <!--
+        <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="Indigo" />
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="Grid" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+        -->
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="0.*" MinHeight="45" MaxHeight="60" />
-            <RowDefinition Height="5"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <!-- Titel -->
-        <Label Style="{DynamicResource TitleStyle}">
+        <Label Style="{DynamicResource TitleStyle}"
+               Grid.Row="0">
             Bücherverwaltung</Label>
 
-        <!-- Filterbereich -->
-        <StackPanel Grid.Row="1" Style="{DynamicResource ForgroundPanel}">
-            <uc:Ausstellungsfilter/>
-
-        </StackPanel>
-        <GridSplitter 
-            Grid.Row="2" 
-            ShowsPreview="True" 
-            HorizontalAlignment="Stretch" 
-            Style="{DynamicResource HellDunkelSplitter}"
-            >
-        </GridSplitter>
-        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <ScrollViewer.Content>
-
-                <ItemsControl 
-                    HorizontalAlignment="Center"
-                    Background="Transparent" 
-                    HorizontalContentAlignment="Center"
-                    Style="{DynamicResource HellDunkelDesign}"
-                    ItemsSource="{Binding Ausstellung.Buchausstellungsliste}">
-
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
-                            <uc:Ausstellungslistitem
-                            Id="{Binding ID}"
-                            Title="{Binding Titel}"
-                            Author="{Binding AutorName}"
-                            Verlag="{Binding VerlagName}"
-                            Preis="{Binding Preis}"
-                            Kategorie="{Binding Kategoriegruppe}"
-                            Rabatt="{Binding Rabattgruppe}"
-                            DunkelModus="{Binding DunklesDesign}"
-
-                                
-                            />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-
-
-                </ItemsControl>
-            </ScrollViewer.Content>
+        <!-- Liste der Bücher -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         </ScrollViewer>
+        
+        <!-- Erfassen eines neuen Buches-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
 
+            <TextBox x:Name="Buchnummer"
+                     Grid.Column="0"
+                     ></TextBox>
+            <TextBox x:Name="Titel"
+                     Grid.Column="1"
+                     ></TextBox>
+        </Grid>
     </Grid>
 </UserControl>
