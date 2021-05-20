@@ -1,15 +1,17 @@
 Arbeitsverteilung
 
 Masken
-	Veranstaltungs-Erstellung	Peter
-	Bücherverwaltung		Peter
-	Ausstellung			Daniel
-	Ausstellungsabschluss		Daniel
+	Veranstaltungs-Erstellung	Peter		//Logic ist noch ausstehend
+	Bücherverwaltung		Peter		//Wird gerade designed, Datenbank und Logic fehlt, HellDunkelliste
+	Ausstellung			Daniel		//Filter, HellDunkelliste
+	Ausstellungsabschluss		Daniel		//PDF generieren
 
-	Warenkorb			Daniel
-	Offlineanzeige			Peter
-	Lieferverwaltung		Daniel
-	Abholverwaltung			Peter
+	Bestellung			Daniel		//Normalisieren, HellDunkelliste
+	Gesammtbestellungen				//Filter, HellDunkelliste
+	Bestellungsbearbeitungsfenster			//Alles
+	Offlineanzeige			Peter		//Alles
+	Lieferverwaltung		Daniel		//Alles
+	Abholverwaltung			Peter		//Alles
 
 Daten-Controller
 	Grundcontroller

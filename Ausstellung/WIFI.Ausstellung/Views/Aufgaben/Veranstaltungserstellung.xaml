@@ -13,12 +13,8 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="Titel" Height="100"/>
-            <RowDefinition x:Name="Ort" Height="70"/>
-            <RowDefinition x:Name="DatumVon" Height="70"/>
-            <RowDefinition x:Name="DatumBis"  Height="70"/>
-            <RowDefinition x:Name="Erstellen" Height="70"/>
-            <RowDefinition />
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Label
@@ -27,65 +23,101 @@
             >
             Veranstaltung erstellen
         </Label>
-        <Label
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+                <Label
+            Grid.Row="0"
+            Style="{DynamicResource HellDunkelDesign}"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+            >
+                    Ort der Veranstaltung:
+                </Label>
+                <Label
             Grid.Row="1"
-            Style="{DynamicResource LabelStandardDesign}"
+                    Style="{DynamicResource HellDunkelDesign}"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
             >
-            Ort der Veranstaltung:
-        </Label>
-        <Label
+                    Beginn der Veranstaltung:
+                </Label>
+                <Label
             Grid.Row="2"
-            Style="{DynamicResource LabelStandardDesign}"
+           Style="{DynamicResource HellDunkelDesign}"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
             >
-            Beginn der Veranstaltung:
-        </Label>
-        <Label
+                    Ende der Veranstaltung:
+                </Label>
+                <Button
             Grid.Row="3"
-            Style="{DynamicResource LabelStandardDesign}"
-            >
-            Ende der Veranstaltung:
-        </Label>
-        <Button
-            Grid.Row="4"
-            Margin="250,15,250,15"
+                Template="{DynamicResource RoundLimeButton}"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Width="200"
+                Height="35"
             FontFamily="Arial"
             FontSize="20"
             >
-            Erstellen
-        </Button>
-        <TextBox
+                    Erstellen
+                </Button>
+
+                <TextBox
+                Grid.Column="2"
             Name="Ortseingabe"
             VerticalAlignment="Center"
-            Grid.Row="1"
-            Margin="420,0,60,0"
+            Grid.Row="0"
             Height="36"
             FontFamily="Arial"
             Template="{DynamicResource RoundTextBox}"
             >
-        </TextBox>
-        <DatePicker
+                </TextBox>
+                <DatePicker
             Name="Beginndatum"
-            Grid.Row="2"
-            Margin="420,0,60,0"
+            Grid.Row="1"
+                Grid.Column="2"
             FontFamily="Arial"
-            FontSize="24"
-            Height="40"
+            FontSize="20"
+            Width="250"
+                    Height="40"
             Style="{DynamicResource DatePickerIconResizingStyle}"
+                    BorderThickness="0"
             >
 
-        </DatePicker>
+                </DatePicker>
 
-        <DatePicker
+                <DatePicker
             Name="Enddatum"
             VerticalAlignment="Center"
-            Grid.Row="3"
-            Margin="420,0,60,0"
+            Grid.Row="2"
+                Grid.Column="2"
             FontFamily="Arial"
-            FontSize="24"
+            FontSize="20"
             Height="40"
             Style="{DynamicResource DatePickerIconResizingStyle}"
+                    BorderThickness="0"
             >
-        </DatePicker>
+                </DatePicker>
 
+            </Grid>
+
+        </StackPanel>
+        
     </Grid>
 </UserControl>

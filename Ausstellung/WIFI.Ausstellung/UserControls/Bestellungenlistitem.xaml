@@ -52,7 +52,7 @@
                 Grid.Column="3" 
                 
                 FontFamily="Wingdings"
-                
+                ToolTip="Öffne Bestellung in externem Fenster"
                 Width="25"
                 Height="25"
                 

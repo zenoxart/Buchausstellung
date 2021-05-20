@@ -76,10 +76,7 @@
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-                    <CheckBox Template="{DynamicResource CheckBoxTemplate}"></CheckBox>
-                    <Label VerticalContentAlignment="Center" Style="{DynamicResource DunkelHellSchrift}" FontSize="15" FontWeight="Bold" >Bestellbestätigung</Label>
-                </StackPanel>
+                
 
                 <Grid Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" >
                     <Grid.ColumnDefinitions>

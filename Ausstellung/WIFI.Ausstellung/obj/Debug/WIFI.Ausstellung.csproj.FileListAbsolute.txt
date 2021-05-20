@@ -193,3 +193,14 @@ C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.g.cs
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungskopfzeile.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungskopfzeile.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenkopfzeile.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenkopfzeile.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\PdfSharp.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\HtmlRenderer.PdfSharp.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\PdfSharp.xml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\HtmlRenderer.PdfSharp.pdb
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\de\PdfSharp.resources.dll

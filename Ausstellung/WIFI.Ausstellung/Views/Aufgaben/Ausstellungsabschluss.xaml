@@ -10,18 +10,59 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Style="{DynamicResource TitleStyle}">Ausstellungsabschluss</Label>
 
-        <StackPanel Grid.Row="2"
-                    Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <CheckBox Template="{DynamicResource CheckBoxTemplate}"/>
-            <Label Style="{DynamicResource DunkelHellSchrift}" FontSize="18" FontWeight="Bold" Content="Gesammtbestellliste als PDF speichern"/>
-        </StackPanel>
+        <Border Grid.Row="2"
+                Height="200"
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center"
+                CornerRadius="15"
+                BorderThickness="2"
+                BorderBrush="Black"
+                Margin="20 0"
+                Padding="10"
+                >
+            <Grid 
+                    
+                    
+                    
+                    >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox Template="{DynamicResource CheckBoxTemplate}" IsChecked="{Binding Ausstellung.Gesamtbestellungendruck}"/>
+                    <Label Style="{DynamicResource DunkelHellSchrift}" FontSize="18" FontWeight="Bold" >Gesamtbestellliste als PDF speichern</Label>
+
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox Template="{DynamicResource CheckBoxTemplate}" IsChecked="{Binding Ausstellung.Bestellbestätigungendruck}"></CheckBox>
+                    <Label VerticalContentAlignment="Center" Style="{DynamicResource DunkelHellSchrift}" FontSize="18" FontWeight="Bold" >Bestellbestätigungen als PDF speichern</Label>
+
+                </StackPanel>
+
+            </Grid>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                            <Setter Property="Background" Value="#333337"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                            <Setter Property="Background" Value="#f4f4f4"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
 
         <Button 
             Grid.Row="4" 
@@ -30,7 +71,8 @@
             Background="Orange"
             FontSize="18"
             FontWeight="Bold"
+            Command="{Binding Ausstellung.AusstellungAbschließen}"
             
-            >Beenden der Ausstellung</Button>   
+            >Beenden der Ausstellung</Button>
     </Grid>
 </UserControl>

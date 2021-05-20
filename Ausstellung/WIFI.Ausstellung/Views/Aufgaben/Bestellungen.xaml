@@ -31,24 +31,31 @@
             >
         </GridSplitter>
 
-        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
             <ScrollViewer.Content>
-                <ItemsControl
+                <StackPanel Orientation="Vertical">
+                    <uc:Bestellungenkopfzeile   
+                        HorizontalAlignment="Center" 
+                        HorizontalContentAlignment="Center"
+                        Background="#1e90ff"/>
+
+                    <ItemsControl
                     
-                    HorizontalAlignment="Center"
-                    Background="Transparent" 
-                    HorizontalContentAlignment="Center"
-                    ItemsSource="{Binding Ausstellung.BestellungenListe}" >
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate >
-                            <uc:Bestellungenlistitem
+                        HorizontalAlignment="Center"
+                        Background="Transparent" 
+                        HorizontalContentAlignment="Center"
+                        ItemsSource="{Binding Ausstellung.BestellungenListe}" >
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate >
+                                <uc:Bestellungenlistitem
                                  BestellNr="{Binding BestellNr}"
                                  Besucher="{Binding ZugehörigerBesucher}"
                                 />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    
-                </ItemsControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </StackPanel>
             </ScrollViewer.Content>
         </ScrollViewer>
     </Grid>

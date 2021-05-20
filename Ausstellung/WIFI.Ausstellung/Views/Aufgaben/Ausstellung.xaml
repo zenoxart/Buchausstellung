@@ -17,11 +17,11 @@
         <!-- Titel -->
         <Label Style="{DynamicResource TitleStyle}">
             Ausstellung</Label>
-        
+
         <!-- Filterbereich -->
         <StackPanel Grid.Row="1" Style="{DynamicResource ForgroundPanel}">
-                <uc:Ausstellungsfilter />
-           
+            <uc:Ausstellungsfilter />
+
         </StackPanel>
         <GridSplitter 
             Grid.Row="2" 
@@ -31,48 +31,48 @@
             >
         </GridSplitter>
 
-        <StackPanel Grid.Row="3" Orientation="Vertical">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
                 <ScrollViewer.Content>
-                    <uc:Ausstellungskopfzeile HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
-                </ScrollViewer.Content>
-            </ScrollViewer>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ScrollViewer.Content>
-                    
-                    <ItemsControl 
-                    HorizontalAlignment="Center"
-                    Background="Transparent" 
-                    HorizontalContentAlignment="Center"
-                    Style="{DynamicResource HellDunkelDesign}"
-                    ItemsSource="{Binding Ausstellung.Buchausstellungsliste}">
+                    <StackPanel Orientation="Vertical">
+
+                        <uc:Ausstellungskopfzeile 
+                            HorizontalAlignment="Center" 
+                            HorizontalContentAlignment="Center"
+                           Background="#1e90ff"/>
 
 
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
-                                <uc:Ausstellungslistitem
-                            Id="{Binding ID}"
-                            Title="{Binding Titel}"
-                            Author="{Binding AutorName}"
-                            Verlag="{Binding VerlagName}"
-                            Preis="{Binding Preis}"
-                            Kategorie="{Binding Kategoriegruppe}"
-                            Rabatt="{Binding Rabattgruppe}"
-                            DunkelModus="{Binding DunklesDesign}"
+                        <ItemsControl 
+                            HorizontalAlignment="Center"
+                            Background="Transparent" 
+                            HorizontalContentAlignment="Center"
+                            Style="{DynamicResource HellDunkelDesign}"
+                            ItemsSource="{Binding Ausstellung.Buchausstellungsliste}">
 
-                                
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
+                                    <uc:Ausstellungslistitem
+                                        Id="{Binding ID}"
+                                        Title="{Binding Titel}"
+                                        Author="{Binding AutorName}"
+                                        Verlag="{Binding VerlagName}"
+                                        Preis="{Binding Preis}"
+                                        Kategorie="{Binding Kategoriegruppe}"
+                                        Rabatt="{Binding Rabattgruppe}"
+                                        DunkelModus="{Binding DunklesDesign}"
                             />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
 
 
-                    </ItemsControl>
+                        </ItemsControl>
+                    </StackPanel>
+
                 </ScrollViewer.Content>
             </ScrollViewer>
 
-        </StackPanel>
-        
-        
+
+
 
     </Grid>
 </UserControl>

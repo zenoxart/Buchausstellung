@@ -4,8 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.UserControls"
-             mc:Ignorable="d" >
+             mc:Ignorable="d"
+             Name="Ausstellungkopfzeile">
     <UserControl.Resources>
+
+        <Style TargetType="UserControl">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=Ausstellungkopfzeile,Path=DarkMode}" Value="True">
+                    <Setter Property="Background" Value="#333337"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=Ausstellungkopfzeile,Path=DarkMode}" Value="False">
+                    <Setter Property="Background" Value="#f4f4f4"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
             <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                 <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>

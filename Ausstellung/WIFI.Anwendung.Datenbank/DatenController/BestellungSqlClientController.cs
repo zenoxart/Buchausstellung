@@ -143,6 +143,7 @@ namespace WIFI.Anwendung.DatenController
                             
                         }
                     }
+                    Verbindung.Close();
 
                 }
 
@@ -183,8 +184,10 @@ namespace WIFI.Anwendung.DatenController
                             }
                         }
                     }
-
+                    Verbindung.Close();
                 }
+
+                
 
             }
 

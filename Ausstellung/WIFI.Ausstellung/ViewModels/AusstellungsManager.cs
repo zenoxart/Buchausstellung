@@ -318,7 +318,7 @@ namespace WIFI.Ausstellung.ViewModels
                                     this.BesucherName = string.Empty;
                                     this.BesucherTelefon = string.Empty;
 
-                                    
+
 
                                 }
 
@@ -375,6 +375,83 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._BesucherTelefon = value; this.OnPropertyChanged(); }
         }
 
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _Gesamtbestellungendruck = false;
+
+        /// <summary>
+        /// Ruft den Wert ob eine Gesamtbestellung gedruckt werden soll ab oder legt diese fest
+        /// </summary>
+        public bool Gesamtbestellungendruck
+        {
+            get { return this._Gesamtbestellungendruck; }
+            set
+            {
+                this._Gesamtbestellungendruck = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _Bestellbestätigungendruck = false;
+
+        /// <summary>
+        /// Ruft den Wert ob die Bestellbestätigungen gedruckt werden sollen ab oder legt diese fest
+        /// </summary>
+        public bool Bestellbestätigungendruck
+        {
+            get { return this._Bestellbestätigungendruck; }
+            set
+            {
+                this._Bestellbestätigungendruck = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _AusstellungAbschließen = null;
+
+        /// <summary>
+        /// Beendet die Ausstellungsphase und speichert die PDF's
+        /// </summary>
+        public WIFI.Anwendung.Befehl AusstellungAbschließen
+        {
+            get {
+
+                if (this._AusstellungAbschließen == null)
+                {
+                    // Den Befehl mit anoymen Methoden initialisieren
+
+                    this._AusstellungAbschließen = new WIFI.Anwendung.Befehl(
+
+                        // TODO: Abschluss der Bestellung umsetzen
+                        p =>
+                        {
+                            //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
+
+
+                            //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
+
+                            
+                            //am Client alle listen löschen
+
+                            
+                            //Stadium auf der Datenbank ändern
+                        }
+                    );
+
+                }
+
+
+                return this._AusstellungAbschließen; }
+            set { this._AusstellungAbschließen = value; }
+        }
 
 
 

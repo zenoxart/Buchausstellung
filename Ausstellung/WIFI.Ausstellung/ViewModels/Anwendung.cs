@@ -457,9 +457,9 @@ namespace WIFI.Ausstellung.ViewModels
                 {
                     this._Ausstellung = this.AppKontext.Produziere<ViewModels.AusstellungsManager>();
                 }
-                return _Ausstellung;
+                return this._Ausstellung;
             }
-            set { _Ausstellung = value; }
+            set { this._Ausstellung = value; }
         }
 
     }

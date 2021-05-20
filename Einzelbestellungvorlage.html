@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+.item1 { grid-area: left; width: 15.45cm ;max-height: 21cm !IMPORTANT;}
+.item2 { grid-area: right;width: 15.45cm ;max-height: 21cm !IMPORTANT; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    ' left left right right';
+  background-color: #2196F3;
+  
+	height: 21cm !IMPORTANT;
+	width: 29.7cm !IMPORTANT;
+	    max-width: 29.7cm !IMPORTANT;
+    max-height: 21cm !IMPORTANT;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 30px;
+  
+}
+
+.body{
+
+	height: 21cm !IMPORTANT;
+	width: 29.7cm !IMPORTANT;
+	    max-width: 29.7cm !IMPORTANT;
+    max-height: 21cm !IMPORTANT;
+	margin: 0px;
+}
+</style>
+</head>
+<body class='body'>
+	<div class='grid-container'>
+  <div class='item1' style='background: red'>
+	<div>
+		Hier ist text
+	</div>
+		und hier
+  </div>  
+  <div class='item2' style='background: blue'>
+  ... und hier auch</div>
+</div>
+</body>
+</html>
