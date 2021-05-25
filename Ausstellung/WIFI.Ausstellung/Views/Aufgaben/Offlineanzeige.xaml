@@ -9,6 +9,9 @@
     <Grid>
         <Label 
             VerticalAlignment="Center" 
-            HorizontalAlignment="Center">Keine Verbindung mit dem Internet oder der Datenbank</Label>
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Style="{DynamicResource DunkelHellSchrift}"
+            >Keine Verbindung mit dem Internet oder der Datenbank</Label>  
     </Grid>
 </UserControl>
