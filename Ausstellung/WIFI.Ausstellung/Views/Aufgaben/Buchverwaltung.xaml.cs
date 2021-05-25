@@ -112,20 +112,20 @@ namespace WIFI.Ausstellung.Views.Aufgaben
         }
         #endregion
 
-        #region Kategorie-Property
+        #region Buchgruppe-Property
         /// <summary>
         /// Erstellt ein DependencyProperty
         /// </summary>
-        public static readonly DependencyProperty KategorieProperty =
+        public static readonly DependencyProperty BuchgruppeProperty =
         DependencyProperty.Register("Kategorie", typeof(string), typeof(Buchverwaltung));
 
         /// <summary>
         /// Erstellt eine benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Kategorie
+        public string Buchgruppe
         {
-            get { return (string)GetValue(KategorieProperty); }
-            set { SetValue(KategorieProperty, value); }
+            get { return (string)GetValue(BuchgruppeProperty); }
+            set { SetValue(BuchgruppeProperty, value); }
         }
         #endregion
 
@@ -225,7 +225,7 @@ namespace WIFI.Ausstellung.Views.Aufgaben
 
                                     AutorName = Autor,
                                     ID = Convert.ToInt32(Id),
-                                    Kategoriegruppe = Convert.ToInt32(Kategorie),
+                                    Kategoriegruppe = Convert.ToInt32(Buchgruppe),
                                     Preis = Convert.ToDouble(Preis),
                                     Rabattgruppe = Convert.ToInt32(Rabatt),
                                     Titel = Titel,

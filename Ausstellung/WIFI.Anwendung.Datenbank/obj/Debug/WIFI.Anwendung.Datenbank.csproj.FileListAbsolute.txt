@@ -160,3 +160,13 @@ C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Date
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CopyComplete
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.dll
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.pdb
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\HtmlRenderer.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\HtmlRenderer.PdfSharp.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\PdfSharp.Charting.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\PdfSharp.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\HtmlRenderer.pdb
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\HtmlRenderer.PdfSharp.pdb
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\PdfSharp.xml
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\PdfSharp.Charting.xml
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\PdfSharp.Charting.resources.dll

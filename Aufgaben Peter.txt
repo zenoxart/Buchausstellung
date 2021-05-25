@@ -1,0 +1,8 @@
+Datenbank:
+bei Buchtabelle Buch auf 4 ändern und Rabattgruppe und Kategoriegruppe auf 2 ändern, Verlags-ID auf 3 ändern, Prozedur für Buch anpassen
+Prozedur HoleBestellungsInfo() überarbeiten (Namensaufteilung
+Prozedur HoleBücherZuBestellungsInfo() überarbeiten (englische Namen)
+
+WIFI.Anwendung.Datenbank:
+DTO für Besucher überarbeiten, DTO für Buch überarbeiten
+Controller für Besucher und Bücher überarbeiten

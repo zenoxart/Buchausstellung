@@ -8,29 +8,11 @@
              mc:Ignorable="d" 
              Name="Buchitem"
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <!-- Placeholder für die Dateneingabe -->
-        <!--
-        <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-        <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-        <SolidColorBrush x:Key="brushWatermarkBorder" Color="Indigo" />
-
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <local:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
-
-        <Style x:Key="EntryFieldStyle" TargetType="Grid" >
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="20,0" />
-        </Style>
-        -->
-    </UserControl.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <!-- Titel -->
@@ -43,47 +25,79 @@
         </ScrollViewer>
         
         <!-- Erfassen eines neuen Buches-->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="190"/>
-                <ColumnDefinition Width="190"/>
-                <ColumnDefinition Width="190"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-            </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="BuchnummerEingabe"
-                     Grid.Column="0"
+                    <TextBox x:Name="BuchnummerEingabe"
+                             Grid.Column="0"
+                             Tag="Nr."
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             MaxLength="5"
+                             Style="{DynamicResource WasserzeichenStyle}"
                      ></TextBox>
-            <TextBox x:Name="TitelEingabe"
-                     Grid.Column="1"
+                    <TextBox x:Name="TitelEingabe"
+                             Grid.Column="1"
+                             Tag="Buchtitel"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Style="{DynamicResource WasserzeichenStyle}"
                      ></TextBox>
-            <TextBox x:Name="AutorEingabe"
+                    <TextBox x:Name="AutorEingabe"
                      Grid.Column="2"
-                     ></TextBox>
-            <TextBox x:Name="VerlagEingabe"
+                     Tag="Autor"
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     Style="{DynamicResource WasserzeichenStyle}"
+                    ></TextBox>
+                    <TextBox x:Name="VerlagEingabe"
                      Grid.Column="3"
+                     Tag="Verlag"
+                     Style="{DynamicResource WasserzeichenStyle}"
                      ></TextBox>
-            <TextBox x:Name="PreisEingabe"
+                    <TextBox x:Name="BuchgruppeEingabe"
                      Grid.Column="4"
-                     ></TextBox>
-            <TextBox x:Name="RabattgruppeEingabe"
+                     Tag="Buchgr."
+                     Style="{DynamicResource WasserzeichenStyle}">
+                    </TextBox>
+                    <TextBox x:Name="PreisEingabe"
                      Grid.Column="5"
+                     Tag="Preis"
+                     Style="{DynamicResource WasserzeichenStyle}"
+                     ></TextBox>
+                    <TextBox x:Name="RabattgruppeEingabe"
+                     Grid.Column="6"
+                     Tag="Rabattgr."
+                     Style="{DynamicResource WasserzeichenStyle}"
                      ></TextBox>
 
-            <Button 
-            Width="25"
-            Height="25"
-            Grid.Column="6" 
-            ToolTip="Zu Bestellungen hinzufügen" 
-            Style="{DynamicResource BestellButton}"
-            Template="{DynamicResource AddBestellungRoundButton}"
-            
-            Command="{Binding ElementName=Buchitem,Path=BuchHinzufügen}">
-                +</Button>
 
-        </Grid>
+
+                    <Button Width="25"
+                            Height="25"
+                            Grid.Column="7" 
+                            ToolTip="Zu Bestellungen hinzufügen" 
+                            Style="{DynamicResource BestellButton}"
+                            Template="{DynamicResource AddBestellungRoundButton}"
+            
+                            Command="{Binding ElementName=Buchitem,Path=BuchHinzufügen}"
+                            Content="+">
+                    </Button>
+
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </UserControl>
