@@ -164,8 +164,12 @@ namespace WIFI.Anwendung.DatenController
                                         ZugehörigerBesucher = new DTO.Besucher
                                         {
                                             Id = Convert.ToInt32(DatenLeser["Besucherid"]),
-                                            Name = DatenLeser["Besuchername"].ToString(),
-                                            Anschrift = DatenLeser["Besucheranschrift"].ToString(),
+                                            Vorname = DatenLeser["Vorname"].ToString(),
+                                            Nachname = DatenLeser["Nachname"].ToString(),
+                                            Straßenname = DatenLeser["Strasse"].ToString(),
+                                            Hausnummer = Convert.ToInt32( DatenLeser["Hausnummer"]),
+                                            Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
+                                            Ort = DatenLeser["Ort"].ToString(),
                                             Telefon = DatenLeser["Besuchertelefon"].ToString()
                                         },
                                         Buchliste = new Dictionary<DTO.Buch, int>() { }

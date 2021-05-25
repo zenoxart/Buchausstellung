@@ -291,5 +291,11 @@
   <ItemGroup>
     <Resource Include="Models\Aufgabenbereiche\Fehler.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Offlineanzeige.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Lupe.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

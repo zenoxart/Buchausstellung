@@ -353,9 +353,13 @@ CREATE PROCEDURE HoleBestellungsInfo()
 BEGIN
 	SELECT 	bestellung.id AS "ID",
 			besucher.id AS "Besucherid" , 
-			besucher.name AS "Besuchername",
-			besucher.anschrift AS "Besucheranschrift",
-			besucher.telefon AS "Besuchertelefon"
+			besucher.vorname AS "Vorname",
+			besucher.nachname AS "Nachname",
+			besucher.telefon AS "Telefon",
+			besucher.strasse AS "Strasse",
+			besucher.hausnummer AS "Hausnummer",
+			besucher.ort AS "Ort",
+			besucher.plz AS "PLZ"
 			
 			
 	FROM bestellung 

@@ -462,5 +462,27 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._Ausstellung = value; }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private ViewModels.VeranstaltungsManager _Veranstaltung;
+
+        /// <summary>
+        /// Ruft die Aktuelle Veranstaltung ab oder legt diese fest
+        /// </summary>
+        public ViewModels.VeranstaltungsManager Veranstaltung
+        {
+            get
+            {
+                if (this._Veranstaltung == null)
+                {
+                    this._Veranstaltung = this.AppKontext.Produziere<ViewModels.VeranstaltungsManager>();
+                }
+                return this._Veranstaltung;
+            }
+            set { this._Veranstaltung = value; }
+        }
+
+
     }
 }

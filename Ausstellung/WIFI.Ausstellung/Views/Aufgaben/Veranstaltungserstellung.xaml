@@ -41,7 +41,7 @@
                     FontSize="15"
                     FontWeight="Bold"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"
+                    HorizontalContentAlignment="Left"
                     >
                     Ort der Veranstaltung:
                 </Label>
@@ -51,7 +51,7 @@
                     FontSize="15"
                     FontWeight="Bold"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"
+                    HorizontalContentAlignment="Left"
                     >
                     Beginn der Veranstaltung:
                 </Label>
@@ -61,7 +61,7 @@
                     FontSize="15"
                     FontWeight="Bold"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"
+                    HorizontalContentAlignment="Left"
                     >
                     Ende der Veranstaltung:
                 </Label>
@@ -75,7 +75,7 @@
                     FontFamily="Arial"
                     FontSize="20"
                     
-                    Command="{Binding ErstelleVeranstaltung}"
+                    Command="{Binding Veranstaltung.ErstelleVeranstaltung}"
                     >
                     Erstellen
                 </Button>
@@ -88,6 +88,10 @@
                     Height="36"
                     FontFamily="Arial"
                     Template="{DynamicResource RoundTextBox}"
+                     Text="{Binding Veranstaltung.Ort }"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Left"
+                    FontSize="19"
                     >
                 </TextBox>
                 
@@ -101,6 +105,8 @@
                     Height="40"
                     Style="{DynamicResource DatePickerIconResizingStyle}"
                     BorderThickness="0"
+                    SelectedDate="{Binding Veranstaltung.VeranstaltungsBeginnDatum}"
+                    SelectedDateFormat="Short"
                     >
 
                 </DatePicker>
@@ -115,6 +121,8 @@
                     Height="40"
                     Style="{DynamicResource DatePickerIconResizingStyle}"
                     BorderThickness="0"
+                    SelectedDate="{Binding Veranstaltung.VeranstaltungsEndDatum}"
+                    SelectedDateFormat="Short"
                     >
                 </DatePicker>
 

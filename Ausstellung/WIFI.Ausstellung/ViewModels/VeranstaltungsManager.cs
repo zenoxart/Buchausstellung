@@ -36,6 +36,37 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
+        private string _Ort;
+
+        /// <summary>
+        /// Ruft den String zu der Ortsbezeichnung ab oder legt diesen fest
+        /// </summary>
+        public string Ort
+        {
+            get
+            {
+                if (this._Ort == null)
+                {
+                    this._Ort = string.Empty;
+                }
+                return this._Ort;
+            }
+            set
+            {
+
+                if (this._Ort != value)
+                {
+                    this._Ort = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
         private WIFI.Anwendung.Befehl _ErstelleVeranstaltung = null;
 
         /// <summary>
@@ -48,10 +79,96 @@ namespace WIFI.Ausstellung.ViewModels
             {
                 if (this._ErstelleVeranstaltung == null)
                 {
+                    this._ErstelleVeranstaltung = new WIFI.Anwendung.Befehl(
+                        p =>
+                        {
+                            if (this.VeranstaltungsEndDatum != DateTime.Today && this.Ort != string.Empty)
+                            {
+                                // Die Veranstaltung kann gestartet werden
+                                this.AppKontext.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
+                                    this.VeranstaltungsBeginnDatum,
+                                    this.VeranstaltungsEndDatum,
+                                    this.Ort
+                                    );
 
+                                this.AppKontext.Protokoll.Eintragen(
+                                    $"Die erstellte Veranstaltung wurde gestartet"
+                                    ,
+                                     WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                                    );
+
+                            }
+                        }
+                    );
                 }
 
                 return this._ErstelleVeranstaltung;
+            }
+
+            set
+            {
+                this._ErstelleVeranstaltung = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private DateTime _VeranstaltungsBeginnDatum;
+
+        /// <summary>
+        /// Ausgewähltes Beginndatum des Events
+        /// </summary>
+        public DateTime VeranstaltungsBeginnDatum
+        {
+            get
+            {
+
+                if (this._VeranstaltungsBeginnDatum == null)
+                {
+                    this._VeranstaltungsBeginnDatum = DateTime.Today;
+                }
+                return this._VeranstaltungsBeginnDatum;
+            }
+            set
+            {
+                if (this._VeranstaltungsBeginnDatum != value)
+                {
+
+                    this._VeranstaltungsBeginnDatum = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private DateTime _VeranstaltungsEndDatum;
+
+        /// <summary>
+        /// Ausgewähltes Enddatum des Events
+        /// </summary>
+        public DateTime VeranstaltungsEndDatum
+        {
+            get
+            {
+
+                if (this._VeranstaltungsEndDatum == null)
+                {
+                    this._VeranstaltungsEndDatum = DateTime.Today;
+                }
+                return this._VeranstaltungsEndDatum;
+            }
+            set
+            {
+                if (this._VeranstaltungsEndDatum != value)
+                {
+
+                    this._VeranstaltungsEndDatum = value;
+                    this.OnPropertyChanged();
+                }
             }
         }
     }

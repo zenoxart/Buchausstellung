@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/vorbereitung.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/bilder/lupe.png")]
 
 

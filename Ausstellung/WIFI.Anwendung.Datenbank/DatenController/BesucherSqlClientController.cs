@@ -33,8 +33,8 @@ namespace WIFI.Anwendung.DatenController
 
                             Verbindung.Open();
 
-                            Befehl.Parameters.AddWithValue("Name", NB.Name);
-                            Befehl.Parameters.AddWithValue("Anschrift", NB.Anschrift);
+                            Befehl.Parameters.AddWithValue("Name", NB.Vorname);
+                            Befehl.Parameters.AddWithValue("Anschrift", NB.Hausnummer);
                             Befehl.Parameters.AddWithValue("Telefon", NB.Telefon);
 
                             Befehl.Prepare();
@@ -93,8 +93,12 @@ namespace WIFI.Anwendung.DatenController
 
                             Verbindung.Open();
 
-                            Befehl.Parameters.AddWithValue("Name", neuerBesucher.Name);
-                            Befehl.Parameters.AddWithValue("Anschrift", neuerBesucher.Anschrift);
+                            Befehl.Parameters.AddWithValue("Vorname", neuerBesucher.Vorname);
+                            Befehl.Parameters.AddWithValue("Nachname", neuerBesucher.Nachname);
+                            Befehl.Parameters.AddWithValue("Strasse", neuerBesucher.Straßenname);
+                            Befehl.Parameters.AddWithValue("Hausnummer", neuerBesucher.Hausnummer);
+                            Befehl.Parameters.AddWithValue("PLZ", neuerBesucher.Postleitzahl);
+                            Befehl.Parameters.AddWithValue("Ort", neuerBesucher.Ort);
                             Befehl.Parameters.AddWithValue("Telefon", neuerBesucher.Telefon);
 
 

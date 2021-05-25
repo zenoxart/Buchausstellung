@@ -29,26 +29,27 @@ namespace WIFI.Anwendung.DTO
                 {
                     this._Id = value;
                     this.OnPropertyChanged();
-                } 
+                }
             }
         }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private string _Name = string.Empty;
+        private string _Vorname = string.Empty;
 
         /// <summary>
-        /// Ruft den Namen eines Besuchers ab oder legt diesen fest
+        /// Ruft den Vornamen eines Besuchers ab oder legt diesen fest
         /// </summary>
-        public string Name
+        public string Vorname
         {
-            get { return this._Name; }
-            set {
+            get { return this._Vorname; }
+            set
+            {
 
-                if (this._Name != value)
+                if (this._Vorname != value)
                 {
-                    this._Name = value;
+                    this._Vorname = value;
                     this.OnPropertyChanged();
                 }
             }
@@ -57,22 +58,113 @@ namespace WIFI.Anwendung.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private string _Anschrift = string.Empty;
+        private string _Nachname = string.Empty;
 
         /// <summary>
-        /// Ruft die Anschrift des Besuchers ab oder legt diese fest
+        /// Ruft den Nachnamen eines Besuchers ab oder legt diesen feset
         /// </summary>
-        public string Anschrift
+        public string Nachname
         {
-            get { return this._Anschrift; }
-            set {
-                if (this._Anschrift != value)
+            get { return this._Nachname; }
+            set
+            {
+                if (this._Nachname != value)
                 {
-                    this._Anschrift = value;
+
+                    this._Nachname = value;
                     this.OnPropertyChanged();
                 }
             }
         }
+
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private int _Hausnummer = 0;
+
+        /// <summary>
+        /// Ruft die Hausnummer des Besuchers ab oder legt diese fest
+        /// </summary>
+        public int Hausnummer
+        {
+            get { return this._Hausnummer; }
+            set
+            {
+                if (this._Hausnummer != value)
+                {
+                    this._Hausnummer = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _Straßenname;
+
+        /// <summary>
+        /// Ruft den Namen der Straße des Besuchers ab oder legt diese fest
+        /// </summary>
+        public string Straßenname
+        {
+            get { return this._Straßenname; }
+            set
+            {
+                if (this._Straßenname != value)
+                {
+                    this._Straßenname = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _Ort = string.Empty;
+
+        /// <summary>
+        /// Ruft den Ort des Besuchers ab oder legt diesen fest
+        /// </summary>
+        public string Ort
+        {
+            get { return this._Ort; }
+            set
+            {
+                if (this._Ort != value)
+                {
+
+                    this._Ort = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private int _Postleitzahl = 0;
+
+        /// <summary>
+        /// Ruft die Postleitzahl eines Besuchers ab oder legt diese fest
+        /// </summary>
+        public int Postleitzahl
+        {
+            get { return this._Postleitzahl; }
+            set
+            {
+                if (this._Postleitzahl != value)
+                {
+                    this._Postleitzahl = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Internes Feld für die Eigenschaft

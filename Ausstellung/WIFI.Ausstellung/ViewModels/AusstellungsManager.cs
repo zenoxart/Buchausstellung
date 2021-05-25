@@ -269,20 +269,25 @@ namespace WIFI.Ausstellung.ViewModels
                                 AusstellungsManager.AktuelleBestellung.Buchliste.Add(Buch, Buch.Anzahl);
                             }
 
-                            if (this.BesucherName != string.Empty
-
-                                && this.BesucherAnschrift != string.Empty
-
-                                && this.BesucherTelefon != string.Empty)
+                            if (this.BestellBesucher.Nachname != string.Empty
+                                && this.BestellBesucher.Vorname != string.Empty
+                                && BestellBesucher.Telefon != string.Empty
+                                && BestellBesucher.Postleitzahl != 0
+                                && BestellBesucher.Ort != string.Empty
+                                && BestellBesucher.Straßenname != string.Empty)
                             {
 
                                 // Erstellt einen Zugehörigen Besucher (TODO: Noch OHNE ID)
                                 AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
                                     new WIFI.Anwendung.DTO.Besucher
                                     {
-                                        Anschrift = this.BesucherAnschrift,
-                                        Name = this.BesucherName,
-                                        Telefon = this.BesucherTelefon
+                                        Hausnummer = this.BestellBesucher.Hausnummer,
+                                        Vorname = this.BestellBesucher.Vorname,
+                                        Nachname = this.BestellBesucher.Nachname,
+                                        Ort = this.BestellBesucher.Ort,
+                                        Postleitzahl = this.BestellBesucher.Postleitzahl,
+                                        Straßenname = this.BestellBesucher.Straßenname,
+                                        Telefon = this.BestellBesucher.Telefon
                                     };
 
                                 // Erstelle neuen Besucher oder lade dessen ID von der Datenbank
@@ -314,9 +319,9 @@ namespace WIFI.Ausstellung.ViewModels
                                     AusstellungsManager.AktuelleBestellung = null;
                                     AusstellungsManager.AktuelleBücherbestellung = null;
 
-                                    this.BesucherAnschrift = string.Empty;
-                                    this.BesucherName = string.Empty;
-                                    this.BesucherTelefon = string.Empty;
+                                    this.BestellBesucher = null;
+
+                                    this.BestellBesucher = new WIFI.Anwendung.DTO.Besucher();
 
 
 
@@ -333,47 +338,29 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._BestellungHinzufügen = value; }
         }
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private string _BesucherName = string.Empty;
 
-        /// <summary>
-        /// Ruft den Namen des Besucher ab oder legt diesen fest
-        /// </summary>
-        public string BesucherName
-        {
-            get { return this._BesucherName; }
-            set { this._BesucherName = value; this.OnPropertyChanged(); }
-        }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private string _BesucherAnschrift = string.Empty;
+        private WIFI.Anwendung.DTO.Besucher _BestellBesucher = null;
 
         /// <summary>
-        /// Ruft die Anschrift des Besuchers ab oder legt diese fest
+        /// Ruft den aktuell Bestellenden Besucher ab oder legt diesen fest
         /// </summary>
-        public string BesucherAnschrift
+        public WIFI.Anwendung.DTO.Besucher BestellBesucher
         {
-            get { return this._BesucherAnschrift; }
-            set { this._BesucherAnschrift = value; this.OnPropertyChanged(); }
+            get { return this._BestellBesucher; }
+            set
+            {
+                if (this._BestellBesucher != value)
+                {
+                    this._BestellBesucher = value;
+                    this.OnPropertyChanged();
+                }
+            }
         }
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private string _BesucherTelefon = string.Empty;
-
-        /// <summary>
-        /// Ruft die Telefonnummer des Besuchers ab oder legt diese fest
-        /// </summary>
-        public string BesucherTelefon
-        {
-            get { return this._BesucherTelefon; }
-            set { this._BesucherTelefon = value; this.OnPropertyChanged(); }
-        }
 
 
         /// <summary>
@@ -422,7 +409,8 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         public WIFI.Anwendung.Befehl AusstellungAbschließen
         {
-            get {
+            get
+            {
 
                 if (this._AusstellungAbschließen == null)
                 {
@@ -438,10 +426,10 @@ namespace WIFI.Ausstellung.ViewModels
 
                             //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
 
-                            
+
                             //am Client alle listen löschen
 
-                            
+
                             //Stadium auf der Datenbank ändern
                         }
                     );
@@ -449,7 +437,8 @@ namespace WIFI.Ausstellung.ViewModels
                 }
 
 
-                return this._AusstellungAbschließen; }
+                return this._AusstellungAbschließen;
+            }
             set { this._AusstellungAbschließen = value; }
         }
 

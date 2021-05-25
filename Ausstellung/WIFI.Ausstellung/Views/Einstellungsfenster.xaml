@@ -6,10 +6,107 @@
         xmlns:local="clr-namespace:WIFI.Ausstellung.Views"
         mc:Ignorable="d"
         Title="Einstellungen" 
+        MinHeight="450" 
+        MinWidth="800"
         Height="450" 
         Width="800"
         Style="{DynamicResource Windowbackground}" Icon="/WIFI.Ausstellung;component/Assets/Bilder/EinstellungHell.png">
     <Grid>
+        <!-- Aufgabenbereich-->
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <Label
+            Content="Einstellungen" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center"
+            FontSize="23" 
+            FontWeight="Bold"
+            Style="{DynamicResource DunkelHellSchrift}"/>
+
+      
+
+
+        <!-- Möglichkeit für Standard PDF-Speicherpfade -->
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+            <Label Content="Standardpfad der Gesamtbestellliste:" 
+                   Style="{DynamicResource DunkelHellSchrift}"
+                   FontSize="17"/>
+            <StackPanel  Orientation="Horizontal" >
+                
+                <TextBox Width="250" 
+                         Height="30" 
+                         Margin="5"  
+                         Style="{DynamicResource TextCenteredBox}" 
+                         Template="{DynamicResource RoundTextBox}"/>
+
+                <Button Width="30"
+                        Height="30"
+                        Style="{DynamicResource BestellButton}"
+                        Template="{DynamicResource RoundOrangeButton}"
+                        
+                        >
+                    <Image Source="/Assets/Bilder/Lupe.png" Width="20" Height="20"/>
+                </Button>
+            </StackPanel>
+
+            <Label Content="Standardpfad der Bestellbestätigungen:" 
+                   Style="{DynamicResource DunkelHellSchrift}"
+                   FontSize="17"/>
+            <StackPanel  Orientation="Horizontal" >
+
+                <TextBox Width="250" 
+                         Height="30" 
+                         Margin="5"  
+                         Style="{DynamicResource TextCenteredBox}" 
+                         Template="{DynamicResource RoundTextBox}"/>
+
+                <Button Width="30"
+                        Height="30"
+                        Style="{DynamicResource BestellButton}"
+                        Template="{DynamicResource RoundOrangeButton}"
+                        
+                        >
+                    <Image Source="/Assets/Bilder/Lupe.png" Width="20" Height="20"/>
+                </Button>
+            </StackPanel>
+
+            <Label Content="Standardpfad des Protokolls:" 
+                   Style="{DynamicResource DunkelHellSchrift}"
+                   FontSize="17"/>
+            <StackPanel  Orientation="Horizontal" >
+
+                <TextBox Width="250" 
+                         Height="30" 
+                         Margin="5"  
+                         Style="{DynamicResource TextCenteredBox}" 
+                         Template="{DynamicResource RoundTextBox}"/>
+
+                <Button Width="30"
+                        Height="30"
+                        Style="{DynamicResource BestellButton}"
+                        Template="{DynamicResource RoundOrangeButton}"
+                        
+                        >
+                    <Image Source="/Assets/Bilder/Lupe.png" Width="20" Height="20"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Möglichkeit für Standard Protokoll-Speicherpfade -->
         
+
     </Grid>
 </Window>

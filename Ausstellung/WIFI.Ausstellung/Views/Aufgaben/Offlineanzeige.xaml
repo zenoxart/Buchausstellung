@@ -7,11 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label 
+        <StackPanel VerticalAlignment="Center">
+            <Image Source="/Assets/Bilder/Offlineanzeige.png"
+                   Width="45"> </Image>
+            <Label 
             VerticalAlignment="Center" 
             HorizontalAlignment="Center"
             FontSize="20"
             Style="{DynamicResource DunkelHellSchrift}"
-            >Keine Verbindung mit dem Internet oder der Datenbank</Label>  
+            >Keine Verbindung mit dem Internet oder der Datenbank</Label>
+        </StackPanel>
+        
     </Grid>
 </UserControl>
