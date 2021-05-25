@@ -18,41 +18,58 @@ namespace WIFI.Anwendung.DatenController
         {
 
             DTO.Bücher NeueListe = new WIFI.Anwendung.DTO.Bücher();
-            // Erstelle eine Datenbankverbindung
-            using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+
+            try
             {
-                // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
-                using (var Befehl = new MySqlConnector.MySqlCommand("HoleBücher", Verbindung))
+                // Erstelle eine Datenbankverbindung
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
-                    Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
-
-                    Verbindung.Open();
-
-                    Befehl.Prepare();
-
-                    using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    using (var Befehl = new MySqlConnector.MySqlCommand("HoleBücher", Verbindung))
                     {
-                        while (DatenLeser.Read())
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+
+                        using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                         {
-                            NeueListe.Add(
-                                new DTO.Buch
-                                {
-                                    ID = Convert.ToInt32(DatenLeser["buchid"]),
-                                    AutorName = DatenLeser["author"].ToString(),
-                                    Titel = DatenLeser["title"].ToString(),
-                                    Preis = Convert.ToDouble(DatenLeser["preis"]),
-                                    Kategoriegruppe = Convert.ToInt32(DatenLeser["rabgr"]),
-                                    Rabattgruppe = Convert.ToInt32(DatenLeser["katgr"]),
-                                    VerlagName = DatenLeser["name"].ToString()
+                            while (DatenLeser.Read())
+                            {
+                                NeueListe.Add(
+                                    new DTO.Buch
+                                    {
+                                        ID = Convert.ToInt32(DatenLeser["buchid"]),
+                                        AutorName = DatenLeser["author"].ToString(),
+                                        Titel = DatenLeser["title"].ToString(),
+                                        Preis = Convert.ToDouble(DatenLeser["preis"]),
+                                        Kategoriegruppe = Convert.ToInt32(DatenLeser["rabgr"]),
+                                        Rabattgruppe = Convert.ToInt32(DatenLeser["katgr"]),
+                                        VerlagName = DatenLeser["name"].ToString()
 
-                                }) ;
+                                    });
 
+                            }
                         }
-                    }
 
-                    Verbindung.Close();
+                        Verbindung.Close();
+                    }
                 }
+
+
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = Daten.ProtokollEintragTyp.Normal
+                    });
             }
 
             return NeueListe;
@@ -61,6 +78,21 @@ namespace WIFI.Anwendung.DatenController
         public void BuchHinzufügen(DTO.Buch buch)
         {
 
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = Daten.ProtokollEintragTyp.Normal
+                    });
+            }
         }
     }
 }

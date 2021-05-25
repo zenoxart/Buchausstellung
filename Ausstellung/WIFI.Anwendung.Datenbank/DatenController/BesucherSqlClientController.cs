@@ -21,34 +21,49 @@ namespace WIFI.Anwendung.DatenController
             {
 
                 int userIdIntern = 0;
-                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                try
                 {
-
-                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
-                    using (var Befehl = new MySqlConnector.MySqlCommand("BekommeBesucherId", Verbindung))
+                    using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                     {
-                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-                        Verbindung.Open();
-
-                        Befehl.Parameters.AddWithValue("Name", NB.Name);
-                        Befehl.Parameters.AddWithValue("Anschrift", NB.Anschrift);
-                        Befehl.Parameters.AddWithValue("Telefon", NB.Telefon);
-
-                        Befehl.Prepare();
-
-                        using (var DatenLeser = Befehl.ExecuteReader())
+                        // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                        using (var Befehl = new MySqlConnector.MySqlCommand("BekommeBesucherId", Verbindung))
                         {
-                            while (DatenLeser.Read())
+                            Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                            Verbindung.Open();
+
+                            Befehl.Parameters.AddWithValue("Name", NB.Name);
+                            Befehl.Parameters.AddWithValue("Anschrift", NB.Anschrift);
+                            Befehl.Parameters.AddWithValue("Telefon", NB.Telefon);
+
+                            Befehl.Prepare();
+
+                            using (var DatenLeser = Befehl.ExecuteReader())
                             {
-                                userIdIntern = Convert.ToInt32(DatenLeser["id"]);
+                                while (DatenLeser.Read())
+                                {
+                                    userIdIntern = Convert.ToInt32(DatenLeser["id"]);
 
+                                }
                             }
+
+
+
                         }
-
-
-
                     }
+
+                }
+                catch (Exception e)
+                {
+                    this.AppKontext.Protokoll.Eintragen(
+                        new Daten.ProtokollEintrag
+                        {
+                            Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                                   $"{e.GetType().FullName} = {e.Message} \n " +
+                                   $"{e.StackTrace}",
+                            Typ = Daten.ProtokollEintragTyp.Normal
+                        });
                 }
                 return userIdIntern;
             }
@@ -67,32 +82,46 @@ namespace WIFI.Anwendung.DatenController
 
             if (userId == 0)
             {
-
-                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                try
                 {
-                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
-                    using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleBesucher", Verbindung))
+                    using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                     {
-                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+                        // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                        using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleBesucher", Verbindung))
+                        {
+                            Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-                        Verbindung.Open();
+                            Verbindung.Open();
 
-                        Befehl.Parameters.AddWithValue("Name", neuerBesucher.Name);
-                        Befehl.Parameters.AddWithValue("Anschrift", neuerBesucher.Anschrift);
-                        Befehl.Parameters.AddWithValue("Telefon", neuerBesucher.Telefon);
+                            Befehl.Parameters.AddWithValue("Name", neuerBesucher.Name);
+                            Befehl.Parameters.AddWithValue("Anschrift", neuerBesucher.Anschrift);
+                            Befehl.Parameters.AddWithValue("Telefon", neuerBesucher.Telefon);
 
 
-                        Befehl.Prepare();
+                            Befehl.Prepare();
 
-                        Befehl.ExecuteScalar();
+                            Befehl.ExecuteScalar();
+
+                        }
+
+                        Verbindung.Close();
+
+
+
 
                     }
 
-                    Verbindung.Close();
-
-
-
-
+                }
+                catch (Exception e)
+                {
+                    this.AppKontext.Protokoll.Eintragen(
+                        new Daten.ProtokollEintrag
+                        {
+                            Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                                   $"{e.GetType().FullName} = {e.Message} \n " +
+                                   $"{e.StackTrace}",
+                            Typ = Daten.ProtokollEintragTyp.Normal
+                        });
                 }
 
                 userId = BekommeBesucherId(neuerBesucher);
@@ -110,5 +139,5 @@ namespace WIFI.Anwendung.DatenController
             return neuerBesucher;
 
         }
-}
+    }
 }
