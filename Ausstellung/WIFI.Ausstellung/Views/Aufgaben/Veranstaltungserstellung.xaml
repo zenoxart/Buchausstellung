@@ -36,88 +36,91 @@
                     <ColumnDefinition Width="250"/>
                 </Grid.ColumnDefinitions>
                 <Label
-            Grid.Row="0"
-            Style="{DynamicResource HellDunkelDesign}"
-                    FontSize="15"
-                    FontWeight="Bold"
-                    VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"
-            >
-                    Ort der Veranstaltung:
-                </Label>
-                <Label
-            Grid.Row="1"
+                    Grid.Row="0"
                     Style="{DynamicResource HellDunkelDesign}"
                     FontSize="15"
                     FontWeight="Bold"
                     VerticalContentAlignment="Center"
                     HorizontalContentAlignment="Center"
-            >
-                    Beginn der Veranstaltung:
+                    >
+                    Ort der Veranstaltung:
                 </Label>
                 <Label
-            Grid.Row="2"
-           Style="{DynamicResource HellDunkelDesign}"
+                    Grid.Row="1"
+                    Style="{DynamicResource HellDunkelDesign}"
                     FontSize="15"
                     FontWeight="Bold"
                     VerticalContentAlignment="Center"
                     HorizontalContentAlignment="Center"
-            >
+                    >
+                    Beginn der Veranstaltung:
+                </Label>
+                <Label
+                    Grid.Row="2"
+                    Style="{DynamicResource HellDunkelDesign}"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    >
                     Ende der Veranstaltung:
                 </Label>
                 <Button
-            Grid.Row="3"
-                Template="{DynamicResource RoundLimeButton}"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Width="200"
-                Height="35"
-            FontFamily="Arial"
-            FontSize="20"
-            >
+                    Grid.Row="3"
+                    Template="{DynamicResource RoundLimeButton}"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Width="200"
+                    Height="35"
+                    FontFamily="Arial"
+                    FontSize="20"
+                    
+                    Command="{Binding ErstelleVeranstaltung}"
+                    >
                     Erstellen
                 </Button>
 
                 <TextBox
-                Grid.Column="2"
-            Name="Ortseingabe"
-            VerticalAlignment="Center"
-            Grid.Row="0"
-            Height="36"
-            FontFamily="Arial"
-            Template="{DynamicResource RoundTextBox}"
-            >
+                    Grid.Column="2"
+                    Name="Ortseingabe"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Height="36"
+                    FontFamily="Arial"
+                    Template="{DynamicResource RoundTextBox}"
+                    >
                 </TextBox>
+                
                 <DatePicker
-            Name="Beginndatum"
-            Grid.Row="1"
-                Grid.Column="2"
-            FontFamily="Arial"
-            FontSize="20"
-            Width="250"
+                    Name="Beginndatum"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    FontFamily="Arial"
+                    FontSize="20"
+                    Width="250"
                     Height="40"
-            Style="{DynamicResource DatePickerIconResizingStyle}"
+                    Style="{DynamicResource DatePickerIconResizingStyle}"
                     BorderThickness="0"
-            >
+                    >
 
                 </DatePicker>
 
                 <DatePicker
-            Name="Enddatum"
-            VerticalAlignment="Center"
-            Grid.Row="2"
-                Grid.Column="2"
-            FontFamily="Arial"
-            FontSize="20"
-            Height="40"
-            Style="{DynamicResource DatePickerIconResizingStyle}"
+                    Name="Enddatum"
+                    VerticalAlignment="Center"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    FontFamily="Arial"
+                    FontSize="20"
+                    Height="40"
+                    Style="{DynamicResource DatePickerIconResizingStyle}"
                     BorderThickness="0"
-            >
+                    >
                 </DatePicker>
 
             </Grid>
 
         </StackPanel>
-        
+
     </Grid>
 </UserControl>

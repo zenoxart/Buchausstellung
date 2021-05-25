@@ -22,8 +22,9 @@
 # | Field     | Type         | Null | Key | Default | Extra          |
 # +-----------+--------------+------+-----+---------+----------------+
 # | id        | int(11)      | NO   | PRI | NULL    | auto_increment |
-# | title     | varchar(150) | NO   |     | NULL    |                |
-# | author    | varchar(150) | NO   |     | NULL    |                |
+# | buchnr    | varchar(3)   | NO   |     | NULL    |                |
+# | titel     | varchar(150) | NO   |     | NULL    |                |
+# | autor     | varchar(150) | NO   |     | NULL    |                |
 # | preis     | double       | NO   |     | NULL    |                |
 # | rabgr     | int(11)      | NO   |     | NULL    |                |
 # | katgr     | int(11)      | NO   |     | NULL    |                |
@@ -31,14 +32,27 @@
 # +-----------+--------------+------+-----+---------+----------------+
 
 # besucher
-# +-----------+--------------+------+-----+---------+----------------+
-# | Field     | Type         | Null | Key | Default | Extra          |
-# +-----------+--------------+------+-----+---------+----------------+
-# | id        | int(11)      | NO   | PRI | NULL    | auto_increment |
-# | name      | varchar(150) | NO   |     | NULL    |                |
-# | anschrift | varchar(150) | NO   |     | NULL    |                |
-# | telefon   | varchar(80)  | NO   |     | NULL    |                |
-# +-----------+--------------+------+-----+---------+----------------+
+# +------------+--------------+------+-----+---------+----------------+
+# | Field      | Type         | Null | Key | Default | Extra          |
+# +------------+--------------+------+-----+---------+----------------+
+# | id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+# | vorname    | varchar(150) | NO   |     | NULL    |                |
+# | nachname   | varchar(150) | NO   |     | NULL    |                |
+# | strasse    | varchar(150) | NO   |     | NULL    |                | 
+# | hausnummer | varchar(3)   | NO   |     | NULL    |                |
+# | plz        | varchar(5)   | NO   |     | NULL    |                |
+# | ort        | varchar(150) | NO   |     | NULL    |                |
+# +------------+--------------+------+-----+---------+----------------+
+
+#besucher_kommunikation
+# +--------------+-------------------+------+-----+---------+----------------+
+# | Field        | Type              | Null | Key | Default | Extra          |
+# +--------------+-----   -----------+------+-----+---------+----------------+
+# | id           | int(11)           | NO   | PRI | NULL    | auto_increment |
+# | besucher_id  | int(11)           | NO   | MUL | NULL    |                |
+# | typ          | enum('Telefon')   | NO   |     | NULL    |                | 
+# | wert         | varchar(150)      | NO   |     | NULL    |                |
+# +--------------+-------------------+------+-----+---------+----------------+
 
 # veranstaltung
 # +----------+-------------------------------------------------------------+------+-----+---------+-------+
@@ -51,8 +65,8 @@
 # +----------+-------------------------------------------------------------+------+-----+---------+-------+
 
 # bestellung_hat_buch
-# +---------+---------+------+-----+---------+----------------+
-# | Field   | Type    | Null | Key | Default | Extra          |
+# +----------------+---------+------+-----+---------+----------------+
+# | Field          | Type    | Null | Key | Default | Extra          |
 # +----------------+---------+------+-----+---------+----------------+
 # | id      	   | int(11) | NO   | PRI | NULL    | auto_increment |
 # | buch_id 	   | int(11) | NO   | MUL | NULL    |                |
@@ -86,8 +100,9 @@ CREATE TABLE verlag (id INT PRIMARY KEY NOT NULL auto_increment,
 					 
 # Erstellt eine Buch-Tabelle 
 CREATE TABLE buch 	( id INT PRIMARY KEY NOT NULL auto_increment, 
-					  title VARCHAR(150) NOT NULL, 
-					  author VARCHAR(150) NOT NULL,
+					  buchnr VARCHAR(3) NOT NULL,
+					  titel VARCHAR(150) NOT NULL, 
+					  autor VARCHAR(150) NOT NULL,
 					  preis DOUBLE NOT NULL,
 					  rabgr INT NOT NULL,
 					  katgr INT NOT NULL,
@@ -96,10 +111,19 @@ CREATE TABLE buch 	( id INT PRIMARY KEY NOT NULL auto_increment,
 					
 # Erstellt eine Besucher-Tabelle					
 CREATE TABLE besucher ( id INT PRIMARY KEY NOT NULL auto_increment,
-						name VARCHAR(150) NOT NULL,
-						anschrift VARCHAR(150) NOT NULL,
-						telefon VARCHAR(80) NOT NULL);
+						vorname VARCHAR(150) NOT NULL,
+						nachname VARCHAR(150) NOT NULL,
+						strasse VARCHAR(150) NOT NULL,
+						hausnummer VARCHAR(3) NOT NULL,
+						plz VARCHAR(5) NOT NULL,
+						ort VARCHAR(150) NOT NULL);
 						
+# Erstellt eine Kommunikations-Tabelle
+CREATE TABLE besucher_kommunikation ( id INT PRIMARY KEY NOT NULL auto_increment,
+									  besucher_id INT NOT NULL,
+									  FOREIGN KEY (besucher_id) REFERENCES besucher(id),
+									  typ ENUM('Telefon, Handy, Mail') NOT NULL,
+									  wert VARCHAR(150) NOT NULL);
 
 # Erstellt eine Veranstaltungs-Tabelle
 CREATE TABLE veranstaltung ( datumvon DATE NOT NULL,
@@ -122,7 +146,6 @@ CREATE TABLE bestellung_hat_buch( id INT PRIMARY KEY NOT NULL auto_increment,
 								  FOREIGN KEY(bestellung_id) REFERENCES bestellung(id)
 								  );
 								  
-
 						  
 						  
 #################################################
@@ -131,11 +154,10 @@ CREATE TABLE bestellung_hat_buch( id INT PRIMARY KEY NOT NULL auto_increment,
 #################################################
 USE mysql;
 
-DROP USER 'clientbenutzer'@'%';
+DROP USER IF EXISTS 'clientbenutzer'@'%';
 
 # Erstellen eines Datenbank-Benutzers
 CREATE USER 'clientbenutzer'@'%' IDENTIFIED BY 'cl1.entp4ssW0rt';
-
 
 # Vergeben der Berechtigung Daten zu lesen, updaten oder einzufügen auf die Buchausstellung-DB
 GRANT SELECT,UPDATE,INSERT ON buchausstellung . * TO 'clientbenutzer'@'%';
@@ -161,7 +183,7 @@ GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleVeranstaltung TO 'clientbenut
 USE buchausstellung;
 
 
-# Starte Veranstaltung
+# Starten der Veranstaltung
 DELIMITER $$ 
 CREATE PROCEDURE StarteVeranstaltung(
 	StartDatum VARCHAR(10),
@@ -214,7 +236,7 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.BeendeVeranstaltung TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
-# Rückgabe des Veranstaltuns-Stadiums
+# Rückgabe des Veranstaltungs-Stadiums
 DELIMITER $$ 
 CREATE PROCEDURE VeranstaltungsStadium()
 BEGIN 
@@ -227,13 +249,11 @@ GRANT EXECUTE ON PROCEDURE buchausstellung.VeranstaltungsStadium TO 'clientbenut
 USE buchausstellung;
 
 
-
-
 # Rückgabe aller Bücher
 DELIMITER $$
 CREATE PROCEDURE HoleBücher()
 BEGIN
-	SELECT b.id AS "buchid",title,author,preis,rabgr,katgr, name FROM buch b JOIN verlag v ON v.id = b.verlag_id;
+	SELECT b.id AS "buchid",buchnr,titel,autor,preis,rabgr,katgr, name FROM buch b JOIN verlag v ON v.id = b.verlag_id;
 END$$
 DELIMITER ;
 
@@ -244,12 +264,18 @@ USE buchausstellung;
 # Erstellt einen Besucher und eine zugehörige ID
 DELIMITER $$
 CREATE PROCEDURE ErstelleBesucher(
-	Name VARCHAR(150),
-	Anschrift VARCHAR(150),
+	Vorname VARCHAR(150),
+	Nachname VARCHAR(150),
+	Strasse VARCHAR(150),
+	Hausnummer VARCHAR(3),
+	PLZ VARCHAR(5),
+	Ort VARCHAR(150),
 	Telefon VARCHAR(80)
 )
 BEGIN
-	INSERT INTO besucher (name,anschrift,telefon) VALUES ( Name,Anschrift,Telefon);
+	INSERT INTO besucher (vorname,nachname,strasse,hausnummer,plz,ort) VALUES (Vorname,Nachname,Strasse,Hausnummer,PLZ,Ort);
+	SELECT MAX(id) AS NeueID FROM besucher;
+	INSERT INTO besucher_kommunikation(besucher_id,typ,wert) VALUES (NeueID,Typ,Telefon);
 END$$
 DELIMITER ;
 
@@ -257,17 +283,21 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleBesucher TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
-######################################## UPDATEN
+
 # Ruft vom Namen des Besuchers die automatisch generierte ID ab
 DELIMITER $$
 CREATE PROCEDURE BekommeBesucherId(
-	Name VARCHAR(150),
-	Anschrift VARCHAR(150),
-	Telefon VARCHAR(80)
-	
+	Vorname VARCHAR(150),
+	Nachname VARCHAR(150),
+	Strasse VARCHAR(150),
+	Hausnummer VARCHAR(3),
+	PLZ VARCHAR(5),
+	Ort VARCHAR(150),
+	Telefon VARCHAR(80)	
 )
 BEGIN
-	SELECT id FROM besucher WHERE name LIKE Name AND anschrift LIKE Anschrift AND telefon LIKE Telefon LIMIT 1;
+	SELECT besucher.id FROM besucher INNER JOIN besucher_kommunikation ON besucher.id = besucher_kommunikation.besucher_id
+	WHERE vorname LIKE Vorname OR nachname LIKE Nachname OR strasse LIKE Strasse OR hausnummer LIKE Hausnummer OR plz LIKE PLZ OR ort LIKE Ort OR wert LIKE Telefon LIMIT 1;
 END$$
 DELIMITER ;
 
@@ -301,7 +331,7 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.BekommeBestellungsId TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
-# Fügt ein Buch auf die Aktuelle Bestellung mit der übergebenen Anzahl hinzu
+# Fügt ein Buch auf die aktuelle Bestellung mit der übergebenen Anzahl hinzu
 DELIMITER $$
 CREATE PROCEDURE BuchbestellungHinzufügen(
 	buchID INT,
@@ -345,6 +375,7 @@ BEGIN
 	SELECT
 	bb.buch_id AS "BuchId",
 	bb.anzahl AS "Buchanzahl",
+	b.buchnr AS "BuchNr",
 	b.title AS "BuchTitle",
 	b.author AS "Author",
 	b.preis AS "Preis",
@@ -362,7 +393,25 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBücherZuBestellungsInfo TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
+# Erstellt ein neues Buch und eine zugehörige ID
+DELIMITER $$
+CREATE PROCEDURE ErstelleBuch(
+	Buchnummer VARCHAR(3),
+	Titel VARCHAR(150),
+	Autor VARCHAR(150),
+	Preis DOUBLE,
+	Rabattgruppe INT(11),
+	Kategorie INT(11),
+	Verlag INT(11)
+)
+BEGIN
+	INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES (Buchnummer,Titel,Autor,Preis,Rabattgruppe,Kategorie,Verlag);
+END$$
+DELIMITER ;
 
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleBuch TO 'clientbenutzer'@'%';
+USE buchausstellung;
 
 SHOW PROCEDURE STATUS;
 
@@ -371,7 +420,7 @@ SHOW PROCEDURE STATUS;
 INSERT INTO verlag (id,name) VALUES (1,"Thalia");
 INSERT INTO verlag (id,name) VALUES (2,"Amazon");
 INSERT INTO verlag (id,name) VALUES (3,"Abenteuer Medien Verlag");
-INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Harry Potter","J.K.Rowling",13.5,1,0,3);
-INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Peter Pan","James Matthew Barrie",12.5,1,0,1);
-INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Herr der Ringe","J. R. R. Tolkien",18.3,0,1,3);
-INSERT INTO buch (title,author,preis,rabgr,katgr,verlag_id) VALUES("Handbuch der Tonstudiotechnik","ARD.ZDF",30.87,1,1,2);
+INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("110","Harry Potter","J.K.Rowling",13.5,1,0,3);
+INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("210","Peter Pan","James Matthew Barrie",12.5,1,0,1);
+INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("111","Herr der Ringe","J. R. R. Tolkien",18.3,0,1,3);
+INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("310","Handbuch der Tonstudiotechnik","ARD.ZDF",30.87,1,1,2);

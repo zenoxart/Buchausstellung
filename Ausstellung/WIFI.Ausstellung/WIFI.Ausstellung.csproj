@@ -86,6 +86,7 @@
     <Compile Include="ViewModels\Anwendung.cs" />
     <Compile Include="ViewModels\AufgabenManager.cs" />
     <Compile Include="ViewModels\AusstellungsManager.cs" />
+    <Compile Include="ViewModels\VeranstaltungsManager.cs" />
     <Compile Include="Views\AufgabenView.xaml.cs">
       <DependentUpon>AufgabenView.xaml</DependentUpon>
     </Compile>

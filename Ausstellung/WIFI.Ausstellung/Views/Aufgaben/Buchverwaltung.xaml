@@ -9,16 +9,6 @@
              Name="Buchitem"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="Button" x:Key="HinzufuegenButton">
-            <Setter Property="Background" Value="#1e90ff"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="11"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
-        
         <!-- Placeholder für die Dateneingabe -->
         <!--
         <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
@@ -64,12 +54,36 @@
                 <ColumnDefinition Width="60"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="Buchnummer"
+            <TextBox x:Name="BuchnummerEingabe"
                      Grid.Column="0"
                      ></TextBox>
-            <TextBox x:Name="Titel"
+            <TextBox x:Name="TitelEingabe"
                      Grid.Column="1"
                      ></TextBox>
+            <TextBox x:Name="AutorEingabe"
+                     Grid.Column="2"
+                     ></TextBox>
+            <TextBox x:Name="VerlagEingabe"
+                     Grid.Column="3"
+                     ></TextBox>
+            <TextBox x:Name="PreisEingabe"
+                     Grid.Column="4"
+                     ></TextBox>
+            <TextBox x:Name="RabattgruppeEingabe"
+                     Grid.Column="5"
+                     ></TextBox>
+
+            <Button 
+            Width="25"
+            Height="25"
+            Grid.Column="6" 
+            ToolTip="Zu Bestellungen hinzufügen" 
+            Style="{DynamicResource BestellButton}"
+            Template="{DynamicResource AddBestellungRoundButton}"
+            
+            Command="{Binding ElementName=Buchitem,Path=BuchHinzufügen}">
+                +</Button>
+
         </Grid>
     </Grid>
 </UserControl>

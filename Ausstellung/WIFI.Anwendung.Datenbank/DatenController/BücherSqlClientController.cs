@@ -57,5 +57,10 @@ namespace WIFI.Anwendung.DatenController
 
             return NeueListe;
         }
+
+        public void BuchHinzufügen(DTO.Buch buch)
+        {
+
+        }
     }
 }

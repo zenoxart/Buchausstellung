@@ -25,9 +25,26 @@ namespace WIFI.Ausstellung.Views.Aufgaben
             InitializeComponent();
         }
 
-        #region Titel-Property
+        #region Buchnummer-Property
         // Schema F umd ein DependencyProperty zu übergeben
 
+        /// <summary>
+        /// Erstellt ein DependencyProperty
+        /// </summary>
+        public static readonly DependencyProperty BuchnummerProperty =
+        DependencyProperty.Register("Buchnummer", typeof(string), typeof(Buchverwaltung));
+
+        /// <summary>
+        /// Erstellt eine benutzbare Schnittstelle zu dem Property
+        /// </summary>
+        public string Buchnummer
+        {
+            get { return (string)GetValue(BuchnummerProperty); }
+            set { SetValue(BuchnummerProperty, value); }
+        }
+        #endregion
+
+        #region Titel-Property
         /// <summary>
         /// Erstellt ein DependencyProperty
         /// </summary>
@@ -37,7 +54,7 @@ namespace WIFI.Ausstellung.Views.Aufgaben
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Title
+        public string Titel
         {
             get { return (string)GetValue(TitelProperty); }
             set { SetValue(TitelProperty, value); }
@@ -54,7 +71,7 @@ namespace WIFI.Ausstellung.Views.Aufgaben
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Author
+        public string Autor
         {
             get { return (string)GetValue(AutorProperty); }
             set { SetValue(AutorProperty, value); }
@@ -117,14 +134,14 @@ namespace WIFI.Ausstellung.Views.Aufgaben
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty PreisProperty =
-        DependencyProperty.Register("Preis", typeof(string), typeof(Buchverwaltung));
+        DependencyProperty.Register("Preis", typeof(double), typeof(Buchverwaltung));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Preis
+        public double Preis
         {
-            get { return (string)GetValue(PreisProperty); }
+            get { return (double)GetValue(PreisProperty); }
             set { SetValue(PreisProperty, value); }
         }
         #endregion
@@ -206,12 +223,12 @@ namespace WIFI.Ausstellung.Views.Aufgaben
                                 new Anwendung.DTO.Buch
                                 {
 
-                                    AutorName = Author,
+                                    AutorName = Autor,
                                     ID = Convert.ToInt32(Id),
                                     Kategoriegruppe = Convert.ToInt32(Kategorie),
                                     Preis = Convert.ToDouble(Preis),
                                     Rabattgruppe = Convert.ToInt32(Rabatt),
-                                    Titel = Title,
+                                    Titel = Titel,
                                     VerlagName = Verlag
                                 }
                             );

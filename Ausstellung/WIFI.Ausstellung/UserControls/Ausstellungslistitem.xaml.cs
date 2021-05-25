@@ -35,38 +35,35 @@ namespace WIFI.Ausstellung.UserControls
         /// <summary>
         /// Erstellt ein DependencyProperty
         /// </summary>
-        public static readonly DependencyProperty TitleProperty =
-        DependencyProperty.Register("Title", typeof(string), typeof(Ausstellungslistitem));
+        public static readonly DependencyProperty TitelProperty =
+        DependencyProperty.Register("Titel", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Title
+        public string Titel
         {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            get { return (string)GetValue(TitelProperty); }
+            set { SetValue(TitelProperty, value); }
         }
-
         #endregion
 
-
-        #region Author-Property
+        #region Autor-Property
         /// <summary>
         /// Erstellt ein DependencyProperty
         /// </summary>
-        public static readonly DependencyProperty AuthorProperty =
-        DependencyProperty.Register("Author", typeof(string), typeof(Ausstellungslistitem));
+        public static readonly DependencyProperty AutorProperty =
+        DependencyProperty.Register("Autor", typeof(string), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Author
+        public string Autor
         {
-            get { return (string)GetValue(AuthorProperty); }
-            set { SetValue(AuthorProperty, value); }
+            get { return (string)GetValue(AutorProperty); }
+            set { SetValue(AutorProperty, value); }
         }
         #endregion
-
 
         #region Verlag-Property
         /// <summary>
@@ -245,12 +242,12 @@ namespace WIFI.Ausstellung.UserControls
                                 new Anwendung.DTO.Buch
                                 {
 
-                                    AutorName = Author,
+                                    AutorName = Autor,
                                     ID = Convert.ToInt32(Id),
                                     Kategoriegruppe = Convert.ToInt32(Kategorie),
                                     Preis = Convert.ToDouble(Preis),
                                     Rabattgruppe = Convert.ToInt32(Rabatt),
-                                    Titel = Title,
+                                    Titel = Titel,
                                     VerlagName = Verlag
                                 }
                             );

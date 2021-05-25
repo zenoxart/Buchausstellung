@@ -7,29 +7,6 @@
              mc:Ignorable="d"
              Name="Ausstellungsitem">
     <UserControl.Resources>
-        <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
-            <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Border>
-            <ControlTemplate.Triggers>
-               
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" TargetName="border" Value="DarkBlue"/>
-                </Trigger>
-             
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <Style TargetType="Button" x:Key="BestellButton">
-            <Setter Property="Background" Value="#1e90ff"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="11"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
-
         <Style x:Key="StandartFont" TargetType="Label">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding DunkelModus}" Value="True">
@@ -58,12 +35,12 @@
         <Label VerticalContentAlignment="Center"
                 Grid.Column="0" 
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Title}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Titel}"
                />
         <Label VerticalContentAlignment="Center"
                 Grid.Column="1"
                Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Ausstellungsitem,Path=Author}"
+               Content="{Binding ElementName=Ausstellungsitem,Path=Autor}"
                />
         <Label VerticalContentAlignment="Center"
                 Grid.Column="2"
