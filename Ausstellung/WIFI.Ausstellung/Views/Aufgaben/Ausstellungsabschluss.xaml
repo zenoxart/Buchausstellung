@@ -22,7 +22,7 @@
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Center"
                 CornerRadius="15"
-                BorderThickness="2"
+                BorderThickness="0"
                 BorderBrush="Black"
                 Margin="20 0"
                 Padding="10"

@@ -113,6 +113,18 @@
         </Style.Triggers>
     </Style>
 
+    <!-- Style um Zwischen Dunkler und Heller Schrift umschalten zu können -->
+    <Style TargetType="TextBlock" x:Key="DunkelSchrift">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                <Setter Property="Foreground" Value="Black"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
     <!-- Style für eine Vordergrund-Panel mit Hell und Dunkel -->
     <Style TargetType="StackPanel" x:Key="ForgroundPanel">
 

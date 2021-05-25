@@ -9,12 +9,130 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="0.*" MinHeight="45" MaxHeight="60" />
             <RowDefinition Height="5"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <!-- Titel -->
-        <Label Style="{DynamicResource TitleStyle}">
+        <Label Style="{DynamicResource TitleStyle}" Grid.ColumnSpan="2">
             Lieferverwaltung</Label>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Gesamtbestelliste:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="16" 
+                   FontWeight="Bold"
+                   Style="{DynamicResource DunkelHellSchrift}"/>
+            <!-- Darstellung aller Bestellungen -->
+            <ListView  Background="Transparent" Grid.Row="1" ItemsSource="{Binding Lieferung.Gesamtbestellungen}" SelectedItem="{Binding Lieferung.SelektierteBestellung}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+
+                            <!-- Bestellnr -->
+
+                            <TextBlock Text="{Binding  }" FontSize="15" />
+
+                            <!-- Kundenname -->
+                            <TextBlock Text="{Binding }" FontSize="15" />
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Bücher der Bestellung:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="16" 
+                   FontWeight="Bold"
+                   Style="{DynamicResource DunkelHellSchrift}" />
+            <!-- Darstellen aller Bücher der Ausgewählten Bestellung -->
+            <ListView  Background="Transparent" Grid.Row="1" ItemsSource="{Binding Lieferung.BücherDerSelektiertenBestellung}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <!-- Buchnummer -->
+                            <TextBlock Text="{Binding }" FontSize="15" />
+                            <!-- Buchname -->
+                            <TextBlock Text="{Binding }" FontSize="15" />
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+
+        <!-- Darstellung der Anzahlkorrektur des augewählen Buches der ausgewählten Bestellung-->
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Style="{DynamicResource ForgroundPanel}">
+            <Grid  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Style="{DynamicResource DunkelHellSchrift}" 
+                       Grid.Column="0"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Content="{Binding Lieferung.SelektiertesBuch.Titel}"/>
+                <Label Style="{DynamicResource DunkelHellSchrift}" 
+                       Grid.Column="1"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"
+                       
+                       Content="{Binding Lieferung.SelektiertesBuch.Anzahl}"/>
+                
+                <TextBox Grid.Column="2"
+                         Template="{DynamicResource RoundTextBox}"
+                         Height="30"
+                         Width="30"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         >
+                    
+                </TextBox>
+                <Button
+                    Template="{DynamicResource RoundLimeButton}"
+                    Grid.Column="3"
+                    Height="30"
+                    Width="30">
+                    <Image Source="/Assets/Bilder/Pfeil.png" Width="18" Height="18"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+
+        <Button Grid.Row="5" 
+                Grid.Column="1"
+                Margin="5"
+                Width="150" 
+                Template="{DynamicResource RoundOrangeButton}"
+                HorizontalAlignment="Right"
+                Content="Lieferabschluss"
+                FontWeight="Bold"
+                FontSize="16"/>
+
     </Grid>
 </UserControl>

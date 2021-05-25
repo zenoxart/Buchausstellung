@@ -321,3 +321,5 @@ C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\ob
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.GenerateResource.cache
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CoreCompileInputs.cache
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
+C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.g.cs
+C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.baml

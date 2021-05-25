@@ -483,6 +483,28 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._Veranstaltung = value; }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private ViewModels.LieferungsManager _Lieferung = null;
+
+        /// <summary>
+        /// Ruft die Lieferungsverwaltung auf oder legt diese fest
+        /// </summary>
+        public ViewModels.LieferungsManager Lieferung
+        {
+            get
+            {
+                if (this._Lieferung == null)
+                {
+                    this._Lieferung = this.AppKontext.Produziere<ViewModels.LieferungsManager>();
+                }
+                return this._Lieferung;
+            }
+            set { this._Lieferung = value; }
+        }
+
+
 
     }
 }

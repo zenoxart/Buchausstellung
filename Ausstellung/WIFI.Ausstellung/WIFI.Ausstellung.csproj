@@ -83,9 +83,13 @@
     <Compile Include="UserControls\Bestellungslistitem.xaml.cs">
       <DependentUpon>Bestellungslistitem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Lieferlistitem.xaml.cs">
+      <DependentUpon>Lieferlistitem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Anwendung.cs" />
     <Compile Include="ViewModels\AufgabenManager.cs" />
     <Compile Include="ViewModels\AusstellungsManager.cs" />
+    <Compile Include="ViewModels\LieferungsManager.cs" />
     <Compile Include="ViewModels\VeranstaltungsManager.cs" />
     <Compile Include="Views\AufgabenView.xaml.cs">
       <DependentUpon>AufgabenView.xaml</DependentUpon>
@@ -168,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Bestellungslistitem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Lieferlistitem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -296,6 +304,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Bilder\Lupe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Pfeil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

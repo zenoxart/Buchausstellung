@@ -9,13 +9,16 @@
     <Grid>
         <StackPanel VerticalAlignment="Center">
             <Image Source="/Assets/Bilder/Offlineanzeige.png"
-                   Width="45"> </Image>
-            <Label 
-            VerticalAlignment="Center" 
+                   Width="45"/>
+            <TextBlock TextWrapping="Wrap" 
+                       Style="{DynamicResource DunkelSchrift}"
+                       VerticalAlignment="Center" 
             HorizontalAlignment="Center"
             FontSize="20"
-            Style="{DynamicResource DunkelHellSchrift}"
-            >Keine Verbindung mit dem Internet oder der Datenbank</Label>
+                       FontWeight="Bold"
+                       TextAlignment="Center">
+                Keine Verbindung mit dem Internet oder der Datenbank
+            </TextBlock>
         </StackPanel>
         
     </Grid>
