@@ -130,10 +130,14 @@ namespace WIFI.Ausstellung.ViewModels
                         // Frage die Datenbank ab
                         //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
                         //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
+<<<<<<< Updated upstream
 
                         // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
                         WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung;
 
+=======
+                        WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
+>>>>>>> Stashed changes
 
                         // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                         switch (response)
