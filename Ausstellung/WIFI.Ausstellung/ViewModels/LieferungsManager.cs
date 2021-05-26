@@ -25,6 +25,8 @@ namespace WIFI.Ausstellung.ViewModels
             {
                 if (this._Gesamtbestellungen == null)
                 {
+                    HoleBestellungenAsync();
+
                     // Aus der Datenbank holen
                     //this._Gesamtbestellungen = 
                 }
@@ -41,6 +43,21 @@ namespace WIFI.Ausstellung.ViewModels
         }
 
         /// <summary>
+        /// Läd die Bestellung Asyncron von der Datenbank
+        /// </summary>
+        private async void HoleBestellungenAsync()
+        {
+            await System.Threading.Tasks.Task.Run(
+                () =>
+                {
+
+                    this.Gesamtbestellungen =
+                        this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
+                }
+            );
+        }
+
+        /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
         private WIFI.Anwendung.DTO.Bestellung _SelektierteBestellung;
@@ -52,7 +69,7 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                
+
                 if (this._SelektierteBestellung == null)
                 {
                     this._SelektierteBestellung = new WIFI.Anwendung.DTO.Bestellung();
@@ -104,7 +121,7 @@ namespace WIFI.Ausstellung.ViewModels
                         }
 
                         this._BücherDerSelektiertenBestellung = bücher;
-                         
+
                     }
                 }
                 return this._BücherDerSelektiertenBestellung;

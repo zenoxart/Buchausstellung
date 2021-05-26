@@ -100,7 +100,7 @@ namespace WIFI.Ausstellung.ViewModels
             this.AppKontext.AktuelleAufgabenSektion = xmlPfad;
             this.InitialisiereAufgabenAsync();
 
-           
+
             this.AktiverViewer = null;
             this.OnPropertyChanged();
 
@@ -128,16 +128,14 @@ namespace WIFI.Ausstellung.ViewModels
                     void VeranstaltungsSektionLaden()
                     {
                         // Frage die Datenbank ab
-                        //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
-                        //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
-<<<<<<< Updated upstream
+                        WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
+                            this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
 
                         // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
-                        WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung;
+                        //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung;
 
-=======
-                        WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
->>>>>>> Stashed changes
+                        //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
+
 
                         // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                         switch (response)

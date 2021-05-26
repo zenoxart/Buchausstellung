@@ -23,6 +23,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="*" MinWidth="310"/>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
@@ -36,7 +38,15 @@
             FontWeight="Bold"
             Style="{DynamicResource DunkelHellSchrift}"/>
 
-      
+        <Label
+            Content="Protokoll" 
+            Grid.Row="1" 
+            Grid.Column="3" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center"
+            FontSize="23" 
+            FontWeight="Bold"
+            Style="{DynamicResource DunkelHellSchrift}"/>
 
 
         <!-- Möglichkeit für Standard PDF-Speicherpfade -->
@@ -45,7 +55,7 @@
                    Style="{DynamicResource DunkelHellSchrift}"
                    FontSize="17"/>
             <StackPanel  Orientation="Horizontal" >
-                
+
                 <TextBox Width="250" 
                          Height="30" 
                          Margin="5"  
@@ -105,8 +115,112 @@
             </StackPanel>
         </StackPanel>
 
+        <GridSplitter
+            Grid.Column="2" Grid.Row="2"
+            Grid.RowSpan="2"
+            ShowsPreview="True" 
+            HorizontalAlignment="Stretch" 
+            Style="{DynamicResource HellDunkelSplitter}"/>
         <!-- Möglichkeit für Standard Protokoll-Speicherpfade -->
-        
 
+        <ScrollViewer  Grid.Row="2" Grid.Column="3">
+            <StackPanel Style="{DynamicResource ForgroundPanel}" >
+                <Grid  >
+
+                    <!-- Der Protokoll Viewer soll einen
+             alten Grün-CRT-Bildschirm emulieren.
+             Für "Spiegeleffekte" wird der
+             Schirm auch ein bisschen "durchsichtig"
+        -->
+
+                    <!-- Im Code Behind wird im ViewModel
+             eine Rückrufmethode hinterlegt, mit
+             der bei einem neuen Eintrag in der Liste
+             nach unten geblättert wird, damit
+             ein neuer Eintrag automatisch sichtbar wird
+             20210309 Hr. Minehuber, das horizontale
+                      Content-Alignment ergänzt
+        -->
+                    <ListBox
+                    x:Name="Liste"
+                    Background="Transparent"
+                    BorderThickness="0"
+            
+                    ItemsSource="{Binding AppKontext.Protokoll.Einträge}"
+            
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            
+                    HorizontalContentAlignment="Stretch"
+                    >
+
+                        <ListBox.ItemTemplate>
+                            <!--    Das Layout einer Protokollzeile vorgeben.
+                        Außerdem wird abhängig vom Typ des
+                        Eintrags eine andere Farbe bzw. Symbol benutzt.
+            
+                        Es wird mit einem Grid gearbeitet,
+                        weil WPF das Grid jedes Mal neuberechnet.
+                        Das passiert beim StackPanel nicht.
+                        Notwendig, damit mehrzeilige Einträge 
+                        möglich werden.
+            -->
+                            <DataTemplate>
+                                    <!-- hier ist automatisch auf den
+                         aktuellen Eintrag der Liste gebunden,
+                         nicht auf den DataContext mit dem ViewModel -->
+                                    <Grid
+                                    x:Name="Zeile"
+                                    >
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Linke Spalte für das Symbol -->
+                                            <ColumnDefinition Width="20"/>
+                                            <!-- Rechte Spalte für den Text -->
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Das Symbol für den Eintrag -->
+                                        <TextBlock
+                                            x:Name="Symbol"
+                                            Grid.Column="0"
+                            
+                                            Text="&#x6C;"
+                                            FontFamily="Wingdings"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                            Padding="0,2,5,0"
+                                            
+                                            Foreground="{Binding ElementName=Text, Path=Foreground}"
+                            
+                                            />
+
+                                        <!-- Der mehrzeilige Text vom Eintrag -->
+                                        <TextBlock
+                                            x:Name="Text"
+                                            Grid.Column="1"
+                                            Text="{Binding Text}"
+                                            Foreground="Orange"/>
+                                    </Grid>
+
+                                <DataTemplate.Triggers >
+                                    <DataTrigger Binding="{Binding Typ}" Value="Fehler">
+                                        <Setter TargetName="Text" Property="Foreground" Value="Red" />
+                                    </DataTrigger>
+                                    
+                                    <!-- Warnungen in gelber Farbe und
+                             mit einem Quadrat als Symbol -->
+                                    <DataTrigger Binding="{Binding Typ}" Value="Warnung">
+                                        <Setter TargetName="Text" Property="Foreground" Value="Yellow" />
+                                        <Setter TargetName="Symbol" Property="Text" Value="&#x6E;" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </StackPanel>
+
+        </ScrollViewer>
+        
     </Grid>
 </Window>
