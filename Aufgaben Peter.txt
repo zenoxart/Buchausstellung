@@ -4,5 +4,5 @@ Prozedur HoleBestellungsInfo() überarbeiten (Namensaufteilung
 Prozedur HoleBücherZuBestellungsInfo() überarbeiten (englische Namen)
 
 WIFI.Anwendung.Datenbank:
-DTO für Besucher überarbeiten, DTO für Buch überarbeiten
-Controller für Besucher und Bücher überarbeiten
+DTO für Besucher, Buch und Bestellung überarbeiten
+Controller für Besucher, Bücher und Bestellung überarbeiten

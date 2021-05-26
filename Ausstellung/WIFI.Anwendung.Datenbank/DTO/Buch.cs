@@ -45,6 +45,31 @@ namespace WIFI.Anwendung.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
+        private string _Buchnummer = string.Empty;
+
+        /// <summary>
+        /// Ruft den Titel des Buches ab,
+        /// oder legt diesen fest
+        /// </summary>
+        public string Buchnummer
+        {
+            get
+            {
+                return this._Buchnummer;
+            }
+            set
+            {
+                if (this._Buchnummer != value)
+                {
+                    this._Buchnummer = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
         private string _Titel = string.Empty;
 
         /// <summary>
@@ -66,7 +91,6 @@ namespace WIFI.Anwendung.DTO
                 }
             }
         }
-
 
         /// <summary>
         /// Internes Feld für die Eigenschaft

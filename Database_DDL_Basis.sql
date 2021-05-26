@@ -22,13 +22,13 @@
 # | Field     | Type         | Null | Key | Default | Extra          |
 # +-----------+--------------+------+-----+---------+----------------+
 # | id        | int(11)      | NO   | PRI | NULL    | auto_increment |
-# | buchnr    | varchar(3)   | NO   |     | NULL    |                |
+# | buchnr    | varchar(4)   | NO   |     | NULL    |                |
 # | titel     | varchar(150) | NO   |     | NULL    |                |
 # | autor     | varchar(150) | NO   |     | NULL    |                |
 # | preis     | double       | NO   |     | NULL    |                |
-# | rabgr     | int(11)      | NO   |     | NULL    |                |
-# | katgr     | int(11)      | NO   |     | NULL    |                |
-# | verlag_id | int(11)      | NO   | MUL | NULL    |                |
+# | rabgr     | int(2)       | NO   |     | NULL    |                |
+# | katgr     | int(2)       | NO   |     | NULL    |                |
+# | verlag_id | int(3)       | NO   | MUL | NULL    |                |
 # +-----------+--------------+------+-----+---------+----------------+
 
 # besucher
@@ -100,7 +100,7 @@ CREATE TABLE verlag (id INT PRIMARY KEY NOT NULL auto_increment,
 					 
 # Erstellt eine Buch-Tabelle 
 CREATE TABLE buch 	( id INT PRIMARY KEY NOT NULL auto_increment, 
-					  buchnr VARCHAR(3) NOT NULL,
+					  buchnr VARCHAR(4) NOT NULL,
 					  titel VARCHAR(150) NOT NULL, 
 					  autor VARCHAR(150) NOT NULL,
 					  preis DOUBLE NOT NULL,
@@ -274,7 +274,7 @@ CREATE PROCEDURE ErstelleBesucher(
 )
 BEGIN
 	INSERT INTO besucher (vorname,nachname,strasse,hausnummer,plz,ort) VALUES (Vorname,Nachname,Strasse,Hausnummer,PLZ,Ort);
-	SELECT MAX(id) AS NeueID FROM besucher;
+	SELECT MAX(besucher.id) AS "NeueID" FROM besucher;
 	INSERT INTO besucher_kommunikation(besucher_id,typ,wert) VALUES (NeueID,Typ,Telefon);
 END$$
 DELIMITER ;
@@ -380,8 +380,8 @@ BEGIN
 	bb.buch_id AS "BuchId",
 	bb.anzahl AS "Buchanzahl",
 	b.buchnr AS "BuchNr",
-	b.title AS "BuchTitle",
-	b.author AS "Author",
+	b.titel AS "BuchTitel",
+	b.autor AS "Autor",
 	b.preis AS "Preis",
 	b.rabgr AS "Rabatt",
 	b.katgr AS "Kategorie",
@@ -400,13 +400,13 @@ USE buchausstellung;
 # Erstellt ein neues Buch und eine zugehörige ID
 DELIMITER $$
 CREATE PROCEDURE ErstelleBuch(
-	Buchnummer VARCHAR(3),
+	Buchnummer VARCHAR(4),
 	Titel VARCHAR(150),
 	Autor VARCHAR(150),
 	Preis DOUBLE,
-	Rabattgruppe INT(11),
-	Kategorie INT(11),
-	Verlag INT(11)
+	Rabattgruppe INT(2),
+	Kategorie INT(2),
+	Verlag INT(3)
 )
 BEGIN
 	INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES (Buchnummer,Titel,Autor,Preis,Rabattgruppe,Kategorie,Verlag);
