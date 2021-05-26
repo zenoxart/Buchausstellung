@@ -43,10 +43,10 @@
 
                             <!-- Bestellnr -->
 
-                            <TextBlock Text="{Binding  }" FontSize="15" />
+                            <TextBlock Text="{Binding  BestellNr}" FontSize="15" />
 
                             <!-- Kundenname -->
-                            <TextBlock Text="{Binding }" FontSize="15" />
+                            <TextBlock Text="{Binding ZugehörigerBesucher.Nachname}" FontSize="15" />
                         </StackPanel>
 
                     </DataTemplate>

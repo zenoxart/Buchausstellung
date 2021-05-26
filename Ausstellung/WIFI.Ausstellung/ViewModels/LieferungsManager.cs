@@ -25,7 +25,8 @@ namespace WIFI.Ausstellung.ViewModels
             {
                 if (this._Gesamtbestellungen == null)
                 {
-                    HoleBestellungenAsync();
+                    this._Gesamtbestellungen =
+                        this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
 
                     // Aus der Datenbank holen
                     //this._Gesamtbestellungen = 
@@ -42,20 +43,6 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
-        /// <summary>
-        /// Läd die Bestellung Asyncron von der Datenbank
-        /// </summary>
-        private async void HoleBestellungenAsync()
-        {
-            await System.Threading.Tasks.Task.Run(
-                () =>
-                {
-
-                    this.Gesamtbestellungen =
-                        this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
-                }
-            );
-        }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
