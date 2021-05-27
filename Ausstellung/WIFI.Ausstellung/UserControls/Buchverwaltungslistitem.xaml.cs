@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace WIFI.Ausstellung.UserControls
 {
     /// <summary>
-    /// Interaktionslogik für Ausstellungslistitem.xaml
+    /// Interaktionslogik für Buchverwaltungslistitem.xaml
     /// </summary>
-    public partial class Ausstellungslistitem : UserControl
+    public partial class Buchverwaltungslistitem : UserControl
     {
-
-
-        public Ausstellungslistitem()
+        public Buchverwaltungslistitem()
         {
             InitializeComponent();
-
-
         }
 
         #region Buchnr-Property
@@ -36,7 +32,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty BuchnrProperty =
-        DependencyProperty.Register("Buchnr", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Buchnr", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -53,7 +49,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty TitelProperty =
-        DependencyProperty.Register("Titel", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Titel", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -70,7 +66,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty AutorProperty =
-        DependencyProperty.Register("Autor", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Autor", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -87,7 +83,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty VerlagProperty =
-        DependencyProperty.Register("Verlag", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Verlag", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -105,7 +101,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty RabattProperty =
-        DependencyProperty.Register("Rabatt", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Rabatt", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -124,7 +120,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty KategorieProperty =
-        DependencyProperty.Register("Kategorie", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Kategorie", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -142,7 +138,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty PreisProperty =
-        DependencyProperty.Register("Preis", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Preis", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -161,7 +157,7 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty DunkelModusProperty =
-        DependencyProperty.Register("DunkelModus", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("DunkelModus", typeof(string), typeof(Buchverwaltungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
@@ -179,11 +175,11 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty IdProperty =
-        DependencyProperty.Register("Id", typeof(string), typeof(Ausstellungslistitem), new
+        DependencyProperty.Register("Id", typeof(string), typeof(Buchverwaltungslistitem), new
             PropertyMetadata("", new PropertyChangedCallback(OnIdChanged)));
 
         /// <summary>
-        /// Erstellt eine Benutzbare Schnittstelle zu dem Property
+        /// Erstellt eine benutzbare Schnittstelle zu dem Property
         /// </summary>
         public string Id
         {
@@ -197,7 +193,7 @@ namespace WIFI.Ausstellung.UserControls
         private static void OnIdChanged(DependencyObject d,
          DependencyPropertyChangedEventArgs e)
         {
-            Ausstellungslistitem UCC = d as Ausstellungslistitem;
+            Buchverwaltungslistitem UCC = d as Buchverwaltungslistitem;
             UCC.OnIdChanged(e);
         }
 
@@ -210,80 +206,8 @@ namespace WIFI.Ausstellung.UserControls
             BuchId = (string)e.NewValue;
         }
 
-
         private string BuchId = "";
-
-
-
         #endregion
-
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private WIFI.Anwendung.Befehl _BuchbestellungHinzufügen = null;
-
-        public WIFI.Anwendung.Befehl BuchbestellungHinzufügen
-        {
-            get
-            {
-                if (this._BuchbestellungHinzufügen == null)
-                {
-                    // Den Befehl mit anoymen Methoden initialisieren
-
-                    this._BuchbestellungHinzufügen = new WIFI.Anwendung.Befehl(
-
-                        // TODO: Werte des Buches in eine Bestellliste hinzufügen
-                        p =>
-                        {
-
-                            if (ViewModels.AusstellungsManager.AktuelleBücherbestellung == null)
-                            {
-
-                                ViewModels.AusstellungsManager.AktuelleBücherbestellung = new WIFI.Anwendung.DTO.Bücher();
-                            }
-
-                            WIFI.Anwendung.DTO.Buch b = null;
-                            if (ViewModels.AusstellungsManager.AktuelleBücherbestellung.Count > 0)
-                            {
-                                b = (from l in ViewModels.AusstellungsManager.AktuelleBücherbestellung
-                                         where string.Compare(l.ID.ToString(), Id, ignoreCase: true) == 0
-                                         select l).FirstOrDefault();
-
-                            }
-                            // Nehme das Erste Element welches die selbe Id schon hat
-
-                            // Wenn kein Element mit der ID in der Liste existiert, füge es hinzu
-                            if (b == null)
-                            {
-                                ViewModels.AusstellungsManager.AktuelleBücherbestellung.Add(
-                                new Anwendung.DTO.Buch
-                                {
-
-                                    AutorName = Autor,
-                                    ID = Convert.ToInt32(Id),
-                                    Kategoriegruppe = Convert.ToInt32(Kategorie),
-                                    Preis = Convert.ToDouble(Preis),
-                                    Rabattgruppe = Convert.ToInt32(Rabatt),
-                                    Titel = Titel,
-                                    VerlagName = Verlag
-                                }
-                            );
-                            }
-
-                            
-                            //ParrentViewModel.Ausstellung.AktuelleBücherbestellung.add(new Buch() { Preis =  });
-                        }
-                        );
-                }
-
-                return this._BuchbestellungHinzufügen;
-            }
-
-            set { this._BuchbestellungHinzufügen = value; }
-        }
-
-
-
 
     }
 }

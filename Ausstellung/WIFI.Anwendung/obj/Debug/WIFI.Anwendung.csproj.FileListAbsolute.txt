@@ -13,7 +13,6 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\W
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\de\WIFI.Anwendung.resources.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.resources
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.de.resources
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.GenerateResource.cache

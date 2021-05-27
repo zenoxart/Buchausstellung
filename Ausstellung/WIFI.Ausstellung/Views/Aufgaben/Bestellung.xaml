@@ -34,8 +34,8 @@
                         <DataTemplate>
                             <us:Bestellungslistitem
                             Id="{Binding ID}"
-                            Title="{Binding Titel}"
-                            Author="{Binding AutorName}"
+                            Titel="{Binding Titel}"
+                            Autor="{Binding AutorName}"
                             Verlag="{Binding VerlagName}"
                             Preis="{Binding Preis}"
                             Kategorie="{Binding Kategoriegruppe}"

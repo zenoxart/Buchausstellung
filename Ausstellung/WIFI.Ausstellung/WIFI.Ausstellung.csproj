@@ -77,11 +77,20 @@
     <Compile Include="UserControls\Bestellungenlistitem.xaml.cs">
       <DependentUpon>Bestellungenlistitem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Bestellungkopfzeile.xaml.cs">
+      <DependentUpon>Bestellungkopfzeile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Bestellungsfilter.xaml.cs">
       <DependentUpon>Bestellungsfilter.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Bestellungslistitem.xaml.cs">
       <DependentUpon>Bestellungslistitem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Buchverwaltungskopfzeile.xaml.cs">
+      <DependentUpon>Buchverwaltungskopfzeile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Buchverwaltungslistitem.xaml.cs">
+      <DependentUpon>Buchverwaltungslistitem.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Lieferlistitem.xaml.cs">
       <DependentUpon>Lieferlistitem.xaml</DependentUpon>
@@ -89,6 +98,7 @@
     <Compile Include="ViewModels\Anwendung.cs" />
     <Compile Include="ViewModels\AufgabenManager.cs" />
     <Compile Include="ViewModels\AusstellungsManager.cs" />
+    <Compile Include="ViewModels\BuchManager.cs" />
     <Compile Include="ViewModels\LieferungsManager.cs" />
     <Compile Include="ViewModels\VeranstaltungsManager.cs" />
     <Compile Include="Views\AufgabenView.xaml.cs">
@@ -167,11 +177,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Bestellungkopfzeile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Bestellungsfilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Bestellungslistitem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Buchverwaltungskopfzeile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Buchverwaltungslistitem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

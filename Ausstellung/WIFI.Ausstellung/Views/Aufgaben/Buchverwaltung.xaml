@@ -8,6 +8,19 @@
              mc:Ignorable="d" 
              Name="Buchitem"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="StandartFont" TargetType="Label">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DunkelModus}" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DunkelModus}" Value="False">
+                    <Setter Property="Foreground" Value="Black"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -22,6 +35,20 @@
 
         <!-- Liste der Bücher -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+                <StackPanel Orientation="Vertical">
+                    <uc:Buchverwaltungskopfzeile
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Background="#1e90ff"
+                        />
+
+                    <StackPanel>
+                        
+                        
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer.Content>
         </ScrollViewer>
         
         <!-- Erfassen eines neuen Buches-->
@@ -34,8 +61,8 @@
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="60"/>
-                        <ColumnDefinition Width="60"/>
-                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
 
@@ -55,34 +82,40 @@
                              Style="{DynamicResource WasserzeichenStyle}"
                      ></TextBox>
                     <TextBox x:Name="AutorEingabe"
-                     Grid.Column="2"
-                     Tag="Autor"
-                     HorizontalContentAlignment="Left"
-                     VerticalContentAlignment="Center"
-                     Style="{DynamicResource WasserzeichenStyle}"
+                             Grid.Column="2"
+                             Tag="Autor"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Style="{DynamicResource WasserzeichenStyle}"
                     ></TextBox>
                     <TextBox x:Name="VerlagEingabe"
-                     Grid.Column="3"
-                     Tag="Verlag"
-                     Style="{DynamicResource WasserzeichenStyle}"
+                             Grid.Column="3"
+                             Tag="Verlag"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Style="{DynamicResource WasserzeichenStyle}"
                      ></TextBox>
-                    <TextBox x:Name="BuchgruppeEingabe"
-                     Grid.Column="4"
-                     Tag="Buchgr."
-                     Style="{DynamicResource WasserzeichenStyle}">
+                     <TextBox x:Name="RabattgruppeEingabe"
+                             Grid.Column="4"
+                             Tag="Rabattgr."
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Style="{DynamicResource WasserzeichenStyle}"
+                     ></TextBox>
+                   <TextBox x:Name="KategorieEingabe"
+                             Grid.Column="5"
+                             Tag="Kategorie"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Style="{DynamicResource WasserzeichenStyle}">
                     </TextBox>
                     <TextBox x:Name="PreisEingabe"
-                     Grid.Column="5"
-                     Tag="Preis"
-                     Style="{DynamicResource WasserzeichenStyle}"
+                             Grid.Column="6"
+                             Tag="Preis"
+                             Style="{DynamicResource WasserzeichenStyle}"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
                      ></TextBox>
-                    <TextBox x:Name="RabattgruppeEingabe"
-                     Grid.Column="6"
-                     Tag="Rabattgr."
-                     Style="{DynamicResource WasserzeichenStyle}"
-                     ></TextBox>
-
-
 
                     <Button Width="25"
                             Height="25"

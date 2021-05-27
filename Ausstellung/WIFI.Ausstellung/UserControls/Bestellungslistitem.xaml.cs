@@ -25,41 +25,58 @@ namespace WIFI.Ausstellung.UserControls
             InitializeComponent();
         }
 
-        #region Title-Property
+        #region Buchnummer-Property
         // Schema F umd ein DependencyProperty zu übergeben
 
         /// <summary>
         /// Erstellt ein DependencyProperty
         /// </summary>
-        public static readonly DependencyProperty TitleProperty =
-        DependencyProperty.Register("Title", typeof(string), typeof(Bestellungslistitem));
+        public static readonly DependencyProperty BuchnummerProperty =
+        DependencyProperty.Register("Buchnummer", typeof(string), typeof(Bestellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Title
+        public string Buchnummer
         {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            get { return (string)GetValue(BuchnummerProperty); }
+            set { SetValue(BuchnummerProperty, value); }
         }
-
         #endregion
 
+        #region Titel-Property
+        // Schema F umd ein DependencyProperty zu übergeben
 
-        #region Author-Property
         /// <summary>
         /// Erstellt ein DependencyProperty
         /// </summary>
-        public static readonly DependencyProperty AuthorProperty =
-        DependencyProperty.Register("Author", typeof(string), typeof(Bestellungslistitem));
+        public static readonly DependencyProperty TitelProperty =
+        DependencyProperty.Register("Titel", typeof(string), typeof(Bestellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Author
+        public string Titel
         {
-            get { return (string)GetValue(AuthorProperty); }
-            set { SetValue(AuthorProperty, value); }
+            get { return (string)GetValue(TitelProperty); }
+            set { SetValue(TitelProperty, value); }
+        }
+        #endregion
+
+        #region Autor-Property
+        /// <summary>
+        /// Erstellt ein DependencyProperty
+        /// </summary>
+        public static readonly DependencyProperty AutorProperty =
+        DependencyProperty.Register("Autor", typeof(string), typeof(Bestellungslistitem));
+
+        /// <summary>
+        /// Erstellt eine Benutzbare Schnittstelle zu dem Property
+        /// </summary>
+        public string Autor
+        {
+            get { return (string)GetValue(AutorProperty); }
+            set { SetValue(AutorProperty, value); }
         }
         #endregion
 
