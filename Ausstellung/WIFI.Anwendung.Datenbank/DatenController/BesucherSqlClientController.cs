@@ -33,9 +33,8 @@ namespace WIFI.Anwendung.DatenController
 
                             Verbindung.Open();
 
-                            Befehl.Parameters.AddWithValue("Name", NB.Vorname);
-                            Befehl.Parameters.AddWithValue("Anschrift", NB.Hausnummer);
-                            Befehl.Parameters.AddWithValue("Telefon", NB.Telefon);
+                            Befehl.Parameters.AddWithValue("Vorname", NB.Vorname);
+                            Befehl.Parameters.AddWithValue("Nachname", NB.Nachname);
 
                             Befehl.Prepare();
 

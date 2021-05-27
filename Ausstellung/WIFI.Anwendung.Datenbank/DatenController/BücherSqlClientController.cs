@@ -42,6 +42,7 @@ namespace WIFI.Anwendung.DatenController
                                     new DTO.Buch
                                     {
                                         ID = Convert.ToInt32(DatenLeser["buchid"]),
+                                        Buchnummer = DatenLeser["buchnr"].ToString(),
                                         AutorName = DatenLeser["autor"].ToString(),
                                         Titel = DatenLeser["titel"].ToString(),
                                         Preis = Convert.ToDouble(DatenLeser["preis"]),

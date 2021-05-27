@@ -29,6 +29,26 @@ namespace WIFI.Ausstellung.UserControls
 
         }
 
+
+        #region Buchnr-Property
+        // Schema F umd ein DependencyProperty zu übergeben
+
+        /// <summary>
+        /// Erstellt ein DependencyProperty
+        /// </summary>
+        public static readonly DependencyProperty BuchnrProperty =
+        DependencyProperty.Register("Buchnr", typeof(string), typeof(Ausstellungslistitem));
+
+        /// <summary>
+        /// Erstellt eine Benutzbare Schnittstelle zu dem Property
+        /// </summary>
+        public string Buchnr
+        {
+            get { return (string)GetValue(BuchnrProperty); }
+            set { SetValue(BuchnrProperty, value); }
+        }
+        #endregion
+
         #region Title-Property
         // Schema F umd ein DependencyProperty zu übergeben
 

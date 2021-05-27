@@ -32,6 +32,7 @@ namespace WIFI.Ausstellung.ViewModels
                     Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher
                     {
                         new WIFI.Anwendung.DTO.Buch{
+                            Buchnummer = "0",
                             Titel="Buchtitel werden geladen...",
                             AutorName="Bitte warten.",
                             ID = 0,

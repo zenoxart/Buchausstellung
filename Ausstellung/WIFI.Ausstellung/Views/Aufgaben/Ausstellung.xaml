@@ -52,6 +52,7 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate DataType="{x:Type uc:Ausstellungslistitem}">
                                     <uc:Ausstellungslistitem
+                                        Buchnr="{Binding Buchnummer}"
                                         Id="{Binding ID}"
                                         Titel="{Binding Titel}"
                                         Autor="{Binding AutorName}"

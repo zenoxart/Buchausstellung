@@ -55,6 +55,7 @@
     <Grid >
         <Grid >
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="150"/>
@@ -67,38 +68,43 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                   Style="{DynamicResource StandartFont}"
+                   Grid.Column="0"
+                   Content="Buchnr"/>
+
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Style="{DynamicResource StandartFont}"
-                Grid.Column="0" 
+                Grid.Column="1" 
                Content="Titel"
-               />
-            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                Grid.Column="1"
-               Style="{DynamicResource StandartFont}"
-               Content="Autor"
                />
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                 Grid.Column="2"
                Style="{DynamicResource StandartFont}"
-               Content="Verlag"
+               Content="Autor"
                />
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-               Grid.Column="3"
+                Grid.Column="3"
                Style="{DynamicResource StandartFont}"
-               Content="Rabattgruppe"
+               Content="Verlag"
                />
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="4"
                Style="{DynamicResource StandartFont}"
-               Content="Kategorie"
+               Content="Rabattgruppe"
                />
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="5"
                Style="{DynamicResource StandartFont}"
-               Content="Preis"
+               Content="Kategorie"
                />
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="6"
+               Style="{DynamicResource StandartFont}"
+               Content="Preis"
+               />
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+               Grid.Column="7"
                Style="{DynamicResource StandartFont}"
                Content="Bestellen"
                />
