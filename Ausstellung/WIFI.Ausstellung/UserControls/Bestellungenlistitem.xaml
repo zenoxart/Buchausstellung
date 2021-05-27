@@ -35,7 +35,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="410"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -43,13 +44,18 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" 
-               Content="{Binding ElementName=Bestellungenitem,Path=BestellNr}"/>
+               Content="{Binding ElementName=Bestellungenitem,Path=BestellNr}"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         
         <Label Grid.Column="1" 
-               Content="{Binding ElementName=Bestellungenitem,Path=Besucher.Name}"/>
-       
+               Content="{Binding ElementName=Bestellungenitem,Path=Besucher.Vorname}"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="2" 
+               Content="{Binding ElementName=Bestellungenitem,Path=Besucher.Nachname}"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
         <Button 
-                Grid.Column="3" 
+                Grid.Column="4" 
                 
                 FontFamily="Wingdings"
                 ToolTip="Öffne Bestellung in externem Fenster"

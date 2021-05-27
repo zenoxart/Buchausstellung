@@ -169,8 +169,7 @@ namespace WIFI.Anwendung.DatenController
                                             Straßenname = DatenLeser["Strasse"].ToString(),
                                             Hausnummer = Convert.ToInt32( DatenLeser["Hausnummer"]),
                                             Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
-                                            Ort = DatenLeser["Ort"].ToString(),
-                                            Telefon = DatenLeser["Besuchertelefon"].ToString()
+                                            Ort = DatenLeser["Ort"].ToString()
                                         },
                                         Buchliste = new Dictionary<DTO.Buch, int>() { }
                                     }
@@ -207,11 +206,12 @@ namespace WIFI.Anwendung.DatenController
                                     item.Buchliste.Add(
                                         new DTO.Buch
                                         {
-                                            AutorName = ZweiterDatenLeser["Author"].ToString(),
+                                            AutorName = ZweiterDatenLeser["Autor"].ToString(),
                                             ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
+                                            Buchnummer = ZweiterDatenLeser["BuchNr"].ToString(),
                                             Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
                                             Preis = Convert.ToDouble(ZweiterDatenLeser["Preis"]),
-                                            Titel = ZweiterDatenLeser["BuchTitle"].ToString(),
+                                            Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
                                             VerlagName = ZweiterDatenLeser["Verlag"].ToString(),
                                             Rabattgruppe = Convert.ToInt32(ZweiterDatenLeser["Rabatt"]),
                                             Anzahl = Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])

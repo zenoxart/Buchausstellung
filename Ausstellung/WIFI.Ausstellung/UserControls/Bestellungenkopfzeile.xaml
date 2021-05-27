@@ -22,7 +22,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="410"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -37,7 +38,12 @@
         <Label Grid.Column="1" 
                VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
-               Content="Besuchername"/>
+               Content="Besucher-Vorname"/>
+
+        <Label Grid.Column="2" 
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               Content="Besucher-Nachname"/>
 
     </Grid>
 </UserControl>

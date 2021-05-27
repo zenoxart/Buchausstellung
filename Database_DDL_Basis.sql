@@ -296,8 +296,7 @@ CREATE PROCEDURE BekommeBesucherId(
 	Telefon VARCHAR(80)	
 )
 BEGIN
-	SELECT besucher.id FROM besucher INNER JOIN besucher_kommunikation ON besucher.id = besucher_kommunikation.besucher_id
-	WHERE vorname LIKE Vorname OR nachname LIKE Nachname OR strasse LIKE Strasse OR hausnummer LIKE Hausnummer OR plz LIKE PLZ OR ort LIKE Ort OR wert LIKE Telefon LIMIT 1;
+	SELECT id FROM besucher WHERE vorname LIKE Vorname AND nachname LIKE Nachname LIMIT 1;
 END$$
 DELIMITER ;
 
@@ -351,11 +350,11 @@ USE buchausstellung;
 DELIMITER $$
 CREATE PROCEDURE HoleBestellungsInfo()
 BEGIN
+
 	SELECT 	bestellung.id AS "ID",
 			besucher.id AS "Besucherid" , 
 			besucher.vorname AS "Vorname",
 			besucher.nachname AS "Nachname",
-			besucher.telefon AS "Telefon",
 			besucher.strasse AS "Strasse",
 			besucher.hausnummer AS "Hausnummer",
 			besucher.ort AS "Ort",
