@@ -14,110 +14,16 @@
         Height="450" 
         
         MinHeight="450"
-        MinWidth="680"
+        MinWidth="700"
         Width="800"
         Style="{DynamicResource Windowbackground}">
-    
-    <Grid>
-
-        <!-- Das Basislayout vorgeben -->
-        <Grid.RowDefinitions>
-            <!-- Oben eine Zeile für die
-                 Anwendungssymbol und die 
-                 Liste mit den Sprachen -->
-            <RowDefinition Height="40"/>
-
-            <!-- Dann eine Zeile für die Aufgaben -->
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <!-- Für die Liste zum Auswählen
-             der Anwendungssprache und zum Auswählen vom Design -->
-        <StackPanel
-            Grid.Row="0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Orientation="Horizontal"
-            >
-            <!-- Schaltfläche zum Umschalten Vom Design 
-            -->
-            <Button
-                Command="{Binding DesignUmschalten}"
-                >
-                <Button.Style>
-                    <Style BasedOn="{StaticResource AppSymbol}"
-                           TargetType="Button">
-                        <Style.Triggers>
-                            <!-- Falls das Dunkle Design eingeschaltet ist,
-                                 mit der Sonne ausschalten -->
-                            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
-                                <Setter Property="Content">
-                                    <Setter.Value>
-                                        <Image Source="Assets/Bilder/Sonne.png" 
-                                               Style="{DynamicResource BtnIcon}"
-                                               />
-                                    </Setter.Value>
-
-                                </Setter>
-                            </DataTrigger>
-                            <!-- Falls das Dunkle Design ausgeschaltet ist,
-                                 mit dem Mond einschalten -->
-                            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
-                                <Setter Property="Content">
-                                    <Setter.Value>
-                                        <Image Source="Assets/Bilder/Mond.png" 
-                                               Style="{DynamicResource BtnIcon}"
-                                               />
-                                    </Setter.Value>
-                                </Setter>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-
-            <Button                     
-                    Command="{Binding Einstellungen}"
-                    Template="{DynamicResource AppSymbolCanExecute}"
-                    >
-                <Button.Style>
-                    <Style BasedOn="{StaticResource AppSymbol}"
-                           TargetType="Button">
-                        <Style.Triggers>
-                            <!-- Falls das Dunkle Design eingeschaltet ist,
-                                 mit der Sonne ausschalten -->
-                            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
-                                <Setter Property="Content">
-                                    <Setter.Value>
-                                        <Image Source="Assets/Bilder/EinstellungDunkel.png" 
-                                               Style="{DynamicResource BtnIcon}"
-                                               />
-                                    </Setter.Value>
-
-                                </Setter>
-                            </DataTrigger>
-                            <!-- Falls das Dunkle Design ausgeschaltet ist,
-                                 mit dem Mond einschalten -->
-                            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
-                                <Setter Property="Content">
-                                    <Setter.Value>
-                                        <Image Source="Assets/Bilder/EinstellungHell.png" 
-                                               Style="{DynamicResource BtnIcon}"
-                                               />
-                                    </Setter.Value>
-                                </Setter>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-
-
-        </StackPanel>
-
-        <!-- TODOs: Labels zur Information der Ausstellung -->
-       
-        <views:AufgabenView Grid.Row="1" />
-
+  
+    <Grid Margin="0" >
+        <views:Anwendungsstartanzeige 
+            Visibility="{Binding ZeigeStart, Converter={StaticResource myBoolToVisibilityConverter}}"
+            />
+        <views:Arbeitsbereich Visibility="{Binding ZeigeArbeitsbereich, Converter={StaticResource myBoolToVisibilityConverter}}"/>
     </Grid>
+    
+
 </Window>

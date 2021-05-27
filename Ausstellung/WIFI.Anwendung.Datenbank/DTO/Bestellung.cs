@@ -90,5 +90,24 @@ namespace WIFI.Anwendung.DTO
             }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _Geändert = false;
+
+        /// <summary>
+        /// Ruft einen Wahrheitswert ab, ob die Buchbestellung geändert wurde
+        /// </summary>
+        public bool Geändert
+        {
+            get { return this._Geändert; }
+            set {
+                if (this._Geändert != value)
+                {
+                    this._Geändert = value;
+                    this.OnPropertyChanged();
+                } }
+        }
+
     }
 }

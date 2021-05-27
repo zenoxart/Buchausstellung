@@ -407,9 +407,7 @@ C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.GenerateResource.cache
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CoreCompileInputs.cache
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.g.cs
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.g.cs
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.baml
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.baml
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.g.cs
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.baml
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.g.cs
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.baml
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.g.cs
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.baml

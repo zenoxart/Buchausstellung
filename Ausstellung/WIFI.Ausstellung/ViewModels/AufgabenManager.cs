@@ -97,6 +97,16 @@ namespace WIFI.Ausstellung.ViewModels
         /// <param name="xmlPfad"></param>
         public void SektionLaden(string xmlPfad)
         {
+
+            if (this.AppKontext.AktuelleAufgabenSektion != xmlPfad)
+            {
+                //TODO: Wenn die Sektion unterschiedlich ist, nimm einen Viewer mit dem 0ten Element der AktivenViewer
+                //this.AktiverViewer = null;
+                //this.AktuelleAufgabe = this.Liste[0];
+
+                //InitialisiereAktivenViewer();
+                //this.OnPropertyChanged();
+            }
             this.AppKontext.AktuelleAufgabenSektion = xmlPfad;
             this.InitialisiereAufgabenAsync();
 
@@ -127,37 +137,48 @@ namespace WIFI.Ausstellung.ViewModels
 
                     void VeranstaltungsSektionLaden()
                     {
-                        // Frage die Datenbank ab
-                        //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
-                        //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
-
-                        // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
-                        //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung;
-
-                        WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
-
-                        // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
-                        switch (response)
+                        try
                         {
-                            case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung:
-                                SektionLaden(WIFI.Ausstellung.Properties.Resources.Vorbereitung);
-                                break;
+                            // Frage die Datenbank ab
+                            WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
+                                this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
 
-                            case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung:
-                                SektionLaden(WIFI.Ausstellung.Properties.Resources.Veranstaltung);
-                                break;
+                            // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
+                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung;
 
-                            case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung:
-                                SektionLaden(WIFI.Ausstellung.Properties.Resources.Lieferung);
-                                break;
+                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
 
-                            case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung:
-                                SektionLaden(WIFI.Ausstellung.Properties.Resources.Abholung);
-                                break;
-                            default:
-                                SektionLaden(WIFI.Ausstellung.Properties.Resources.Fehler);
-                                break;
+
+                            // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
+                            switch (response)
+                            {
+                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung:
+                                    SektionLaden(WIFI.Ausstellung.Properties.Resources.Vorbereitung);
+                                    break;
+
+                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung:
+                                    SektionLaden(WIFI.Ausstellung.Properties.Resources.Veranstaltung);
+                                    break;
+
+                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung:
+                                    SektionLaden(WIFI.Ausstellung.Properties.Resources.Lieferung);
+                                    break;
+
+                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung:
+                                    SektionLaden(WIFI.Ausstellung.Properties.Resources.Abholung);
+                                    break;
+                                default:
+                                    SektionLaden(WIFI.Ausstellung.Properties.Resources.Fehler);
+                                    break;
+                            }
                         }
+                        catch (Exception e)
+                        {
+                            this.AppKontext.Protokoll.Eintragen($"In der Datenbank ist beim laden des Veranstaltungs-Stadiums ein Fehler aufgetreten" +
+                                $"{e.GetType().FullName} | {e.Message} \n" +
+                                $"{e.StackTrace}", WIFI.Anwendung.Daten.ProtokollEintragTyp.Warnung);
+                        }
+                        
 
                         System.Threading.Thread.Sleep(3000);
                     }

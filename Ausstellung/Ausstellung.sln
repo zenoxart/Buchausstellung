@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung", "WIFI.Anwe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung.Datenbank", "WIFI.Anwendung.Datenbank\WIFI.Anwendung.Datenbank.csproj", "{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Verschlüsselung", "WIFI.Verschlüsselung\WIFI.Verschlüsselung.csproj", "{A392DF76-87F3-44CC-9D73-007F12AA7AA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76CBB1F3-FF4E-45F7-99BD-FB59143C08C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

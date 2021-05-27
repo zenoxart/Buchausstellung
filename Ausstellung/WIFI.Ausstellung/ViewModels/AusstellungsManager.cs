@@ -43,13 +43,8 @@ namespace WIFI.Ausstellung.ViewModels
                         }
                     };
 
+                    //  Liste muss Asyncon Initialisiert werden
                     InitialisiereAusstellungAsync();
-
-
-
-                    // TODO: Liste muss Asyncon Initialisiert werden
-                    //this._Liste 
-
 
                 }
 
