@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-231528245482
+25631257536
 
-35-83419585
+371952747713
 15-454787363
-App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungskopfzeile.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenkopfzeile.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;UserControls\Lieferlistitem.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
+App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungskopfzeile.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenkopfzeile.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;UserControls\Lieferlistitem.xaml;Views\Anwendungsstartanzeige.xaml;Views\Arbeitsbereich.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
 
 True
 

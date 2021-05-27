@@ -70,12 +70,42 @@ namespace WIFI.Ausstellung.ViewModels
 
                 if (this._SelektierteBestellung != value)
                 {
-
                     this._SelektierteBestellung = value;
+                    HoleSelektierteBuchBestellungAsync();
                     this.OnPropertyChanged();
                 }
             }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _BuchanzahlAktuallisieren = null;
+
+        /// <summary>
+        /// Aktualisiert die Anzahl des Buches
+        /// </summary>
+        public WIFI.Anwendung.Befehl BuchanzahlAktuallisieren
+        {
+            get
+            {
+                if (this._BuchanzahlAktuallisieren == null)
+                {
+                    this._BuchanzahlAktuallisieren = new WIFI.Anwendung.Befehl(
+                        p =>
+                        {
+
+                            this.SelektierteBestellung.Geändert = true;
+                            PusheSelektierteBuchBestellungAsync();
+                        }
+                    );
+                }
+
+                return this._BuchanzahlAktuallisieren;
+            }
+            set { this._BuchanzahlAktuallisieren = value; }
+        }
+
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -92,24 +122,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                 if (this._BücherDerSelektiertenBestellung == null)
                 {
-                    this._BücherDerSelektiertenBestellung = new WIFI.Anwendung.DTO.Bücher();
-
-                    // Wenn Eine Bestellung ausgewählt ist, nimm dessen Bücher, ansonst eine leere liste
-
-                    if (this.SelektierteBestellung != null && this.SelektierteBestellung.Buchliste != null)
-                    {
-
-                        var bücher = new WIFI.Anwendung.DTO.Bücher();
-
-                        foreach (var item in this.SelektierteBestellung.Buchliste)
-                        {
-                            item.Key.Anzahl = item.Value;
-                            bücher.Add(item.Key);
-                        }
-
-                        this._BücherDerSelektiertenBestellung = bücher;
-
-                    }
+                    HoleSelektierteBuchBestellungAsync();
                 }
                 return this._BücherDerSelektiertenBestellung;
             }
@@ -123,6 +136,65 @@ namespace WIFI.Ausstellung.ViewModels
                 }
             }
         }
+
+        /// <summary>
+        /// Läd die Bücher der Selektierten Bestellung Asyncron
+        /// </summary>
+        protected async void HoleSelektierteBuchBestellungAsync()
+        {
+            await System.Threading.Tasks.Task.Run(
+                 () =>
+                 {
+                     BücherDerSelektiertenBestellung = new WIFI.Anwendung.DTO.Bücher();
+
+                     // Wenn Eine Bestellung ausgewählt ist, nimm dessen Bücher, ansonst eine leere liste
+
+                     if (this.SelektierteBestellung != null && this.SelektierteBestellung.Buchliste != null)
+                     {
+
+                         var bücher = new WIFI.Anwendung.DTO.Bücher();
+
+                         foreach (var item in this.SelektierteBestellung.Buchliste)
+                         {
+                             item.Key.Anzahl = item.Value;
+                             bücher.Add(item.Key);
+                         }
+
+                         this.BücherDerSelektiertenBestellung = bücher;
+
+                     }
+                 });
+
+        }
+
+        /// <summary>
+        /// Übergibt die BücherDerSelektiertenBestellung der selektierten Bestellung asyncron
+        /// </summary>
+        protected async void PusheSelektierteBuchBestellungAsync()
+        {
+            await System.Threading.Tasks.Task.Run(
+                () =>
+                {
+
+                    if (BücherDerSelektiertenBestellung != null)
+                    {
+                        if (BücherDerSelektiertenBestellung.Count > 0)
+                        {
+                            Dictionary<WIFI.Anwendung.DTO.Buch, int> TempListe = new Dictionary<WIFI.Anwendung.DTO.Buch, int>();
+
+                            foreach (var item in BücherDerSelektiertenBestellung)
+                            {
+                                TempListe.Add(item, item.Anzahl);
+                            }
+
+                            this.SelektierteBestellung.Buchliste = TempListe;
+                        }
+                    }
+
+
+                });
+        }
+
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -154,6 +226,41 @@ namespace WIFI.Ausstellung.ViewModels
                     this.OnPropertyChanged();
                 }
             }
+        }
+
+        /// <summary>
+        /// Internes feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _Lieferanschluss = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public WIFI.Anwendung.Befehl Lieferabschluss
+        {
+            get {
+
+                if (this._Lieferanschluss == null)
+                {
+                    this._Lieferanschluss = new WIFI.Anwendung.Befehl(
+                        p => {
+
+                            // TODO: Lieferabschluss
+                            // Aktuallisiere alle Bestellungen und Bücher in der Datenbank
+
+                            // Drucke alle Einzelnen Bestellungen neu, welche sich geändert haben
+
+                            // Ändere den Status auf Abholungsverwaltung
+
+                            this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung);
+                            
+                            this.OnPropertyChanged();
+                        
+                        }
+                   );
+                }
+                return this._Lieferanschluss; }
+            set { this._Lieferanschluss = value; }
         }
 
 

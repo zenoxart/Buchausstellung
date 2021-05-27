@@ -6,10 +6,10 @@
       <Value Profile="(Default)">60000</Value>
     </Setting>
     <Setting Name="DatenbankBenutzer" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">clientbenutzer</Value>
+      <Value Profile="(Default)">0Ozr/cspCME5UVcvNOvp5A==</Value>
     </Setting>
     <Setting Name="DatenbankPasswort" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">cl1.entp4ssW0rt</Value>
+      <Value Profile="(Default)">VYYOeln28V0mSAAnroS5jA==</Value>
     </Setting>
   </Settings>
 </SettingsFile>

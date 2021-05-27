@@ -66,10 +66,11 @@ namespace WIFI.Anwendung.MySqlClient
                     // Port einer MySQL-Datenbank
                     //CB.Port = 3306;
 
-                    CB.UserID = Properties.Settings.Default.DatenbankBenutzer;
-                    CB.Password = Properties.Settings.Default.DatenbankPasswort;
 
-                  
+                    CB.UserID = MySqlClient.Encryptor.Decrypt(Properties.Settings.Default.DatenbankBenutzer);
+                    CB.Password = MySqlClient.Encryptor.Decrypt(Properties.Settings.Default.DatenbankPasswort);
+
+
 
                     Basiscontroller._ConnectionString = CB.ConnectionString;
                     this.AppKontext.Protokoll.Eintragen(

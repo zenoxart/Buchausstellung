@@ -407,3 +407,7 @@ C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.GenerateResource.cache
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CoreCompileInputs.cache
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.g.cs
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.baml
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.g.cs
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.baml

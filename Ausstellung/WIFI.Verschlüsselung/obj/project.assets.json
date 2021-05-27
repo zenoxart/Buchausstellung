@@ -1,0 +1,114 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "WIFI.Anwendung/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/WIFI.Anwendung.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WIFI.Anwendung.dll": {}
+        }
+      },
+      "WIFI.Anwendung.Datenbank/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "WIFI.Anwendung": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WIFI.Anwendung.Datenbank.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WIFI.Anwendung.Datenbank.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WIFI.Anwendung/1.0.0": {
+      "type": "project",
+      "path": "../WIFI.Anwendung/WIFI.Anwendung.csproj",
+      "msbuildProject": "../WIFI.Anwendung/WIFI.Anwendung.csproj"
+    },
+    "WIFI.Anwendung.Datenbank/1.0.0": {
+      "type": "project",
+      "path": "../WIFI.Anwendung.Datenbank/WIFI.Anwendung.Datenbank.csproj",
+      "msbuildProject": "../WIFI.Anwendung.Datenbank/WIFI.Anwendung.Datenbank.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "WIFI.Anwendung >= 1.0.0",
+      "WIFI.Anwendung.Datenbank >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\zenox\\.nuget\\packages\\": {},
+    "F:\\visual_Studio\\tools\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "projectName": "WIFI.Verschlüsselung",
+      "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "packagesPath": "C:\\Users\\zenox\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "F:\\visual_Studio\\tools\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\zenox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+              "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
+            },
+            "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+              "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

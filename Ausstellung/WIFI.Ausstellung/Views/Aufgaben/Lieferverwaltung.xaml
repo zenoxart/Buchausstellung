@@ -39,14 +39,15 @@
             <ListView  Background="Transparent" Grid.Row="1" ItemsSource="{Binding Lieferung.Gesamtbestellungen}" SelectedItem="{Binding Lieferung.SelektierteBestellung}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Orientation="Horizontal">
 
                             <!-- Bestellnr -->
 
-                            <TextBlock Text="{Binding  BestellNr}" FontSize="15" />
+                            <TextBlock Text="{Binding BestellNr}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" />
 
+                            <Label Width="20"/>
                             <!-- Kundenname -->
-                            <TextBlock Text="{Binding ZugehörigerBesucher.Nachname}" FontSize="15" />
+                            <TextBlock Text="{Binding ZugehörigerBesucher.Nachname}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         </StackPanel>
 
                     </DataTemplate>
@@ -65,14 +66,16 @@
                    FontWeight="Bold"
                    Style="{DynamicResource DunkelHellSchrift}" />
             <!-- Darstellen aller Bücher der Ausgewählten Bestellung -->
-            <ListView  Background="Transparent" Grid.Row="1" ItemsSource="{Binding Lieferung.BücherDerSelektiertenBestellung}">
+            <ListView  Background="Transparent" Grid.Row="1" 
+                       ItemsSource="{Binding Lieferung.BücherDerSelektiertenBestellung}" 
+                       SelectedItem="{Binding Lieferung.SelektiertesBuch}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Orientation="Horizontal">
                             <!-- Buchnummer -->
-                            <TextBlock Text="{Binding }" FontSize="15" />
+                            <TextBlock Text="{Binding Buchnummer}" FontSize="15"  Width="60"/>
                             <!-- Buchname -->
-                            <TextBlock Text="{Binding }" FontSize="15" />
+                            <TextBlock Text="{Binding Titel }" FontSize="15" />
                         </StackPanel>
 
                     </DataTemplate>
@@ -110,6 +113,8 @@
                          Width="30"
                          VerticalContentAlignment="Center"
                          HorizontalContentAlignment="Center"
+                         
+                       Text="{Binding Lieferung.SelektiertesBuch.Anzahl}"
                          >
                     
                 </TextBox>
@@ -117,7 +122,8 @@
                     Template="{DynamicResource RoundLimeButton}"
                     Grid.Column="3"
                     Height="30"
-                    Width="30">
+                    Width="30"
+                    Command="{Binding Lieferung.BuchanzahlAktuallisieren}">
                     <Image Source="/Assets/Bilder/Pfeil.png" Width="18" Height="18"/>
                 </Button>
             </Grid>
@@ -132,7 +138,8 @@
                 HorizontalAlignment="Right"
                 Content="Lieferabschluss"
                 FontWeight="Bold"
-                FontSize="16"/>
+                FontSize="16"
+                Command="{Binding Lieferung.Lieferabschluss}"/>
 
     </Grid>
 </UserControl>

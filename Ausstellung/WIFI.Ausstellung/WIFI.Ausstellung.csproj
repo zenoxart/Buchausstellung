@@ -91,6 +91,12 @@
     <Compile Include="ViewModels\AusstellungsManager.cs" />
     <Compile Include="ViewModels\LieferungsManager.cs" />
     <Compile Include="ViewModels\VeranstaltungsManager.cs" />
+    <Compile Include="Views\Anwendungsstartanzeige.xaml.cs">
+      <DependentUpon>Anwendungsstartanzeige.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arbeitsbereich.xaml.cs">
+      <DependentUpon>Arbeitsbereich.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AufgabenView.xaml.cs">
       <DependentUpon>AufgabenView.xaml</DependentUpon>
     </Compile>
@@ -176,6 +182,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Lieferlistitem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Anwendungsstartanzeige.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Arbeitsbereich.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

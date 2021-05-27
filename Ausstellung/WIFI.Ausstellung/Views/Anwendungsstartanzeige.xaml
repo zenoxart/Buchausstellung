@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="WIFI.Ausstellung.Views.Anwendungsstartanzeige"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WIFI.Ausstellung.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Style="{DynamicResource DunkelHellSchrift}" Content="BAVS" FontSize="80" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Bottom" />
+        <Label Style="{DynamicResource DunkelHellSchrift}" Content="Buchausstellungs Verwaltungs Software" FontSize="30" HorizontalAlignment="Center" Grid.Row="1"  VerticalAlignment="Top" Margin="0 0 0 0 " FontWeight="DemiBold" />
+        <Button Content="Starten Software"
+                Command="{Binding StarteSoftware}" 
+                Width="130" 
+                Height="35"
+                Grid.Row="2"
+                Template="{DynamicResource RoundOrangeButton}"/>
+    </Grid>
+</UserControl>

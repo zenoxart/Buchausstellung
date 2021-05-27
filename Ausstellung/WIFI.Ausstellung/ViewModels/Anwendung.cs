@@ -504,6 +504,87 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._Lieferung = value; }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _ZeigeStart = true;
+
+        /// <summary>
+        /// Gibt einen Wahrheitswert an ob der Startscreen angezeigt werden soll oder nicht oder setzt ihn
+        /// </summary>
+        public bool ZeigeStart
+        {
+            get { return this._ZeigeStart; }
+            set
+            {
+                // Wenn es Falsch ist soll der Arbeitsbereich gezeigt werden, sonst nicht
+                if (value == false)
+                {
+                    ZeigeArbeitsbereich = true;
+                }
+                else
+                {
+                    ZeigeArbeitsbereich = false;
+                }
+                this._ZeigeStart = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _ZeigeArbeitsbereich = false;
+        /// <summary>
+        /// Gibt einen Wahrheitswert an ob der Arbeitsbereich angezeigt werden soll oder nicht oder setzt ihn
+        /// </summary>
+        public bool ZeigeArbeitsbereich
+        {
+            get { return this._ZeigeArbeitsbereich; }
+            set
+            {
+                this._ZeigeArbeitsbereich = value;
+
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _StarteSoftware;
+
+        /// <summary>
+        /// Stellt eine Methode zum Starten des Arbeitsbereiches
+        /// </summary>
+        public WIFI.Anwendung.Befehl StarteSoftware
+        {
+            get
+            {
+
+                this._StarteSoftware = new WIFI.Anwendung.Befehl(
+                    p =>
+                    {
+
+                        // prüfe ob Veranstaltung existiert ansonst
+
+                        // erstelle Veranstaltung
+
+
+                        this.ZeigeStart = false;
+
+
+                    }
+                );
+
+                return this._StarteSoftware;
+            }
+            set
+            {
+                this._StarteSoftware = value;
+                this.OnPropertyChanged();
+            }
+        }
 
 
     }
