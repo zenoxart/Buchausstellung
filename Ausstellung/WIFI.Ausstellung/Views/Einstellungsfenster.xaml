@@ -50,6 +50,7 @@
 
 
         <!-- Möglichkeit für Standard PDF-Speicherpfade -->
+        <!-- TODO: Dateipfade anlegen -->
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
             <Label Content="Standardpfad der Gesamtbestellliste:" 
                    Style="{DynamicResource DunkelHellSchrift}"

@@ -18,7 +18,7 @@
         <Label Style="{DynamicResource TitleStyle}">
             Ausstellung</Label>
 
-        <!-- Filterbereich -->
+        <!-- TODO: Filterbereich -->
         <StackPanel Grid.Row="1" Style="{DynamicResource ForgroundPanel}">
             <uc:Ausstellungsfilter />
 
@@ -31,6 +31,7 @@
             >
         </GridSplitter>
 
+        <!--TODO: HellDunkelSchrift -->
             <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
                 <ScrollViewer.Content>
                     <StackPanel Orientation="Vertical">

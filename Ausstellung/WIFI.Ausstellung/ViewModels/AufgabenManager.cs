@@ -97,6 +97,16 @@ namespace WIFI.Ausstellung.ViewModels
         /// <param name="xmlPfad"></param>
         public void SektionLaden(string xmlPfad)
         {
+
+            if (this.AppKontext.AktuelleAufgabenSektion != xmlPfad)
+            {
+                //TODO: Wenn die Sektion unterschiedlich ist, nimm einen Viewer mit dem 0ten Element der AktivenViewer
+                //this.AktiverViewer = null;
+                //this.AktuelleAufgabe = this.Liste[0];
+
+                //InitialisiereAktivenViewer();
+                //this.OnPropertyChanged();
+            }
             this.AppKontext.AktuelleAufgabenSektion = xmlPfad;
             this.InitialisiereAufgabenAsync();
 

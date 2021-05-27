@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WIFI.Anwendung.MySqlClient
 {
-    public static class Encryptor
+    public sealed class Encryptor
     {
 
         private static string password = "990%32n59_mxjv=§9522352tgIJ =AUZs0fd88-;Y_:,x-vc.y-,asjlhSHgh9h93 875= /--,AYPQ%)=Z&fa00320u151x<-x.,c-egjlsA325ASfl";
@@ -27,7 +27,7 @@ namespace WIFI.Anwendung.MySqlClient
         /// <param name="InitialVector">Needs to be 16 ASCII characters long</param>
         /// <param name="KeySize">Can be 128, 192, or 256</param>
         /// <returns>An encrypted string</returns>
-        public static string Encrypt(string PlainText, 
+        public string Encrypt(string PlainText, 
             string Salt = "Kosher", string HashAlgorithm = "SHA1",
             int PasswordIterations = 2, string InitialVector = "OFRna73m*aze01xY",
             int KeySize = 256)
@@ -73,7 +73,7 @@ namespace WIFI.Anwendung.MySqlClient
         /// <param name="InitialVector">Needs to be 16 ASCII characters long</param>
         /// <param name="KeySize">Can be 128, 192, or 256</param>
         /// <returns>A decrypted string</returns>
-        public static string Decrypt(string CipherText,
+        public string Decrypt(string CipherText,
             string Salt = "Kosher", string HashAlgorithm = "SHA1",
             int PasswordIterations = 2, string InitialVector = "OFRna73m*aze01xY",
             int KeySize = 256)

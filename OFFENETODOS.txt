@@ -1,0 +1,17 @@
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\DatenController\BestellungSqlClientController.cs(213):Preis = Convert.ToDouble(ZweiterDatenLeser["Preis"]),
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\DatenController\BücherSqlClientController.cs(48):Preis = Convert.ToDouble(DatenLeser["preis"]),
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung\AppKontext.cs(106):// TODO: Hier weitere Produktionsschritte einfügen
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung\FensterManager.cs(22)://          TODO: Auch die Auflösung mitspeichern
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Ausstellungslistitem.xaml.cs(238):// TODO: Werte des Buches in eine Bestellliste hinzufügen
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Ausstellungslistitem.xaml.cs(268):Preis = Convert.ToDouble(Preis),
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\UserControls\Bestellungslistitem.xaml.cs(202):// TODO: Werte des Buches in eine Bestellliste hinzufügen
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\ViewModels\AufgabenManager.cs(103)://TODO: Wenn die Sektion unterschiedlich ist, nimm einen Viewer mit dem 0ten Element der AktivenViewer
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\ViewModels\AusstellungsManager.cs(50):// TODO: Liste muss Asyncon Initialisiert werden
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\ViewModels\AusstellungsManager.cs(255):// TODO: Werte des Buches in eine Bestellliste hinzufügen
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\ViewModels\AusstellungsManager.cs(281):// Erstellt einen Zugehörigen Besucher (TODO: Noch OHNE ID)
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\ViewModels\AusstellungsManager.cs(428):// TODO: Abschluss der Bestellung umsetzen
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\ViewModels\LieferungsManager.cs(248):// TODO: Lieferabschluss
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Anwendungsstartanzeige.xaml(20):<!-- TODO: Bild beim öffnen der Anwendung anzeigen -->
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Arbeitsbereich.xaml(110):<!-- TODOs: Labels zur Information der Ausstellung -->
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Aufgaben\Buchverwaltung.xaml.cs(199):// TODO: Werte des Buches in der Bücherliste hinzufügen
+C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\Views\Aufgaben\Buchverwaltung.xaml.cs(229):Preis = Convert.ToDouble(Preis),

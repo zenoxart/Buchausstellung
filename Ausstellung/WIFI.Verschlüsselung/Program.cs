@@ -18,10 +18,10 @@ namespace WIFI.Verschlüsselung
             {
 
                 Console.WriteLine("Gibt einen Text ein welcher Verschlüsselt werden soll: ");
-                Console.WriteLine(WIFI.Anwendung.MySqlClient.Encryptor.Encrypt(Console.ReadLine()));
+                Console.WriteLine(new Anwendung.MySqlClient.Encryptor().Encrypt(Console.ReadLine()));
 
                 Console.WriteLine("Gibt einen Text ein welcher Entschlüsselt werden soll: ");
-                Console.WriteLine(WIFI.Anwendung.MySqlClient.Encryptor.Decrypt(Console.ReadLine()));
+                Console.WriteLine(new Anwendung.MySqlClient.Encryptor().Decrypt(Console.ReadLine()));
 
                 Console.WriteLine("\n " +
                                   "\n " +

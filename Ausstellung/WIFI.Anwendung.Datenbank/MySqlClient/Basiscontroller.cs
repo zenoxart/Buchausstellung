@@ -67,8 +67,8 @@ namespace WIFI.Anwendung.MySqlClient
                     //CB.Port = 3306;
 
 
-                    CB.UserID = MySqlClient.Encryptor.Decrypt(Properties.Settings.Default.DatenbankBenutzer);
-                    CB.Password = MySqlClient.Encryptor.Decrypt(Properties.Settings.Default.DatenbankPasswort);
+                    CB.UserID = new MySqlClient.Encryptor().Decrypt(Properties.Settings.Default.DatenbankBenutzer);
+                    CB.Password = new MySqlClient.Encryptor().Decrypt(Properties.Settings.Default.DatenbankPasswort);
 
 
 
