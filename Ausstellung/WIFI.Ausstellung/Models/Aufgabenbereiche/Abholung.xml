@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aufgaben>
-  <aufgabe name="Abholungsverwaltung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Abholungsverwaltung" />
+  <aufgabe name="Abholungsverwaltung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Abholungsverwaltung" hellpfad="\Assets\Bilder\Aufgaben\AbholungHell.png" dunkelpfad="\Assets\Bilder\Aufgaben\AbholungDunkel.png" />
 </aufgaben>

@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aufgaben>
-  <aufgabe name="Lieferverwaltung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Lieferverwaltung" />
+  <aufgabe name="Lieferverwaltung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Lieferverwaltung" hellpfad="\Assets\Bilder\Aufgaben\LieferungHell.png" dunkelpfad="\Assets\Bilder\Aufgaben\LieferungDunkel.png" />
 </aufgaben>

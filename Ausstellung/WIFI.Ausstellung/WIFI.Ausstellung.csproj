@@ -352,5 +352,23 @@
   <ItemGroup>
     <Resource Include="Assets\Bilder\Pfeil.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Aufgaben\AbholungDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\AbholungHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\AusstellungDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\AusstellungHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\AusstellungsabschlussDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\AusstellungsabschlussHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\BestellungDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\BestellungenDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\BestellungenHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\BestellungHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\BuchverwaltungDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\BuchverwaltungHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\ErstellungDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\ErstellungHell.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\LieferungDunkel.png" />
+    <Resource Include="Assets\Bilder\Aufgaben\LieferungHell.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

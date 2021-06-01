@@ -407,6 +407,11 @@ namespace WIFI.Ausstellung.ViewModels
                                 }
                             }
 
+                            foreach (var item in this.Aufgaben.Liste)
+                            {
+                                item.DunklesDesign = this.DunklesDesign;
+                            }
+
                             this.AppKontext.Protokoll.Eintragen($"{this} hat das Dunkle Design {(this.DunklesDesign ? "aktiviert" : "deaktiviert")}");
                         }
                         );

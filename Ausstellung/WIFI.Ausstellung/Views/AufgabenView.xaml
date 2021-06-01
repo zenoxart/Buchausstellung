@@ -14,7 +14,7 @@
              den Anwendungspunkten und rechts
              die zur aktuellen Aufgabe passende View -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" MinWidth="160"/>
+                <ColumnDefinition Width="200" MinWidth="50" MaxWidth="250"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
@@ -43,18 +43,15 @@
                 <ListBox.ItemTemplate >
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Cursor="Hand">
-                            <TextBlock 
-                                FontSize="15"
-                                FontFamily="Wingdings"
-                                Text="{Binding Symbol}" 
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Width="30" 
-                               />
-                            
-                            <TextBlock 
+                            <Image
+                                Source="{Binding AktuellerFarbPfad}"
+                                Height="30" Width="30"/>
+
+                            <TextBlock  Margin="10 0 0 0"
                                 Text="{Binding Name}"
                                 TextAlignment="Center"
+                                VerticalAlignment="Center"
+                                
                                 />
 
                         </StackPanel>

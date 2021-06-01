@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aufgaben>
-  <aufgabe name="Offline" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Offlineanzeige" />
+  <aufgabe name="Offline" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Offlineanzeige" hellpfad="\Assets\Bilder\Offlineanzeige.png" dunkelpfad="\Assets\Bilder\Offlineanzeige.png" />
 </aufgaben>

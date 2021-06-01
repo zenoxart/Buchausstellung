@@ -42,7 +42,9 @@ namespace WIFI.Ausstellung.Models
                     {
                         Name = a.Attributes["name"].Value,
                         Symbol = a.Attributes["symbol"].Value,
-                        ViewerName = a.Attributes["view"].Value
+                        ViewerName = a.Attributes["view"].Value,
+                        DunkelPfad = a.Attributes["dunkelpfad"].Value,
+                        HellPfad = a.Attributes["hellpfad"].Value
                     }
                     );
             }

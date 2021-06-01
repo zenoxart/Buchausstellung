@@ -96,6 +96,81 @@ namespace WIFI.Ausstellung.Models
             }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _HellPfad;
+
+        /// <summary>
+        /// Ruft den Pfad zu dem Hellhintergrundbild ab oder legt diesen fest
+        /// </summary>
+        public string HellPfad
+        {
+            get { return this._HellPfad; }
+            set { this._HellPfad = value; }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _DunkelPfad;
+
+
+        /// <summary>
+        /// Ruft den Pfad zu dem Dunkelhintergrundbild ab oder legt diesen fest
+        /// </summary>
+        public string DunkelPfad
+        {
+            get { return this._DunkelPfad; }
+            set
+            {
+                this._DunkelPfad = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _AktuellerFarbPfad;
+
+        /// <summary>
+        /// Ruft den Pfad zum Aktuell Benutzen Farbschema ab oder legt diesen fest
+        /// </summary>
+        public string AktuellerFarbPfad
+        {
+            get
+            {
+                return this._AktuellerFarbPfad;
+            }
+            set { this._AktuellerFarbPfad = value; this.OnPropertyChanged(); }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _DunklesDesign;
+
+        public bool DunklesDesign
+        {
+            get { return this._DunklesDesign; }
+            set
+            {
+                this._DunklesDesign = value;
+                if (value)
+                {
+                    this.AktuellerFarbPfad = DunkelPfad;
+                }
+                else
+                {
+                    this.AktuellerFarbPfad = HellPfad;
+                }
+                this.OnPropertyChanged();
+            }
+        }
+
+
+
     }
 
 }
