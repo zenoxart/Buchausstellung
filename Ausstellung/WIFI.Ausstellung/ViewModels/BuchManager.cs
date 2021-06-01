@@ -50,6 +50,59 @@ namespace WIFI.Ausstellung.ViewModels
         #endregion
 
         /// <summary>
+        /// Ruft die aktuelle Buchnummer ab
+        /// oder gibt diese zurück
+        /// </summary>
+        public string Buchnummer { get; set; }
+
+        /// <summary>
+        /// Ruft den Titel des Buches ab
+        /// oder gibt diesen zurück
+        /// </summary>
+        public string Titel { get; set; }
+
+        /// <summary>
+        /// Ruft den Autor des Buches ab
+        /// oder gibt diesen zurück
+        /// </summary>
+        public string Autor { get; set; }
+
+        /// <summary>
+        /// Ruft den Namen des Verlags ab
+        /// oder legt diesen fest
+        /// </summary>
+        public string Verlag { get; set; }
+
+        /// <summary>
+        /// Ruft die Rabattgruppe des Buches
+        /// ab oder legt diese fest
+        /// </summary>
+        public string Rabatt { get; set; }
+
+        /// <summary>
+        /// Ruft die Buchgruppe des aktuellen
+        /// Buches ab oder legt diese fest
+        /// </summary>
+        public string Buchgruppe { get; set; }
+
+        /// <summary>
+        /// Ruft den aktuellen Preis des
+        /// Buches ab oder legt diesen fest
+        /// </summary>
+        public double Preis { get; set; }
+
+        /// <summary>
+        /// Ruft den aktuellen Status des Hell Dunkel 
+        /// Modus ab oder legt diesen fest
+        /// </summary>
+        public string DunkelModus { get; set; }
+
+        /// <summary>
+        /// Erstellt eine benutzbare Schnittstelle zu dem Property
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
         /// Ruft einen Wahrheitswert ab,
         /// ob die Liste der Bücher
         /// bereits geladen wurde oder nicht

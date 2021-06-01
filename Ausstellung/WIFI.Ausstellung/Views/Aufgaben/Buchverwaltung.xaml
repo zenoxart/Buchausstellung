@@ -124,7 +124,7 @@
                             Style="{DynamicResource BestellButton}"
                             Template="{DynamicResource AddBestellungRoundButton}"
             
-                            Command="{Binding ElementName=Buchitem,Path=BuchHinzufügen}"
+                            Command="{Binding Path=BuchManager.BuchHinzufügen}"
                             Content="+">
                     </Button>
 
