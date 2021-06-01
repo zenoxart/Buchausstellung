@@ -58,7 +58,7 @@ namespace WIFI.Anwendung.DatenController
                     this.AppKontext.Protokoll.Eintragen(
                         new Daten.ProtokollEintrag
                         {
-                            Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                            Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BesucherSqlClientController).GetMethod("BekommeBesucherId")} ist ein Fehler aufgetreten \n" +
                                    $"{e.GetType().FullName} = {e.Message} \n " +
                                    $"{e.StackTrace}",
                             Typ = Daten.ProtokollEintragTyp.Normal
@@ -120,7 +120,7 @@ namespace WIFI.Anwendung.DatenController
                     this.AppKontext.Protokoll.Eintragen(
                         new Daten.ProtokollEintrag
                         {
-                            Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                            Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BesucherSqlClientController).GetMethod("ErstelleBesucher")} ist ein Fehler aufgetreten \n" +
                                    $"{e.GetType().FullName} = {e.Message} \n " +
                                    $"{e.StackTrace}",
                             Typ = Daten.ProtokollEintragTyp.Normal

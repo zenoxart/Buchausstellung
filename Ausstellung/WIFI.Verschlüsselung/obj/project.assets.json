@@ -44,41 +44,47 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zenox\\.nuget\\packages\\": {},
-    "F:\\visual_Studio\\tools\\NuGetPackages": {}
+    "C:\\Users\\peter\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "projectUniqueName": "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
       "projectName": "WIFI.Verschlüsselung",
-      "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
-      "packagesPath": "C:\\Users\\zenox\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
+      "projectPath": "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "packagesPath": "C:\\Users\\peter\\.nuget\\packages\\",
+      "outputPath": "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\visual_Studio\\tools\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\zenox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
-              "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
+            "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+              "projectPath": "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
             },
-            "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-              "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+            "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+              "projectPath": "D:\\peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
             }
           }
         }
@@ -107,7 +113,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

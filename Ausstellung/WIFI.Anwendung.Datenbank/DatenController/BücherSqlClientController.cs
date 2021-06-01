@@ -66,7 +66,7 @@ namespace WIFI.Anwendung.DatenController
                 this.AppKontext.Protokoll.Eintragen(
                     new Daten.ProtokollEintrag
                     {
-                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BücherSqlClientController).GetMethod("HoleBücher")} ist ein Fehler aufgetreten \n" +
                                $"{e.GetType().FullName} = {e.Message} \n " +
                                $"{e.StackTrace}",
                         Typ = Daten.ProtokollEintragTyp.Normal
@@ -81,14 +81,37 @@ namespace WIFI.Anwendung.DatenController
 
             try
             {
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                {
+                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleBuch", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
+                        Verbindung.Open();
+
+                        Befehl.Parameters.AddWithValue("Buchnummer", buch.Buchnummer);
+                        Befehl.Parameters.AddWithValue("Titel", buch.Titel);
+                        Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
+                        Befehl.Parameters.AddWithValue("Preis", buch.Preis);
+                        Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
+                        Befehl.Parameters.AddWithValue("Kategorie", buch.Kategoriegruppe);
+                        Befehl.Parameters.AddWithValue("Verlag", buch.VerlagName);
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteScalar();
+                    }
+
+                    Verbindung.Close();
+                }
             }
             catch (Exception e)
             {
                 this.AppKontext.Protokoll.Eintragen(
                     new Daten.ProtokollEintrag
                     {
-                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BücherSqlClientController).GetMethod("ErstelleBuch")} ist ein Fehler aufgetreten \n" +
                                $"{e.GetType().FullName} = {e.Message} \n " +
                                $"{e.StackTrace}",
                         Typ = Daten.ProtokollEintragTyp.Normal

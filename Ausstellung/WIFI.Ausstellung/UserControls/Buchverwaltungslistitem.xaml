@@ -34,17 +34,16 @@
 
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
-                Grid.Column="1" 
-               Style="{DynamicResource StandartFont}"
-               Content="{Binding ElementName=Buchitem,Path=Titel}"
-               />
-
-        <Label VerticalContentAlignment="Center"
-               HorizontalContentAlignment="Center"
                Grid.Column="0"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Buchnr}"
             />
+        <Label VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+                Grid.Column="1" 
+               Style="{DynamicResource StandartFont}"
+               Content="{Binding ElementName=Buchitem,Path=Titel}"
+               />
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                 Grid.Column="2"

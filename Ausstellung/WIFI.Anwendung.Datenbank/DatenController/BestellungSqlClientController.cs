@@ -68,7 +68,7 @@ namespace WIFI.Anwendung.DatenController
                 this.AppKontext.Protokoll.Eintragen(
                     new Daten.ProtokollEintrag
                     {
-                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("ErstelleEinzelBestellung")} ist ein Fehler aufgetreten \n" +
                                $"{e.GetType().FullName} = {e.Message} \n " +
                                $"{e.StackTrace}",
                         Typ = Daten.ProtokollEintragTyp.Normal
@@ -112,7 +112,7 @@ namespace WIFI.Anwendung.DatenController
                 this.AppKontext.Protokoll.Eintragen(
                     new Daten.ProtokollEintrag
                     {
-                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("BuchbestellungHinzufügen")} ist ein Fehler aufgetreten \n" +
                                $"{e.GetType().FullName} = {e.Message} \n " +
                                $"{e.StackTrace}",
                         Typ = Daten.ProtokollEintragTyp.Normal
@@ -235,7 +235,7 @@ namespace WIFI.Anwendung.DatenController
                 this.AppKontext.Protokoll.Eintragen(
                     new Daten.ProtokollEintrag
                     {
-                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("HoleBestellungsInfo")} ist ein Fehler aufgetreten \n" +
                                $"{e.GetType().FullName} = {e.Message} \n " +
                                $"{e.StackTrace}",
                         Typ = Daten.ProtokollEintragTyp.Normal
