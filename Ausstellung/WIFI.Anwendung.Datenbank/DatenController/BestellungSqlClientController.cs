@@ -157,6 +157,13 @@ namespace WIFI.Anwendung.DatenController
                         {
                             while (DatenLeser.Read())
                             {
+                                bool abgeholtBool = false;
+                                if (Convert.ToInt32(DatenLeser["Abgeholt"]) == 1)
+                                {
+                                    abgeholtBool = true;
+                                }
+
+
                                 bestellungen.Add(
                                     new DTO.Bestellung
                                     {
@@ -167,11 +174,12 @@ namespace WIFI.Anwendung.DatenController
                                             Vorname = DatenLeser["Vorname"].ToString(),
                                             Nachname = DatenLeser["Nachname"].ToString(),
                                             Straßenname = DatenLeser["Strasse"].ToString(),
-                                            Hausnummer = Convert.ToInt32( DatenLeser["Hausnummer"]),
+                                            Hausnummer = Convert.ToInt32(DatenLeser["Hausnummer"]),
                                             Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
                                             Ort = DatenLeser["Ort"].ToString()
                                         },
-                                        Buchliste = new Dictionary<DTO.Buch, int>() { }
+                                        Buchliste = new Dictionary<DTO.Buch, int>() { },
+                                        Abgeholt = abgeholtBool
                                     }
 
                                     );

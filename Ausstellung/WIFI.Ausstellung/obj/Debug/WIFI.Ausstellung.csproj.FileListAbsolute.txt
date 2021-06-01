@@ -192,9 +192,7 @@ C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.g.cs
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.baml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungskopfzeile.g.cs
-C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.g.cs
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungskopfzeile.baml
-C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchlistitem.baml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenkopfzeile.g.cs
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenkopfzeile.baml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\PdfSharp.dll
@@ -423,3 +421,17 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungslistitem.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungslistitem.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Anwendungsstartanzeige.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Arbeitsbereich.baml
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungslistitem.g.cs
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungslistitem.baml

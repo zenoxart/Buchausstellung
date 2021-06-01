@@ -3,7 +3,7 @@
     "additionalProbingPaths": [
       "C:\\Users\\zenox\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\zenox\\.nuget\\packages",
-      "F:\\visual_Studio\\tools\\NuGetPackages"
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ]
   }
 }

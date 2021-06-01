@@ -586,6 +586,28 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Ausstellung.ViewModels.AbholungsManager _Abholung;
+
+        /// <summary>
+        /// Ruft die Abholungsverwaltung ab oder legt diese fest
+        /// </summary>
+        public WIFI.Ausstellung.ViewModels.AbholungsManager Abholung
+        {
+            get
+            {
+                if (this._Abholung == null)
+                {
+                    this._Abholung = this.AppKontext.Produziere<WIFI.Ausstellung.ViewModels.AbholungsManager>();
+                }
+
+                return this._Abholung;
+            }
+            set { this._Abholung = value; }
+        }
+
 
     }
 }

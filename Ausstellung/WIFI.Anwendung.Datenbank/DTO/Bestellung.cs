@@ -22,7 +22,7 @@ namespace WIFI.Anwendung.DTO
     /// </summary>
     public class Bestellung : WIFI.Anwendung.Daten.DatenBasis
     {
-       
+
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -101,13 +101,38 @@ namespace WIFI.Anwendung.DTO
         public bool Geändert
         {
             get { return this._Geändert; }
-            set {
+            set
+            {
                 if (this._Geändert != value)
                 {
                     this._Geändert = value;
                     this.OnPropertyChanged();
-                } }
+                }
+            }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private bool _abgeholt = false;
+
+        /// <summary>
+        /// Ruft einen Wahrheitswert ab ob die Bestellung abgeholt wurde oder nicht
+        /// </summary>
+        public bool Abgeholt
+        {
+            get
+            {
+
+                return this._abgeholt;
+            }
+            set
+            {
+                this._abgeholt = value;
+                this.OnPropertyChanged();
+            }
+        }
+
 
     }
 }

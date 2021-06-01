@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WIFI.Ausstellung.UserControls.Abholungslistitem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WIFI.Ausstellung.UserControls"
+             mc:Ignorable="d"
+             Name="Abholitem">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        
+        
+        <CheckBox Template="{DynamicResource CheckBoxTemplate}" 
+                  VerticalAlignment="Center"  
+                  HorizontalAlignment="Center"
+                  IsChecked="{Binding ElementName=Abholitem,Path=Abgeholt}"/>
+
+        <!-- Bestellnr -->
+        <TextBlock Text="{Binding ElementName=Abholitem,Path=BestellNr}"
+                   Style="{DynamicResource DunkelSchrift}"/>
+
+        <!-- Kundenname-->
+        <StackPanel Orientation="Horizontal" Grid.Column="2">
+            <TextBlock Text="{Binding ElementName=Abholitem,Path=BesucherNachname}" 
+                       Style="{DynamicResource DunkelSchrift}"/>
+            <TextBlock Text="{Binding ElementName=Abholitem,Path=BesucherVorname}" 
+                       Style="{DynamicResource DunkelSchrift}"/>
+        </StackPanel>
+     </Grid>
+</UserControl>
