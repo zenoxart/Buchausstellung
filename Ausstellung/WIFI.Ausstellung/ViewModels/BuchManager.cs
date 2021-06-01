@@ -6,19 +6,26 @@ using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.ViewModels
 {
+    /// <summary>
+    /// Stellt einen Dienst zum Verwalten
+    /// aller gelieferten Bücher bereit
+    /// </summary>
     public class BuchManager : WIFI.Anwendung.ViewModelAppObjekt
     {
         #region BücherView
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bücher _Liste = null;
+        private static WIFI.Anwendung.DTO.Bücher _Buchausstellungsliste = null;
 
+        /// <summary>
+        /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind, ab oder legt diese fest
+        /// </summary>
         public WIFI.Anwendung.DTO.Bücher Buchausstellungsliste
         {
             get
             {
-                if (BuchManager._Liste == null)
+                if (BuchManager._Buchausstellungsliste == null)
                 {
                     Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher
                     {
@@ -39,68 +46,14 @@ namespace WIFI.Ausstellung.ViewModels
                     InitialisiereBuecherAsync();
                 }
 
-                return BuchManager._Liste;
+                return BuchManager._Buchausstellungsliste;
             }
             set
             {
-                BuchManager._Liste = value;
+                BuchManager._Buchausstellungsliste = value;
                 this.OnPropertyChanged();
             }
         }
-        #endregion
-
-        /// <summary>
-        /// Ruft die aktuelle Buchnummer ab
-        /// oder gibt diese zurück
-        /// </summary>
-        public string Buchnummer { get; set; }
-
-        /// <summary>
-        /// Ruft den Titel des Buches ab
-        /// oder gibt diesen zurück
-        /// </summary>
-        public string Titel { get; set; }
-
-        /// <summary>
-        /// Ruft den Autor des Buches ab
-        /// oder gibt diesen zurück
-        /// </summary>
-        public string Autor { get; set; }
-
-        /// <summary>
-        /// Ruft den Namen des Verlags ab
-        /// oder legt diesen fest
-        /// </summary>
-        public string Verlag { get; set; }
-
-        /// <summary>
-        /// Ruft die Rabattgruppe des Buches
-        /// ab oder legt diese fest
-        /// </summary>
-        public string Rabatt { get; set; }
-
-        /// <summary>
-        /// Ruft die Buchgruppe des aktuellen
-        /// Buches ab oder legt diese fest
-        /// </summary>
-        public string Buchgruppe { get; set; }
-
-        /// <summary>
-        /// Ruft den aktuellen Preis des
-        /// Buches ab oder legt diesen fest
-        /// </summary>
-        public double Preis { get; set; }
-
-        /// <summary>
-        /// Ruft den aktuellen Status des Hell Dunkel 
-        /// Modus ab oder legt diesen fest
-        /// </summary>
-        public string DunkelModus { get; set; }
-
-        /// <summary>
-        /// Erstellt eine benutzbare Schnittstelle zu dem Property
-        /// </summary>
-        public string Id { get; set; }
 
         /// <summary>
         /// Ruft einen Wahrheitswert ab,
@@ -146,7 +99,35 @@ namespace WIFI.Ausstellung.ViewModels
                 }
                 );
         }
+        #endregion
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private static WIFI.Anwendung.DTO.Bücher _AktuelleBücher = null;
+
+        /// <summary>
+        /// Ruft die aktuell bestellten Bücher ab oder legt diese fest
+        /// </summary>
+        public static WIFI.Anwendung.DTO.Bücher AktuelleBücher
+        {
+            get
+            {
+                if (BuchManager._AktuelleBücher == null)
+                {
+                    BuchManager._AktuelleBücher = new WIFI.Anwendung.DTO.Bücher();
+                }
+                return BuchManager._AktuelleBücher;
+            }
+            set
+            {
+                if (BuchManager._AktuelleBücher != value)
+                {
+                    BuchManager._AktuelleBücher = value;
+                }
+                // Da statische Eigenschaften nicht OnPropertyChanged aufrufen können, wird das gesammte Layout geupdatet
+            }
+        }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -179,9 +160,9 @@ namespace WIFI.Ausstellung.ViewModels
                             WIFI.Anwendung.DTO.Buch b = null;
                             if (Buchausstellungsliste.Count > 0)
                             {
-                                b = (from l in Buchausstellungsliste
-                                     where string.Compare(l.ID.ToString(), Id, ignoreCase: true) == 0
-                                     select l).FirstOrDefault();
+                                //b = (from l in Buchausstellungsliste
+                                //     where string.Compare(l.Titel.ToString(), id, ignoreCase: true) == 0
+                                //     select l).FirstOrDefault();
 
                             }
                             // Nehme das Erste Element welches die selbe Id schon hat
@@ -193,13 +174,13 @@ namespace WIFI.Ausstellung.ViewModels
                                 new WIFI.Anwendung.DTO.Buch
                                 {
 
-                                    AutorName = Autor,
-                                    ID = Convert.ToInt32(Id),
-                                    Kategoriegruppe = Convert.ToInt32(Buchgruppe),
-                                    Preis = Convert.ToDouble(Preis),
-                                    Rabattgruppe = Convert.ToInt32(Rabatt),
-                                    Titel = Titel,
-                                    VerlagName = Verlag
+                                    //AutorName = Autor,
+                                    //ID = Convert.ToInt32(Id),
+                                    //Kategoriegruppe = Convert.ToInt32(Buchgruppe),
+                                    //Preis = Convert.ToDouble(Preis),
+                                    //Rabattgruppe = Convert.ToInt32(Rabatt),
+                                    //Titel = Titel,
+                                    //VerlagName = Verlag
                                 }
                             );
                             }
@@ -213,8 +194,14 @@ namespace WIFI.Ausstellung.ViewModels
                 return this._BuchHinzufügen;
             }
 
-            set { this._BuchHinzufügen = value; }
+            set 
+            { 
+                this._BuchHinzufügen = value;
+                this.OnPropertyChanged();
+            }
         }
+
+
 
         private void InitialisiereBuecherListe()
         {
@@ -222,5 +209,32 @@ namespace WIFI.Ausstellung.ViewModels
                 this.AppKontext.DBControllerManager.BücherController.HoleBücher();
         }
 
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.DTO.Buch _AktuellesBuch = null;
+
+        /// <summary>
+        /// Ruft das aktuelle Buch ab
+        /// oder legt dieses fest
+        /// </summary>
+        public WIFI.Anwendung.DTO.Buch AktuellesBuch
+        {
+            get
+            {
+                if (this._AktuellesBuch == null)
+                {
+                    this._AktuellesBuch = new WIFI.Anwendung.DTO.Buch();
+                }
+
+                return this._AktuellesBuch;
+            }
+            set
+            {
+                this._AktuellesBuch = value;
+                this.OnPropertyChanged();
+            }
+        }
     }
 }

@@ -40,19 +40,19 @@
             />
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
-                Grid.Column="1" 
+               Grid.Column="1" 
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Titel}"
                />
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
-                Grid.Column="2"
+               Grid.Column="2"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Autor}"
                />
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
-                Grid.Column="3"
+               Grid.Column="3"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Verlag}"
                />

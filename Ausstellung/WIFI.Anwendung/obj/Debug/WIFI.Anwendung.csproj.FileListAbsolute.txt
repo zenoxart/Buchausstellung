@@ -53,3 +53,15 @@ C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WI
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.xml
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\de\WIFI.Anwendung.resources.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.resources
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.de.resources
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.GenerateResource.cache
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.CoreCompileInputs.cache
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb

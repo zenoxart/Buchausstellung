@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
              xmlns:uc="clr-namespace:WIFI.Ausstellung.UserControls"
+             xmlns:vw="clr-namespace:WIFI.Ausstellung.ViewModels"
+             d:DataContext="{d:DesignInstance Type={x:Type vw:BuchManager}}"
              mc:Ignorable="d" 
              Name="Buchitem"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -59,8 +61,8 @@
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="180"/>
-                        <ColumnDefinition Width="180"/>
-                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="40"/>

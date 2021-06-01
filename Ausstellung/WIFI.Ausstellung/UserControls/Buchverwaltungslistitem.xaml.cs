@@ -208,5 +208,70 @@ namespace WIFI.Ausstellung.UserControls
 
         private string BuchId = "";
         #endregion
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _BuchHinzufuegen = null;
+
+        public WIFI.Anwendung.Befehl BuchHinzufügen
+        {
+            get
+            {
+                if (this._BuchHinzufuegen == null)
+                {
+                    // Den Befehl mit anoymen Methoden initialisieren
+
+                    this._BuchHinzufuegen = new WIFI.Anwendung.Befehl(
+
+                        // TODO: Werte des Buches in der Bücherliste hinzufügen
+                        p =>
+                        {
+
+                            if (ViewModels.BuchManager.AktuelleBücher == null)
+                            {
+
+                                ViewModels.BuchManager.AktuelleBücher = new WIFI.Anwendung.DTO.Bücher();
+                            }
+
+                            WIFI.Anwendung.DTO.Buch b = null;
+                            if (ViewModels.BuchManager.AktuelleBücher.Count > 0)
+                            {
+                                b = (from l in ViewModels.BuchManager.AktuelleBücher
+                                     where string.Compare(l.ID.ToString(), Id, ignoreCase: true) == 0
+                                     select l).FirstOrDefault();
+
+                            }
+                            // Nehme das Erste Element welches die selbe Id schon hat
+
+                            // Wenn kein Element mit der ID in der Liste existiert, füge es hinzu
+                            if (b == null)
+                            {
+                                ViewModels.AusstellungsManager.AktuelleBücherbestellung.Add(
+                                new Anwendung.DTO.Buch
+                                {
+
+                                    AutorName = Autor,
+                                    ID = Convert.ToInt32(Id),
+                                    Kategoriegruppe = Convert.ToInt32(Kategorie),
+                                    Preis = Convert.ToDouble(Preis),
+                                    Rabattgruppe = Convert.ToInt32(Rabatt),
+                                    Titel = Titel,
+                                    VerlagName = Verlag
+                                }
+                            );
+                            }
+
+
+                            //ParrentViewModel.Ausstellung.AktuelleBücherbestellung.add(new Buch() { Preis =  });
+                        }
+                        );
+                }
+
+                return this._BuchHinzufuegen;
+            }
+
+            set { this._BuchHinzufuegen = value; }
+        }
     }
 }
