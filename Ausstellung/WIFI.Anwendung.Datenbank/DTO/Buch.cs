@@ -109,7 +109,11 @@ namespace WIFI.Anwendung.DTO
             }
             set
             {
-                this._AutorName = value;
+                if (this._AutorName != value)
+                {
+                    this._AutorName = value;
+                    this.OnPropertyChanged();
+                }
             }
         }
 
@@ -130,20 +134,24 @@ namespace WIFI.Anwendung.DTO
             }
             set
             {
-                this._VerlagName = value;
+                if (this._VerlagName != value)
+                {
+                    this._VerlagName = value;
+                    this.OnPropertyChanged();
+                }
             }
         }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private double _Preis = 0;
+        private double? _Preis = null;
 
         /// <summary>
         /// Ruft den Preis des Buches ab,
         /// oder legt diesen fest
         /// </summary>
-        public double Preis
+        public double? Preis
         {
             get
             {
@@ -162,13 +170,13 @@ namespace WIFI.Anwendung.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private int _Kategoriegruppe = 0;
+        private int? _Kategoriegruppe = null;
 
         /// <summary>
         /// Ruft die Kategorie des Buches ab,
         /// oder legt diese fest
         /// </summary>
-        public int Kategoriegruppe
+        public int? Kategoriegruppe
         {
             get
             {
@@ -187,13 +195,13 @@ namespace WIFI.Anwendung.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private int _Rabattgruppe = 0;
+        private int? _Rabattgruppe = null;
 
         /// <summary>
         /// Ruft die Rabattgruppe des Buches ab,
         /// oder legt diese fest
         /// </summary>
-        public int Rabattgruppe
+        public int? Rabattgruppe
         {
             get
             {
@@ -232,9 +240,5 @@ namespace WIFI.Anwendung.DTO
                 }
             }
         }
-
-        
-
-
     }
 }

@@ -613,6 +613,26 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._Abholung = value; }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Ausstellung.ViewModels.BuchManager _Buch;
 
+        /// <summary>
+        /// Ruft die Buchverwaltung ab oder legt diese fest 
+        /// </summary>
+        public WIFI.Ausstellung.ViewModels.BuchManager Buch
+        {
+            get
+            {
+                if (this._Buch == null)
+                {
+                    this._Buch = this.AppKontext.Produziere<WIFI.Ausstellung.ViewModels.BuchManager>();
+                }
+
+                return this._Buch;
+            }
+            set { this._Buch = value; }
+        }
     }
 }

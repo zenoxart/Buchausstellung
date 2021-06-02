@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
              xmlns:uc="clr-namespace:WIFI.Ausstellung.UserControls"
              xmlns:vw="clr-namespace:WIFI.Ausstellung.ViewModels"
-             d:DataContext="{d:DesignInstance Type={x:Type vw:BuchManager}}"
              mc:Ignorable="d" 
              Name="Buchitem"
              d:DesignHeight="450" d:DesignWidth="800">
+    <!--d:DataContext="{d:DesignInstance Type={x:Type vw:BuchManager}}"-->
     <UserControl.Resources>
         <Style x:Key="StandartFont" TargetType="Label">
             <Style.Triggers>
@@ -36,6 +36,7 @@
             Bücherverwaltung</Label>
 
         <!-- Liste der Bücher -->
+        <!-- TODO: HellDunkelSchrift -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <ScrollViewer.Content>
                 <StackPanel Orientation="Vertical">
@@ -45,10 +46,29 @@
                         Background="#1e90ff"
                         />
 
-                    <StackPanel>
-                        
-                        
-                    </StackPanel>
+                    <ItemsControl
+                        HorizontalAlignment="Center"
+                        Background="Transparent"
+                        HorizontalContentAlignment="Center"
+                        ItemsSource="{Binding Buch.Buchausstellungsliste}"
+                        >
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <uc:Buchverwaltungslistitem
+                                    Buchnr="{Binding Buchnummer}"
+                                    Titel="{Binding Titel}"
+                                    Autor="{Binding AutorName}"
+                                    Verlag="{Binding VerlagName}"
+                                    Rabatt="{Binding Rabattgruppe}"
+                                    Kategorie="{Binding Kategoriegruppe}"
+                                    Preis="{Binding Preis}"
+                                    />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                    
                 </StackPanel>
             </ScrollViewer.Content>
         </ScrollViewer>
@@ -75,6 +95,7 @@
                              VerticalContentAlignment="Center"
                              MaxLength="5"
                              Style="{DynamicResource WasserzeichenStyle}"
+                             Text="{Binding Buch.AktuellesBuch.Buchnummer}"
                      ></TextBox>
                     <TextBox x:Name="TitelEingabe"
                              Grid.Column="1"
@@ -82,6 +103,7 @@
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
                              Style="{DynamicResource WasserzeichenStyle}"
+                             Text="{Binding Buch.AktuellesBuch.Titel}"
                      ></TextBox>
                     <TextBox x:Name="AutorEingabe"
                              Grid.Column="2"
@@ -89,6 +111,7 @@
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
                              Style="{DynamicResource WasserzeichenStyle}"
+                             Text="{Binding Buch.AktuellesBuch.AutorName}"
                     ></TextBox>
                     <TextBox x:Name="VerlagEingabe"
                              Grid.Column="3"
@@ -96,6 +119,7 @@
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
                              Style="{DynamicResource WasserzeichenStyle}"
+                             Text="{Binding Buch.AktuellesBuch.VerlagName}"
                      ></TextBox>
                      <TextBox x:Name="RabattgruppeEingabe"
                              Grid.Column="4"
@@ -103,13 +127,16 @@
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
                              Style="{DynamicResource WasserzeichenStyle}"
+                             Text="{Binding Buch.AktuellesBuch.Rabattgruppe}"
                      ></TextBox>
-                   <TextBox x:Name="KategorieEingabe"
+                    <TextBox x:Name="KategorieEingabe"
                              Grid.Column="5"
                              Tag="Kategorie"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Style="{DynamicResource WasserzeichenStyle}">
+                             Style="{DynamicResource WasserzeichenStyle}"
+                             Text="{Binding Buch.AktuellesBuch.Kategoriegruppe}"
+                            >
                     </TextBox>
                     <TextBox x:Name="PreisEingabe"
                              Grid.Column="6"
@@ -117,6 +144,7 @@
                              Style="{DynamicResource WasserzeichenStyle}"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
+                             Text="{Binding Buch.AktuellesBuch.Preis}"
                      ></TextBox>
 
                     <Button Width="25"
@@ -126,7 +154,7 @@
                             Style="{DynamicResource BestellButton}"
                             Template="{DynamicResource AddBestellungRoundButton}"
             
-                            Command="{Binding Path=BuchManager.BuchHinzufügen}"
+                            Command="{Binding Path=Buch.BuchHinzufügen}"
                             Content="+">
                     </Button>
 

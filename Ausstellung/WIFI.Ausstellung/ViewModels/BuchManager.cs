@@ -157,6 +157,12 @@ namespace WIFI.Ausstellung.ViewModels
                                 this.Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher();
                             }
 
+                            this.Buchausstellungsliste.Add(this.AktuellesBuch);
+
+                            return;
+
+                            // TODO: Werte des Buches in der Datenbank speichern
+
                             WIFI.Anwendung.DTO.Buch b = null;
                             if (Buchausstellungsliste.Count > 0)
                             {
@@ -194,8 +200,8 @@ namespace WIFI.Ausstellung.ViewModels
                 return this._BuchHinzufügen;
             }
 
-            set 
-            { 
+            set
+            {
                 this._BuchHinzufügen = value;
                 this.OnPropertyChanged();
             }
@@ -232,8 +238,11 @@ namespace WIFI.Ausstellung.ViewModels
             }
             set
             {
-                this._AktuellesBuch = value;
-                this.OnPropertyChanged();
+                if (this._AktuellesBuch != value)
+                {
+                    this._AktuellesBuch = value;
+                    this.OnPropertyChanged();
+                }
             }
         }
     }
