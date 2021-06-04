@@ -62,8 +62,6 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
-
-
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
@@ -125,10 +123,11 @@ namespace WIFI.Ausstellung.ViewModels
             get
             {
 
-                if (this._VeranstaltungsBeginnDatum == null)
+                if (this._VeranstaltungsBeginnDatum == System.DateTime.MinValue)
                 {
                     this._VeranstaltungsBeginnDatum = DateTime.Today;
                 }
+
                 return this._VeranstaltungsBeginnDatum;
             }
             set
@@ -155,7 +154,7 @@ namespace WIFI.Ausstellung.ViewModels
             get
             {
 
-                if (this._VeranstaltungsEndDatum == null)
+                if (this._VeranstaltungsEndDatum == System.DateTime.MinValue)
                 {
                     this._VeranstaltungsEndDatum = DateTime.Today;
                 }
@@ -171,7 +170,5 @@ namespace WIFI.Ausstellung.ViewModels
                 }
             }
         }
-
-
     }
 }
