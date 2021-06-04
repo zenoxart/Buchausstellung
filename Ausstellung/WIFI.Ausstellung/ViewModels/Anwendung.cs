@@ -566,19 +566,13 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-
                 this._StarteSoftware = new WIFI.Anwendung.Befehl(
                     p =>
                     {
-
-                        // prüfe ob Veranstaltung existiert ansonst
-
-                        // erstelle Veranstaltung
-
+                        // prüfe ob Veranstaltung existiert ansonst erstelle Veranstaltung
+                        this.AppKontext.DBControllerManager.VeranstaltungsController.AnwendungsStart();
 
                         this.ZeigeStart = false;
-
-
                     }
                 );
 
@@ -634,5 +628,8 @@ namespace WIFI.Ausstellung.ViewModels
             }
             set { this._Buch = value; }
         }
+
+
+
     }
 }

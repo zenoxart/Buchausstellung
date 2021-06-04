@@ -416,6 +416,18 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleBuch TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
+# Fragt ab ob eine Veranstaltung existiert
+DELIMITER $$
+CREATE PROCEDURE FrageVeranstaltung()
+BEGIN
+	SELECT ort FROM Veranstaltung LIMIT 1;
+END$$
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.FrageVeranstaltung TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
 SHOW PROCEDURE STATUS;
 
 

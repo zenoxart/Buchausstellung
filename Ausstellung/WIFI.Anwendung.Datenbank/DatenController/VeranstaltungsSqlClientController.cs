@@ -244,5 +244,55 @@ namespace WIFI.Anwendung.DatenController
                     });
             }
         }
+
+        /// <summary>
+        /// Erstellt eine Veranstaltung falls noch keine vorhanden ist
+        /// </summary>
+        public void AnwendungsStart()
+        {
+            string Ergebnis = "";
+            try
+            {
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                {
+
+                    using (var Befehl = new MySqlConnector.MySqlCommand("FrageVeranstaltung", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Befehl.Prepare();
+
+
+                        using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                        {
+                            while (DatenLeser.Read())
+                            {
+                                Ergebnis = DatenLeser["ort"].ToString();                                
+                            }
+                        }
+
+                    }
+                }
+
+
+                if (Ergebnis == "")
+                {
+                    // Erstelle Veranstaltung
+                    ErstelleVeranstaltung();
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                      new Daten.ProtokollEintrag
+                      {
+                          Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                          Typ = Daten.ProtokollEintragTyp.Normal
+                      });
+            }
+
+        }
     }
 }
