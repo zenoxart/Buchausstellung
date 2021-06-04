@@ -552,3 +552,5 @@ C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungslistitem.g.cs
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungslistitem.baml

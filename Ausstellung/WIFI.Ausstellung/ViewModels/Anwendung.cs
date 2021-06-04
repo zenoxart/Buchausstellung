@@ -522,7 +522,7 @@ namespace WIFI.Ausstellung.ViewModels
             get { return this._ZeigeStart; }
             set
             {
-                // Wenn es Falsch ist soll der Arbeitsbereich gezeigt werden, sonst nicht
+                // Wenn es falsch ist, soll der Arbeitsbereich gezeigt werden, sonst nichts
                 if (value == false)
                 {
                     ZeigeArbeitsbereich = true;
@@ -571,9 +571,9 @@ namespace WIFI.Ausstellung.ViewModels
                     p =>
                     {
 
-                        // prüfe ob Veranstaltung existiert ansonst
+                        // TODO: prüfe ob Veranstaltung existiert ansonst
 
-                        // erstelle Veranstaltung
+                        // TODO: erstelle Veranstaltung
 
 
                         this.ZeigeStart = false;

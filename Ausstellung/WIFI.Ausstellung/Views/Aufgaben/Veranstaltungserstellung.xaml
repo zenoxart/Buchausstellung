@@ -89,13 +89,13 @@
                     Height="36"
                     FontFamily="Arial"
                     Template="{DynamicResource RoundTextBox}"
-                     Text="{Binding Veranstaltung.Ort }"
+                    Text="{Binding Veranstaltung.Ort }"
                     VerticalContentAlignment="Center"
                     HorizontalContentAlignment="Left"
                     FontSize="19"
                     >
                 </TextBox>
-                
+
                 <DatePicker
                     Name="Beginndatum"
                     Grid.Row="1"
@@ -105,11 +105,8 @@
                     Width="250"
                     Height="40"
                     Style="{DynamicResource DatePickerIconResizingStyle}"
-                    BorderThickness="0"
                     SelectedDate="{Binding Veranstaltung.VeranstaltungsBeginnDatum}"
-                    SelectedDateFormat="Short"
                     >
-
                 </DatePicker>
 
                 <DatePicker
@@ -121,9 +118,7 @@
                     FontSize="20"
                     Height="40"
                     Style="{DynamicResource DatePickerIconResizingStyle}"
-                    BorderThickness="0"
                     SelectedDate="{Binding Veranstaltung.VeranstaltungsEndDatum}"
-                    SelectedDateFormat="Short"
                     >
                 </DatePicker>
 
