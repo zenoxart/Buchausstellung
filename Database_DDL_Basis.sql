@@ -120,7 +120,8 @@ CREATE TABLE buch ( id INT PRIMARY KEY NOT NULL auto_increment,
 					  rabgr INT NOT NULL,
 					  katgr INT NOT NULL,
 					  verlag_id INT NOT NULL,
-					  FOREIGN KEY(verlag_id) REFERENCES verlag(id));
+					  FOREIGN KEY(verlag_id) REFERENCES verlag(id),
+					  FOREIGN KEY(rabgr) REFERENCES buchgruppe(id));
 					
 # Erstellt eine Besucher-Tabelle					
 CREATE TABLE besucher ( id INT PRIMARY KEY NOT NULL auto_increment,
@@ -146,7 +147,7 @@ CREATE TABLE veranstaltung ( datumvon DATE NOT NULL,
 							 
 # Erstellt eine Bestellungen-Tabelle
 CREATE TABLE bestellung ( id INT PRIMARY KEY NOT NULL auto_increment,
-						  besucher_id INT NOT NULL,
+						  besucher_id INT NOT NULL, abgeholt TINYINT(1) DEFAULT 0,
 						  FOREIGN KEY(besucher_id) REFERENCES besucher(id)
 						  );
 						  
@@ -156,6 +157,7 @@ CREATE TABLE bestellung_hat_buch( id INT PRIMARY KEY NOT NULL auto_increment,
 								  FOREIGN KEY(buch_id) REFERENCES buch(id),
 								  anzahl INT NOT NULL DEFAULT 1,
 								  bestellung_id INT NOT NULL,
+								  anzahl_geliefert INT NOT NULL,
 								  FOREIGN KEY(bestellung_id) REFERENCES bestellung(id)
 								  );
 								  
@@ -266,7 +268,7 @@ USE buchausstellung;
 DELIMITER $$
 CREATE PROCEDURE HoleBücher()
 BEGIN
-	SELECT b.id AS "buchid",buchnr,titel,autor,preis,rabgr,katgr, name FROM buch b JOIN verlag v ON v.id = b.verlag_id;
+	SELECT b.id AS "buchid",buchnr,titel,autor,preis,rabgr,katgr, name FROM buch b JOIN verlag v ON v.id = b.verlag_id LEFT JOIN buchgruppe g ON g.id = b.katgr;
 END$$
 DELIMITER ;
 
@@ -366,7 +368,8 @@ BEGIN
 			besucher.strasse AS "Strasse",
 			besucher.hausnummer AS "Hausnummer",
 			besucher.ort AS "Ort",
-			besucher.plz AS "PLZ"
+			besucher.plz AS "PLZ",
+			bestellung.abgeholt AS "Abgeholt"
 			
 			
 	FROM bestellung 
@@ -390,12 +393,13 @@ BEGIN
 	b.titel AS "BuchTitel",
 	b.autor AS "Autor",
 	b.preis AS "Preis",
-	b.rabgr AS "Rabatt",
+	g.nr AS "Rabatt",
 	b.katgr AS "Kategorie",
 	v.name AS "Verlag"
 	FROM bestellung_hat_buch bb 
 		JOIN buch b ON bb.buch_id = b.id 
 		JOIN verlag v ON v.id = b.verlag_id
+		JOIN buchgruppe g ON g.id = b.rabgr
 			WHERE bestellung_id = bestellungsid;
 END$$
 DELIMITER ;
@@ -446,7 +450,7 @@ END$$
 DELIMITER ;
 
 USE mysql;
-GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBestellungsInfo TO 'clientbenutzer'@'%';
+GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBuchgruppen TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
 # Erstellt eine neue Buchgruppe und eine zugehörige ID
@@ -494,7 +498,22 @@ END$$
 DELIMITER ;
 
 USE mysql;
-GRANT EXECUTE ON PROCEDURE buchausstellung.EntferneBuchgruppe TO 'clientbenutzer'@'%';
+GRANT EXECUTE ON PROCEDURE buchausstellung.AktualisiereBuchgruppe TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+# Setzt den Status der Bestellung auf abgeholt
+DELIMITER $$
+CREATE PROCEDURE BestellungAbgeholt(
+	ID INT)
+BEGIN
+	UPDATE bestellung 
+	SET abgeholt = 1
+	WHERE bestellung.id=ID;
+END$$
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.BestellungAbgeholt TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
 SHOW PROCEDURE STATUS;
