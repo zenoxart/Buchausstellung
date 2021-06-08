@@ -35,6 +35,11 @@
                Grid.Row="0">
             Bücherverwaltung</Label>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Button Background="#1e90ff" Width="30" Height="30" Margin="0 0 10 0" Content="I" FontWeight="Bold" ToolTip="Import From CSV"  Command="{Binding Buch.Import}"/>
+            <Button Background="#1e90ff" Width="30" Height="30" Margin="0 0 20 0" Content="E" FontWeight="Bold" ToolTip="Export To CSV" Command="{Binding Buch.Export}"/>
+        </StackPanel>
+
         <!-- Liste der Bücher -->
         <!-- TODO: HellDunkelSchrift -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">

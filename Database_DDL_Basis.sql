@@ -516,6 +516,34 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.BestellungAbgeholt TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
+
+DELIMITER $$
+CREATE PROCEDURE UpdateBuch(
+	Buchnummer VARCHAR(4),
+	Titel VARCHAR(150),
+	Autor VARCHAR(150),
+	Preis DOUBLE,
+	Rabattgruppe INT(2),
+	Kategorie INT(2),
+	Verlag INT(3)
+)
+BEGIN
+	UPDATE buch 
+	SET buchnr = Buchnummer, 
+	SET titel = Titel , 
+	SET autor = Autor,
+	SET preis = Preis, 
+	SET rabgr = Rabattgruppe, 
+	SET katgr = Kategorie, 
+	SET verlag_id = Verlag
+	WHERE buchnr = Buchnummer;
+END$$
+DELIMITER ;
+
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.UpdateBuch TO 'clientbenutzer'@'%';
+USE buchausstellung;
 SHOW PROCEDURE STATUS;
 
 

@@ -76,6 +76,10 @@ namespace WIFI.Anwendung.DatenController
             return NeueListe;
         }
 
+        /// <summary>
+        /// Fügt ein Buch in der Datenbank hinzu
+        /// </summary>
+        /// <param name="buch"></param>
         public void BuchHinzufügen(DTO.Buch buch)
         {
 
@@ -85,6 +89,50 @@ namespace WIFI.Anwendung.DatenController
                 {
                     // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
                     using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleBuch", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Verbindung.Open();
+
+                        Befehl.Parameters.AddWithValue("Buchnummer", buch.Buchnummer);
+                        Befehl.Parameters.AddWithValue("Titel", buch.Titel);
+                        Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
+                        Befehl.Parameters.AddWithValue("Preis", buch.Preis);
+                        Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
+                        Befehl.Parameters.AddWithValue("Kategorie", buch.Kategoriegruppe);
+                        Befehl.Parameters.AddWithValue("Verlag", buch.VerlagName);
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteScalar();
+                    }
+
+                    Verbindung.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BücherSqlClientController).GetMethod("ErstelleBuch")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+        }
+
+        /// <summary>
+        /// Ändert die Daten eines Buches in der Datenbank
+        /// </summary>
+        public void AktualisiereBuch(WIFI.Anwendung.DTO.Buch buch)
+        {
+            try
+            {
+                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                {
+                    using (var Befehl = new MySqlConnector.MySqlCommand("UpdateBuch",Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
