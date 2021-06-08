@@ -5,8 +5,165 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WIFI.Ausstellung.Views"
         mc:Ignorable="d"
-        xmlns:su="clr-namespace:WIFI.Ausstellung.Views.Aufgaben"
+        xmlns:us="clr-namespace:WIFI.Ausstellung.UserControls"
+        
         Title="Bestellungsfentser" Height="450" Width="800">
-    <!-- TODO: Bestellung bearbeitbar machen -->
-    <su:Bestellung/>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="5"  />
+            <RowDefinition Height="1*" MaxHeight="130" MinHeight="85"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" 
+               Content="Bestellung" 
+               Style="{DynamicResource TitleStyle}"/>
+
+
+        <!--TODO: HellDunkelSchrift -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+
+                <StackPanel Orientation="Vertical">
+                    <us:Bestellungkopfzeile
+                        Background="#1e90ff"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                    />
+                    <ItemsControl 
+                    HorizontalAlignment="Center"
+                    Background="Transparent" 
+                    HorizontalContentAlignment="Center"
+                    
+                    Style="{DynamicResource HellDunkelDesign}"
+                    ItemsSource="{Binding Path=Ausstellung.AktuelleBücherbestellung}" >
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <us:Bestellungslistitem
+                            Id="{Binding ID}"
+                            Titel="{Binding Titel}"
+                            Autor="{Binding AutorName}"
+                            Verlag="{Binding VerlagName}"
+                            Preis="{Binding Preis}"
+                            Kategorie="{Binding Kategoriegruppe}"
+                            Rabatt="{Binding Rabattgruppe}"
+                            Anzahl="{Binding Anzahl}"
+                                
+                                />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+        <GridSplitter
+            Grid.Row="2" 
+            ShowsPreview="True" 
+            HorizontalAlignment="Stretch" 
+            Style="{DynamicResource HellDunkelSplitter}"/>
+
+
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid  Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+
+                
+
+                <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Vorname:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Vorname}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Nachname:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Nachname}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Telefon:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Telefon}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Straße:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Straßenname}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">PLZ:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Postleitzahl}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="5" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Ort:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Ort}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="0" Style="{DynamicResource DunkelHellSchrift}">Nummer:</Label>
+                    <TextBox Text="{Binding Ausstellung.BestellBesucher.Hausnummer}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Width="120" Height="30" Template="{DynamicResource RoundTextBox}" />
+                </Grid>
+
+                <Button  
+                    Grid.Column="5" 
+                    Grid.Row="5" 
+                    Width="220" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Height="30" 
+                    Template="{DynamicResource RoundLimeButton}"
+                    Command="{Binding Ausstellung.BestellungHinzufügen}">Bestellen</Button>
+            </Grid>
+        </ScrollViewer>
+
+
+    </Grid>
 </Window>

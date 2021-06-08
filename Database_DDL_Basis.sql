@@ -112,7 +112,7 @@ CREATE TABLE buchgruppe (id INT PRIMARY KEY NOT NULL auto_increment,
 						 nr INT, bezeichnung VARCHAR(40) NOT NULL)
 					 
 # Erstellt eine Buch-Tabelle 
-CREATE TABLE buch 	( id INT PRIMARY KEY NOT NULL auto_increment, 
+CREATE TABLE buch ( id INT PRIMARY KEY NOT NULL auto_increment, 
 					  buchnr VARCHAR(4) NOT NULL,
 					  titel VARCHAR(150) NOT NULL, 
 					  autor VARCHAR(150) NOT NULL,
@@ -453,7 +453,7 @@ USE buchausstellung;
 DELIMITER $$
 CREATE PROCEDURE ErstelleBuchgruppe(
 	Nr INT,
-	Bezeichnung VARCHAR(40),
+	Bezeichnung VARCHAR(40)
 )
 BEGIN
 	INSERT INTO buchgruppe (nr,bezeichnung) VALUES (Nr,Bezeichnung);

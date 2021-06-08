@@ -52,5 +52,39 @@ namespace WIFI.Ausstellung.ViewModels
 
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _Abholungsbestätigung;
+
+        /// <summary>
+        /// Befehl um alle Abgeholten Bücher in die Datenbank zu schreiben
+        /// </summary>
+        public WIFI.Anwendung.Befehl Abholungsbestätigung
+        {
+            get
+            {
+                if (this._Abholungsbestätigung == null)
+                {
+                    this._Abholungsbestätigung = new WIFI.Anwendung.Befehl(
+                        p =>
+                        {
+                            // Aktuallisiere alle Bücher welche Abgeholt wurden
+                            if (this.Abholungsliste != null)
+                            {
+                                this.AppKontext.DBControllerManager.BestellungController.FürAlleBestellungenAbgeholt(this.Abholungsliste);
+
+                                // TODO: Zeige die Oberfläche an, dass der Programmdurchlauf abgeschlossen ist
+                            }
+                        }
+                    );
+                }
+
+                return this._Abholungsbestätigung;
+            }
+            set { this._Abholungsbestätigung = value; }
+        }
+
+
     }
 }

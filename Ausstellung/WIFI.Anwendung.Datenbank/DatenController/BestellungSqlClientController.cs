@@ -132,6 +132,47 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
+        /// Holt eine einzelne Bestellung
+        /// </summary>
+        /// <returns></returns>
+        //public DTO.Bestellung HoleBestellung(string BestellNr)
+        //{
+        //    try
+        //    {
+        //        using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+        //        {
+        //            using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellung", Verbindung))
+        //            {
+
+        //                Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+        //                Befehl.Parameters.AddWithValue("ID", BestellNr);
+
+        //                Verbindung.Open();
+
+        //                Befehl.Prepare();
+
+        //                Befehl.ExecuteScalar();
+
+        //                Verbindung.Close();
+        //            }
+        //        }
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        this.AppKontext.Protokoll.Eintragen(
+        //            new Daten.ProtokollEintrag
+        //            {
+        //                Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("BuchbestellungHinzufügen")} ist ein Fehler aufgetreten \n" +
+        //                       $"{e.GetType().FullName} = {e.Message} \n " +
+        //                       $"{e.StackTrace}",
+        //                Typ = Daten.ProtokollEintragTyp.Normal
+        //            });
+        //    }
+        //}
+
+        /// <summary>
         /// Ruft alle Bestellungen ab 
         /// </summary>
         public DTO.Bestellungen HoleBestellungen()
@@ -253,6 +294,194 @@ namespace WIFI.Anwendung.DatenController
 
             return bestellungen;
 
+        }
+
+        public DTO.Bestellung HoleBestellung(int BestellNr)
+        {
+            var bestellungen = new DTO.Bestellungen();
+
+            try
+            {
+
+                using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+                {
+                    using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellungsInfo", Verbindung))
+                    {
+
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+
+                        using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                        {
+                            while (DatenLeser.Read())
+                            {
+                                bool abgeholtBool = false;
+                                if (Convert.ToInt32(DatenLeser["Abgeholt"]) == 1)
+                                {
+                                    abgeholtBool = true;
+                                }
+
+
+                                bestellungen.Add(
+                                    new DTO.Bestellung
+                                    {
+                                        BestellNr = Convert.ToInt32(DatenLeser["ID"]),
+                                        ZugehörigerBesucher = new DTO.Besucher
+                                        {
+                                            Id = Convert.ToInt32(DatenLeser["Besucherid"]),
+                                            Vorname = DatenLeser["Vorname"].ToString(),
+                                            Nachname = DatenLeser["Nachname"].ToString(),
+                                            Straßenname = DatenLeser["Strasse"].ToString(),
+                                            Hausnummer = Convert.ToInt32(DatenLeser["Hausnummer"]),
+                                            Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
+                                            Ort = DatenLeser["Ort"].ToString()
+                                        },
+                                        Buchliste = new Dictionary<DTO.Buch, int>() { },
+                                        Abgeholt = abgeholtBool
+                                    }
+
+                                    );
+
+
+
+                            }
+                        }
+                        Verbindung.Close();
+
+                    }
+
+
+                }
+
+                foreach (var item in bestellungen)
+                {
+                    using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
+                    {
+                        using (var ZweiterBefehl = new MySqlConnector.MySqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
+                        {
+                            ZweiterBefehl.CommandType = System.Data.CommandType.StoredProcedure;
+                            Verbindung.Open();
+                            ZweiterBefehl.Parameters.AddWithValue("bestellungsid", item.BestellNr);
+                            ZweiterBefehl.Prepare();
+
+
+                            using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                            {
+                                while (ZweiterDatenLeser.Read())
+                                {
+                                    item.Buchliste.Add(
+                                        new DTO.Buch
+                                        {
+                                            AutorName = ZweiterDatenLeser["Autor"].ToString(),
+                                            ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
+                                            Buchnummer = ZweiterDatenLeser["BuchNr"].ToString(),
+                                            Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
+                                            Preis = Convert.ToDouble(ZweiterDatenLeser["Preis"]),
+                                            Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
+                                            VerlagName = ZweiterDatenLeser["Verlag"].ToString(),
+                                            Rabattgruppe = Convert.ToInt32(ZweiterDatenLeser["Rabatt"]),
+                                            Anzahl = Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
+                                        }, Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
+
+                                        );
+
+                                }
+                            }
+                        }
+                        Verbindung.Close();
+                    }
+
+
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("HoleBestellungsInfo")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+            var bestellung = new WIFI.Anwendung.DTO.Bestellung();
+
+            foreach (var item in bestellungen)
+            {
+                if (item.BestellNr == BestellNr)
+                {
+                    bestellung = item;
+                }
+            }
+
+            return bestellung;
+
+        }
+
+        /// <summary>
+        /// Aktuallisiert alle Abgeholten Bestellungen
+        /// </summary>
+        /// <param name="bestellungs"></param>
+        public void FürAlleBestellungenAbgeholt(WIFI.Anwendung.DTO.Bestellungen bestellungs)
+        {
+            foreach (var item in bestellungs)
+            {
+                if (item.Abgeholt)
+                {
+                    BestellungAbgeholt(item.BestellNr);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Aktuallisiert die einzelne Bestellung
+        /// </summary>
+        /// <param name="BestellNr"></param>
+        public void BestellungAbgeholt(int BestellNr)
+        {
+            try
+            {
+                using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+                {
+                    using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellungsInfo", Verbindung))
+                    {
+
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                        Befehl.Parameters.AddWithValue("ID", BestellNr);
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteScalar();
+
+
+                        Verbindung.Close();
+
+                    }
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("HoleBestellungsInfo")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = Daten.ProtokollEintragTyp.Normal
+                    });
+            }
         }
     }
 }

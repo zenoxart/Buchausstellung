@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aufgaben>
-  <aufgabe name="Veranstaltungserstellung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Veranstaltungserstellung" hellpfad="\Assets\Bilder\Aufgaben\ErstellungHell.png" dunkelpfad="\Assets\Bilder\Aufgaben\ErstellungDunkel.png" />
   <aufgabe name="Buchverwaltung" symbol="$" view="WIFI.Ausstellung.Views.Aufgaben.Buchverwaltung" hellpfad="\Assets\Bilder\Aufgaben\BuchverwaltungHell.png" dunkelpfad="\Assets\Bilder\Aufgaben\BuchverwaltungDunkel.png" />
+  <aufgabe name="Veranstaltungserstellung" symbol="3" view="WIFI.Ausstellung.Views.Aufgaben.Veranstaltungserstellung" hellpfad="\Assets\Bilder\Aufgaben\ErstellungHell.png" dunkelpfad="\Assets\Bilder\Aufgaben\ErstellungDunkel.png" />
 </aufgaben>

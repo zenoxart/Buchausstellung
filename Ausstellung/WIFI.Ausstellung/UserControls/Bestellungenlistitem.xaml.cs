@@ -64,7 +64,33 @@ namespace WIFI.Ausstellung.UserControls
 
         #endregion
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _BearbeiteBestellung;
 
-        
+        /// <summary>
+        /// Öffnet ein neues Fenster, indem die Bestellung bearbeitbar ist
+        /// </summary>
+        public WIFI.Anwendung.Befehl BearbeiteBestellung
+        {
+            get
+            {
+                if (this._BearbeiteBestellung == null)
+                {
+                    this._BearbeiteBestellung = new WIFI.Anwendung.Befehl(
+                        p =>
+                        {
+                            var neuesBestellungsfenster = new WIFI.Ausstellung.Views.Bestellungsfentser();
+                            neuesBestellungsfenster.BestellNr = this.BestellNr;
+                        }
+                    );
+                }
+                return this._BearbeiteBestellung;
+            }
+            set { this._BearbeiteBestellung = value; }
+        }
+
+
     }
 }

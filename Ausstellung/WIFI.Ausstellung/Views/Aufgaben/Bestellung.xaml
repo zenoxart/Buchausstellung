@@ -42,14 +42,14 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <us:Bestellungslistitem
-                            Id="{Binding ID}"
-                            Titel="{Binding Titel}"
-                            Autor="{Binding AutorName}"
-                            Verlag="{Binding VerlagName}"
-                            Preis="{Binding Preis}"
-                            Kategorie="{Binding Kategoriegruppe}"
-                            Rabatt="{Binding Rabattgruppe}"
-                            Anzahl="{Binding Anzahl}"
+                                    Id="{Binding ID}"
+                                    Titel="{Binding Titel}"
+                                    Autor="{Binding AutorName}"
+                                    Verlag="{Binding VerlagName}"
+                                    Preis="{Binding Preis}"
+                                    Kategorie="{Binding Kategoriegruppe}"
+                                    Rabatt="{Binding Rabattgruppe}"
+                                    Anzahl="{Binding Anzahl}"
                                 
                                 />
                             </DataTemplate>
@@ -160,7 +160,7 @@
                     VerticalAlignment="Top" 
                     Height="30" 
                     Template="{DynamicResource RoundLimeButton}"
-                    Command="{Binding Ausstellung.BestellungHinzufügen}">Bestellen</Button>
+                    Command="{Binding Ausstellung.BestellungHinzufügen}">Speichern</Button>
             </Grid>
         </ScrollViewer>
 

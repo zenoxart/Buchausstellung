@@ -159,42 +159,12 @@ namespace WIFI.Ausstellung.ViewModels
 
                             this.Buchausstellungsliste.Add(this.AktuellesBuch);
 
-                            return;
+                            this.AppKontext.DBControllerManager.BücherController.BuchHinzufügen(
 
-                            // TODO: Werte des Buches in der Datenbank speichern
+                                this.AktuellesBuch);
 
-                            WIFI.Anwendung.DTO.Buch b = null;
-                            if (Buchausstellungsliste.Count > 0)
-                            {
-                                //b = (from l in Buchausstellungsliste
-                                //     where string.Compare(l.Titel.ToString(), id, ignoreCase: true) == 0
-                                //     select l).FirstOrDefault();
-
-                            }
-                            // Nehme das Erste Element welches die selbe Id schon hat
-
-                            // Wenn kein Element mit der ID in der Liste existiert, füge es hinzu
-                            if (b == null)
-                            {
-                                ViewModels.AusstellungsManager.AktuelleBücherbestellung.Add(
-                                new WIFI.Anwendung.DTO.Buch
-                                {
-
-                                    //AutorName = Autor,
-                                    //ID = Convert.ToInt32(Id),
-                                    //Kategoriegruppe = Convert.ToInt32(Buchgruppe),
-                                    //Preis = Convert.ToDouble(Preis),
-                                    //Rabattgruppe = Convert.ToInt32(Rabatt),
-                                    //Titel = Titel,
-                                    //VerlagName = Verlag
-                                }
-                            );
-                            }
-
-
-                            //ParrentViewModel.Ausstellung.AktuelleBücherbestellung.add(new Buch() { Preis =  });
                         }
-                        );
+                    );
                 }
 
                 return this._BuchHinzufügen;

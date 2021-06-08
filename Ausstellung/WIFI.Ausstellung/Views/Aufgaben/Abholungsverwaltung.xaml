@@ -42,6 +42,7 @@
             Content="Bestätigen"
             FontSize="18"
             FontWeight="Bold"
+            Command="{Binding Abholung.Abholungsbestätigung}"
             />
 
     </Grid>

@@ -346,13 +346,15 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         public WIFI.Anwendung.DTO.Besucher BestellBesucher
         {
-            get {
+            get
+            {
 
                 if (this._BestellBesucher == null)
                 {
                     this._BestellBesucher = new WIFI.Anwendung.DTO.Besucher();
                 }
-                return this._BestellBesucher; }
+                return this._BestellBesucher;
+            }
             set
             {
                 if (this._BestellBesucher != value)
@@ -444,7 +446,7 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._AusstellungAbschließen = value; }
         }
 
-
+        
 
 
     }
