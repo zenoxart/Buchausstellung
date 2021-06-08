@@ -96,7 +96,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this.StartProtokollieren();
 
-                    System.Threading.Thread.Sleep(7000);
+                    //System.Threading.Thread.Sleep(7000);
                     //this.Buchausstellungsliste = this.Controller.HoleAusRessourcen();
 
                     this.Buchausstellungsliste = this.AppKontext.DBControllerManager.BücherController.HoleBücher();
@@ -424,7 +424,7 @@ namespace WIFI.Ausstellung.ViewModels
                         p =>
                         {
                             //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
-
+                            this.AppKontext.PortableDokumentFormatManager.GeneriereBestellungenübersicht();
 
                             //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
 

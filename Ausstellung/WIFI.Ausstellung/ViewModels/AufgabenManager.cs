@@ -146,7 +146,7 @@ namespace WIFI.Ausstellung.ViewModels
                             // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
                             //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung;
 
-                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
+                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung;
 
 
                             // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll

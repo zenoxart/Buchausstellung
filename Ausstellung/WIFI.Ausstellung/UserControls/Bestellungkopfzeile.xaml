@@ -4,9 +4,62 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WIFI.Ausstellung.UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" >
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Column="0" 
+            Content="Titel"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
+        <Label 
+            Grid.Column="1"
+            Content="Autor"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
+        <Label
+            Grid.Column="2"
+            Content="Verlag"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
+        <Label
+            Grid.Column="3"
+            Content="Preis"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
+        <Label
+            Grid.Column="4"
+            Content="Gruppe"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
+        <Label
+            Grid.Column="5"
+            Content="Rabattgr."
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
+
+        <Label Grid.Column="6"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Content="Anzahl"
+            />
+        <Label Grid.Column="7"
+               Content="Entf."
+            HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"/>
+
+
     </Grid>
 </UserControl>

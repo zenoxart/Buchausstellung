@@ -2,47 +2,86 @@
 <head>
 <style>
 .item1 { grid-area: left; width: 15.45cm ;max-height: 21cm !IMPORTANT;}
-.item2 { grid-area: right;width: 15.45cm ;max-height: 21cm !IMPORTANT; }
+.item2 { grid-area: right;width: 15.45cm ;max-height: 21cm !IMPORTANT;}
 
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    ' left left right right';
-  background-color: #2196F3;
-  
-	height: 21cm !IMPORTANT;
-	width: 29.7cm !IMPORTANT;
-	    max-width: 29.7cm !IMPORTANT;
-    max-height: 21cm !IMPORTANT;
-}
+.grid-container {display: grid; grid-template-areas: ' left left right right'; background-color: #2196F3; height: 21cm !IMPORTANT; width: 29.7cm !IMPORTANT; max-width: 29.7cm !IMPORTANT; max-height: 21cm !IMPORTANT;}
 
-.grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  font-size: 30px;
-  
-}
+.grid-container > div {background-color: rgba(255, 255, 255, 0.8);font-size: 30px;}
 
-.body{
+.body{height: 21cm !IMPORTANT;width: 29.7cm !IMPORTANT;max-width: 29.7cm !IMPORTANT; max-height: 21cm !IMPORTANT;margin: 0px;}
 
-	height: 21cm !IMPORTANT;
-	width: 29.7cm !IMPORTANT;
-	    max-width: 29.7cm !IMPORTANT;
-    max-height: 21cm !IMPORTANT;
-	margin: 0px;
-}
+.bestellunggrid{display: grid;grid-template-areas:' col1 col2 col3 col4 col5 col6';font-size: 15px;word-wrap: break-word;}
+
+.el1 { grid-area: col1; width: 50px; max-height: 35px;}
+.el2 { grid-area: col2; width: 30px; max-height: 35px;}
+.el3 { grid-area: col3; width: 150px; max-height: 35px;}
+.el4 { grid-area: col4; width: 70px; max-height: 35px;}
+.el5 { grid-area: col5; width: 80px; max-height: 35px;}
+.el6 { grid-area: col6; width: 80px; max-height: 35px;}
 </style>
 </head>
 <body class='body'>
+
+
+
+	
 	<div class='grid-container'>
-  <div class='item1' style='background: red'>
-	<div>
-		Hier ist text
+  <div class='item1' style='background: white'>
+  <p style='margin: 5px; font-size:12pt; text-align:left; '> Buchausstellung xxxx, ?gemeinde</p>
+	<div style='margin: 30px'>
+		<div >
+			<p style='font-size:18pt;font-weight: bold'>Gruppe ?Zahl - ?Name</p>
+			<div class='bestellunggrid' style='border-bottom:inset;border-color:black;border-width: 1px'>
+				<div class='el1'> Anzahl </div>
+				<div class='el2'> Nr </div>
+				<div class='el3'> Titel, Autor </div>
+				<div class='el4'> Verlag</div>
+				<div class='el5'> Preis </div>
+				<div class='el6'> Rab.Gr</div>
+			</div>
+			
+			
+			<!- foreach ->
+			<div class='bestellunggrid'>
+				<div class='el1'> ? </div>
+				<div class='el2'> ?Nr </div>
+				<div class='el3'> ?Titel + ?Autor </div>
+				<div class='el4'> ?Verlag </div>
+				<div class='el5'> ?Preis </div>
+				<div class='el6'> ?Rab.Gr </div>
+			</div>
+			
+		</div>
+	
 	</div>
-		und hier
+	<p style='margin: 5px; font-size:12pt; text-align:right; '>Seitennr.: ?Zahl </p>
   </div>  
-  <div class='item2' style='background: blue'>
-  ... und hier auch</div>
+  <div class='item2' style='background: white'>
+  
+  <p style='margin: 5px; font-size:12pt; text-align:left; '> Buchausstellung xxxx, ?gemeinde</p>
+	<div style='margin: 30px'>
+		<div >
+			<p style='font-size:18pt;font-weight: bold'>Gruppe ?Zahl - ?Name</p>
+			<div class='bestellunggrid' style='border-bottom:inset;border-color:black;border-width: 1px'>
+				<div class='el1'> Anzahl </div>
+				<div class='el2'> Nr </div>
+				<div class='el3'> Titel, Autor </div>
+				<div class='el4'> Verlag</div>
+				<div class='el5'> Preis </div>
+				<div class='el6'> Rab.Gr</div>
+			</div>
+			<div class='bestellunggrid'>
+				<div class='el1'> ? </div>
+				<div class='el2'> ?Nr </div>
+				<div class='el3'> ?Titel + ?Autor </div>
+				<div class='el4'> ?Verlag </div>
+				<div class='el5'> ?Preis </div>
+				<div class='el6'> ?Rab.Gr </div>
+			</div>
+			<p>
+		</div>
+  </div>
+  </div>
 </div>
 </body>
 </html>

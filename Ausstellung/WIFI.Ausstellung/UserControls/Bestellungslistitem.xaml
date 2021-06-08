@@ -58,12 +58,12 @@
 
         <Label
             Grid.Column="0" 
-            Content="{Binding ElementName=Bestellungsitem,Path=Title}"
+            Content="{Binding ElementName=Bestellungsitem,Path=Titel}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
         <Label 
             Grid.Column="1"
-            Content="{Binding ElementName=Bestellungsitem,Path=Author}"
+            Content="{Binding ElementName=Bestellungsitem,Path=Autor}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
         <Label

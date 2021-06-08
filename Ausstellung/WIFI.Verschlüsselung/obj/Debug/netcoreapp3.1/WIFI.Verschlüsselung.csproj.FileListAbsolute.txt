@@ -138,3 +138,5 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.genruntimeconfig.cache
+C:\PP\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\HtmlRenderer.dll
+C:\PP\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\HtmlRenderer.pdb

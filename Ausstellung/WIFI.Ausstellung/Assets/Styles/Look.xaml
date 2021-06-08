@@ -3,6 +3,7 @@
 
     <!-- Definiert die Sekundärfarbe für Schriftarten-->
     <SolidColorBrush x:Key="SchriftfarbeDunklesDesign" Color="White"/>
+    <SolidColorBrush x:Key="SchriftfarbeHellDesign" Color="Black"/>
 
     <!-- Stil für einen Anwendungsbutton mit Font-Icons -->
     <Style 
@@ -163,6 +164,9 @@
         <Style.Triggers>
             <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
                 <Setter Property="Foreground" Value="{StaticResource SchriftfarbeDunklesDesign}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource SchriftfarbeHellDesign}"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>

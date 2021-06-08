@@ -25,16 +25,23 @@
         <!--TODO: HellDunkelSchrift -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <ScrollViewer.Content>
-                <ItemsControl 
+
+                <StackPanel Orientation="Vertical">
+                    <us:Bestellungkopfzeile
+                        Background="#1e90ff"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                    />
+                    <ItemsControl 
                     HorizontalAlignment="Center"
                     Background="Transparent" 
                     HorizontalContentAlignment="Center"
                     
                     Style="{DynamicResource HellDunkelDesign}"
                     ItemsSource="{Binding Path=Ausstellung.AktuelleBücherbestellung}" >
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <us:Bestellungslistitem
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <us:Bestellungslistitem
                             Id="{Binding ID}"
                             Titel="{Binding Titel}"
                             Autor="{Binding AutorName}"
@@ -42,13 +49,14 @@
                             Preis="{Binding Preis}"
                             Kategorie="{Binding Kategoriegruppe}"
                             Rabatt="{Binding Rabattgruppe}"
-                                Anzahl="{Binding Anzahl}"
+                            Anzahl="{Binding Anzahl}"
                                 
                                 />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
 
-                </ItemsControl>
+                    </ItemsControl>
+                </StackPanel>
             </ScrollViewer.Content>
         </ScrollViewer>
         <GridSplitter
