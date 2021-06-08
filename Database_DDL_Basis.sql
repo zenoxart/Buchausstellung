@@ -82,6 +82,15 @@
 # | besucher_id            | int(11) | NO   | MUL | NULL    |                |
 # +------------------------+---------+------+-----+---------+----------------+
 
+# bestellung
+# +------------------------+-------         --+------+-----+---------+----------------+
+# | Field                  | Type             | Null | Key | Default | Extra          |
+# +------------------------+---------+------+-----+---------+----------------+
+# | id                     | int(11) | NO   | PRI | NULL    | auto_increment |
+# | nr                     | int(11)        | NO   | MUL | NULL    |                |
+# | bezeichnung            | varchar(150)      | NO   |     | NULL    |                |
+# +------------------------+---------+------+-----+---------+----------------+
+
 
 #################################################
 #			Erstellung der Tabellen
@@ -97,6 +106,10 @@ USE buchausstellung;
 # Erstellt eine Verlag-Tabelle
 CREATE TABLE verlag (id INT PRIMARY KEY NOT NULL auto_increment,
 					 name VARCHAR(150) NOT NULL);
+					 
+# Erstellt eine Buchgruppen-Tabelle
+CREATE TABLE buchgruppe (id INT PRIMARY KEY NOT NULL auto_increment,
+						 nr INT, bezeichnung VARCHAR(40) NOT NULL)
 					 
 # Erstellt eine Buch-Tabelle 
 CREATE TABLE buch 	( id INT PRIMARY KEY NOT NULL auto_increment, 
@@ -288,12 +301,7 @@ USE buchausstellung;
 DELIMITER $$
 CREATE PROCEDURE BekommeBesucherId(
 	Vorname VARCHAR(150),
-	Nachname VARCHAR(150),
-	Strasse VARCHAR(150),
-	Hausnummer VARCHAR(3),
-	PLZ VARCHAR(5),
-	Ort VARCHAR(150),
-	Telefon VARCHAR(80)	
+	Nachname VARCHAR(150)
 )
 BEGIN
 	SELECT id FROM besucher WHERE vorname LIKE Vorname AND nachname LIKE Nachname LIMIT 1;
@@ -426,6 +434,67 @@ DELIMITER ;
 
 USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.FrageVeranstaltung TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+# Gibt alle Buchgruppen und deren Bezeichnung zurück
+DELIMITER $$
+CREATE PROCEDURE HoleBuchgruppen()
+BEGIN
+	SELECT 	id, nr, bezeichnung	
+	FROM buchgruppe;
+END$$
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.HoleBestellungsInfo TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+# Erstellt eine neue Buchgruppe und eine zugehörige ID
+DELIMITER $$
+CREATE PROCEDURE ErstelleBuchgruppe(
+	Nr INT,
+	Bezeichnung VARCHAR(40),
+)
+BEGIN
+	INSERT INTO buchgruppe (nr,bezeichnung) VALUES (Nr,Bezeichnung);
+END$$
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.ErstelleBuchgruppe TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+# Entfernt eine neue Buchgruppe
+DELIMITER $$
+CREATE PROCEDURE EntferneBuchgruppe(
+	ID INT
+)
+BEGIN
+	DELETE FROM buchgruppe WHERE buchgruppe.id=ID;
+END$$
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.EntferneBuchgruppe TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+SHOW PROCEDURE STATUS;
+
+# Entfernt eine neue Buchgruppe
+DELIMITER $$
+CREATE PROCEDURE AktualisiereBuchgruppe(
+	ID INT, Nr INT, Besucher VARCHAR(40)
+)
+BEGIN
+	UPDATE buchgruppe 
+	SET nr=Nr,
+		besucher=Besucher
+	WHERE buchgruppe.id=ID;
+END$$
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.EntferneBuchgruppe TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
 SHOW PROCEDURE STATUS;
