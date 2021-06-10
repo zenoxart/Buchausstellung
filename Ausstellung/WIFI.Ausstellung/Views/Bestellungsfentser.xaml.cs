@@ -113,11 +113,17 @@ namespace WIFI.Ausstellung.Views
         /// </summary>
         public WIFI.Anwendung.DTO.Bücher BücherDerSelektiertenBestellung
         {
-            get { return this._BücherDerSelektiertenBestellung; }
+            get {
+                if (this._BücherDerSelektiertenBestellung == null)
+                {
+                    HoleSelektierteBuchBestellungAsync();
+                }
+                return this._BücherDerSelektiertenBestellung; }
             set
             {
                 this._BücherDerSelektiertenBestellung = value;
                 this.OnPropertyChanged();
+                PusheSelektierteBuchBestellungAsync();
             }
         }
 
@@ -194,6 +200,30 @@ namespace WIFI.Ausstellung.Views
                 this._BestellNr = value;
                 this.OnPropertyChanged();
             }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _AktuallisiereBestellung;
+
+        /// <summary>
+        /// Updatet die Bestellung in der Datenbank
+        /// </summary>
+        public WIFI.Anwendung.Befehl AktuallisiereBestellung
+        {
+            get {
+                if (this._AktuallisiereBestellung == null)
+                {
+                    this._AktuallisiereBestellung = new Anwendung.Befehl(
+                        p => {
+                            //TODO: Implementiere 
+                            this.AppKontext.DBControllerManager.BestellungController.AktuallisiereBestellung(this.AktuelleBestellung);
+                        }
+                    );
+                }
+                return this._AktuallisiereBestellung; }
+            set { this._AktuallisiereBestellung = value; }
         }
 
 

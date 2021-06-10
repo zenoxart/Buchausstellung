@@ -483,5 +483,99 @@ namespace WIFI.Anwendung.DatenController
                     });
             }
         }
+
+        /// <summary>
+        /// Aktuallisiert eine Bestellung und alle untergeordneten Elemente in der Datenbank
+        /// </summary>
+        public void AktuallisiereBestellung(DTO.Bestellung bestellung)
+        {
+            using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+            {
+                using (var Befehl = new MySqlConnector.MySqlCommand("AktuallisiereBestellungsInfo", Verbindung))
+                {
+
+                    Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                    Befehl.Parameters.AddWithValue("ID", bestellung.BestellNr);
+                    Verbindung.Open();
+
+                    Befehl.Prepare();
+
+                    Befehl.ExecuteScalar();
+
+
+                    Verbindung.Close();
+
+                }
+
+
+            }
+
+            using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+            {
+                using (var Befehl = new MySqlConnector.MySqlCommand("AktuallisiereBesucher", Verbindung))
+                {
+
+                    Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                    Befehl.Parameters.AddWithValue("ID", bestellung.ZugehörigerBesucher.Id);
+                    Befehl.Parameters.AddWithValue("Vorname", bestellung.ZugehörigerBesucher.Vorname);
+                    Befehl.Parameters.AddWithValue("Nachname", bestellung.ZugehörigerBesucher.Nachname);
+                    Befehl.Parameters.AddWithValue("PLZ", bestellung.ZugehörigerBesucher.Postleitzahl);
+                    Befehl.Parameters.AddWithValue("Telefon", bestellung.ZugehörigerBesucher.Telefon);
+                    Befehl.Parameters.AddWithValue("Straße", bestellung.ZugehörigerBesucher.Straßenname);
+                    Befehl.Parameters.AddWithValue("Hausnummer", bestellung.ZugehörigerBesucher.Hausnummer);
+                    Befehl.Parameters.AddWithValue("Ort", bestellung.ZugehörigerBesucher.Ort);
+                    Verbindung.Open();
+
+                    Befehl.Prepare();
+
+                    Befehl.ExecuteScalar();
+
+
+                    Verbindung.Close();
+
+                }
+
+
+            }
+
+
+            foreach (DTO.Buch item in bestellung.Buchliste.Keys)
+            {
+                using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
+                {
+                    using (var Befehl = new MySqlConnector.MySqlCommand("AktuallisiereBuch", Verbindung))
+                    {
+
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                        Befehl.Parameters.AddWithValue("ID", item.ID);
+                        Befehl.Parameters.AddWithValue("Buchnr", item.Buchnummer);
+                        Befehl.Parameters.AddWithValue("Autor", item.AutorName);
+                        Befehl.Parameters.AddWithValue("Preis", item.Preis);
+                        Befehl.Parameters.AddWithValue("Rabgr", item.Rabattgruppe);
+                        Befehl.Parameters.AddWithValue("Katgr", item.Kategoriegruppe);
+                        Befehl.Parameters.AddWithValue("Verlag", item.VerlagName);
+                        Befehl.Parameters.AddWithValue("Titel", item.Titel);
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteScalar();
+
+
+                        Verbindung.Close();
+
+                    }
+
+
+                }
+            }
+            
+        }
     }
 }

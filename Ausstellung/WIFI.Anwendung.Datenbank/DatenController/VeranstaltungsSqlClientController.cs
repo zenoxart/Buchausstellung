@@ -250,22 +250,8 @@ namespace WIFI.Anwendung.DatenController
         /// </summary>
         public void AnwendungsStart()
         {
-            try
-            {
-                    // Erstelle Veranstaltung
-                    ErstelleVeranstaltung();
-            }
-            catch (Exception e)
-            {
-                this.AppKontext.Protokoll.Eintragen(
-                      new Daten.ProtokollEintrag
-                      {
-                          Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungsSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
-                               $"{e.GetType().FullName} = {e.Message} \n " +
-                               $"{e.StackTrace}",
-                          Typ = Daten.ProtokollEintragTyp.Normal
-                      });
-            }
+            // Erstelle Veranstaltung
+            ErstelleVeranstaltung();
 
         }
     }
