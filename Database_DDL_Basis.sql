@@ -189,7 +189,16 @@ USE buchausstellung;
 DELIMITER $$
 CREATE PROCEDURE ErstelleVeranstaltung()
 BEGIN
-	INSERT INTO veranstaltung (stadium) VALUES('Vorbereitung');
+	DECLARE anzahl INT DEFAULT 0;
+	
+	SELECT COUNT(ort) 
+    INTO anzahl
+    FROM veranstaltung;
+	
+	IF anzahl = 0 THEN
+		INSERT INTO veranstaltung (stadium) VALUES('Vorbereitung');
+	END IF;
+	
 END$$
 DELIMITER ;
 
@@ -530,12 +539,12 @@ CREATE PROCEDURE UpdateBuch(
 BEGIN
 	UPDATE buch 
 	SET buchnr = Buchnummer, 
-	SET titel = Titel , 
-	SET autor = Autor,
-	SET preis = Preis, 
-	SET rabgr = Rabattgruppe, 
-	SET katgr = Kategorie, 
-	SET verlag_id = Verlag
+	titel = Titel , 
+	autor = Autor,
+	preis = Preis, 
+	rabgr = Rabattgruppe, 
+	katgr = Kategorie, 
+	verlag_id = Verlag
 	WHERE buchnr = Buchnummer;
 END$$
 DELIMITER ;

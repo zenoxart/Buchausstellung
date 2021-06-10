@@ -256,20 +256,13 @@ namespace WIFI.Anwendung.DatenController
                 using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
 
-                    using (var Befehl = new MySqlConnector.MySqlCommand("FrageVeranstaltung", Verbindung))
+                    using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleVeranstaltung", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Befehl.Prepare();
 
-
-                        using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                        {
-                            while (DatenLeser.Read())
-                            {
-                                Ergebnis = DatenLeser["ort"].ToString();                                
-                            }
-                        }
+                        Befehl.ExecuteScalar();
 
                     }
                 }
