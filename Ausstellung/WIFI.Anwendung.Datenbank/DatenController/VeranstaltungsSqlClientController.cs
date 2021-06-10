@@ -250,29 +250,10 @@ namespace WIFI.Anwendung.DatenController
         /// </summary>
         public void AnwendungsStart()
         {
-            string Ergebnis = "";
             try
             {
-                using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
-                {
-
-                    using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleVeranstaltung", Verbindung))
-                    {
-                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        Befehl.Prepare();
-
-                        Befehl.ExecuteScalar();
-
-                    }
-                }
-
-
-                if (Ergebnis == "")
-                {
                     // Erstelle Veranstaltung
                     ErstelleVeranstaltung();
-                }
             }
             catch (Exception e)
             {
