@@ -82,15 +82,14 @@
 # | besucher_id            | int(11) | NO   | MUL | NULL    |                |
 # +------------------------+---------+------+-----+---------+----------------+
 
-# bestellung
-# +------------------------+-------         --+------+-----+---------+----------------+
+# buchgruppe
+# +------------------------+------------------+------+-----+---------+----------------+
 # | Field                  | Type             | Null | Key | Default | Extra          |
-# +------------------------+---------+------+-----+---------+----------------+
-# | id                     | int(11) | NO   | PRI | NULL    | auto_increment |
-# | nr                     | int(11)        | NO   | MUL | NULL    |                |
-# | bezeichnung            | varchar(150)      | NO   |     | NULL    |                |
-# +------------------------+---------+------+-----+---------+----------------+
-
+# +------------------------+------------------+------+-----+---------+----------------+
+# | id                     | int(11)          | NO   | PRI | NULL    | auto_increment |
+# | nr                     | int(11)          | NO   | MUL | NULL    |                |
+# | bezeichnung            | varchar(150)     | NO   |     | NULL    |                |
+# +------------------------+------------------+------+-----+---------+----------------+
 
 #################################################
 #			Erstellung der Tabellen
@@ -109,7 +108,7 @@ CREATE TABLE verlag (id INT PRIMARY KEY NOT NULL auto_increment,
 					 
 # Erstellt eine Buchgruppen-Tabelle
 CREATE TABLE buchgruppe (id INT PRIMARY KEY NOT NULL auto_increment,
-						 nr INT, bezeichnung VARCHAR(40) NOT NULL)
+						 nr INT, bezeichnung VARCHAR(40) NOT NULL);
 					 
 # Erstellt eine Buch-Tabelle 
 CREATE TABLE buch ( id INT PRIMARY KEY NOT NULL auto_increment, 
@@ -121,7 +120,7 @@ CREATE TABLE buch ( id INT PRIMARY KEY NOT NULL auto_increment,
 					  katgr INT NOT NULL,
 					  verlag_id INT NOT NULL,
 					  FOREIGN KEY(verlag_id) REFERENCES verlag(id),
-					  FOREIGN KEY(rabgr) REFERENCES buchgruppe(id));
+					  FOREIGN KEY(katgr) REFERENCES buchgruppe(id));
 					
 # Erstellt eine Besucher-Tabelle					
 CREATE TABLE besucher ( id INT PRIMARY KEY NOT NULL auto_increment,
@@ -491,8 +490,6 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.EntferneBuchgruppe TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
-SHOW PROCEDURE STATUS;
-
 # Entfernt eine neue Buchgruppe
 DELIMITER $$
 CREATE PROCEDURE AktualisiereBuchgruppe(
@@ -525,7 +522,6 @@ USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.BestellungAbgeholt TO 'clientbenutzer'@'%';
 USE buchausstellung;
 
-
 DELIMITER $$
 CREATE PROCEDURE UpdateBuch(
 	Buchnummer VARCHAR(4),
@@ -534,27 +530,128 @@ CREATE PROCEDURE UpdateBuch(
 	Preis DOUBLE,
 	Rabattgruppe INT(2),
 	Kategorie INT(2),
-	Verlag INT(3)
+	Verlagname VARCHAR(150)
 )
 BEGIN
+	DECLARE verlagnr INT DEFAULT 0;
+	
+	SELECT id INTO verlagnr FROM verlag WHERE name=Verlagname;
+
+	IF verlagnr = 0 THEN
+		INSERT INTO verlag (name) VALUES (Verlagname);
+		SELECT MAX(id) INTO verlagnr FROM verlag;
+	END IF;
+
 	UPDATE buch 
 	SET buchnr = Buchnummer, 
-	titel = Titel , 
+	titel = Titel, 
 	autor = Autor,
 	preis = Preis, 
 	rabgr = Rabattgruppe, 
-	katgr = Kategorie, 
-	verlag_id = Verlag
+	katgr = Kategorie,  
+	verlag_id = verlagnr
 	WHERE buchnr = Buchnummer;
 END$$
 DELIMITER ;
 
-
 USE mysql;
 GRANT EXECUTE ON PROCEDURE buchausstellung.UpdateBuch TO 'clientbenutzer'@'%';
 USE buchausstellung;
-SHOW PROCEDURE STATUS;
 
+DELIMITER $$
+CREATE PROCEDURE AktualisiereBesucher(
+	ID INT,
+	Vorname VARCHAR(150),
+	Nachname VARCHAR(150),
+	Strasse VARCHAR(150),
+	Hausnummer VARCHAR(3),
+	PLZ VARCHAR(5),
+	Ort VARCHAR(150),
+	Telefon VARCHAR(80)
+)
+BEGIN
+	UPDATE besucher b
+	SET b.vorname = Vorname,
+	b.nachname = Nachname,
+	b.strasse = Strasse,
+	b.hausnummer = Hausnummer,
+	b.plz = PLZ,
+	b.ort = Ort
+	WHERE b.id = ID;
+	
+	UPDATE besucher_kommunikation k
+	SET k.wert = Telefon
+	WHERE k.besucher_id = ID;
+END $$
+
+DELIMITER ;
+	
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.AktualisiereBesucher TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+DELIMITER $$
+CREATE PROCEDURE AktualisiereBestellungsInfo(
+	ID INT,
+	BesucherID INT)
+BEGIN
+	UPDATE bestellung b
+	SET b.besucher_id = BesucherID
+	WHERE b.id = ID;
+END $$
+
+DELIMITER ;
+	
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.AktualisiereBestellungsInfo TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+DELIMITER $$
+CREATE PROCEDURE AktualisiereBuch(
+	ID INT,
+	Buchnummer VARCHAR(4),
+	Titel VARCHAR(150),
+	Autor VARCHAR(150),
+	Preis DOUBLE,
+	Rabattgruppe INT(2),
+	Kategorie INT(2),
+	Verlagname VARCHAR(150),
+	Anzahl INT(11),
+	BestellID INT(11))
+BEGIN
+	DECLARE verlagnr INT DEFAULT 0;
+	
+	SELECT id INTO verlagnr FROM verlag WHERE name=Verlagname;
+
+	IF verlagnr = 0 THEN
+		INSERT INTO verlag (name) VALUES (Verlagname);
+		SELECT MAX(id) INTO verlagnr FROM verlag;
+	END IF;
+	
+	UPDATE buch 
+	SET buchnr = Buchnummer, 
+	titel = Titel, 
+	autor = Autor,
+	preis = Preis, 
+	rabgr = Rabattgruppe, 
+	katgr = Kategorie, 
+	verlag_id = verlagnr
+	WHERE buchnr = Buchnummer;
+	
+	UPDATE bestellung_hat_buch
+	SET anzahl=Anzahl
+	WHERE buch_id=ID AND bestellung_id=BestellID;
+
+END $$
+
+DELIMITER ;
+
+USE mysql;
+GRANT EXECUTE ON PROCEDURE buchausstellung.AktualisiereBuch TO 'clientbenutzer'@'%';
+USE buchausstellung;
+
+
+SHOW PROCEDURE STATUS;
 
 ###	Testdatensätze
 INSERT INTO verlag (id,name) VALUES (1,"Thalia");

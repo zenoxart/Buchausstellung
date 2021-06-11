@@ -144,7 +144,7 @@ namespace WIFI.Anwendung.DatenController
                         Befehl.Parameters.AddWithValue("Preis", buch.Preis);
                         Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
                         Befehl.Parameters.AddWithValue("Kategorie", buch.Kategoriegruppe);
-                        Befehl.Parameters.AddWithValue("Verlag", buch.VerlagName);
+                        Befehl.Parameters.AddWithValue("Verlagname", buch.VerlagName);
 
                         Befehl.Prepare();
 

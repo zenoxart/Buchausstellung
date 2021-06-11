@@ -218,16 +218,12 @@ namespace WIFI.Ausstellung.Views
                     this._AktuallisiereBestellung = new Anwendung.Befehl(
                         p => {
                             //TODO: Implementiere 
-                            this.AppKontext.DBControllerManager.BestellungController.AktuallisiereBestellung(this.AktuelleBestellung);
+                            this.AppKontext.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
                         }
                     );
                 }
                 return this._AktuallisiereBestellung; }
             set { this._AktuallisiereBestellung = value; }
         }
-
-
-
-
     }
 }

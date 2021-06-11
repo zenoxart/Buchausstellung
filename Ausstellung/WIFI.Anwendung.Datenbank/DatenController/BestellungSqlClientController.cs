@@ -485,40 +485,34 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Aktuallisiert eine Bestellung und alle untergeordneten Elemente in der Datenbank
+        /// Aktualisiert eine Bestellung und alle untergeordneten Elemente in der Datenbank
         /// </summary>
-        public void AktuallisiereBestellung(DTO.Bestellung bestellung)
+        public void AktualisiereBestellung(DTO.Bestellung bestellung)
         {
             using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
             {
-                using (var Befehl = new MySqlConnector.MySqlCommand("AktuallisiereBestellungsInfo", Verbindung))
+                using (var Befehl = new MySqlConnector.MySqlCommand("AktualisiereBestellungsInfo", Verbindung))
                 {
-
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-
                     Befehl.Parameters.AddWithValue("ID", bestellung.BestellNr);
+                    Befehl.Parameters.AddWithValue("Besucher_ID", bestellung.ZugehörigerBesucher.Id);
+
                     Verbindung.Open();
 
                     Befehl.Prepare();
 
                     Befehl.ExecuteScalar();
 
-
                     Verbindung.Close();
-
                 }
-
-
             }
 
             using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
             {
-                using (var Befehl = new MySqlConnector.MySqlCommand("AktuallisiereBesucher", Verbindung))
+                using (var Befehl = new MySqlConnector.MySqlCommand("AktualisiereBesucher", Verbindung))
                 {
-
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
 
                     Befehl.Parameters.AddWithValue("ID", bestellung.ZugehörigerBesucher.Id);
                     Befehl.Parameters.AddWithValue("Vorname", bestellung.ZugehörigerBesucher.Vorname);
@@ -534,24 +528,17 @@ namespace WIFI.Anwendung.DatenController
 
                     Befehl.ExecuteScalar();
 
-
                     Verbindung.Close();
-
                 }
-
-
             }
-
 
             foreach (DTO.Buch item in bestellung.Buchliste.Keys)
             {
                 using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
                 {
-                    using (var Befehl = new MySqlConnector.MySqlCommand("AktuallisiereBuch", Verbindung))
+                    using (var Befehl = new MySqlConnector.MySqlCommand("AktualisiereBuch", Verbindung))
                     {
-
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
 
                         Befehl.Parameters.AddWithValue("ID", item.ID);
                         Befehl.Parameters.AddWithValue("Buchnr", item.Buchnummer);
@@ -559,23 +546,22 @@ namespace WIFI.Anwendung.DatenController
                         Befehl.Parameters.AddWithValue("Preis", item.Preis);
                         Befehl.Parameters.AddWithValue("Rabgr", item.Rabattgruppe);
                         Befehl.Parameters.AddWithValue("Katgr", item.Kategoriegruppe);
-                        Befehl.Parameters.AddWithValue("Verlag", item.VerlagName);
+                        Befehl.Parameters.AddWithValue("Verlagname", item.VerlagName);
                         Befehl.Parameters.AddWithValue("Titel", item.Titel);
+                        Befehl.Parameters.AddWithValue("Anzahl", item.Anzahl);
+                        Befehl.Parameters.AddWithValue("BestellID", bestellung.BestellNr);
+
                         Verbindung.Open();
 
                         Befehl.Prepare();
 
                         Befehl.ExecuteScalar();
 
-
                         Verbindung.Close();
 
                     }
-
-
                 }
             }
-            
         }
     }
 }
