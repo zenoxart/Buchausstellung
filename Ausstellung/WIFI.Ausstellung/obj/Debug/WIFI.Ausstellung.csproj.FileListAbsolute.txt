@@ -144,6 +144,10 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungsfilter.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.g.cs
+<<<<<<< Updated upstream
+=======
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchgruppenkopfzeile.g.cs
+>>>>>>> Stashed changes
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungslistitem.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.g.cs
@@ -155,6 +159,10 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Ausstellungsabschluss.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Bestellung.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Bestellungen.g.cs
+<<<<<<< Updated upstream
+=======
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Buchgruppen.g.cs
+>>>>>>> Stashed changes
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Buchverwaltung.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Lieferverwaltung.g.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Offlineanzeige.g.cs
@@ -175,6 +183,10 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungsfilter.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.baml
+<<<<<<< Updated upstream
+=======
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchgruppenkopfzeile.baml
+>>>>>>> Stashed changes
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungslistitem.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Lieferlistitem.baml
@@ -186,6 +198,10 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Ausstellungsabschluss.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Bestellung.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Bestellungen.baml
+<<<<<<< Updated upstream
+=======
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Buchgruppen.baml
+>>>>>>> Stashed changes
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Buchverwaltung.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Lieferverwaltung.baml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Views\Aufgaben\Offlineanzeige.baml

@@ -140,14 +140,11 @@ namespace WIFI.Ausstellung.ViewModels
                         try
                         {
                             // Frage die Datenbank ab
-                            WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
-                                this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
+                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
+                            //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
 
                             // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
-                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung;
-
-                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung;
-
+                            WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
 
                             // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                             switch (response)

@@ -100,6 +100,9 @@
     <Compile Include="UserControls\Bestellungslistitem.xaml.cs">
       <DependentUpon>Bestellungslistitem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Buchgruppenkopfzeile.xaml.cs">
+      <DependentUpon>Buchgruppenkopfzeile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Buchverwaltungskopfzeile.xaml.cs">
       <DependentUpon>Buchverwaltungskopfzeile.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,9 @@
     </Compile>
     <Compile Include="Views\Aufgaben\Bestellungen.xaml.cs">
       <DependentUpon>Bestellungen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Aufgaben\Buchgruppen.xaml.cs">
+      <DependentUpon>Buchgruppen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Aufgaben\Buchverwaltung.xaml.cs">
       <DependentUpon>Buchverwaltung.xaml</DependentUpon>
@@ -214,6 +220,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Buchgruppenkopfzeile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Buchverwaltungskopfzeile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Aufgaben\Bestellungen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Aufgaben\Buchgruppen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

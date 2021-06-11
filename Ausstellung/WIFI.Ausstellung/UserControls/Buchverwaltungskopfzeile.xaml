@@ -9,10 +9,10 @@
     <UserControl.Resources>
         <Style TargetType="UserControl">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=Ausstellungkopfzeile,Path=DarkMode}" Value="True">
+                <DataTrigger Binding="{Binding ElementName=Buchverwaltungskopfzeile,Path=DarkMode}" Value="True">
                     <Setter Property="Background" Value="#333337"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding ElementName=Ausstellungkopfzeile,Path=DarkMode}" Value="False">
+                <DataTrigger Binding="{Binding ElementName=Buchverwaltungskopfzeile,Path=DarkMode}" Value="False">
                     <Setter Property="Background" Value="#f4f4f4"/>
                 </DataTrigger>
             </Style.Triggers>
