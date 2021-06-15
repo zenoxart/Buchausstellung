@@ -1,0 +1,52 @@
+<html>
+<head>
+<style>
+
+.body{height: 22cm !IMPORTANT;width: 21cm !IMPORTANT;max-width: 21cm !IMPORTANT; max-height: 22cm !IMPORTANT;margin: 0px;}
+
+.bestellunggrid{display: grid;grid-template-areas:' col1 col2 col3 col4 col5 col6';font-size: 15px;word-wrap: break-word;}
+
+.el1 { grid-area: col1; width: 50px; max-height: 35px;}
+.el2 { grid-area: col2; width: 30px; max-height: 35px;}
+.el3 { grid-area: col3; width: 150px; max-height: 35px;}
+.el4 { grid-area: col4; width: 70px; max-height: 35px;}
+.el5 { grid-area: col5; width: 80px; max-height: 35px;}
+.el6 { grid-area: col6; width: 80px; max-height: 35px;}
+</style>
+</head>
+<body class='body'>
+
+
+
+	
+  <p style='margin: 5px; font-size:12pt; text-align:left; '> Buchausstellung xxxx, ?gemeinde</p>
+	<div style='margin: 30px'>
+		<div >
+			<p style='font-size:18pt;font-weight: bold'>Gruppe ?Zahl - ?Name</p>
+			<div class='bestellunggrid' style='border-bottom:inset;border-color:black;border-width: 1px'>
+				<div class='el1'> Anzahl </div>
+				<div class='el2'> Nr </div>
+				<div class='el3'> Titel, Autor </div>
+				<div class='el4'> Verlag</div>
+				<div class='el5'> Preis </div>
+				<div class='el6'> Rab.Gr</div>
+			</div>
+			
+			
+			<!- foreach ->
+			<div class='bestellunggrid'>
+				<div class='el1'> ? </div>
+				<div class='el2'> ?Nr </div>
+				<div class='el3'> ?Titel + ?Autor </div>
+				<div class='el4'> ?Verlag </div>
+				<div class='el5'> ?Preis </div>
+				<div class='el6'> ?Rab.Gr </div>
+			</div>
+			
+		</div>
+	
+	</div>
+	<p style='margin: 5px; font-size:12pt; text-align:right; '>Seitennr.: ?Zahl </p>
+  
+</body>
+</html>

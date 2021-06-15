@@ -426,7 +426,7 @@ namespace WIFI.Ausstellung.ViewModels
                         p =>
                         {
                             //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
-                            this.AppKontext.PortableDokumentFormatManager.GeneriereBestellungenübersicht();
+                            this.AppKontext.PortableDokumentFormatManager.GeneriereBestellungenübersicht(this.BestellungenListe);
 
                             //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
 
