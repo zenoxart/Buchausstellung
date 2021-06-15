@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
+C:\PP\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 WIFI.Ausstellung
 none
 false
@@ -12,15 +12,9 @@ DEBUG;TRACE
 
 31-1163097283
 
-<<<<<<< Updated upstream
-42-943413598
-124-1360290981
-App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Abholungslistitem.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungskopfzeile.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenkopfzeile.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungkopfzeile.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;UserControls\Buchverwaltungskopfzeile.xaml;UserControls\Buchverwaltungslistitem.xaml;UserControls\Lieferlistitem.xaml;Views\Anwendungsstartanzeige.xaml;Views\Arbeitsbereich.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
-=======
-44-1329549326
-124-1360290981
+452123058603
+20-1353678652
 App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Abholungslistitem.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungskopfzeile.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenkopfzeile.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungkopfzeile.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;UserControls\Buchgruppenkopfzeile.xaml;UserControls\Buchverwaltungskopfzeile.xaml;UserControls\Buchverwaltungslistitem.xaml;UserControls\Lieferlistitem.xaml;Views\Anwendungsstartanzeige.xaml;Views\Arbeitsbereich.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchgruppen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
->>>>>>> Stashed changes
 
-False
+True
 
