@@ -425,10 +425,19 @@ CREATE PROCEDURE ErstelleBuch(
 	Preis DOUBLE,
 	Rabattgruppe INT(2),
 	Kategorie INT(2),
-	Verlag INT(3)
+	Verlagname VARCHAR(150)
 )
 BEGIN
-	INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES (Buchnummer,Titel,Autor,Preis,Rabattgruppe,Kategorie,Verlag);
+	DECLARE verlagnr INT DEFAULT 0;
+	
+	SELECT id INTO verlagnr FROM verlag WHERE name=Verlagname;
+
+	IF verlagnr = 0 THEN
+		INSERT INTO verlag (name) VALUES (Verlagname);
+		SELECT MAX(id) INTO verlagnr FROM verlag;
+	END IF;
+
+	INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES (Buchnummer,Titel,Autor,Preis,Rabattgruppe,Kategorie,verlagnr);
 END$$
 DELIMITER ;
 

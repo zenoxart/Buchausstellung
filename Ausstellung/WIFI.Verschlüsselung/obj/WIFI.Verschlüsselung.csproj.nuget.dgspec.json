@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {}
+    "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {}
   },
   "projects": {
-    "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+    "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
+        "projectUniqueName": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
         "projectName": "WIFI.Anwendung.Datenbank",
-        "projectPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
+        "projectPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-                "projectPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+              "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+                "projectPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
               }
             }
           }
@@ -23,30 +23,30 @@
         "net472": {}
       }
     },
-    "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+    "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj",
+        "projectUniqueName": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj",
         "projectName": "WIFI.Anwendung",
-        "projectPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+        "projectPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {
+    "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+        "projectUniqueName": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
         "projectName": "WIFI.Verschlüsselung",
-        "projectPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
-        "packagesPath": "C:\\Users\\zenox\\.nuget\\packages\\",
-        "outputPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
+        "projectPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\zenox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -61,11 +61,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
-                "projectPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
+              "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+                "projectPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
               },
-              "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-                "projectPath": "C:\\PP\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+              "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+                "projectPath": "C:\\Users\\Peter\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
               }
             }
           }
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

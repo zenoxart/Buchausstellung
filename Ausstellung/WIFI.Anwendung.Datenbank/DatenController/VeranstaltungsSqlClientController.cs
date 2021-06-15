@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace WIFI.Anwendung.DatenController
 {
     /// <summary>
-    /// Stellt einen Dienst zum verwalten einer Veranstaltung
+    /// Stellt einen Dienst zum Verwalten einer Veranstaltung
     /// </summary>
     public class VeranstaltungsSqlClientController : WIFI.Anwendung.MySqlClient.Basiscontroller
     {
         /// <summary>
-        /// Erstellt in der Datenbank einen Eintrag für eine Veranstaltung
+        /// Erstellt in der Datenbank einen 
+        /// Eintrag für eine Veranstaltung
         /// </summary>
         public void ErstelleVeranstaltung()
         {
@@ -22,7 +23,8 @@ namespace WIFI.Anwendung.DatenController
                 // Erstelle eine Datenbankverbindung
                 using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
-                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    // Erstelle einen Befehl mit
+                    // einer MySQL-Stored-Procedure
                     using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleVeranstaltung", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
@@ -30,7 +32,6 @@ namespace WIFI.Anwendung.DatenController
                         Verbindung.Open();
 
                         Befehl.Prepare();
-
 
                         Befehl.ExecuteScalar();
 
@@ -49,12 +50,14 @@ namespace WIFI.Anwendung.DatenController
                         Typ = Daten.ProtokollEintragTyp.Normal
                     });
             }
-
         }
 
         /// <summary>
-        /// Ändert die Veranstaltungsinformationen und den zugehörigen Status
+        /// Enthält die Grundddaten der Buchausstellung
         /// </summary>
+        /// <param name="StartDatum">Beginn der Ausstellung</param>
+        /// <param name="EndDatum">Ende der Ausstellung</param>
+        /// <param name="Ort">Ort der Ausstellung</param>
         public void StarteVeranstaltung(DateTime StartDatum, DateTime EndDatum, string Ort)
         {
             try
@@ -62,7 +65,8 @@ namespace WIFI.Anwendung.DatenController
                 // Erstelle eine Datenbankverbindung
                 using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
-                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    // Erstelle einen Befehl mit
+                    // einer MySQL-Stored-Procedure
                     using (var Befehl = new MySqlConnector.MySqlCommand("StarteVeranstaltung", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
@@ -75,14 +79,11 @@ namespace WIFI.Anwendung.DatenController
 
                         Befehl.Prepare();
 
-
                         Befehl.ExecuteScalar();
 
                         Verbindung.Close();
                     }
                 }
-
-
             }
             catch (Exception e)
             {
@@ -98,13 +99,14 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Ändert den Veranstaltungsstatus 
+        /// Aktualisiert das Stadium der Veranstaltung
         /// </summary>
+        /// <param name="stadium">Das Stadium, welches für
+        /// die Veranstaltung eingestellt wird</param>
         public void UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp stadium)
         {
             try
             {
-
                 // Erstelle eine Datenbankverbindung
                 using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                 {
@@ -137,7 +139,6 @@ namespace WIFI.Anwendung.DatenController
                         Typ = Daten.ProtokollEintragTyp.Normal
                     });
             }
-
         }
 
         /// <summary>
@@ -190,8 +191,6 @@ namespace WIFI.Anwendung.DatenController
                         }
                     }
                 }
-
-
             }
             catch (Exception e)
             {
@@ -209,7 +208,8 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Beendet die Veranstaltung und bereinigt alle Datenbanktabellen
+        /// Beendet die Veranstaltung und 
+        /// bereinigt alle Datenbanktabellen
         /// </summary>
         public void BeendeVeranstaltung()
         {
@@ -230,7 +230,6 @@ namespace WIFI.Anwendung.DatenController
                         Verbindung.Close();
                     }
                 }
-
             }
             catch (Exception e)
             {
@@ -246,13 +245,12 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Erstellt eine Veranstaltung falls noch keine vorhanden ist
+        /// Erstellt eine Veranstaltung, falls
+        /// noch keine vorhanden ist
         /// </summary>
         public void AnwendungsStart()
         {
-            // Erstelle Veranstaltung
             ErstelleVeranstaltung();
-
         }
     }
 }

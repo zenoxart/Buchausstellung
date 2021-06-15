@@ -12,14 +12,13 @@ namespace WIFI.Anwendung.DatenController
     public class BesucherSqlClientController : WIFI.Anwendung.MySqlClient.Basiscontroller
     {
         /// <summary>
-        /// Holt eine Sammlung an allen Büchern aus der Datenbank
+        /// Prozedur zum Erstellen eines neuen
+        /// Besuchers in der Datenbank
         /// </summary>
         public DTO.Besucher ErstelleBesucher(DTO.Besucher neuerBesucher)
         {
-
             int BekommeBesucherId(DTO.Besucher NB)
             {
-
                 int userIdIntern = 0;
                 try
                 {
@@ -43,15 +42,10 @@ namespace WIFI.Anwendung.DatenController
                                 while (DatenLeser.Read())
                                 {
                                     userIdIntern = Convert.ToInt32(DatenLeser["id"]);
-
                                 }
                             }
-
-
-
                         }
                     }
-
                 }
                 catch (Exception e)
                 {
@@ -67,22 +61,15 @@ namespace WIFI.Anwendung.DatenController
                 return userIdIntern;
             }
 
-
-            // Zuerst Abfragen, gibt es schon einen BekommeBesucherId
-
-
-            // Erstelle eine Datenbankverbindung
-
-
-
+            // Zuerst abfragen, ob der Besucher
+            // schon angelegt ist
             int userId = BekommeBesucherId(neuerBesucher);
-
-
 
             if (userId == 0)
             {
                 try
                 {
+                    // Erstelle eine Datenbankverbindung
                     using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
                     {
                         // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
@@ -100,20 +87,13 @@ namespace WIFI.Anwendung.DatenController
                             Befehl.Parameters.AddWithValue("Ort", neuerBesucher.Ort);
                             Befehl.Parameters.AddWithValue("Telefon", neuerBesucher.Telefon);
 
-
                             Befehl.Prepare();
 
                             Befehl.ExecuteScalar();
-
                         }
 
                         Verbindung.Close();
-
-
-
-
                     }
-
                 }
                 catch (Exception e)
                 {
@@ -128,19 +108,11 @@ namespace WIFI.Anwendung.DatenController
                 }
 
                 userId = BekommeBesucherId(neuerBesucher);
-
-
-
             }
-
 
             neuerBesucher.Id = userId;
 
-
-
-            // Falls Nein Erstellung und dann die Id dazu bekommen
             return neuerBesucher;
-
         }
     }
 }

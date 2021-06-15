@@ -12,7 +12,8 @@ namespace WIFI.Anwendung.DatenController
     public class BestellungSqlClientController : WIFI.Anwendung.MySqlClient.Basiscontroller
     {
         /// <summary>
-        /// Erstellt für den Besucher eine Bestellung und gibt die Bestellungs_ID zurück
+        /// Erstellt für den Besucher eine Bestellung
+        /// und gibt die Bestellungs_ID zurück
         /// </summary>
         public int ErstelleBestellung(DTO.Besucher besucher)
         {
@@ -22,6 +23,7 @@ namespace WIFI.Anwendung.DatenController
             {
                 using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
                 {
+                    // Befehl zum Erstellen der Bestellung
                     using (var Befehl = new MySqlConnector.MySqlCommand("ErstelleEinzelBestellung", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
@@ -32,16 +34,12 @@ namespace WIFI.Anwendung.DatenController
 
                         Befehl.Prepare();
 
-
-
                         Befehl.ExecuteScalar();
-
-
                     }
 
+                    // Befehl zur Rückgabe der Bestell-ID
                     using (var Befehl = new MySqlConnector.MySqlCommand("BekommeBestellungsId", Verbindung))
                     {
-
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Befehl.Parameters.AddWithValue("PersonId", besucher.Id);
@@ -53,15 +51,12 @@ namespace WIFI.Anwendung.DatenController
                             while (DatenLeser.Read())
                             {
                                 BestellNr = Convert.ToInt32(DatenLeser["id"]);
-
                             }
                         }
                     }
 
                     Verbindung.Close();
                 }
-
-
             }
             catch (Exception e)
             {
@@ -79,7 +74,7 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Fügt 1 Buch der Bestellung hinzu
+        /// Fügt ein Buch der Bestellung hinzu
         /// </summary>
         public void BuchbestellungHinzufügen(DTO.Buch buch, int bestellNr, int anzahl)
         {
@@ -89,7 +84,6 @@ namespace WIFI.Anwendung.DatenController
                 {
                     using (var Befehl = new MySqlConnector.MySqlCommand("BuchbestellungHinzufügen", Verbindung))
                     {
-
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Befehl.Parameters.AddWithValue("buchID", buch.ID.ToString());
@@ -105,7 +99,6 @@ namespace WIFI.Anwendung.DatenController
                         Verbindung.Close();
                     }
                 }
-
             }
             catch (Exception e)
             {
@@ -132,47 +125,6 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Holt eine einzelne Bestellung
-        /// </summary>
-        /// <returns></returns>
-        //public DTO.Bestellung HoleBestellung(string BestellNr)
-        //{
-        //    try
-        //    {
-        //        using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
-        //        {
-        //            using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellung", Verbindung))
-        //            {
-
-        //                Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
-        //                Befehl.Parameters.AddWithValue("ID", BestellNr);
-
-        //                Verbindung.Open();
-
-        //                Befehl.Prepare();
-
-        //                Befehl.ExecuteScalar();
-
-        //                Verbindung.Close();
-        //            }
-        //        }
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        this.AppKontext.Protokoll.Eintragen(
-        //            new Daten.ProtokollEintrag
-        //            {
-        //                Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("BuchbestellungHinzufügen")} ist ein Fehler aufgetreten \n" +
-        //                       $"{e.GetType().FullName} = {e.Message} \n " +
-        //                       $"{e.StackTrace}",
-        //                Typ = Daten.ProtokollEintragTyp.Normal
-        //            });
-        //    }
-        //}
-
-        /// <summary>
         /// Ruft alle Bestellungen ab 
         /// </summary>
         public DTO.Bestellungen HoleBestellungen()
@@ -181,14 +133,11 @@ namespace WIFI.Anwendung.DatenController
 
             try
             {
-
                 using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
                 {
                     using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellungsInfo", Verbindung))
                     {
-
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
 
                         Verbindung.Open();
 
@@ -203,7 +152,6 @@ namespace WIFI.Anwendung.DatenController
                                 {
                                     abgeholtBool = true;
                                 }
-
 
                                 bestellungen.Add(
                                     new DTO.Bestellung
@@ -224,18 +172,14 @@ namespace WIFI.Anwendung.DatenController
                                     }
 
                                     );
-
-
-
                             }
                         }
                         Verbindung.Close();
-
                     }
-
-
                 }
 
+                // Alle Bücher zu der dazugehörigen
+                // Bestellung ermitteln
                 foreach (var item in bestellungen)
                 {
                     using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
@@ -246,7 +190,6 @@ namespace WIFI.Anwendung.DatenController
                             Verbindung.Open();
                             ZweiterBefehl.Parameters.AddWithValue("bestellungsid", item.BestellNr);
                             ZweiterBefehl.Prepare();
-
 
                             using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                             {
@@ -267,15 +210,11 @@ namespace WIFI.Anwendung.DatenController
                                         }, Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
 
                                         );
-
                                 }
                             }
                         }
                         Verbindung.Close();
                     }
-
-
-
                 }
 
             }
@@ -291,25 +230,26 @@ namespace WIFI.Anwendung.DatenController
                     });
             }
 
-
             return bestellungen;
-
         }
 
+        /// <summary>
+        /// Ruft die Daten einer einzelnen
+        /// Bestellung ab
+        /// </summary>
+        /// <param name="BestellNr">Die interne ID der Bestellung</param>
+        /// <returns></returns>
         public DTO.Bestellung HoleBestellung(int BestellNr)
         {
             var bestellungen = new DTO.Bestellungen();
 
             try
             {
-
                 using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
                 {
                     using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellungsInfo", Verbindung))
                     {
-
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
 
                         Verbindung.Open();
 
@@ -324,7 +264,6 @@ namespace WIFI.Anwendung.DatenController
                                 {
                                     abgeholtBool = true;
                                 }
-
 
                                 bestellungen.Add(
                                     new DTO.Bestellung
@@ -345,16 +284,10 @@ namespace WIFI.Anwendung.DatenController
                                     }
 
                                     );
-
-
-
                             }
                         }
                         Verbindung.Close();
-
                     }
-
-
                 }
 
                 foreach (var item in bestellungen)
@@ -367,7 +300,6 @@ namespace WIFI.Anwendung.DatenController
                             Verbindung.Open();
                             ZweiterBefehl.Parameters.AddWithValue("bestellungsid", item.BestellNr);
                             ZweiterBefehl.Prepare();
-
 
                             using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                             {
@@ -388,17 +320,12 @@ namespace WIFI.Anwendung.DatenController
                                         }, Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
 
                                         );
-
                                 }
                             }
                         }
                         Verbindung.Close();
                     }
-
-
-
                 }
-
             }
             catch (Exception e)
             {
@@ -422,11 +349,10 @@ namespace WIFI.Anwendung.DatenController
             }
 
             return bestellung;
-
         }
 
         /// <summary>
-        /// Aktuallisiert alle Abgeholten Bestellungen
+        /// Aktualisiert alle abgeholten Bestellungen
         /// </summary>
         /// <param name="bestellungs"></param>
         public void FürAlleBestellungenAbgeholt(WIFI.Anwendung.DTO.Bestellungen bestellungs)
@@ -441,7 +367,7 @@ namespace WIFI.Anwendung.DatenController
         }
 
         /// <summary>
-        /// Aktuallisiert die einzelne Bestellung
+        /// Aktualisiert die einzelne Bestellung
         /// </summary>
         /// <param name="BestellNr"></param>
         public void BestellungAbgeholt(int BestellNr)
@@ -452,9 +378,7 @@ namespace WIFI.Anwendung.DatenController
                 {
                     using (var Befehl = new MySqlConnector.MySqlCommand("HoleBestellungsInfo", Verbindung))
                     {
-
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
 
                         Befehl.Parameters.AddWithValue("ID", BestellNr);
                         Verbindung.Open();
@@ -463,12 +387,8 @@ namespace WIFI.Anwendung.DatenController
 
                         Befehl.ExecuteScalar();
 
-
                         Verbindung.Close();
-
                     }
-
-
                 }
             }
             catch (Exception e)
@@ -508,6 +428,7 @@ namespace WIFI.Anwendung.DatenController
                 }
             }
 
+            // Aktualisiert die Besucherdaten der Bestellung
             using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
             {
                 using (var Befehl = new MySqlConnector.MySqlCommand("AktualisiereBesucher", Verbindung))
@@ -532,6 +453,7 @@ namespace WIFI.Anwendung.DatenController
                 }
             }
 
+            // Aktualisiert die Bücher der Bestellung
             foreach (DTO.Buch item in bestellung.Buchliste.Keys)
             {
                 using (var Verbindung = new MySqlConnector.MySqlConnection(ConnectionString))
@@ -558,7 +480,6 @@ namespace WIFI.Anwendung.DatenController
                         Befehl.ExecuteScalar();
 
                         Verbindung.Close();
-
                     }
                 }
             }
