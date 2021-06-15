@@ -152,7 +152,7 @@ namespace WIFI.Ausstellung.ViewModels
                             //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
 
                             // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
-                            WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
+                            WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung;
 
                             // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                             switch (response)

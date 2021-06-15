@@ -180,7 +180,9 @@ namespace WIFI.Ausstellung.ViewModels
         }
 
 
-
+        /// <summary>
+        /// Läd alle Bücher von der Datenbank in die Buchausstellungsliste
+        /// </summary>
         private void InitialisiereBuecherListe()
         {
             this.Buchausstellungsliste =

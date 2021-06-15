@@ -22,7 +22,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -35,10 +35,44 @@
                Grid.Row="0">
             Bücherverwaltung</Label>
 
-        <Border HorizontalAlignment="Right" BorderBrush="Black" Background="#1e90ff" Width="100" BorderThickness="1" CornerRadius="5">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
-                <Button Background="Transparent" Width="50" Height="45" BorderThickness="0" Foreground="White" Content="Import" FontWeight="Bold" ToolTip="Import From CSV"  Command="{Binding Buch.Import}"/>
-                <Button Background="Transparent" Width="50" Height="45" BorderThickness="0" Foreground="White" Content="Export" FontWeight="Bold" ToolTip="Export To CSV" Command="{Binding Buch.Export}"/>
+        <Border 
+            HorizontalAlignment="Right" 
+            BorderBrush="Black" 
+            Background="#1e90ff" 
+            Width="92" 
+            BorderThickness="1" 
+            CornerRadius="5"
+            Height="35"
+            Name="bord">
+            <StackPanel 
+                Orientation="Horizontal" 
+                VerticalAlignment="Center"  >
+                <Button HorizontalAlignment="Center"
+                        
+                    VerticalAlignment="Center"
+                    Background="Transparent" 
+                    Width="45" 
+                        Height="32"
+                    BorderThickness="0" 
+                    Foreground="Black" 
+                    Content="Import" 
+                    FontWeight="Bold" 
+                    ToolTip="Import From CSV"  
+                    Command="{Binding Buch.Import}"/>
+                <Button 
+                    
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Background="Transparent" 
+                    Width="45" 
+                    Height="32"
+                    BorderThickness="0" 
+                    Foreground="Black"
+                    Content="Export" 
+                    FontWeight="Bold" 
+                    ToolTip="Export To CSV" 
+                    Command="{Binding Buch.Export}">
+                </Button>
             </StackPanel>
         </Border>
 
@@ -58,8 +92,15 @@
                         Background="Transparent"
                         HorizontalContentAlignment="Center"
                         ItemsSource="{Binding Buch.Buchausstellungsliste}"
+                        
                         >
-
+                        <ItemsControl.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="" >
+                                    
+                                </MenuItem>
+                            </ContextMenu>
+                        </ItemsControl.ContextMenu>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <uc:Buchverwaltungslistitem
@@ -75,11 +116,11 @@
                         </ItemsControl.ItemTemplate>
 
                     </ItemsControl>
-                    
+
                 </StackPanel>
             </ScrollViewer.Content>
         </ScrollViewer>
-        
+
         <!-- Erfassen eines neuen Buches-->
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -128,7 +169,7 @@
                              Style="{DynamicResource WasserzeichenStyle}"
                              Text="{Binding Buch.AktuellesBuch.VerlagName}"
                      ></TextBox>
-                     <TextBox x:Name="RabattgruppeEingabe"
+                    <TextBox x:Name="RabattgruppeEingabe"
                              Grid.Column="4"
                              Tag="Rabattgr."
                              HorizontalContentAlignment="Center"

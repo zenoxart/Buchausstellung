@@ -232,7 +232,7 @@ namespace WIFI.Ausstellung.UserControls
 
                     this._BuchbestellungHinzufügen = new WIFI.Anwendung.Befehl(
 
-                        // TODO: Werte des Buches in eine Bestellliste hinzufügen
+                        // Werte des Buches in eine Bestellliste hinzufügen
                         p =>
                         {
 

@@ -216,7 +216,7 @@ namespace WIFI.Ausstellung.UserControls
 
                     this._BuchbestellungLöschen = new WIFI.Anwendung.Befehl(
 
-                        // TODO: Werte des Buches in eine Bestellliste hinzufügen
+                        // Werte des Buches der Bestellliste entfernt
                         p =>
                         {
 

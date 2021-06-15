@@ -205,25 +205,25 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _AktuallisiereBestellung;
+        private WIFI.Anwendung.Befehl _AktualisiereBestellung;
 
         /// <summary>
         /// Updatet die Bestellung in der Datenbank
         /// </summary>
-        public WIFI.Anwendung.Befehl AktuallisiereBestellung
+        public WIFI.Anwendung.Befehl AktualisiereBestellung
         {
             get {
-                if (this._AktuallisiereBestellung == null)
+                if (this._AktualisiereBestellung == null)
                 {
-                    this._AktuallisiereBestellung = new Anwendung.Befehl(
+                    this._AktualisiereBestellung = new Anwendung.Befehl(
                         p => {
                             //TODO: Implementiere 
                             this.AppKontext.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
                         }
                     );
                 }
-                return this._AktuallisiereBestellung; }
-            set { this._AktuallisiereBestellung = value; }
+                return this._AktualisiereBestellung; }
+            set { this._AktualisiereBestellung = value; }
         }
     }
 }

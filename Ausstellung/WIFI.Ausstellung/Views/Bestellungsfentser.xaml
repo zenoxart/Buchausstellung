@@ -162,7 +162,7 @@
                     Height="30" 
                     Template="{DynamicResource RoundBlueButton}"
                     
-                    Command="{Binding ElementName=BF, Path=AktuallisiereBestellung}">Bestellen</Button>
+                    Command="{Binding ElementName=BF, Path=AktualisiereBestellung}">Bestellen</Button>
             </Grid>
         </ScrollViewer>
 

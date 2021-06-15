@@ -224,7 +224,7 @@ namespace WIFI.Ausstellung.UserControls
 
                     this._BuchHinzufuegen = new WIFI.Anwendung.Befehl(
 
-                        // TODO: Werte des Buches in der Bücherliste hinzufügen
+                        // Werte des Buches in der Bücherliste hinzufügen
                         p =>
                         {
 

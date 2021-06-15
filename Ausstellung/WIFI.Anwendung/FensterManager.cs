@@ -19,7 +19,7 @@ namespace WIFI.Anwendung
         //          bei fehlendem Bildschirm nicht
         //          am falschen geöffnet werden
         //
-        //          TODO: Auch die Auflösung mitspeichern
+        //          Auch die Auflösung mitspeichern
         //                und beim Wiederherstellen prüfen
 
         /// <summary>

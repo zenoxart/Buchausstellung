@@ -32,5 +32,33 @@
                Grid.Row="0">
             Buchgruppen</Label>
 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+
+                <Label Content="Gruppe hinzufügen: " VerticalAlignment="Top"/>
+                <TextBox Width="150" Height="25" VerticalAlignment="Top"/>
+                <Button Content="Hinzufügen" Margin="0" Height="25" Width="120" VerticalAlignment="Top" Style="{DynamicResource BestellButton}"/>
+            </StackPanel>
+
+            <!-- TODO: Binden an eine Observable<Buchgruppe> -->
+            <ListBox Grid.Column="1"
+                     ItemsSource="{Binding }"
+                     SelectedItem="{Binding}">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Entferne aus liste" Command="{Binding }"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListBoxItem>
+                    
+                </ListBoxItem>
+            </ListBox>
+
+        </Grid>
+
     </Grid>
 </UserControl>

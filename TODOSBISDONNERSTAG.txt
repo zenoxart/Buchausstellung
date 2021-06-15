@@ -1,0 +1,30 @@
+TODOs:
+
+Raspberry-Datenbank
+
+Bücherverwaltung -> Helldunkel
+Bücherverwaltung -> Import-Export Design anpassen
+Bücherverwaltung -> Kategorieverwaltung/Buchgruppen View
+Bücherverwaltung -> Kategorieauswahl
+Bücherverwaltung -> Bücher löschen mit ContextMenue
+
+Veranstaltungserstellung (ok)
+Offlineanzeige (ok)
+Lieferverwaltung -> In die Datenbank
+
+Ausstellung -> Bei einer Aktuallisierung der View der Bestellungen muss die Liste neu geladen werden
+
+Anwendungsstartanzeige -> Bild anzeigen
+
+Arbeitsbereich -> Kopfzeile - Labels zur Information der Ausstellung
+
+Ausstellungsabschluss -> PDFs
+
+Abholungsverwaltung  -> In die Datenbank pushen
+
+Filter entfernen
+
+
+
+
+

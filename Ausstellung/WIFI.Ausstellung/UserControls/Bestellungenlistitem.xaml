@@ -54,7 +54,7 @@
                Content="{Binding ElementName=Bestellungenitem,Path=Besucher.Nachname}"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-        <!-- TODO: Öffnen der Bestellung um Diese bearbeiten zu können -->
+        <!-- Öffnen der Bestellung um diese bearbeiten zu können -->
         <Button 
                 Grid.Column="4" 
                 

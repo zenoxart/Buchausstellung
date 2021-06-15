@@ -103,7 +103,7 @@ namespace WIFI.Anwendung
                         $"ERROR: Ausname \"{e.Ursache.Message}\" in Objekt {AppObjekt}");
             }
 
-            // TODO: Hier weitere Produktionsschritte einfügen
+            // Hier weitere Produktionsschritte einfügen
 
             return NeuesObjekt;
         }

@@ -90,3 +90,4 @@ C:\Users\zenox\OneDrive\Desktop\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\D
 C:\Users\zenox\OneDrive\Desktop\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\zenox\OneDrive\Desktop\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\Users\zenox\OneDrive\Desktop\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
+C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache

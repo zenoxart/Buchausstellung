@@ -247,7 +247,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this._BestellungHinzufügen = new WIFI.Anwendung.Befehl(
 
-                        // TODO: Werte des Buches in eine Bestellliste hinzufügen
+                        // Werte des Buches in eine Bestellliste hinzufügen
                         p =>
                         {
 
@@ -426,15 +426,23 @@ namespace WIFI.Ausstellung.ViewModels
                         p =>
                         {
                             //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
-                            this.AppKontext.PortableDokumentFormatManager.GeneriereBestellungenübersicht(this.BestellungenListe);
+
+                            if (this.Gesamtbestellungendruck)
+                            {
+                                this.AppKontext.PortableDokumentFormatManager.GeneriereBestellungenübersicht(this.BestellungenListe);
+                            }
 
                             //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
-
+                            if (this.Bestellbestätigungendruck)
+                            {
+                                this.AppKontext.PortableDokumentFormatManager.GeneriereBesucherBestellungen(this.BestellungenListe);
+                            }
 
                             //am Client alle listen löschen
-
+                            
 
                             //Stadium auf der Datenbank ändern
+                            this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung);
                         }
                     );
 
