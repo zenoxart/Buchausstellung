@@ -425,10 +425,27 @@ CREATE PROCEDURE ErstelleBuch(
 	Preis DOUBLE,
 	Rabattgruppe INT(2),
 	Kategorie INT(2),
-	Verlag INT(3)
+	Verlagname VARCHAR(150)
 )
 BEGIN
-	INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES (Buchnummer,Titel,Autor,Preis,Rabattgruppe,Kategorie,Verlag);
+	DECLARE verlagnr INT DEFAULT 0;
+	DECLARE buchgruppenr INT DEFAULT 0;
+		
+	SELECT id INTO verlagnr FROM verlag WHERE name=Verlagname;
+
+	IF verlagnr = 0 THEN
+		INSERT INTO verlag (name) VALUES (Verlagname);
+		SELECT MAX(id) INTO verlagnr FROM verlag;
+	END IF;
+	
+	SELECT id INTO buchgruppenr FROM buchgruppe WHERE nr=Kategorie;
+	
+	IF buchgruppenr = 0 THEN
+		INSERT INTO buchgruppe (nr) VALUES (Kategorie);
+		SELECT MAX(id) INTO buchgruppenr FROM buchgruppe;
+	END IF;
+
+	INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES (Buchnummer,Titel,Autor,Preis,Rabattgruppe,buchgruppenr,verlagnr);
 END$$
 DELIMITER ;
 
@@ -534,12 +551,20 @@ CREATE PROCEDURE UpdateBuch(
 )
 BEGIN
 	DECLARE verlagnr INT DEFAULT 0;
+	DECLARE buchgruppenr INT DEFAULT 0;
 	
 	SELECT id INTO verlagnr FROM verlag WHERE name=Verlagname;
 
 	IF verlagnr = 0 THEN
 		INSERT INTO verlag (name) VALUES (Verlagname);
 		SELECT MAX(id) INTO verlagnr FROM verlag;
+	END IF;
+	
+	SELECT id INTO buchgruppenr FROM buchgruppe WHERE nr=Kategorie;
+	
+	IF buchgruppenr = 0 THEN
+		INSERT INTO buchgruppe (nr) VALUES (Kategorie);
+		SELECT MAX(id) INTO buchgruppenr FROM buchgruppe;
 	END IF;
 
 	UPDATE buch 
@@ -548,7 +573,7 @@ BEGIN
 	autor = Autor,
 	preis = Preis, 
 	rabgr = Rabattgruppe, 
-	katgr = Kategorie,  
+	katgr = buchgruppenr,  
 	verlag_id = verlagnr
 	WHERE buchnr = Buchnummer;
 END$$
@@ -620,6 +645,7 @@ CREATE PROCEDURE AktualisiereBuch(
 	BestellID INT(11))
 BEGIN
 	DECLARE verlagnr INT DEFAULT 0;
+	DECLARE buchgruppenr INT DEFAULT 0;
 	
 	SELECT id INTO verlagnr FROM verlag WHERE name=Verlagname;
 
@@ -628,20 +654,26 @@ BEGIN
 		SELECT MAX(id) INTO verlagnr FROM verlag;
 	END IF;
 	
+	SELECT id INTO buchgruppenr FROM buchgruppe WHERE nr=Kategorie;
+	
+	IF buchgruppenr = 0 THEN
+		INSERT INTO buchgruppe (nr) VALUES (Kategorie);
+		SELECT MAX(id) INTO buchgruppenr FROM buchgruppe;
+	END IF;
+	
 	UPDATE buch 
 	SET buchnr = Buchnummer, 
 	titel = Titel, 
 	autor = Autor,
 	preis = Preis, 
 	rabgr = Rabattgruppe, 
-	katgr = Kategorie, 
+	katgr = buchgruppenr, 
 	verlag_id = verlagnr
 	WHERE buchnr = Buchnummer;
 	
 	UPDATE bestellung_hat_buch
 	SET anzahl=Anzahl
 	WHERE buch_id=ID AND bestellung_id=BestellID;
-
 END $$
 
 DELIMITER ;

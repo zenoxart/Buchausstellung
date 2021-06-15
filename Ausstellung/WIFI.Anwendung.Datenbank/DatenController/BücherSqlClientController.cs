@@ -29,7 +29,6 @@ namespace WIFI.Anwendung.DatenController
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-
                         Verbindung.Open();
 
                         Befehl.Prepare();
@@ -49,17 +48,13 @@ namespace WIFI.Anwendung.DatenController
                                         Kategoriegruppe = Convert.ToInt32(DatenLeser["rabgr"]),
                                         Rabattgruppe = Convert.ToInt32(DatenLeser["katgr"]),
                                         VerlagName = DatenLeser["name"].ToString()
-
                                     });
-
                             }
                         }
 
                         Verbindung.Close();
                     }
                 }
-
-
             }
             catch (Exception e)
             {
@@ -82,7 +77,6 @@ namespace WIFI.Anwendung.DatenController
         /// <param name="buch"></param>
         public void BuchHinzufügen(DTO.Buch buch)
         {
-
             try
             {
                 using (var Verbindung = new MySqlConnector.MySqlConnection(this.ConnectionString))
