@@ -97,6 +97,21 @@ namespace WIFI.Ausstellung.ViewModels
         /// <param name="xmlPfad"></param>
         public void SektionLaden(string xmlPfad)
         {
+            try
+            {
+                this.AppKontext.AktuelleAufgabenSektion = xmlPfad;
+                this.InitialisiereAufgabenAsync();
+
+
+                this.AktiverViewer = null;
+                this.OnPropertyChanged();
+
+                this.AppKontext.Protokoll.Eintragen($"Aufgabensektion wurde auf {xmlPfad} geändert. ");
+            }
+            catch (Exception)
+            {
+                //TODO: 
+            }
 
             if (this.AppKontext.AktuelleAufgabenSektion != xmlPfad)
             {
@@ -107,14 +122,7 @@ namespace WIFI.Ausstellung.ViewModels
                 //InitialisiereAktivenViewer();
                 //this.OnPropertyChanged();
             }
-            this.AppKontext.AktuelleAufgabenSektion = xmlPfad;
-            this.InitialisiereAufgabenAsync();
-
-
-            this.AktiverViewer = null;
-            this.OnPropertyChanged();
-
-            this.AppKontext.Protokoll.Eintragen($"Aufgabensektion wurde auf {xmlPfad} geändert. ");
+           
         }
 
 

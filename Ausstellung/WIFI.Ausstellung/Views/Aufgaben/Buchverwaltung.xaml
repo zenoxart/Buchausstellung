@@ -35,10 +35,12 @@
                Grid.Row="0">
             Bücherverwaltung</Label>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" >
-            <Button Background="#1e90ff" Width="30" Height="30" Margin="0 0 10 0" Content="I" FontWeight="Bold" ToolTip="Import From CSV"  Command="{Binding Buch.Import}"/>
-            <Button Background="#1e90ff" Width="30" Height="30" Margin="0 0 20 0" Content="E" FontWeight="Bold" ToolTip="Export To CSV" Command="{Binding Buch.Export}"/>
-        </StackPanel>
+        <Border HorizontalAlignment="Right" BorderBrush="Black" Background="#1e90ff" Width="100" BorderThickness="1" CornerRadius="5">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <Button Background="Transparent" Width="50" Height="45" BorderThickness="0" Foreground="White" Content="Import" FontWeight="Bold" ToolTip="Import From CSV"  Command="{Binding Buch.Import}"/>
+                <Button Background="Transparent" Width="50" Height="45" BorderThickness="0" Foreground="White" Content="Export" FontWeight="Bold" ToolTip="Export To CSV" Command="{Binding Buch.Export}"/>
+            </StackPanel>
+        </Border>
 
         <!-- Liste der Bücher -->
         <!-- TODO: HellDunkelSchrift -->
