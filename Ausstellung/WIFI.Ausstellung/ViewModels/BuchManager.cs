@@ -163,6 +163,8 @@ namespace WIFI.Ausstellung.ViewModels
 
                                 this.AktuellesBuch);
 
+                            this.AktuellesBuch = null;
+
                         }
                     );
                 }
