@@ -10,29 +10,16 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="0.*" MinHeight="45" MaxHeight="165" />
-            <RowDefinition Height="5"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- Titel -->
         <Label Style="{DynamicResource TitleStyle}">
             Ausstellung</Label>
 
-        <!-- TODO: Filterbereich -->
-        <StackPanel Grid.Row="1" Style="{DynamicResource ForgroundPanel}">
-            <uc:Ausstellungsfilter />
-
-        </StackPanel>
-        <GridSplitter 
-            Grid.Row="2" 
-            ShowsPreview="True" 
-            HorizontalAlignment="Stretch" 
-            Style="{DynamicResource HellDunkelSplitter}"
-            >
-        </GridSplitter>
+        
 
         <!--TODO: HellDunkelSchrift -->
-            <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
                 <ScrollViewer.Content>
                     <StackPanel Orientation="Vertical">
 

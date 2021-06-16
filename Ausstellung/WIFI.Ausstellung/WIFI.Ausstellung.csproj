@@ -396,5 +396,11 @@
     <Resource Include="Assets\Bilder\Aufgaben\LieferungDunkel.png" />
     <Resource Include="Assets\Bilder\Aufgaben\LieferungHell.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Aufgaben\GruppenDunkel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Aufgaben\GruppenHell.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -89,6 +89,7 @@
     <Compile Include="DTO\Bestellung.cs" />
     <Compile Include="DTO\Besucher.cs" />
     <Compile Include="DTO\Buch.cs" />
+    <Compile Include="DTO\Buchgruppe.cs" />
     <Compile Include="DTO\Veranstaltung.cs" />
     <Compile Include="MySqlClient\Basiscontroller.cs" />
     <Compile Include="MySqlClient\Encryptor.cs" />

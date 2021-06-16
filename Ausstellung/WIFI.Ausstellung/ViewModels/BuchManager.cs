@@ -258,7 +258,7 @@ namespace WIFI.Ausstellung.ViewModels
                                 WIFI.Anwendung.DTO.Bücher buches = new WIFI.Anwendung.DTO.Bücher();
 
 
-                                for (int i = 1; i < newText.Length -1; i++)
+                                for (int i = 1; i < newText.Length - 1; i++)
                                 {
                                     string[] line = newText[i].Split(';');
                                     buches.Add(
@@ -295,7 +295,7 @@ namespace WIFI.Ausstellung.ViewModels
                                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                                    });
                             }
-                           
+
 
 
                         }
@@ -376,6 +376,108 @@ namespace WIFI.Ausstellung.ViewModels
             }
             set { this._export = value; }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.DTO.Buchgruppen _Büchergruppen;
+
+        /// <summary>
+        /// Ruft eine Auflistung aller Buchgruppen ab oder legt diese fest
+        /// </summary>
+        public WIFI.Anwendung.DTO.Buchgruppen Büchergruppen
+        {
+            get
+            {
+                if (this._Büchergruppen == null)
+                {
+                    // TODO: Lade aus Datenbank
+                    //this.AppKontext.DBControllerManager
+                }
+                return this._Büchergruppen;
+            }
+            set
+            {
+                this._Büchergruppen = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.DTO.Buchgruppe _SelektierteBuchgruppe;
+
+        /// <summary>
+        /// Ruft die Selektierte Buchgruppe ab oder legt diese fest
+        /// </summary>
+        public WIFI.Anwendung.DTO.Buchgruppe SelektierteBuchgruppe
+        {
+            get { return this._SelektierteBuchgruppe; }
+            set
+            {
+                this._SelektierteBuchgruppe = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _BuchgruppeHinzufügen;
+
+        /// <summary>
+        /// Funktion um eine Buchgruppe der Liste hinzuzufügen
+        /// </summary>
+        public WIFI.Anwendung.Befehl BuchgruppeHinzufügen
+        {
+            get
+            {
+                if (this._BuchgruppeHinzufügen == null)
+                {
+                    this._BuchgruppeHinzufügen = new WIFI.Anwendung.Befehl(
+                        p =>
+                        {
+                            
+                        }
+                        );
+                }
+
+                return this._BuchgruppeHinzufügen;
+            }
+            set { this._BuchgruppeHinzufügen = value; }
+        }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Anwendung.Befehl _BuchgruppeEntfernen;
+
+        /// <summary>
+        /// Funktion um eine Buchgruppe der Liste zu entfernen
+        /// </summary>
+        public WIFI.Anwendung.Befehl BuchgruppeEntfernen
+        {
+            get
+            {
+                if (this._BuchgruppeEntfernen == null)
+                {
+                    this._BuchgruppeEntfernen = new WIFI.Anwendung.Befehl(
+                        p =>
+                        {
+                            this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
+
+                            //TODO: Remove von DB
+
+                        }
+                        );
+                }
+                return this._BuchgruppeEntfernen;
+            }
+            set { this._BuchgruppeEntfernen = value; }
+        }
+
+
 
 
     }

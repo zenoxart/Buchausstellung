@@ -32,30 +32,66 @@
                Grid.Row="0">
             Buchgruppen</Label>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.Column="0">
+            <StackPanel Orientation="Vertical" Grid.Column="0" Height="110" Width="266">
+                <StackPanel Orientation="Horizontal" Height="35">
+                    <Label 
+                        FontSize="14"
+                        Style="{DynamicResource LabelStandardDesign}"
+                        Content="Gruppe hinzufügen: " 
+                        VerticalAlignment="Center"/>
+                    <TextBox
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Width="35"/>
+                    <TextBox 
+                        Width="92" 
+                        Height="35" 
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Center"
+                        />
 
-                <Label Content="Gruppe hinzufügen: " VerticalAlignment="Top"/>
-                <TextBox Width="150" Height="25" VerticalAlignment="Top"/>
-                <Button Content="Hinzufügen" Margin="0" Height="25" Width="120" VerticalAlignment="Top" Style="{DynamicResource BestellButton}"/>
+                </StackPanel>
+                <Button 
+                    Content="Hinzufügen" 
+                    Margin="0" 
+                    Height="35" 
+                    VerticalAlignment="Top" 
+                    Style="{DynamicResource BestellButton}"
+                    Command="{Binding Buch.BuchgruppeHinzufügen}"/>
+                <Button 
+                    Background="Red"
+                    Content="Ausgewähltes Buch löschen" 
+                    Margin="0 5 0 0" 
+                    Height="35" 
+                    Style="{DynamicResource BestellButton}"
+                    Command="{Binding Buch.BuchgruppeEntfernen}"/>
             </StackPanel>
 
             <!-- TODO: Binden an eine Observable<Buchgruppe> -->
-            <ListBox Grid.Column="1"
-                     ItemsSource="{Binding }"
-                     SelectedItem="{Binding}">
-                <ListBox.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Entferne aus liste" Command="{Binding }"/>
-                    </ContextMenu>
-                </ListBox.ContextMenu>
-                <ListBoxItem>
-                    
-                </ListBoxItem>
+            <ListBox 
+                Background="Transparent"
+                Grid.Column="2"
+                ItemsSource="{Binding Buch.Büchergruppen}"
+                SelectedItem="{Binding Buch.SelektierteBuchgruppe}">
+               
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label 
+                                Content="{Binding Gruppennummer}" 
+                                Style="{DynamicResource StandartFont}"/>
+                            <Label 
+                                Content="{Binding Beschreibung}"  
+                                Style="{DynamicResource StandartFont}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
 
         </Grid>

@@ -36,40 +36,37 @@
             Bücherverwaltung</Label>
 
         <Border 
+            Style="{DynamicResource ForgroundBorder}"
+            VerticalAlignment="Top"
             HorizontalAlignment="Right" 
-            BorderBrush="Black" 
-            Background="#1e90ff" 
-            Width="92" 
-            BorderThickness="1" 
-            CornerRadius="5"
-            Height="35"
+            
+            Width="65" 
+            BorderThickness="0" 
+            CornerRadius="5 0 0 5"
+            Height="40"
             Name="bord">
             <StackPanel 
-                Orientation="Horizontal" 
+                Orientation="Vertical" 
                 VerticalAlignment="Center"  >
-                <Button HorizontalAlignment="Center"
-                        
+                <Button 
+                    Style="{DynamicResource ButtonText}"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="Transparent" 
-                    Width="45" 
-                        Height="32"
+                    Width="60" 
                     BorderThickness="0" 
-                    Foreground="Black" 
                     Content="Import" 
-                    FontWeight="Bold" 
                     ToolTip="Import From CSV"  
-                    Command="{Binding Buch.Import}"/>
+                    Command="{Binding Buch.Import}"
+                    />
                 <Button 
-                    
+                    Style="{DynamicResource ButtonText}"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Background="Transparent" 
-                    Width="45" 
-                    Height="32"
+                    Width="60" 
                     BorderThickness="0" 
-                    Foreground="Black"
                     Content="Export" 
-                    FontWeight="Bold" 
                     ToolTip="Export To CSV" 
                     Command="{Binding Buch.Export}">
                 </Button>
@@ -97,7 +94,7 @@
                         <ItemsControl.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Command="" >
-                                    
+
                                 </MenuItem>
                             </ContextMenu>
                         </ItemsControl.ContextMenu>

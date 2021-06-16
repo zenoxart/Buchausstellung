@@ -141,6 +141,17 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style TargetType="Border" x:Key="ForgroundBorder">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                <Setter Property="Background" Value="#333337"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                <Setter Property="Background" Value="#f4f4f4"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>   
     
     <!-- Style für einen Aufgaben-Titel -->
     <Style TargetType="Label" x:Key="TitleStyle">
@@ -149,6 +160,17 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                <Setter Property="Foreground" Value="Black"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ButtonText">
         <Style.Triggers>
             <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
                 <Setter Property="Foreground" Value="Black"/>
