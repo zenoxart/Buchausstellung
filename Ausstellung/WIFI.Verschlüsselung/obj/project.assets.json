@@ -44,27 +44,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\F10509\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\arnol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "projectUniqueName": "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
       "projectName": "WIFI.Verschlüsselung",
-      "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
-      "packagesPath": "C:\\Users\\F10509\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
+      "projectPath": "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "packagesPath": "C:\\Users\\arnol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\F10509\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\arnol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -76,11 +69,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
-              "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
+            "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+              "projectPath": "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
             },
-            "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-              "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+            "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+              "projectPath": "C:\\Users\\arnol\\Documents\\Visual Studio 2019\\Projekts\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
             }
           }
         }
@@ -108,7 +101,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

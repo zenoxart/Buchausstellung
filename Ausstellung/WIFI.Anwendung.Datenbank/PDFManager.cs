@@ -12,6 +12,7 @@ namespace WIFI.Anwendung
     /// </summary>
     public class PDFManager : ViewModelAppObjekt
     {
+        #region Basis
         public PdfSharp.Pdf.PdfDocument GenerierePDFVonHTML(string htmltext, PdfSharp.PageOrientation orientation)
         {
             // Erstellt die Standardkonfiguration für das Format des PDF's
@@ -99,6 +100,9 @@ namespace WIFI.Anwendung
             get { return DateTime.Now.Year; }
         }
 
+        #endregion
+
+        #region PDFs generieren
         /// <summary>
         /// Erstellt eine Sammlung an PDFs aus allen Bestellten büchern nach der gruppe sortiert
         /// </summary>
@@ -150,54 +154,7 @@ namespace WIFI.Anwendung
                     string dokumentname = "{0}_Bestellungenübersicht_{1}";
                     dokument.Save(@"C://Temp//Bestellübersichten//" + string.Format(dokumentname, this.AktuellesJahr, i + 1) + ".pdf");
                 }
-
-
-
-
             }
-
-            //string gruppenblock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe $Zahl - $Name</p>" +
-            //            "<table style='width: 90%; border-collapse: collapse'>" +
-            //            "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
-            //                "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
-            //                "<td style='font-weight:bold'> Nr </td>" +
-            //                "<td style='font-weight:bold'> Titel, Autor </td>" +
-            //                "<td style='font-weight:bold'> Verlag </td>" +
-            //                "<td style='font-weight:bold;text-align:right;padding: 0px 10px 0px 0px'> Preis </td>" +
-            //                "<td style='font-weight:bold;text-align:center'> Rab.Gr </td>" +
-            //            "</tr>" +
-            //            "<tr>" +
-            //                "<td style='text-align: center'> 2 </td>" +
-            //                "<td style='text-align: left'> 030 </td>" +
-            //                "<td style='text-align: left'> Bimbo, der kilometergroße Elefant, Jäger </td>" +
-            //                "<td style='text-align: left'> Gaudete </td>" +
-            //                "<td style='text-align: right; padding: 0px 5px 0px 0px'> 17,-- </td>" +
-            //                "<td style='text-align: center'> 1 </td>" +
-            //            "</tr>" +
-            //            "<tr>" +
-            //                "<td style='text-align: center'> 5 </td>" +
-            //                "<td style='text-align: left'> 010 </td>" +
-            //                "<td style='text-align: left'> Peter Pan, Einstein </td>" +
-            //                "<td style='text-align: left'> Thalia </td>" +
-            //                "<td style='text-align: right; padding: 0px 5px 0px 0px'> 7,-- </td>" +
-            //                "<td style='text-align: center'> 0 </td>" +
-            //            "</tr>";
-
-            //// Erstellt eine Seite aus den 2 Blöcken
-            //string darstellung = string.Format(this.EinzelSeitenStruktur, gruppenblock);
-
-            //var dokument = GenerierePDFVonHTML(darstellung,PdfSharp.PageOrientation.Portrait);
-            ////PdfSharp.Pdf.PdfPage page = new PdfSharp.Pdf.PdfPage(dokument);
-
-
-            //////// Fügt die Seite einem neuen PdfDocument an
-            ////var newDokument = new PdfSharp.Pdf.PdfDocument();
-
-            ////var a =newDokument.AddPage(page);
-
-            //dokument.Save(@"C://Temp//test.pdf");
-
-
         }
 
         /// <summary>
@@ -239,6 +196,9 @@ namespace WIFI.Anwendung
             // TODO: Nico fragen
             // Für jeden Besucher
 
+            int counter = 0;
+            string[] arr = new string[2];
+
             foreach (var besucherBuch in referenzen)
             {
                 // Nur 2 Blöcke immer nebeneinander
@@ -273,26 +233,44 @@ namespace WIFI.Anwendung
 
                 gruppenblock += "</table>";
 
+                arr[counter] = gruppenblock;
 
 
-                //if (counter % 2 == 0)
-                //{
-                //    counter = 1;
-                //}
-                //else
-                //{
-                //    counter++;
-                //}
 
+                counter++;
+                if (counter % 2 == 0)
+                {
+                    counter = 0;
+
+                    var druckdarstellung = string.Format(this.DoppelSeitenStruktur, arr[0], arr[1]);
+
+                    var dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
+                    //PdfSharp.Pdf.PdfPage page = new PdfSharp.Pdf.PdfPage(dokument);
+
+
+                    //////// Fügt die Seite einem neuen PdfDocument an
+                    ////var newDokument = new PdfSharp.Pdf.PdfDocument();
+
+                    ////var a =newDokument.AddPage(page);
+
+                    dokument.Save(@"C://Temp//test.pdf");
+                    arr = new string[2] {string.Empty, string.Empty };
+                }
 
             }
-            // Für jedes Buch
 
+            // Wenn noch 1 Person übrig bleibt
+            if (counter > 0)
+            {
+                var druckdarstellung = string.Format(this.DoppelSeitenStruktur, arr[0], "");
+                var dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
+                dokument.Save(@"C://Temp//test.pdf");
 
-
-
+            }
         }
+        #endregion
 
+        #region Ordnen
         public IOrderedEnumerable<DTO.Bestellung> OrdneBestellungNachBesucher(DTO.Bestellungen alleBestellungen)
         {
             IOrderedEnumerable<DTO.Bestellung> sortiert = alleBestellungen.OrderBy(k => k.ZugehörigerBesucher.Id);
@@ -326,7 +304,7 @@ namespace WIFI.Anwendung
             return (from d in Buchliste group d by d.Kategoriegruppe);
 
         }
-
+        #endregion
 
     }
 
