@@ -32,6 +32,24 @@
     </UserControl.Resources>
 
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+               Style="{DynamicResource StandartFont}"
+               Grid.Column="0"
+               Content="Buchgruppe"/>
+
+        <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+               Style="{DynamicResource StandartFont}"
+               Grid.Column="1" 
+               Content="Bezeichnung"
+               />
     </Grid>
+
 </UserControl>

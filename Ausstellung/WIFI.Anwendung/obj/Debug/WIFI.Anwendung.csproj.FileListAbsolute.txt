@@ -9,17 +9,6 @@ C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Debug\WIFI.
 C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\Users\zenox\OneDrive\Projekte\NET\WIFI.CS.2021\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.xml
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\de\WIFI.Anwendung.resources.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.resources
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.de.resources
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.GenerateResource.cache
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.CoreCompileInputs.cache
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.xml
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb
@@ -66,7 +55,6 @@ C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\D
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.xml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb
@@ -101,3 +89,15 @@ C:\Users\arnol\Documents\Visual Studio 2019\Projekts\Buchausstellung\Ausstellung
 C:\Users\arnol\Documents\Visual Studio 2019\Projekts\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\arnol\Documents\Visual Studio 2019\Projekts\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\Users\arnol\Documents\Visual Studio 2019\Projekts\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.xml
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\de\WIFI.Anwendung.resources.dll
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.resources
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.Properties.Resources.de.resources
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.GenerateResource.cache
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.CoreCompileInputs.cache
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.AssemblyReference.cache
