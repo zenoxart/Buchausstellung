@@ -65,6 +65,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBControllerManager.cs" />
     <Compile Include="Models\Aufgaben.cs" />
     <Compile Include="Models\AufgabenXmlController.cs" />
     <Compile Include="Models\Generisch\XmlController.cs" />
@@ -337,6 +338,14 @@
     <ProjectReference Include="..\WIFI.Anwendung\WIFI.Anwendung.csproj">
       <Project>{c3bf0e4f-40e2-4975-8abf-0898087c6f27}</Project>
       <Name>WIFI.Anwendung</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WIFI.Gateway.Controller\WIFI.Gateway.Controller.csproj">
+      <Project>{3c596eeb-6ee2-498e-a31a-b6279eb49e4a}</Project>
+      <Name>WIFI.Gateway.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WIFI.Gateway.DTO\WIFI.Gateway.DTO.csproj">
+      <Project>{c2d21d92-89ae-41a9-b87a-e92b9dc4945b}</Project>
+      <Name>WIFI.Gateway.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

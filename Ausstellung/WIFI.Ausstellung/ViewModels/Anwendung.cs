@@ -629,6 +629,27 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._Buch = value; }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Ausstellung.DBControllerManager _DBController;
+
+        /// <summary>
+        /// Ruft einen Managerdienst zum Verwalten der Datenbankcontroller
+        /// </summary>
+        public WIFI.Ausstellung.DBControllerManager DBController
+        {
+            get
+            {
+                if (this._DBController == null)
+                {
+                    this._DBController = this.AppKontext.Produziere<WIFI.Ausstellung.DBControllerManager>();
+                }
+                return this._DBController;
+            }
+            set { this._DBController = value; }
+        }
+
 
 
     }

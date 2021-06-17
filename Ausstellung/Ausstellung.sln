@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Anwendung.Datenbank", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WIFI.Verschlüsselung", "WIFI.Verschlüsselung\WIFI.Verschlüsselung.csproj", "{A392DF76-87F3-44CC-9D73-007F12AA7AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Gateway", "WIFI.Gateway\WIFI.Gateway.csproj", "{9230C7CF-A3A0-43F1-8F7B-241CA9636583}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Gateway.DTO", "WIFI.Gateway.DTO\WIFI.Gateway.DTO.csproj", "{C2D21D92-89AE-41A9-B87A-E92B9DC4945B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Gateway.Controller", "WIFI.Gateway.Controller\WIFI.Gateway.Controller.csproj", "{3C596EEB-6EE2-498E-A31A-B6279EB49E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI.Gateway", "WIFI.Gateway\WIFI.Gateway.csproj", "{F9A6C85A-8663-45E8-8B93-E4DF853EF860}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +39,18 @@ Global
 		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A392DF76-87F3-44CC-9D73-007F12AA7AA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9230C7CF-A3A0-43F1-8F7B-241CA9636583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9230C7CF-A3A0-43F1-8F7B-241CA9636583}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9230C7CF-A3A0-43F1-8F7B-241CA9636583}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9230C7CF-A3A0-43F1-8F7B-241CA9636583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D21D92-89AE-41A9-B87A-E92B9DC4945B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D21D92-89AE-41A9-B87A-E92B9DC4945B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D21D92-89AE-41A9-B87A-E92B9DC4945B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D21D92-89AE-41A9-B87A-E92B9DC4945B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C596EEB-6EE2-498E-A31A-B6279EB49E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C596EEB-6EE2-498E-A31A-B6279EB49E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C596EEB-6EE2-498E-A31A-B6279EB49E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C596EEB-6EE2-498E-A31A-B6279EB49E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A6C85A-8663-45E8-8B93-E4DF853EF860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A6C85A-8663-45E8-8B93-E4DF853EF860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A6C85A-8663-45E8-8B93-E4DF853EF860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A6C85A-8663-45E8-8B93-E4DF853EF860}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

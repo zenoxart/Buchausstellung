@@ -32,6 +32,7 @@
       <Field Name="_Aufgaben" Hidden="true" />
       <Field Name="_Ausstellung" Hidden="true" />
       <Field Name="_Buch" Hidden="true" />
+      <Field Name="_DBController" Hidden="true" />
       <Field Name="_DesignUmschalten" Hidden="true" />
       <Field Name="_Einstellungen" Hidden="true" />
       <Field Name="_FensterSchließen" Hidden="true" />
@@ -60,7 +61,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAICEAEAAEAKBIACIhAQAgwAhDAIBAAQAEAAARAAAMA=</HashCode>
+      <HashCode>CAICMAEAAEAKBIACIhAQAgwAhDAIBAAQAEAAgRAAAMA=</HashCode>
       <FileName>ViewModels\Anwendung.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -273,9 +274,13 @@
       <Field Name="_AktuelleBücher" Hidden="true" />
       <Field Name="_AktuellesBuch" Hidden="true" />
       <Field Name="_Buchausstellungsliste" Hidden="true" />
+      <Field Name="_Büchergruppen" Hidden="true" />
+      <Field Name="_BuchgruppeEntfernen" Hidden="true" />
+      <Field Name="_BuchgruppeHinzufügen" Hidden="true" />
       <Field Name="_BuchHinzufügen" Hidden="true" />
       <Field Name="_export" Hidden="true" />
       <Field Name="_import" Hidden="true" />
+      <Field Name="_SelektierteBuchgruppe" Hidden="true" />
     </Members>
     <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true">
       <Path>
@@ -292,12 +297,12 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAIAQAAACAAgAAAQYAAABBBAAAAAAACAABAEAAAAAAg=</HashCode>
+      <HashCode>AAIARAAAiAAgAQAQYAAABBBQAAAACACAABIEAAAAAAw=</HashCode>
       <FileName>ViewModels\BuchManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WIFI.Ausstellung.ViewModels.LieferungsManager">
-    <Position X="7.25" Y="18.25" Width="2" />
+    <Position X="7.25" Y="18.75" Width="2" />
     <Members>
       <Field Name="_BuchanzahlAktuallisieren" Hidden="true" />
       <Field Name="_BücherDerSelektiertenBestellung" Hidden="true" />
@@ -315,9 +320,9 @@
         <Point X="5.25" Y="3.502" />
         <Point X="5.25" Y="8.287" />
         <Point X="6.097" Y="8.287" />
-        <Point X="6.097" Y="18.061" />
-        <Point X="8.25" Y="18.061" />
-        <Point X="8.25" Y="18.25" />
+        <Point X="6.097" Y="18.61" />
+        <Point X="8.25" Y="18.61" />
+        <Point X="8.25" Y="18.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -326,7 +331,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="WIFI.Ausstellung.ViewModels.VeranstaltungsManager">
-    <Position X="7.25" Y="21.5" Width="2" />
+    <Position X="7.25" Y="21.75" Width="2" />
     <Members>
       <Field Name="_ErstelleVeranstaltung" Hidden="true" />
       <Field Name="_Ort" Hidden="true" />
@@ -342,9 +347,9 @@
         <Point X="5.25" Y="3.502" />
         <Point X="5.25" Y="8.241" />
         <Point X="6.071" Y="8.241" />
-        <Point X="6.071" Y="21.326" />
-        <Point X="8.25" Y="21.326" />
-        <Point X="8.25" Y="21.5" />
+        <Point X="6.071" Y="21.593" />
+        <Point X="8.25" Y="21.593" />
+        <Point X="8.25" Y="21.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -363,8 +368,8 @@
         <Point X="5.321" Y="3.502" />
         <Point X="5.321" Y="8.238" />
         <Point X="6.025" Y="8.238" />
-        <Point X="6.025" Y="23.662" />
-        <Point X="8.25" Y="23.662" />
+        <Point X="6.025" Y="23.793" />
+        <Point X="8.25" Y="23.793" />
         <Point X="8.25" Y="24" />
       </Path>
     </InheritanceLine>
