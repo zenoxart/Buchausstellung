@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\arnol\Documents\Visual Studio 2019\Projekts\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
+C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 WIFI.Ausstellung
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 31-1163097283
 
-44-1329549326
-124152083777
+45-1637901438
+126-11305652
 App.xaml;Assets\Styles\Look.xaml;MainWindow.xaml;UserControls\Abholungslistitem.xaml;UserControls\Ausstellungsfilter.xaml;UserControls\Ausstellungskopfzeile.xaml;UserControls\Ausstellungslistitem.xaml;UserControls\Bestellungenkopfzeile.xaml;UserControls\Bestellungenlistitem.xaml;UserControls\Bestellungkopfzeile.xaml;UserControls\Bestellungsfilter.xaml;UserControls\Bestellungslistitem.xaml;UserControls\Buchgruppenkopfzeile.xaml;UserControls\Buchverwaltungskopfzeile.xaml;UserControls\Buchverwaltungslistitem.xaml;UserControls\Lieferlistitem.xaml;Views\Anwendungsstartanzeige.xaml;Views\Arbeitsbereich.xaml;Views\AufgabenView.xaml;Views\Aufgaben\Abholungsverwaltung.xaml;Views\Aufgaben\Ausstellung.xaml;Views\Aufgaben\Ausstellungsabschluss.xaml;Views\Aufgaben\Bestellung.xaml;Views\Aufgaben\Bestellungen.xaml;Views\Aufgaben\Buchgruppen.xaml;Views\Aufgaben\Buchverwaltung.xaml;Views\Aufgaben\Lieferverwaltung.xaml;Views\Aufgaben\Offlineanzeige.xaml;Views\Aufgaben\Veranstaltungserstellung.xaml;Views\Bestellungsfentser.xaml;Views\Einstellungsfenster.xaml;
 
 False
