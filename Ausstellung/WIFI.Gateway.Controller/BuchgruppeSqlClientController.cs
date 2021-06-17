@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace WIFI.Gateway.Controller
 {
-    public class BuchSqlClientController : WIFI.Anwendung.SqlClient.Controller
+    public class BuchgruppeSqlClientController : WIFI.Anwendung.SqlClient.Controller
     {
         /// <summary>
-        /// Holt eine Sammlung an allen Büchern aus der Datenbank
+        /// Holt eine Sammlung von allen 
+        /// Buchgruppen aus der Datenbank
         /// </summary>
-        public DTO.Bücher HoleBücher()
+        /// <returns>Ein Objekt mit allen
+        /// Buchgruppen</returns>
+        public DTO.Buchgruppen HoleBuchgruppen()
         {
-            DTO.Bücher NeueListe = new WIFI.Gateway.DTO.Bücher();
+            DTO.Buchgruppen NeueListe = new WIFI.Gateway.DTO.Buchgruppen();
 
             try
             {
-                // Erstelle eine Datenbankverbindung
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
                 {
-                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
                     using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleBücher", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
@@ -34,16 +35,11 @@ namespace WIFI.Gateway.Controller
                             while (DatenLeser.Read())
                             {
                                 NeueListe.Add(
-                                    new DTO.Buch
+                                    new DTO.Buchgruppe
                                     {
                                         ID = Convert.ToInt32(DatenLeser["buchid"]),
-                                        Buchnummer = DatenLeser["buchnr"].ToString(),
-                                        AutorName = DatenLeser["autor"].ToString(),
-                                        Titel = DatenLeser["titel"].ToString(),
-                                        Preis = Convert.ToDouble(DatenLeser["preis"]),
-                                        Kategoriegruppe = Convert.ToInt32(DatenLeser["rabgr"]),
-                                        Rabattgruppe = Convert.ToInt32(DatenLeser["katgr"]),
-                                        VerlagName = DatenLeser["name"].ToString()
+                                        Gruppennummer = Convert.ToInt32(DatenLeser["nummer"]),
+                                        Beschreibung = DatenLeser["bezeichnung"].ToString()
                                     });
                             }
                         }
@@ -65,32 +61,70 @@ namespace WIFI.Gateway.Controller
             }
 
             return NeueListe;
+
         }
 
         /// <summary>
-        /// Fügt ein Buch in der Datenbank hinzu
+        /// Speichert eine Buchgruppe
+        /// in der Datenbank
         /// </summary>
-        /// <param name="buch">Daten des Buchs</param>
-        public void BuchHinzufügen(DTO.Buch buch)
+        /// <param name="gruppe">Daten der Buchgruppe</param>
+        public void BuchgruppeHinzufügen(DTO.Buchgruppe gruppe)
         {
             try
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
                 {
-                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("ErstelleBuch", Verbindung))
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("ErstelleBuchgruppe", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Verbindung.Open();
 
-                        Befehl.Parameters.AddWithValue("Nummer", buch.Buchnummer);
-                        Befehl.Parameters.AddWithValue("Bezeichnung", buch.Titel);
-                        Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
-                        Befehl.Parameters.AddWithValue("Preis", buch.Preis);
-                        Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
-                        Befehl.Parameters.AddWithValue("Kategorie", buch.Kategoriegruppe);
-                        Befehl.Parameters.AddWithValue("Verlagname", buch.VerlagName);
+                        Befehl.Parameters.AddWithValue("Nr", gruppe.Gruppennummer);
+                        Befehl.Parameters.AddWithValue("Bezeichnung", gruppe.Beschreibung);
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteScalar();
+                    }
+
+                    Verbindung.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BuchSqlClientController).GetMethod("ErstelleBuch")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+
+        }
+
+        /// <summary>
+        /// Ändert die Daten einer 
+        /// Buchgruppe in der Datenbank
+        /// </summary>
+        public void AktualisiereBuchgruppe(WIFI.Gateway.DTO.Buchgruppe gruppe)
+        {
+            try
+            {
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+                {
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("AktualisiereBuchgruppe", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Verbindung.Open();
+
+                        Befehl.Parameters.AddWithValue("ID", gruppe.ID);
+                        Befehl.Parameters.AddWithValue("Nr", gruppe.Gruppennummer);
+                        Befehl.Parameters.AddWithValue("Bezeichnung", gruppe.Beschreibung);
 
                         Befehl.Prepare();
 
@@ -114,29 +148,22 @@ namespace WIFI.Gateway.Controller
         }
 
         /// <summary>
-        /// Ändert die Daten eines Buches in der Datenbank
+        /// Entfernt die Daten einer 
+        /// Buchgruppe in der Datenbank
         /// </summary>
-        public void AktualisiereBuch(WIFI.Gateway.DTO.Buch buch)
+        public void EntferneBuchgruppe(WIFI.Gateway.DTO.Buchgruppe gruppe)
         {
             try
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
                 {
-                    // Ändert ein einzelnes Buch
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("UpdateBuch", Verbindung))
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("EntferneBuchgruppe", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Verbindung.Open();
 
-                        Befehl.Parameters.AddWithValue("Buchnummer", buch.Buchnummer);
-                        Befehl.Parameters.AddWithValue("Titel", buch.Titel);
-                        Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
-                        Befehl.Parameters.AddWithValue("Preis", buch.Preis);
-                        Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
-                        Befehl.Parameters.AddWithValue("Kategorie", buch.Kategoriegruppe);
-                        Befehl.Parameters.AddWithValue("Verlagname", buch.VerlagName);
-                        Befehl.Parameters.AddWithValue("Anzahl", buch.Anzahl);
+                        Befehl.Parameters.AddWithValue("ID", gruppe.ID);
 
                         Befehl.Prepare();
 
@@ -158,45 +185,5 @@ namespace WIFI.Gateway.Controller
                     });
             }
         }
-
-        /// <summary>
-        /// Entfernt die Daten eines 
-        /// Buches in der Datenbank
-        /// </summary>
-        public void EntferneBuch(WIFI.Gateway.DTO.Buch buch)
-        {
-            try
-            {
-                using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
-                {
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("EntferneBuch", Verbindung))
-                    {
-                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        Verbindung.Open();
-
-                        Befehl.Parameters.AddWithValue("ID", buch.ID);
-
-                        Befehl.Prepare();
-
-                        Befehl.ExecuteScalar();
-                    }
-
-                    Verbindung.Close();
-                }
-            }
-            catch (Exception e)
-            {
-                this.AppKontext.Protokoll.Eintragen(
-                    new WIFI.Anwendung.Daten.ProtokollEintrag
-                    {
-                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BuchSqlClientController).GetMethod("ErstelleBuch")} ist ein Fehler aufgetreten \n" +
-                               $"{e.GetType().FullName} = {e.Message} \n " +
-                               $"{e.StackTrace}",
-                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
-                    });
-            }
-        }
-
     }
 }
