@@ -251,9 +251,12 @@ namespace WIFI.Ausstellung.ViewModels
                             // Drucke alle Einzelnen Bestellungen neu, welche sich geändert haben
 
                             // Ändere den Status auf Abholungsverwaltung
+                            WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Abholung);
 
-                            this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung);
+                            // 20210617 -> Übersiedlung von MySql auf MsSql
+                            //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung);
                             
+
                             this.OnPropertyChanged();
                         
                         }

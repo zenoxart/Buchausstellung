@@ -104,18 +104,18 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bücher _AktuelleBücher = null;
+        private static WIFI.Gateway.DTO.Bücher _AktuelleBücher = null;
 
         /// <summary>
         /// Ruft die aktuell bestellten Bücher ab oder legt diese fest
         /// </summary>
-        public static WIFI.Anwendung.DTO.Bücher AktuelleBücher
+        public static WIFI.Gateway.DTO.Bücher AktuelleBücher
         {
             get
             {
                 if (BuchManager._AktuelleBücher == null)
                 {
-                    BuchManager._AktuelleBücher = new WIFI.Anwendung.DTO.Bücher();
+                    BuchManager._AktuelleBücher = new WIFI.Gateway.DTO.Bücher();
                 }
                 return BuchManager._AktuelleBücher;
             }
@@ -465,7 +465,10 @@ namespace WIFI.Ausstellung.ViewModels
                     this._BuchgruppeEntfernen = new WIFI.Anwendung.Befehl(
                         p =>
                         {
-                            this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
+                            if (this.Büchergruppen != null && this.SelektierteBuchgruppe != null)
+                            {
+                                this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
+                            }
 
                             //TODO: Remove von DB
 

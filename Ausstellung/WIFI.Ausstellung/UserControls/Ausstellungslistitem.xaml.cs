@@ -239,10 +239,10 @@ namespace WIFI.Ausstellung.UserControls
                             if (ViewModels.AusstellungsManager.AktuelleBücherbestellung == null)
                             {
 
-                                ViewModels.AusstellungsManager.AktuelleBücherbestellung = new WIFI.Anwendung.DTO.Bücher();
+                                ViewModels.AusstellungsManager.AktuelleBücherbestellung = new WIFI.Gateway.DTO.Bücher();
                             }
 
-                            WIFI.Anwendung.DTO.Buch b = null;
+                            WIFI.Gateway.DTO.Buch b = null;
                             if (ViewModels.AusstellungsManager.AktuelleBücherbestellung.Count > 0)
                             {
                                 b = (from l in ViewModels.AusstellungsManager.AktuelleBücherbestellung
@@ -256,7 +256,7 @@ namespace WIFI.Ausstellung.UserControls
                             if (b == null)
                             {
                                 ViewModels.AusstellungsManager.AktuelleBücherbestellung.Add(
-                                new Anwendung.DTO.Buch
+                                new Gateway.DTO.Buch
                                 {
 
                                     AutorName = Autor,

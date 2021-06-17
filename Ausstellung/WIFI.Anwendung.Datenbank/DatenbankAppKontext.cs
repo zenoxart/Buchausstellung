@@ -208,25 +208,7 @@ namespace WIFI.Anwendung
             }
         }
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private PDFManager _PortableDokumentFormatManager = null;
-
-        /// <summary>
-        /// Ruft einen Manager zum Verwalten von PDF's(Portable Dokument Format Dateien) ab
-        /// </summary>
-        public PDFManager PortableDokumentFormatManager
-        {
-            get {
-
-                if (this._PortableDokumentFormatManager == null)
-                {
-                    this._PortableDokumentFormatManager = this.Produziere<PDFManager>();
-                }
-                return this._PortableDokumentFormatManager; }
-        }
-
+       
 
     }
 }

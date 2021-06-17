@@ -122,7 +122,7 @@ namespace WIFI.Ausstellung.ViewModels
                 //InitialisiereAktivenViewer();
                 //this.OnPropertyChanged();
             }
-           
+
         }
 
 
@@ -143,7 +143,9 @@ namespace WIFI.Ausstellung.ViewModels
                     VeranstaltungsSektionLaden();
 
 
-                    void VeranstaltungsSektionLaden()
+                    System.Threading.Thread.Sleep(3000);
+
+                    async void VeranstaltungsSektionLaden()
                     {
                         try
                         {
@@ -151,25 +153,26 @@ namespace WIFI.Ausstellung.ViewModels
                             //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
                             //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
 
+                            WIFI.Gateway.DTO.AusstellungsstadiumTyp response = await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.HoleVeranstaltungsStadium();
                             // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
-                            WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
+                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
 
                             // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                             switch (response)
                             {
-                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung:
+                                case WIFI.Gateway.DTO.AusstellungsstadiumTyp.Vorbereitung:
                                     SektionLaden(WIFI.Ausstellung.Properties.Resources.Vorbereitung);
                                     break;
 
-                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Veranstaltung:
+                                case WIFI.Gateway.DTO.AusstellungsstadiumTyp.Veranstaltung:
                                     SektionLaden(WIFI.Ausstellung.Properties.Resources.Veranstaltung);
                                     break;
 
-                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung:
+                                case WIFI.Gateway.DTO.AusstellungsstadiumTyp.Lieferung:
                                     SektionLaden(WIFI.Ausstellung.Properties.Resources.Lieferung);
                                     break;
 
-                                case WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung:
+                                case WIFI.Gateway.DTO.AusstellungsstadiumTyp.Abholung:
                                     SektionLaden(WIFI.Ausstellung.Properties.Resources.Abholung);
                                     break;
                                 default:
@@ -183,9 +186,8 @@ namespace WIFI.Ausstellung.ViewModels
                                 $"{e.GetType().FullName} | {e.Message} \n" +
                                 $"{e.StackTrace}", WIFI.Anwendung.Daten.ProtokollEintragTyp.Warnung);
                         }
-                        
 
-                        System.Threading.Thread.Sleep(3000);
+
                     }
                 }
 

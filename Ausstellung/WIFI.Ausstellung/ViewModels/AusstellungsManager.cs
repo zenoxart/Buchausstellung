@@ -125,18 +125,18 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bücher _AktuelleBücherbestellung = null;
+        private static WIFI.Gateway.DTO.Bücher _AktuelleBücherbestellung = null;
 
         /// <summary>
         /// Ruft die aktuell bestellten Bücher ab oder legt diese fest
         /// </summary>
-        public static WIFI.Anwendung.DTO.Bücher AktuelleBücherbestellung
+        public static WIFI.Gateway.DTO.Bücher AktuelleBücherbestellung
         {
             get
             {
                 if (AusstellungsManager._AktuelleBücherbestellung == null)
                 {
-                    AusstellungsManager._AktuelleBücherbestellung = new WIFI.Anwendung.DTO.Bücher();
+                    AusstellungsManager._AktuelleBücherbestellung = new WIFI.Gateway.DTO.Bücher();
                 }
                 return AusstellungsManager._AktuelleBücherbestellung;
             }
@@ -158,20 +158,20 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bestellung _AktuelleBestellung = null;
+        private static WIFI.Gateway.DTO.Bestellung _AktuelleBestellung = null;
 
         /// <summary>
         /// Ruft die Aktuelle Bestellung mit den zugehörigen Benutzerdaten 
         /// und der Bestellnummer sowie dessen Bücher jeweilige Anzahl 
         /// ab oder setzt diese
         /// </summary>
-        public static WIFI.Anwendung.DTO.Bestellung AktuelleBestellung
+        public static WIFI.Gateway.DTO.Bestellung AktuelleBestellung
         {
             get
             {
                 if (AusstellungsManager._AktuelleBestellung == null)
                 {
-                    AusstellungsManager._AktuelleBestellung = new WIFI.Anwendung.DTO.Bestellung();
+                    AusstellungsManager._AktuelleBestellung = new WIFI.Gateway.DTO.Bestellung();
                 }
                 return AusstellungsManager._AktuelleBestellung;
             }
@@ -190,12 +190,12 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellungen _BestellungenListe = null;
+        private WIFI.Gateway.DTO.Bestellungen _BestellungenListe = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Bestellungen ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bestellungen BestellungenListe
+        public WIFI.Gateway.DTO.Bestellungen BestellungenListe
         {
             get
             {
@@ -203,7 +203,7 @@ namespace WIFI.Ausstellung.ViewModels
                 if (this._BestellungenListe == null)
                 {
 
-                    this._BestellungenListe = new WIFI.Anwendung.DTO.Bestellungen();
+                    this._BestellungenListe = new WIFI.Gateway.DTO.Bestellungen();
 
 
                     // Aus der Datenbank laden
@@ -222,10 +222,12 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
-        private void InitialisiereBestellungenListe()
+        private async void InitialisiereBestellungenListe()
         {
-            this.BestellungenListe =
-                this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
+            this.BestellungenListe = await
+            WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellungen();
+            //this.BestellungenListe =
+            //    this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
         }
 
 
@@ -239,7 +241,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         public WIFI.Anwendung.Befehl BestellungHinzufügen
         {
-            get
+             get
             {
                 if (this._BestellungHinzufügen == null)
                 {
@@ -254,11 +256,11 @@ namespace WIFI.Ausstellung.ViewModels
                             if (AusstellungsManager.AktuelleBestellung == null)
                             {
 
-                                AusstellungsManager.AktuelleBestellung = new WIFI.Anwendung.DTO.Bestellung();
+                                AusstellungsManager.AktuelleBestellung = new WIFI.Gateway.DTO.Bestellung();
                             }
 
 
-                            AusstellungsManager.AktuelleBestellung.Buchliste = new Dictionary<WIFI.Anwendung.DTO.Buch, int>();
+                            AusstellungsManager.AktuelleBestellung.Buchliste = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
                             // Fügt jedes Buch mit der jeweiligen Anzahl der Bestellung hinzu
                             foreach (var Buch in AusstellungsManager.AktuelleBücherbestellung)
                             {
@@ -275,7 +277,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                                 // Erstellt einen Zugehörigen Besucher (TODO: Noch OHNE ID)
                                 AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
-                                    new WIFI.Anwendung.DTO.Besucher
+                                    new WIFI.Gateway.DTO.Besucher
                                     {
                                         Hausnummer = this.BestellBesucher.Hausnummer,
                                         Vorname = this.BestellBesucher.Vorname,
@@ -288,40 +290,54 @@ namespace WIFI.Ausstellung.ViewModels
 
                                 // Erstelle neuen Besucher oder lade dessen ID von der Datenbank
 
-                                AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
-                                    this.AppKontext.DBControllerManager.BesucherController.ErstelleBesucher(
-                                        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
+                                // 20210617 -> Übersiedlung von MySql auf MsSql
+                                //AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
+                                //    this.AppKontext.DBControllerManager.BesucherController.ErstelleBesucher(
+                                //        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
 
+                                Erstelle();
 
-                                int AktuelleBestellNr =
-                                    this.AppKontext.DBControllerManager.BestellungController.ErstelleBestellung(
-                                        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
-
-                                if (AktuelleBestellNr != -1)
+                                async void Erstelle()
                                 {
-                                    AusstellungsManager.AktuelleBestellung.BestellNr = AktuelleBestellNr;
+                                    AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher = await
+                                   WIFI.Ausstellung.DBControllerManager.BesucherController.ErstelleBesucher(
+                                       AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
 
-                                    // Alles von der Aktuellen Bestellung auf die Datenbank schieben
-                                    this.AppKontext.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(
-                                        AusstellungsManager.AktuelleBestellung);
+                                    int AktuelleBestellNr = await WIFI.Ausstellung.DBControllerManager.BestellungController.ErstelleBestellung(AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
 
-                                    // 20210514 -> Kasper, bei den Bestellungen wird beim Aufruf die Liste von der Datenbank abgefragt,
-                                    // desshalb muss hier nichtmehr die Bestellung der BestellungenListe hinzugefügt werden
-                                    // Aktuelle Bestellung zu der Bestellungsliste hinzufügen
-                                    //AusstellungsManager.BestellungenListe.Add(AusstellungsManager.AktuelleBestellung);
+                                    if (AktuelleBestellNr != -1)
+                                    {
+                                        AusstellungsManager.AktuelleBestellung.BestellNr = AktuelleBestellNr;
 
+                                        WIFI.Ausstellung.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(AusstellungsManager.AktuelleBestellung);
+                                        // Alles von der Aktuellen Bestellung auf die Datenbank schieben
+                                        //this.AppKontext.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(
+                                        //    AusstellungsManager.AktuelleBestellung);
 
-                                    // Aktuelle Bestellung bereinigen
-                                    AusstellungsManager.AktuelleBestellung = null;
-                                    AusstellungsManager.AktuelleBücherbestellung = null;
-
-                                    this.BestellBesucher = null;
-
-                                    this.BestellBesucher = new WIFI.Anwendung.DTO.Besucher();
+                                        // 20210514 -> Kasper, bei den Bestellungen wird beim Aufruf die Liste von der Datenbank abgefragt,
+                                        // desshalb muss hier nichtmehr die Bestellung der BestellungenListe hinzugefügt werden
+                                        // Aktuelle Bestellung zu der Bestellungsliste hinzufügen
+                                        //AusstellungsManager.BestellungenListe.Add(AusstellungsManager.AktuelleBestellung);
 
 
+                                        // Aktuelle Bestellung bereinigen
+                                        AusstellungsManager.AktuelleBestellung = null;
+                                        AusstellungsManager.AktuelleBücherbestellung = null;
 
+                                        this.BestellBesucher = null;
+
+                                        this.BestellBesucher = new WIFI.Anwendung.DTO.Besucher();
+
+
+
+                                    }
                                 }
+
+                                //int AktuelleBestellNr =
+                                //    this.AppKontext.DBControllerManager.BestellungController.ErstelleBestellung(
+                                //        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
+
+                               
 
                             }
                         }
@@ -425,24 +441,31 @@ namespace WIFI.Ausstellung.ViewModels
                         // TODO: Abschluss der Bestellung umsetzen
                         p =>
                         {
+                            var pdfManager = new WIFI.Ausstellung.PDFManager();
+                            
+                            
                             //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
 
                             if (this.Gesamtbestellungendruck)
                             {
-                                this.AppKontext.PortableDokumentFormatManager.GeneriereBestellungenübersicht(this.BestellungenListe);
+
+                                pdfManager.GeneriereBestellungenübersicht(this.BestellungenListe);
                             }
 
                             //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
                             if (this.Bestellbestätigungendruck)
                             {
-                                this.AppKontext.PortableDokumentFormatManager.GeneriereBesucherBestellungen(this.BestellungenListe);
+                                pdfManager.GeneriereBesucherBestellungen(this.BestellungenListe);
                             }
 
                             //am Client alle listen löschen
-                            
+
 
                             //Stadium auf der Datenbank ändern
-                            this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung);
+                            WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Lieferung);
+
+                            // 20210617 -> Übersiedlung von MySql auf MsSql
+                            //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung);
                         }
                     );
 

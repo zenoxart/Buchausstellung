@@ -25,6 +25,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        )))
             {
 
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+
             }
         }
 
@@ -41,6 +43,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        Ort
                        )))
             {
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
             }
         }
@@ -59,7 +62,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
             }
         }
-
         public async System.Threading.Tasks.Task<WIFI.Gateway.DTO.AusstellungsstadiumTyp> HoleVeranstaltungsStadium()
         {
             const string Adresse = "{0}HoleVeranstaltungsStadium";
@@ -71,7 +73,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      )))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
-
+                //Enum.Parse(, AntwortText);
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.AusstellungsstadiumTyp>(AntwortText);

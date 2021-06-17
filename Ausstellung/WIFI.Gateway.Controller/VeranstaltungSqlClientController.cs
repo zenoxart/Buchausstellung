@@ -161,7 +161,7 @@ namespace WIFI.Gateway.Controller
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
                 {
                     // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("VeranstaltungsStadium", Verbindung))
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleVeranstaltungsStadium", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 

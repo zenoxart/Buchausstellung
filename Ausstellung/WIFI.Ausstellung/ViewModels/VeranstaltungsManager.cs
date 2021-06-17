@@ -83,11 +83,17 @@ namespace WIFI.Ausstellung.ViewModels
                             if (this.VeranstaltungsEndDatum != DateTime.Today && this.Ort != string.Empty)
                             {
                                 // Die Veranstaltung kann gestartet werden
-                                this.AppKontext.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
+                                WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
                                     this.VeranstaltungsBeginnDatum,
                                     this.VeranstaltungsEndDatum,
-                                    this.Ort
-                                    );
+                                    this.Ort);
+
+                                // 20210617 -> Übersiedlung von MySql auf MsSql
+                                //this.AppKontext.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
+                                //    this.VeranstaltungsBeginnDatum,
+                                //    this.VeranstaltungsEndDatum,
+                                //    this.Ort
+                                //    );
 
                                 this.AppKontext.Protokoll.Eintragen(
                                     $"Die erstellte Veranstaltung wurde gestartet"

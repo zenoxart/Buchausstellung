@@ -222,7 +222,7 @@ namespace WIFI.Ausstellung.UserControls
 
 
 
-                            WIFI.Anwendung.DTO.Buch b = null;
+                            WIFI.Gateway.DTO.Buch b = null;
 
                             if (ViewModels.AusstellungsManager.AktuelleBücherbestellung.Count > 0)
                             {

@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\WIFI.Gateway.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,10 +90,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AlleBuchbestellungenHinzufügenController.cs" />
     <Compile Include="Controllers\BasisApiController.cs" />
+    <Compile Include="Controllers\BuchbestellungHinzufügenController.cs" />
+    <Compile Include="Controllers\ErstelleBestellungController.cs" />
     <Compile Include="Controllers\ErstelleBesucherController.cs" />
     <Compile Include="Controllers\ErstelleVeranstaltungController.cs" />
-    <Compile Include="Controllers\HoleVeranstaltungsStadium.cs" />
+    <Compile Include="Controllers\HoleBestellungenController.cs" />
+    <Compile Include="Controllers\HoleVeranstaltungsStadiumController.cs" />
     <Compile Include="Controllers\StarteVeranstaltungController.cs" />
     <Compile Include="Controllers\UpdateVeranstaltungsStadiumController.cs" />
     <Compile Include="Global.asax.cs">

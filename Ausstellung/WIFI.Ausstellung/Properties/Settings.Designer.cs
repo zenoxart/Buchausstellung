@@ -67,7 +67,7 @@ namespace WIFI.Ausstellung.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44341/api/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44303/api/")]
         public string UrlGatewayAPI {
             get {
                 return ((string)(this["UrlGatewayAPI"]));

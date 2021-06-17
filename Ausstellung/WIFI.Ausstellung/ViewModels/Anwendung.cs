@@ -569,8 +569,9 @@ namespace WIFI.Ausstellung.ViewModels
                 this._StarteSoftware = new WIFI.Anwendung.Befehl(
                     p =>
                     {
-                        // prüfe ob Veranstaltung existiert ansonst erstelle Veranstaltung
-                        this.AppKontext.DBControllerManager.VeranstaltungsController.AnwendungsStart();
+
+                        WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.ErstelleVeranstaltung();
+                        //this.AppKontext.DBControllerManager.VeranstaltungsController.AnwendungsStart();
 
                         this.ZeigeStart = false;
                     }
@@ -629,26 +630,7 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._Buch = value; }
         }
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private WIFI.Ausstellung.DBControllerManager _DBController;
 
-        /// <summary>
-        /// Ruft einen Managerdienst zum Verwalten der Datenbankcontroller
-        /// </summary>
-        public WIFI.Ausstellung.DBControllerManager DBController
-        {
-            get
-            {
-                if (this._DBController == null)
-                {
-                    this._DBController = this.AppKontext.Produziere<WIFI.Ausstellung.DBControllerManager>();
-                }
-                return this._DBController;
-            }
-            set { this._DBController = value; }
-        }
 
 
 

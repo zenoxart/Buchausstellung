@@ -12,48 +12,41 @@ namespace WIFI.Ausstellung
     public class DBControllerManager : WIFI.Anwendung.ViewModelAppObjekt
     {
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController _VeranstaltungsController;
-
-        /// <summary>
         /// Ruft den Controller zum Verwalten der Veranstaltungsdaten 
         /// ab 
         /// </summary>
-        public WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController VeranstaltungsController
+        public static WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController VeranstaltungsController
         {
             get
             {
-
-                if (this._VeranstaltungsController == null)
-                {
-                    this._VeranstaltungsController = this.AppKontext.Produziere<WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController>();
-                }
-
-                return this._VeranstaltungsController;
+                return new Models.RestApiController.VeranstaltungWebController();
             }
         }
 
 
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private WIFI.Ausstellung.Models.RestApiController.BesucherWebController _BesucherController;
-
-        /// <summary>
         /// Ruft den Controller zum Verwalten der Besucherdaten 
         /// ab 
         /// </summary>
-        public WIFI.Ausstellung.Models.RestApiController.BesucherWebController BesucherController
+        public static WIFI.Ausstellung.Models.RestApiController.BesucherWebController BesucherController
         {
-            get {
-                if (this._BesucherController == null)
-                {
-                    this._BesucherController = this.AppKontext.Produziere<WIFI.Ausstellung.Models.RestApiController.BesucherWebController>();
-                }
-                return this._BesucherController; }
+            get
+            {
+                return new WIFI.Ausstellung.Models.RestApiController.BesucherWebController();
+            }
         }
 
+        /// <summary>
+        /// Ruft den Controller zum Verwalten der Bestellungsdaten 
+        /// ab 
+        /// </summary>
+        public static WIFI.Ausstellung.Models.RestApiController.BestellungWebController BestellungController
+        {
+            get
+            {
+                return new Models.RestApiController.BestellungWebController();
+            }
+        }
 
     }
 }

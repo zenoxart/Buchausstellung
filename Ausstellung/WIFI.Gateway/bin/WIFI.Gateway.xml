@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WIFI.Gateway</name>
+    </assembly>
+    <members>
+        <member name="F:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.BasisApiController">
+            <summary>
+            Stellt die Basis für einen API-Controller welcher zugriff auf die Infrastruktur hat
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.BasisApiController._AppKontext">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.BasisApiController.AppKontext">
+            <summary>
+            Ruft die WIFI Infrastruktur ab
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.ErstelleBestellungController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.ErstelleBestellungController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.ErstelleBesucherController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.ErstelleBesucherController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.ErstelleVeranstaltungController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.ErstelleVeranstaltungController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.HoleBestellungenController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.HoleBestellungenController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.StarteVeranstaltungController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.StarteVeranstaltungController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+    </members>
+</doc>
