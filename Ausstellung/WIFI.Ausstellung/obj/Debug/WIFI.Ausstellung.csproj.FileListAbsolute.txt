@@ -525,3 +525,5 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
+C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\bin\Debug\Newtonsoft.Json.xml

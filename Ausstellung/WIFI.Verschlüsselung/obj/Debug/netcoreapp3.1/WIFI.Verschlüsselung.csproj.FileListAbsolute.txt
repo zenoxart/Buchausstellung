@@ -199,3 +199,4 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselun
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csproj.CopyComplete
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.dll
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.pdb
+C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csprojAssemblyReference.cache

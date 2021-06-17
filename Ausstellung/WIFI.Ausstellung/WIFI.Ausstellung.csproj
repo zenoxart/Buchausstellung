@@ -41,6 +41,9 @@
     <Reference Include="HtmlRenderer.PdfSharp, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlRenderer.PdfSharp.1.5.0.6\lib\net45\HtmlRenderer.PdfSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
@@ -69,6 +72,7 @@
     <Compile Include="Models\Aufgaben.cs" />
     <Compile Include="Models\AufgabenXmlController.cs" />
     <Compile Include="Models\Generisch\XmlController.cs" />
+    <Compile Include="Models\RestApiController\VeranstaltungWebController.cs" />
     <Compile Include="Properties\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>
       <AutoGen>True</AutoGen>
