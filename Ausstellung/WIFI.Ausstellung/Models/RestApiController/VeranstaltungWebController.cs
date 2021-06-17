@@ -27,5 +27,55 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
             }
         }
+
+        public async void StarteVeranstaltung(DateTime StartDatum, DateTime EndDatum, string Ort)
+        {
+            const string Adresse = "{0}StarteVeranstaltung?StartDatum={1}&EndDatum={2}&Ort={3}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                   string.Format(
+                       Adresse,
+                       Properties.Settings.Default.UrlGatewayAPI,
+                       StartDatum,
+                       EndDatum,
+                       Ort
+                       )))
+            {
+
+            }
+        }
+
+        public async void UpdateVeranstaltungsStadium(WIFI.Gateway.DTO.AusstellungsstadiumTyp typ)
+        {
+            const string Adresse = "{0}UpdateVeranstaltungsStadium?Typ={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     typ
+                     )))
+            {
+
+            }
+        }
+
+        public async System.Threading.Tasks.Task<WIFI.Gateway.DTO.AusstellungsstadiumTyp> HoleVeranstaltungsStadium()
+        {
+            const string Adresse = "{0}HoleVeranstaltungsStadium";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI
+                     )))
+            {
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+
+                // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                // Newtonsoft.Json Nuget
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.AusstellungsstadiumTyp>(AntwortText);
+            }
+        }
     }
 }
