@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BesucherSqlClientController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VeranstaltungsSqlClientController.cs" />
+    <Compile Include="VeranstaltungSqlClientController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WIFI.Anwendung.Datenbank\WIFI.Anwendung.Datenbank.csproj">

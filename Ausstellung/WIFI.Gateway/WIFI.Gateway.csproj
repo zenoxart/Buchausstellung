@@ -90,7 +90,11 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BasisApiController.cs" />
+    <Compile Include="Controllers\ErstelleBesucherController.cs" />
     <Compile Include="Controllers\ErstelleVeranstaltungController.cs" />
+    <Compile Include="Controllers\HoleVeranstaltungsStadium.cs" />
+    <Compile Include="Controllers\StarteVeranstaltungController.cs" />
+    <Compile Include="Controllers\UpdateVeranstaltungsStadiumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

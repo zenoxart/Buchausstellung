@@ -72,6 +72,7 @@
     <Compile Include="Models\Aufgaben.cs" />
     <Compile Include="Models\AufgabenXmlController.cs" />
     <Compile Include="Models\Generisch\XmlController.cs" />
+    <Compile Include="Models\RestApiController\BesucherWebController.cs" />
     <Compile Include="Models\RestApiController\VeranstaltungWebController.cs" />
     <Compile Include="Properties\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>

@@ -14,26 +14,46 @@ namespace WIFI.Ausstellung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Gateway.Controller.VeranstaltungsSqlClientController _VeranstaltungsController;
+        private WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController _VeranstaltungsController;
 
         /// <summary>
         /// Ruft den Controller zum Verwalten der Veranstaltungsdaten 
-        /// ab oder legt diesen fest
+        /// ab 
         /// </summary>
-        public WIFI.Gateway.Controller.VeranstaltungsSqlClientController VeranstaltungsController
+        public WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController VeranstaltungsController
         {
             get
             {
 
                 if (this._VeranstaltungsController == null)
                 {
-                    this._VeranstaltungsController = this.AppKontext.Produziere<WIFI.Gateway.Controller.VeranstaltungsSqlClientController>();
+                    this._VeranstaltungsController = this.AppKontext.Produziere<WIFI.Ausstellung.Models.RestApiController.VeranstaltungWebController>();
                 }
 
                 return this._VeranstaltungsController;
             }
-            set { this._VeranstaltungsController = value; }
         }
+
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Ausstellung.Models.RestApiController.BesucherWebController _BesucherController;
+
+        /// <summary>
+        /// Ruft den Controller zum Verwalten der Besucherdaten 
+        /// ab 
+        /// </summary>
+        public WIFI.Ausstellung.Models.RestApiController.BesucherWebController BesucherController
+        {
+            get {
+                if (this._BesucherController == null)
+                {
+                    this._BesucherController = this.AppKontext.Produziere<WIFI.Ausstellung.Models.RestApiController.BesucherWebController>();
+                }
+                return this._BesucherController; }
+        }
+
 
     }
 }
