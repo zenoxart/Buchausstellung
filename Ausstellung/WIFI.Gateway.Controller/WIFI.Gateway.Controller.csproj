@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BestellungSqlClientController.cs" />
+    <Compile Include="BuchSqlClientController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeranstaltungsSqlClientController.cs" />
   </ItemGroup>
