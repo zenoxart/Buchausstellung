@@ -151,7 +151,7 @@ namespace WIFI.Gateway.Controller
         /// Entfernt die Daten einer 
         /// Buchgruppe in der Datenbank
         /// </summary>
-        public void EntferneBuchgruppe(WIFI.Anwendung.DTO.Buchgruppe gruppe)
+        public void EntferneBuchgruppe(WIFI.Gateway.DTO.Buchgruppe gruppe)
         {
             try
             {
