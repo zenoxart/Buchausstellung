@@ -89,8 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AktualisiereBuchgruppeController.cs" />
     <Compile Include="Controllers\BasisApiController.cs" />
+    <Compile Include="Controllers\EntferneBuchController.cs" />
+    <Compile Include="Controllers\ErstelleBuchController.cs" />
     <Compile Include="Controllers\ErstelleVeranstaltungController.cs" />
+    <Compile Include="Controllers\HoleBücherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -13,7 +13,6 @@ namespace WIFI.Gateway.Controller
         /// </summary>
         public DTO.Bücher HoleBücher()
         {
-
             DTO.Bücher NeueListe = new WIFI.Gateway.DTO.Bücher();
 
             try
@@ -71,7 +70,7 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Fügt ein Buch in der Datenbank hinzu
         /// </summary>
-        /// <param name="buch"></param>
+        /// <param name="buch">Daten des Buchs</param>
         public void BuchHinzufügen(DTO.Buch buch)
         {
             try
@@ -85,8 +84,8 @@ namespace WIFI.Gateway.Controller
 
                         Verbindung.Open();
 
-                        Befehl.Parameters.AddWithValue("Buchnummer", buch.Buchnummer);
-                        Befehl.Parameters.AddWithValue("Titel", buch.Titel);
+                        Befehl.Parameters.AddWithValue("Nummer", buch.Buchnummer);
+                        Befehl.Parameters.AddWithValue("Bezeichnung", buch.Titel);
                         Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
                         Befehl.Parameters.AddWithValue("Preis", buch.Preis);
                         Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
@@ -117,7 +116,7 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Ändert die Daten eines Buches in der Datenbank
         /// </summary>
-        public void AktualisiereBuch(WIFI.Anwendung.DTO.Buch buch)
+        public void AktualisiereBuch(WIFI.Gateway.DTO.Buch buch)
         {
             try
             {
@@ -159,5 +158,45 @@ namespace WIFI.Gateway.Controller
                     });
             }
         }
+
+        /// <summary>
+        /// Entfernt die Daten eines 
+        /// Buches in der Datenbank
+        /// </summary>
+        public void EntferneBuch(WIFI.Gateway.DTO.Buch buch)
+        {
+            try
+            {
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+                {
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("EntferneBuch", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Verbindung.Open();
+
+                        Befehl.Parameters.AddWithValue("ID", buch.ID);
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteScalar();
+                    }
+
+                    Verbindung.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BuchSqlClientController).GetMethod("ErstelleBuch")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+        }
+
     }
 }
