@@ -12,6 +12,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
     /// </summary>
     public class BesucherWebController : WIFI.Anwendung.ViewModelAppObjekt
     {
+        /// <summary>
+        /// Erstellt einen Neuen Besucher in der Datenbank und gibt das erstelle Objekt zurück
+        /// </summary>
         public async System.Threading.Tasks.Task<WIFI.Gateway.DTO.Besucher> ErstelleBesucher(WIFI.Gateway.DTO.Besucher besucher)
         {
             const string Adresse = "{0}ErstelleBesucher?besucher={1}";

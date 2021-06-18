@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace WIFI.Gateway.Controller
 {
+
+    /// <summary>
+    /// Stellt einen Clientcontroller für das Verwalten der Buchgruppen
+    /// </summary>
     public class BuchgruppeSqlClientController : WIFI.Anwendung.SqlClient.Controller
     {
         /// <summary>

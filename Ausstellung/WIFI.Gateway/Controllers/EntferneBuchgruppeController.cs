@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum entfernen der Buchgruppe
+    /// </summary>
     public class EntferneBuchgruppeController : Controllers.BasisApiController
     {
         /// <summary>

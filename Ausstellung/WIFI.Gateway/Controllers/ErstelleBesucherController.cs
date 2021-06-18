@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum erstellen eines Besuchers
+    /// </summary>
     public class ErstelleBesucherController : Controllers.BasisApiController
     {
 

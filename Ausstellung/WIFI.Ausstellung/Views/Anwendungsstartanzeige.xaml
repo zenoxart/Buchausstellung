@@ -16,9 +16,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <!-- Titel-->
         <Label Style="{DynamicResource DunkelHellSchrift}" Content="BAVS" FontSize="80" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Bottom" />
        <!-- TODO: Bild beim öffnen der Anwendung anzeigen -->
         
+        <!-- Untertitel -->
         <Label Style="{DynamicResource DunkelHellSchrift}" Content="Buchausstellungs Verwaltungs Software" FontSize="30" HorizontalAlignment="Center" Grid.Row="1"  VerticalAlignment="Top" Margin="0 0 0 0 " FontWeight="DemiBold" />
         <Button Content="Software starten"
                 Command="{Binding StarteSoftware}" 

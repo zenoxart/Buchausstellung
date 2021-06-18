@@ -87,9 +87,6 @@
     <Compile Include="UserControls\Abholungslistitem.xaml.cs">
       <DependentUpon>Abholungslistitem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Ausstellungsfilter.xaml.cs">
-      <DependentUpon>Ausstellungsfilter.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Ausstellungskopfzeile.xaml.cs">
       <DependentUpon>Ausstellungskopfzeile.xaml</DependentUpon>
     </Compile>
@@ -104,9 +101,6 @@
     </Compile>
     <Compile Include="UserControls\Bestellungkopfzeile.xaml.cs">
       <DependentUpon>Bestellungkopfzeile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Bestellungsfilter.xaml.cs">
-      <DependentUpon>Bestellungsfilter.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Bestellungslistitem.xaml.cs">
       <DependentUpon>Bestellungslistitem.xaml</DependentUpon>
@@ -199,10 +193,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Ausstellungsfilter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\Ausstellungskopfzeile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,10 +210,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Bestellungkopfzeile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Bestellungsfilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

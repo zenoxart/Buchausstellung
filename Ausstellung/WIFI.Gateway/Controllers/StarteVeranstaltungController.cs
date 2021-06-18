@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum starten der Veranstaltung
+    /// </summary>
     public class StarteVeranstaltungController : Controllers.BasisApiController
     {
 

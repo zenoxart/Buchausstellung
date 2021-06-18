@@ -7,6 +7,9 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum ändern der Buchgruppe
+    /// </summary>
     public class AktualisiereBuchgruppeController : Controllers.BasisApiController
     {
         /// <summary>

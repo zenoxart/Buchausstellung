@@ -43,13 +43,20 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+
+        <!-- BestellNr -->
         <Label Grid.Column="0" 
                Content="{Binding ElementName=Bestellungenitem,Path=BestellNr}"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        
+
+
+        <!-- Besuchervorname -->
         <Label Grid.Column="1" 
                Content="{Binding ElementName=Bestellungenitem,Path=Besucher.Vorname}"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+
+        <!-- Besuchernachname -->
         <Label Grid.Column="2" 
                Content="{Binding ElementName=Bestellungenitem,Path=Besucher.Nachname}"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>

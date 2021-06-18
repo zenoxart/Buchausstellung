@@ -101,6 +101,7 @@ namespace WIFI.Ausstellung.ViewModels
         }
         #endregion
 
+        #region Bücher
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
@@ -219,11 +220,14 @@ namespace WIFI.Ausstellung.ViewModels
                 }
             }
         }
+        #endregion
+
+        #region Import-Export-Funktionen
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _import;
+        private WIFI.Anwendung.Befehl _import = null;
 
         /// <summary>
         /// Ruft die ImportierFunktion auf
@@ -309,7 +313,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _export;
+        private WIFI.Anwendung.Befehl _export = null;
 
         /// <summary>
         /// Ruft die ExportierFunktion auf
@@ -376,11 +380,13 @@ namespace WIFI.Ausstellung.ViewModels
             }
             set { this._export = value; }
         }
+        #endregion
 
+        #region Buchgruppen
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buchgruppen _Büchergruppen;
+        private WIFI.Anwendung.DTO.Buchgruppen _Büchergruppen = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Buchgruppen ab oder legt diese fest
@@ -406,7 +412,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buchgruppe _SelektierteBuchgruppe;
+        private WIFI.Anwendung.DTO.Buchgruppe _SelektierteBuchgruppe = null;
 
         /// <summary>
         /// Ruft die Selektierte Buchgruppe ab oder legt diese fest
@@ -424,7 +430,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _BuchgruppeHinzufügen;
+        private WIFI.Anwendung.Befehl _BuchgruppeHinzufügen = null;
 
         /// <summary>
         /// Funktion um eine Buchgruppe der Liste hinzuzufügen
@@ -451,7 +457,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _BuchgruppeEntfernen;
+        private WIFI.Anwendung.Befehl _BuchgruppeEntfernen = null;
 
         /// <summary>
         /// Funktion um eine Buchgruppe der Liste zu entfernen
@@ -480,7 +486,7 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._BuchgruppeEntfernen = value; }
         }
 
-
+        #endregion
 
 
     }

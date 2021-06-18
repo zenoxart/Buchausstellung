@@ -14,7 +14,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellungen _Gesamtbestellungen;
+        private WIFI.Anwendung.DTO.Bestellungen _Gesamtbestellungen = null;
 
         /// <summary>
         /// Stellt eine Liste aller Bestellungen
@@ -47,7 +47,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellung _SelektierteBestellung;
+        private WIFI.Anwendung.DTO.Bestellung _SelektierteBestellung = null;
 
         /// <summary>
         /// Ruft die aktuell selektierte Bestellung ab oder legt diese fest
@@ -110,7 +110,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bücher _BücherDerSelektiertenBestellung;
+        private WIFI.Anwendung.DTO.Bücher _BücherDerSelektiertenBestellung = null;
 
         /// <summary>
         /// Ruft eine Liste aller Bücher der ausgewählten Bestellung ab oder legt diese fest
@@ -199,7 +199,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buch _SelektiertesBuch;
+        private WIFI.Anwendung.DTO.Buch _SelektiertesBuch = null;
 
         /// <summary>
         /// Ruft das zu bearbeitende Buch der Bestellung ab oder legt dieses fest

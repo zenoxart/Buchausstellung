@@ -222,6 +222,9 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
+        /// <summary>
+        /// Läd die BestellungenListe Asyncron
+        /// </summary>
         private async void InitialisiereBestellungenListe()
         {
             this.BestellungenListe = await

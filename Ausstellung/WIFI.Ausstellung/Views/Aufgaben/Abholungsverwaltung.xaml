@@ -14,6 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
+        
         <!--TODO: Fehlt Komplett Abholungsverwaltung -->
         <Label Style="{DynamicResource TitleStyle}">
             Abholungsverwaltung</Label>
@@ -33,7 +34,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         
-        
+        <!-- Knopf um die Abgeholten Elemente zu bestätigen-->
         <Button 
             Grid.Row="3" 
             Template="{DynamicResource RoundOrangeButton}" 

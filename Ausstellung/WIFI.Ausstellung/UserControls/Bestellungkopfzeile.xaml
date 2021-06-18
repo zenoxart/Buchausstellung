@@ -19,42 +19,58 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+
+
+        <!-- Titel -->
         <Label
             Grid.Column="0" 
             Content="Titel"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
+
+        <!-- Autor -->
         <Label 
             Grid.Column="1"
             Content="Autor"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
+
+        <!-- Verlagname -->
         <Label
             Grid.Column="2"
             Content="Verlag"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
+        
+        <!-- Preis -->
         <Label
             Grid.Column="3"
             Content="Preis"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
+
+        <!-- Kategoriegruppe -->
         <Label
             Grid.Column="4"
             Content="Gruppe"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
+
+        <!-- Rabattgruppe -->
         <Label
             Grid.Column="5"
             Content="Rabattgr."
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
 
+        <!-- Anzahl -->
         <Label Grid.Column="6"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             Content="Anzahl"
             />
+
+        <!-- Enterfnen des Eintrages -->
         <Label Grid.Column="7"
                Content="Entf."
             HorizontalContentAlignment="Center"

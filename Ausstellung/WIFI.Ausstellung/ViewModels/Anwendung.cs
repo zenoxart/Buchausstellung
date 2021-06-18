@@ -470,7 +470,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private ViewModels.VeranstaltungsManager _Veranstaltung;
+        private ViewModels.VeranstaltungsManager _Veranstaltung = null;
 
         /// <summary>
         /// Ruft die Aktuelle Veranstaltung ab oder legt diese fest
@@ -557,7 +557,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _StarteSoftware;
+        private WIFI.Anwendung.Befehl _StarteSoftware = null;
 
         /// <summary>
         /// Stellt eine Methode zum Starten des Arbeitsbereiches
@@ -589,7 +589,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Ausstellung.ViewModels.AbholungsManager _Abholung;
+        private WIFI.Ausstellung.ViewModels.AbholungsManager _Abholung = null;
 
         /// <summary>
         /// Ruft die Abholungsverwaltung ab oder legt diese fest
@@ -611,7 +611,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Ausstellung.ViewModels.BuchManager _Buch;
+        private WIFI.Ausstellung.ViewModels.BuchManager _Buch = null;
 
         /// <summary>
         /// Ruft die Buchverwaltung ab oder legt diese fest 

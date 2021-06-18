@@ -65,7 +65,7 @@
             HorizontalAlignment="Stretch" 
             Style="{DynamicResource HellDunkelSplitter}"/>
 
-
+        <!-- Datenerfassungsbereich für den Besucher -->
         <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid  Background="Transparent">
                 <Grid.ColumnDefinitions>

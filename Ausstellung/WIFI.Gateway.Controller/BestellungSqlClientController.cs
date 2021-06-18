@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace WIFI.Gateway.Controller
 {
+
+    /// <summary>
+    /// Stellt einen Clientcontroller für das Verwalten der Bestellungen
+    /// </summary>
     public class BestellungSqlClientController : WIFI.Anwendung.SqlClient.Controller
     {
         /// <summary>

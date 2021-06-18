@@ -43,36 +43,50 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+
+        <!-- BuchNr -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
                Style="{DynamicResource StandartFont}"
                Grid.Column="0"
                Content="Buchnummer"/>
 
+        <!-- Titel -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Style="{DynamicResource StandartFont}"
                Grid.Column="1" 
                Content="Titel"
                />
+
+
+        <!-- Autor -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="2"
                Style="{DynamicResource StandartFont}"
                Content="Autor"
                />
+
+        <!-- Verlagname -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="3"
                Style="{DynamicResource StandartFont}"
                Content="Verlag"
                />
+
+        <!-- Rabattgruppe -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="4"
                Style="{DynamicResource StandartFont}"
                Content="Rabattgruppe"
                />
+
+        <!-- Kategorie -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="5"
                Style="{DynamicResource StandartFont}"
                Content="Kategorie"
                />
+
+        <!-- Preis -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Grid.Column="6"
                Style="{DynamicResource StandartFont}"

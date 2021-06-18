@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.Models
-{ /// <summary>
-  /// Stellt eine Liste von Anwendungsbereichen bereit.
-  /// </summary>
+{
+    /// <summary>
+    /// Stellt eine Liste von Anwendungsbereichen bereit.
+    /// </summary>
     public class Aufgaben : System.Collections.ObjectModel.ObservableCollection<Aufgabe>
     {
     }

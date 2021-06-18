@@ -313,23 +313,32 @@ namespace WIFI.Ausstellung
     /// </summary>
     public class BesucherZuBestellung : WIFI.Anwendung.Daten.DatenBasis
     {
-
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
         private WIFI.Gateway.DTO.Besucher _ZugehörigerBesucher;
 
+        /// <summary>
+        /// Ruft den Besucher zu der Bücherliste ab oder legt diesen fest
+        /// </summary>
         public WIFI.Gateway.DTO.Besucher ZugehörigerBesucher
         {
-            get { return _ZugehörigerBesucher; }
+            get { return this._ZugehörigerBesucher; }
             set
             {
-                _ZugehörigerBesucher = value;
+                this._ZugehörigerBesucher = value;
                 this.OnPropertyChanged();
             }
         }
 
-
-
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
         private WIFI.Gateway.DTO.Bücher _Liste;
 
+        /// <summary>
+        /// Ruft dendie Bücherliste zu dem zugehörigen Besucher ab oder legt diesen fest
+        /// </summary>
         public WIFI.Gateway.DTO.Bücher Liste
         {
             get { return _Liste; }

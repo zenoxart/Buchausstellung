@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum laden des Veranstaltungs-Stadiums
+    /// </summary>
     public class HoleVeranstaltungsStadiumController : Controllers.BasisApiController
     {
         /// <summary>

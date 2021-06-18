@@ -17,6 +17,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Titel -->
         <Label
             Grid.Row="0"
             Style="{DynamicResource TitleStyle}"
@@ -24,6 +25,7 @@
             Veranstaltung erstellen
         </Label>
         
+        <!-- Eingabebereich zur erstellung einer Veranstaltung-->
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.RowDefinitions>

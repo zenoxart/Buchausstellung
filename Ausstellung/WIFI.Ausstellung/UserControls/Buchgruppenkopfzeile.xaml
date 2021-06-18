@@ -40,11 +40,13 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+        <!-- Buchgruppe -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
                Style="{DynamicResource StandartFont}"
                Grid.Column="0"
                Content="Buchgruppe"/>
 
+        <!-- Buchgruppenbezeichnung -->
         <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                Style="{DynamicResource StandartFont}"
                Grid.Column="1" 

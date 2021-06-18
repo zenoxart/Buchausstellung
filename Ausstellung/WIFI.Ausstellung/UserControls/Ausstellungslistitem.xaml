@@ -32,7 +32,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-
+        
+        <!-- Titel -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                 Grid.Column="1" 
@@ -40,42 +41,55 @@
                Content="{Binding ElementName=Ausstellungsitem,Path=Titel}"
                />
 
+        <!-- Buchnr -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="0"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Ausstellungsitem,Path=Buchnr}"
             />
+
+        <!-- Autor -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                 Grid.Column="2"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Ausstellungsitem,Path=Autor}"
                />
+
+        <!-- Verlagname -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                 Grid.Column="3"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Ausstellungsitem,Path=Verlag}"
                />
+
+        <!-- Rabattgruppe -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="4"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Ausstellungsitem,Path=Rabatt}"
                />
+
+        <!-- Kategorie -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="5"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Ausstellungsitem,Path=Kategorie}"
                />
+
+        <!-- Preis -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="6"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Ausstellungsitem,Path=Preis}"
                />
+
+        <!-- Zu Bestellungen hinzufügen-Knopf -->
         <Button 
             Width="25"
             Height="25"

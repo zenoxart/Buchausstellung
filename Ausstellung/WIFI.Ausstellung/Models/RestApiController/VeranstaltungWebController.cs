@@ -30,6 +30,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
         }
 
+
+        /// <summary>
+        /// Ändert Daten der Veranstaltung sowie das Stadium
+        /// </summary>
         public async void StarteVeranstaltung(DateTime StartDatum, DateTime EndDatum, string Ort)
         {
             const string Adresse = "{0}StarteVeranstaltung?StartDatum={1}&EndDatum={2}&Ort={3}";
@@ -48,6 +52,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
         }
 
+        /// <summary>
+        /// Aktuallisiert das Stadium der Veranstaltung
+        /// </summary>
         public async void UpdateVeranstaltungsStadium(WIFI.Gateway.DTO.AusstellungsstadiumTyp typ)
         {
             const string Adresse = "{0}UpdateVeranstaltungsStadium?Typ={1}";
@@ -62,6 +69,11 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
             }
         }
+
+        /// <summary>
+        /// Läd das aktuelle Stadium der Veranstaltung
+        /// </summary>
+        /// <returns></returns>
         public async System.Threading.Tasks.Task<WIFI.Gateway.DTO.AusstellungsstadiumTyp> HoleVeranstaltungsStadium()
         {
             const string Adresse = "{0}HoleVeranstaltungsStadium";

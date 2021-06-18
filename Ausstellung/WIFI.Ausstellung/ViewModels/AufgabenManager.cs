@@ -239,74 +239,6 @@ namespace WIFI.Ausstellung.ViewModels
                     this.EndeProtokollieren();
                     this.InitialisiereAufgabenLäuft = false;
 
-                    //// Prüfe für die Threadsicherheit ,
-                    //// ob ein Dispatcher vorhanden ist
-                    //if (this.AppKontext.Protokoll.Dispatcher != null)
-                    //{
-                    //    // Die Beschreibung der InvokeAsync Methode holen
-                    //    // Generisches Laden eines  Typen und von dem dann eine MethodInfo generiert wird
-                    //    System.Reflection.MethodInfo InvokeMethode = this.AppKontext.Protokoll.Dispatcher.GetType()
-                    //        .GetMethod(
-                    //        "InvokeAsync",
-                    //        new Type[] { typeof(System.Action) })
-                    //        ;
-
-                    //    // die Methode ausführen,
-                    //    // d.h. den Dispatcher bitten,
-                    //    // den EIntrag threadsicher zu veranlassen
-                    //    if (InvokeMethode != null)
-                    //    {
-                    //        InvokeMethode.Invoke(
-                    //        this.AppKontext.Protokoll.Dispatcher,
-                    //        new object[] {
-                    //    new System.Action(() => AktuelleAufgabeSetzen())
-                    //        });
-                    //    }
-                    //    else
-                    //    {
-                    //        // Keine Threadsicherheit
-                    //        // Weil das Objekt in der Dispatcher Eigenschaft
-                    //        // kein InvokeAsync hat
-                    //        AktuelleAufgabeSetzen();
-                    //    }
-
-                    //}
-                    //else
-                    //{
-                    //    // Keine Threadsicherheit
-                    //    // Weil kein Dispatcher eingestellt ist
-                    //    AktuelleAufgabeSetzen();
-                    //}
-
-                    //void AktuelleAufgabeSetzen()
-                    //{
-                    //    // Nachdem die Liste abgerufen wurde,
-                    //    // die zuletzt benutzte Aufgabe einstellen
-
-                    //    // Die Einstellung aus der Konfiguration
-                    //    // in einer Variable abkürzen und beim
-                    //    // Benutzen sauber prüfen, ob der Wert
-                    //    // im gültigen Bereich. Spezialbenutzer
-                    //    // könnten herumgepfuscht haben
-                    //    var i = Properties.Settings.Default.IndexAktuelleAufgabe;
-
-                    //    try
-                    //    {
-                    //        // 20210506 Änderung -> Kasper,
-                    //        // Es muss zuerst gefragt werden ob die Liste ungleich
-                    //        // NULL ist bevor auf den Count zugegriffen werden kann,
-                    //        // um zu verhintern, dass eine Null-Reference entsteht 
-                    //        if (this.Liste != null && i >= 0 && i < this.Liste.Count)
-                    //        {
-                    //            this.AktuelleAufgabe = this.Liste[i];
-                    //        }
-                    //    }
-                    //    catch (Exception)
-                    //    {
-                    //        Console.WriteLine("Ein Fehler ist aufgetaucht");
-                    //    }
-
-                    //}
                 }
                 );
 
@@ -438,7 +370,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private object _AktiverViewer;
+        private object _AktiverViewer = null;
 
         /// <summary>
         /// Ruft den Arbeitsbereich der

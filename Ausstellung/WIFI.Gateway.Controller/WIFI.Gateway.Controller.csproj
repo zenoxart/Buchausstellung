@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BestellungSqlClientController.cs" />
     <Compile Include="BesucherSqlClientController.cs" />
+    <Compile Include="BuchgruppeSqlClientController.cs" />
     <Compile Include="BuchSqlClientController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeranstaltungSqlClientController.cs" />

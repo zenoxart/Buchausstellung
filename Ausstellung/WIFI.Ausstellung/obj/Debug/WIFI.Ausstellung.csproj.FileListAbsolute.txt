@@ -571,13 +571,11 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\App.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\MainWindow.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungslistitem.g.cs
-C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungsfilter.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungskopfzeile.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungslistitem.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenkopfzeile.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenlistitem.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.g.cs
-C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungsfilter.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchgruppenkopfzeile.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.g.cs
@@ -604,13 +602,11 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\App.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\MainWindow.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungslistitem.baml
-C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungsfilter.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungskopfzeile.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Ausstellungslistitem.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenkopfzeile.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungenlistitem.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungkopfzeile.baml
-C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungsfilter.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Bestellungslistitem.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchgruppenkopfzeile.baml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Buchverwaltungskopfzeile.baml

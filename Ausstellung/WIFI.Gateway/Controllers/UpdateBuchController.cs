@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum ändern des Buches
+    /// </summary>
     public class UpdateBuchController : Controllers.BasisApiController
     {
         /// <summary>

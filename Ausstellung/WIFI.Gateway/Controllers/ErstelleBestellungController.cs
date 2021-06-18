@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum erstellen einer Bestellung
+    /// </summary>
     public class ErstelleBestellungController : Controllers.BasisApiController
     {
 

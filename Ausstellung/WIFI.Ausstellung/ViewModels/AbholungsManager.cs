@@ -14,7 +14,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellungen _Abholungsliste;
+        private WIFI.Anwendung.DTO.Bestellungen _Abholungsliste = null;
 
         /// <summary>
         /// Ruft eine Auflistung der Bestellungen für die 
@@ -55,7 +55,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.Befehl _Abholungsbestätigung;
+        private WIFI.Anwendung.Befehl _Abholungsbestätigung = null;
 
         /// <summary>
         /// Befehl um alle Abgeholten Bücher in die Datenbank zu schreiben

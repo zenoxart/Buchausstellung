@@ -32,42 +32,58 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+        <!-- BuchNr -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="0"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Buchnr}"
             />
+
+        <!-- Titel -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="1" 
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Titel}"
                />
+
+
+        <!-- Autor -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="2"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Autor}"
                />
+
+        <!-- Verlagname -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="3"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Verlag}"
                />
+
+
+        <!-- Rabattgruppe -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="4"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Rabatt}"
                />
+
+        <!-- Kategorie -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="5"
                Style="{DynamicResource StandartFont}"
                Content="{Binding ElementName=Buchitem,Path=Kategorie}"
                />
+
+
+        <!-- Preis -->
         <Label VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"
                Grid.Column="6"

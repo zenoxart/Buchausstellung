@@ -4,6 +4,45 @@
         <name>WIFI.Gateway</name>
     </assembly>
     <members>
+        <member name="T:WIFI.Gateway.WebApiConfig">
+            <summary>
+            Stellt die Konfiguration für eine REST-API
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registriert die übergebenen Daten
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.AktualisiereBuchgruppeController">
+            <summary>
+            Stellt einen REST-API-Controller zum ändern der Buchgruppe
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.AktualisiereBuchgruppeController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.AktualisiereBuchgruppeController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Buchgruppen ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.AktualisiereBuchgruppeController.Get(WIFI.Gateway.DTO.Buchgruppe)">
+            <summary>
+            Aktualisiert den Eintrag einer 
+            Buchgruppe in der Datenbank
+            </summary>
+            <param name="id">Interne ID 
+            der Buchgruppe</param>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController">
+            <summary>
+            Stellt einen REST-API-Controller zum hinzufügen aller Bestellungen
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -29,6 +68,11 @@
             Ruft die WIFI Infrastruktur ab
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController">
+            <summary>
+            Stellt einen REST-API-Controller um eine Bestellung der Datenbank hinzuzufügen
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -37,6 +81,58 @@
         <member name="P:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController.ClientSqlController">
             <summary>
             Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.EntferneBuchController">
+            <summary>
+            Stellt einen REST-API-Controller zum entfernen eines Buches
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.EntferneBuchController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.EntferneBuchController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bücher ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.EntferneBuchController.Get(WIFI.Gateway.DTO.Buch)">
+            <summary>
+            Entfernt ein Buch 
+            aus der Datenbank
+            </summary>
+            <param name="id">Interne ID 
+            des Buchs</param>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.EntferneBuchgruppeController">
+            <summary>
+            Stellt einen REST-API-Controller zum entfernen der Buchgruppe
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.EntferneBuchgruppeController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.EntferneBuchgruppeController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Buchgruppen ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.EntferneBuchgruppeController.Get(WIFI.Gateway.DTO.Buchgruppe)">
+            <summary>
+            Entfernt eine Buchgruppe aus der Datenbank
+            </summary>
+            <param name="id">Interne ID 
+            der Buchgruppe</param>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.ErstelleBestellungController">
+            <summary>
+            Stellt einen REST-API-Controller zum erstellen einer Bestellung
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleBestellungController._ClientSqlController">
@@ -49,6 +145,11 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.ErstelleBesucherController">
+            <summary>
+            Stellt einen REST-API-Controller zum erstellen eines Besuchers
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleBesucherController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -57,6 +158,27 @@
         <member name="P:WIFI.Gateway.Controllers.ErstelleBesucherController.ClientSqlController">
             <summary>
             Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.ErstelleBuchController">
+            <summary>
+            Stellt einen REST-API-Controller zum erstellen eines Buches
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.ErstelleBuchController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.ErstelleBuchController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bücher ab 
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(WIFI.Gateway.DTO.Buch)" -->
+        <member name="T:WIFI.Gateway.Controllers.ErstelleVeranstaltungController">
+            <summary>
+            Stellt einen REST-API-Controller zum erstellen einer Veranstaltung
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleVeranstaltungController._ClientSqlController">
@@ -69,6 +191,11 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.HoleBestellungenController">
+            <summary>
+            Stellt einen REST-API-Controller zum laden aller Bestellungen
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.HoleBestellungenController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -77,6 +204,53 @@
         <member name="P:WIFI.Gateway.Controllers.HoleBestellungenController.ClientSqlController">
             <summary>
             Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.HoleBuchgruppenController">
+            <summary>
+            Stellt einen REST-API-Controller zum laden der Buchgruppen
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.HoleBuchgruppenController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.HoleBuchgruppenController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Buchgruppen ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleBuchgruppenController.Get">
+            <summary>
+            Gibt die Buchgruppen aus der Datenbank zurück
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.HoleBücherController">
+            <summary>
+            Stellt einen REST-API-Controller zum laden der Bücher
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.HoleBücherController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.HoleBücherController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bücher ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleBücherController.Get">
+            <summary>
+            Gibt die Bücher aus der Datenbank zurück
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController">
+            <summary>
+            Stellt einen REST-API-Controller zum laden des Veranstaltungs-Stadiums
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController._ClientSqlController">
@@ -89,6 +263,11 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.StarteVeranstaltungController">
+            <summary>
+            Stellt einen REST-API-Controller zum starten der Veranstaltung
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.StarteVeranstaltungController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -99,6 +278,35 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.UpdateBuchController">
+            <summary>
+            Stellt einen REST-API-Controller zum ändern des Buches
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.UpdateBuchController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.UpdateBuchController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bücher ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.UpdateBuchController.Get(WIFI.Gateway.DTO.Buch)">
+            <summary>
+            Aktualisiert die Daten eines
+            Buches in der Datenbank 
+            </summary>
+            <param name="id">Interne ID 
+            des Buchs</param>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController">
+            <summary>
+            Stellt einen REST-API-Controller zum ändern des Veranstaltungs-Stadiums
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -107,6 +315,16 @@
         <member name="P:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController.ClientSqlController">
             <summary>
             Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.WebApiApplication">
+            <summary>
+            Stellt den Dienst einer REST-API
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.WebApiApplication.Application_Start">
+            <summary>
+            Stellt den Haupteinstiegspunkt der REST-API
             </summary>
         </member>
     </members>

@@ -56,37 +56,52 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+
+        <!-- Titel -->
         <Label
             Grid.Column="0" 
             Content="{Binding ElementName=Bestellungsitem,Path=Titel}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
+
+        <!-- Autor -->
         <Label 
             Grid.Column="1"
             Content="{Binding ElementName=Bestellungsitem,Path=Autor}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
+
+        <!-- Verlagname -->
         <Label
             Grid.Column="2"
             Content="{Binding ElementName=Bestellungsitem,Path=Verlag}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
+
+        <!-- Preis -->
         <Label
             Grid.Column="3"
             Content="{Binding ElementName=Bestellungsitem,Path=Preis}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
+
+        <!-- Kategorie -->
         <Label
             Grid.Column="4"
             Content="{Binding ElementName=Bestellungsitem,Path=Kategorie}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
+
+
+        <!-- Rabattgruppe -->
         <Label
             Grid.Column="5"
             Content="{Binding ElementName=Bestellungsitem,Path=Rabatt}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
 
+
+        <!-- Anzahl -->
         <TextBox Grid.Column="6"
             Width="70"
             Height="25"
@@ -95,6 +110,9 @@
             HorizontalContentAlignment="Center"
             Text="{Binding ElementName=Bestellungsitem,Path=Anzahl}"
             />
+
+
+        <!-- Enfernen der Liste -->
         <Button
             Width="25"
             Height="25"

@@ -39,6 +39,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0" Height="110" Width="266">
+               
+                <!-- Spalte für die Daten der jeweiligen Gruppe -->
                 <StackPanel Orientation="Horizontal" Height="35">
                     <Label 
                         FontSize="14"
@@ -57,6 +59,7 @@
                         />
 
                 </StackPanel>
+                <!-- Knopf zum Hinzufügen der neuen Gruppe-->
                 <Button 
                     Content="Hinzufügen" 
                     Margin="0" 
@@ -64,6 +67,7 @@
                     VerticalAlignment="Top" 
                     Style="{DynamicResource BestellButton}"
                     Command="{Binding Buch.BuchgruppeHinzufügen}"/>
+                <!-- Knopf zum entfernen der ausgewählten Gruppe-->
                 <Button 
                     Background="Red"
                     Content="Ausgewähltes Buch löschen" 
@@ -74,6 +78,7 @@
             </StackPanel>
 
             <!-- TODO: Binden an eine Observable<Buchgruppe> -->
+            <!-- Darstellung aller Büchergruppen-->
             <ListBox 
                 Background="Transparent"
                 Grid.Column="2"

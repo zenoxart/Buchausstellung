@@ -15,8 +15,10 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        <!-- Titel -->
         <Label Grid.Row="0" Style="{DynamicResource TitleStyle}">Ausstellungsabschluss</Label>
 
+        <!-- Inneres Anzeigefeld für die Checkboxen -->
         <Border Grid.Row="2"
                 Height="200"
                 VerticalAlignment="Center" 
@@ -38,11 +40,13 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <!-- Spalte für Checkbox + Text -->
                 <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                     <CheckBox Template="{DynamicResource CheckBoxTemplate}" IsChecked="{Binding Ausstellung.Gesamtbestellungendruck}"/>
                     <Label Style="{DynamicResource DunkelHellSchrift}" FontSize="18" FontWeight="Bold" >Gesamtbestellliste als PDF speichern</Label>
 
                 </StackPanel>
+                <!-- Spalte für Checkbox + Text -->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
                     <CheckBox Template="{DynamicResource CheckBoxTemplate}" IsChecked="{Binding Ausstellung.Bestellbestätigungendruck}"></CheckBox>
                     <Label VerticalContentAlignment="Center" Style="{DynamicResource DunkelHellSchrift}" FontSize="18" FontWeight="Bold" >Bestellbestätigungen als PDF speichern</Label>
@@ -64,6 +68,7 @@
             </Border.Style>
         </Border>
 
+        <!-- Knopf zum Beenden des Veranstaltungs-Stadiums und zum speichern der PDFs -->
         <Button 
             Grid.Row="4" 
             Template="{DynamicResource RoundOrangeButton}" 

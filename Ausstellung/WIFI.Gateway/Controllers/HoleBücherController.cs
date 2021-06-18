@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum laden der Bücher
+    /// </summary>
     public class HoleBücherController : Controllers.BasisApiController
     {
         /// <summary>

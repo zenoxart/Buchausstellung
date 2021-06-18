@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.Models.RestApiController
 {
+    /// <summary>
+    /// Stellt einen Dienst zum Verwalten der Bestellungen über die Rest-Api
+    /// </summary>
     public class BestellungWebController : WIFI.Anwendung.SqlClient.Controller
     {
-
+        /// <summary>
+        /// Legt eine Neue Bestellung für einen Besucher an und gibt die Bestell-ID zurück
+        /// </summary>
+        /// <param name="besucher"></param>
+        /// <returns></returns>
         public async System.Threading.Tasks.Task<int> ErstelleBestellung(Gateway.DTO.Besucher besucher)
         {
             const string Adresse = "{0}ErstelleBestellung?besucher={1}";
@@ -28,6 +35,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
         }
 
+        /// <summary>
+        /// Fügt ein Buch mit der Anzahl einer BestellNr hinzu
+        /// </summary>
         public async void BuchbestellungHinzufügen(Gateway.DTO.Buch buch, int bestellNr, int anzahl)
         {
             //DTO.Buch buch, int bestellNr, int anzahl
@@ -45,6 +55,11 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
 
         }
+
+        /// <summary>
+        /// Läd alle Bestellungen
+        /// </summary>
+        /// <returns></returns>
 
         public async System.Threading.Tasks.Task<Gateway.DTO.Bestellungen> HoleBestellungen()
         {
@@ -64,6 +79,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
         }
 
+        /// <summary>
+        /// FÜgt alle Bestellungen der Datenbank hinzu
+        /// </summary>
         public async void AlleBuchbestellungenHinzufügen(Gateway.DTO.Bestellung bestellung)
         {
             const string Adresse = "{0}AlleBuchbestellungenHinzufügen?Bestellung={1}";

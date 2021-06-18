@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WIFI.Gateway.Controller
 {
+    /// <summary>
+    /// Stellt einen Clientcontroller für das Verwalten der Veranstaltung
+    /// </summary>
     public class VeranstaltungSqlClientController : WIFI.Anwendung.SqlClient.Controller
     {
         /// <summary>

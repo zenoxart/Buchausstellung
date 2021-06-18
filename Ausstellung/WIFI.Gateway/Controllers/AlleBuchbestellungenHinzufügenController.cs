@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum hinzufügen aller Bestellungen
+    /// </summary>
     public class AlleBuchbestellungenHinzufügenController : Controllers.BasisApiController
     {
 

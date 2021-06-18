@@ -7,6 +7,10 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum ändern des Veranstaltungs-Stadiums
+    /// </summary>
     public class UpdateVeranstaltungsStadiumController : Controllers.BasisApiController
     {
 

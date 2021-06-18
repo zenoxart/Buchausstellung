@@ -94,26 +94,7 @@
                 </Button>
             </StackPanel>
 
-            <Label Content="Standardpfad des Protokolls:" 
-                   Style="{DynamicResource DunkelHellSchrift}"
-                   FontSize="17"/>
-            <StackPanel  Orientation="Horizontal" >
-
-                <TextBox Width="250" 
-                         Height="30" 
-                         Margin="5"  
-                         Style="{DynamicResource TextCenteredBox}" 
-                         Template="{DynamicResource RoundTextBox}"/>
-
-                <Button Width="30"
-                        Height="30"
-                        Style="{DynamicResource BestellButton}"
-                        Template="{DynamicResource RoundOrangeButton}"
-                        
-                        >
-                    <Image Source="/Assets/Bilder/Lupe.png" Width="20" Height="20"/>
-                </Button>
-            </StackPanel>
+           
         </StackPanel>
 
         <GridSplitter

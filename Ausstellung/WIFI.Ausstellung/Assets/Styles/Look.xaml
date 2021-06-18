@@ -10,7 +10,6 @@
             x:Key="AppSymbol"
             TargetType="Button"
             >
-
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
         <Setter Property="FontFamily" Value="Wingdings 2" />
@@ -18,7 +17,6 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Style.Triggers>
-
             <!-- Weil das ändern des Microsoft-Templates im Training zu viel Arbeit wäre,
                      deaktivierte Symbole ein bisschen Transparent machen
                      Trigger, die auf andere Eigenschaften reagieren sollen,
@@ -41,7 +39,7 @@
         <Setter Property="Height" Value="30"/>
     </Style>
 
-
+    <!-- Stellt einen Konvertierter von Bool zu Visibility-Enum -->
     <local:BooleanToVisibilityConverter x:Key="myBoolToVisibilityConverter" />
 
     <!-- Stil-Template für einen Button, welcher genauso nichtausführbar ist-->
@@ -99,6 +97,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+    
     <!-- Lässt den Inhalt einer Textbox Vertikal zentrieren-->
     <Style TargetType="TextBox" x:Key="TextCenteredBox">
         <Setter Property="VerticalAlignment" Value="Stretch"/>
@@ -129,7 +128,7 @@
         </Style.Triggers>
     </Style>
 
-    <!-- Style für eine Vordergrund-Panel mit Hell und Dunkel -->
+    <!-- Style für eine Panel mit Hell und Dunkel -->
     <Style TargetType="StackPanel" x:Key="ForgroundPanel">
 
         <Style.Triggers>
@@ -142,6 +141,7 @@
         </Style.Triggers>
     </Style>
 
+    <!-- Style für einen Rand mit Hell und Dunkel-->
     <Style TargetType="Border" x:Key="ForgroundBorder">
         <Style.Triggers>
             <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
@@ -170,6 +170,7 @@
         </Style.Triggers>
     </Style>
 
+    <!-- Style für den HellDunkelText in einem Knopf -->
     <Style TargetType="Button" x:Key="ButtonText">
         <Style.Triggers>
             <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
@@ -388,7 +389,7 @@
         </Setter>
     </Style>
 
-
+    <!-- Style für eine abgerundete Checkbox -->
     <ControlTemplate x:Key="CheckBoxTemplate" TargetType="{x:Type CheckBox}">
         <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
             <Grid.ColumnDefinitions>
@@ -448,7 +449,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!-- Template für einen Runden Limettenfarbenen Button -->
+    <!-- Template für einen Runden Limettenfarbenen Knopf -->
     <ControlTemplate  x:Key="RoundLimeButton" TargetType="{x:Type Button}">
         <Border  x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="Lime" SnapsToDevicePixels="True">
             <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -473,6 +474,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <!-- Template für einen Runden Blaufarbenen Knopf -->
     <ControlTemplate  x:Key="RoundBlueButton" TargetType="{x:Type Button}">
         <Border  x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="#1e90ff" SnapsToDevicePixels="True">
             <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -497,8 +499,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-
-    <!-- Template für einen Runden Orangefarbenen Button -->
+    <!-- Template für einen Runden Orangefarbenen Knopf -->
     <ControlTemplate  x:Key="RoundOrangeButton" TargetType="{x:Type Button}">
         <Border  x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="Orange" SnapsToDevicePixels="True">
             <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -523,6 +524,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <!-- Template für einen Runden Hellblauen Knopf -->
     <ControlTemplate x:Key="AddBestellungRoundButton" TargetType="{x:Type Button}">
         <Border  x:Name="border" CornerRadius="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
             <ContentPresenter  x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -536,7 +538,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!-- Button-Style für das Hinzufügen einer Bestellung oder das Hinzufügen eines Buches -->
+    <!-- Knopf-Style für das Hinzufügen einer Bestellung oder das Hinzufügen eines Buches -->
     <Style TargetType="Button" x:Key="BestellButton">
         <Setter Property="Background" Value="#1e90ff"/>
         <Setter Property="Foreground" Value="White"/>

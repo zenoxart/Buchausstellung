@@ -36,7 +36,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private string _Ort;
+        private string _Ort = null;
 
         /// <summary>
         /// Ruft den String zu der Ortsbezeichnung ab oder legt diesen fest
@@ -119,7 +119,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private DateTime _VeranstaltungsBeginnDatum;
+        private DateTime _VeranstaltungsBeginnDatum = System.DateTime.MinValue;
 
         /// <summary>
         /// Ausgewähltes Beginndatum des Events
@@ -150,7 +150,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private DateTime _VeranstaltungsEndDatum;
+        private DateTime _VeranstaltungsEndDatum = System.DateTime.MinValue;
 
         /// <summary>
         /// Ausgewähltes Enddatum des Events
