@@ -36,12 +36,12 @@ namespace WIFI.Gateway.Controllers
         /// <summary>
         /// Übergibt die Daten zum Erstellen eines Buches
         /// </summary>
-        /// <param name="buch">Die Daten des Buches,
+        /// <param name="Buch">Die Daten des Buches,
         /// welches in der Datenbank angelegt werden soll</param>
         /// <returns></returns>
-        public object Get(DTO.Buch buch)
+        public object Get(Gateway.DTO.Buch Buch)
         {
-            ClientSqlController.BuchHinzufügen(buch);
+            ClientSqlController.BuchHinzufügen(Buch);
             return null;
         }
     }

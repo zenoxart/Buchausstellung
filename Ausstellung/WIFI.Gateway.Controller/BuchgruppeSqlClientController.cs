@@ -26,7 +26,7 @@ namespace WIFI.Gateway.Controller
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
                 {
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleBücher", Verbindung))
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleBuchgruppen", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -41,7 +41,7 @@ namespace WIFI.Gateway.Controller
                                 NeueListe.Add(
                                     new DTO.Buchgruppe
                                     {
-                                        ID = Convert.ToInt32(DatenLeser["buchid"]),
+                                        ID = Convert.ToInt32(DatenLeser["Id"]),
                                         Gruppennummer = Convert.ToInt32(DatenLeser["nummer"]),
                                         Beschreibung = DatenLeser["bezeichnung"].ToString()
                                     });
@@ -71,7 +71,7 @@ namespace WIFI.Gateway.Controller
         /// in der Datenbank
         /// </summary>
         /// <param name="gruppe">Daten der Buchgruppe</param>
-        public void BuchgruppeHinzufügen(DTO.Buchgruppe gruppe)
+        public void BuchgruppeHinzufügen(Gateway.DTO.Buchgruppe gruppe)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace WIFI.Gateway.Controller
 
                         Befehl.Prepare();
 
-                        Befehl.ExecuteNonQuery();
+                        Befehl.ExecuteScalar();
                     }
                 }
             }
@@ -161,7 +161,8 @@ namespace WIFI.Gateway.Controller
 
                         Verbindung.Open();
 
-                        Befehl.Parameters.AddWithValue("ID", gruppe.ID);
+                        Befehl.Parameters.AddWithValue("Gruppennummer", gruppe.Gruppennummer);
+                        Befehl.Parameters.AddWithValue("Beschreibung", gruppe.Beschreibung);
 
                         Befehl.Prepare();
 

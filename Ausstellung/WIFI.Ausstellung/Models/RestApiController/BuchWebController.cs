@@ -32,7 +32,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async void ErstelleBuch(Gateway.DTO.Buch buch)
         {
-            const string Adresse = "{0}ErstelleBuch?buch={1}";
+            const string Adresse = "{0}ErstelleBuch?Buch={1}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                    string.Format(

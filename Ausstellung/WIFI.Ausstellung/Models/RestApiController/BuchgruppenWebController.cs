@@ -17,7 +17,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async void AktualisiereBuchgruppe(Gateway.DTO.Buchgruppe id)
         {
-            const string Adresse = "{0}ktualisiereBuchgruppe?id={1}";
+            const string Adresse = "{0}AktualisiereBuchgruppe?id={1}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                    string.Format(
@@ -34,31 +34,36 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async void EntferneBuchgruppe(Gateway.DTO.Buchgruppe id)
         {
-            const string Adresse = "{0}EntferneBuchgruppe?id={1}";
+            const string Adresse = "{0}EntferneBuchgruppe?Gruppennr={1}&Beschreibung={2}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                    string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       id
+                       id.Gruppennummer,
+                       id.Beschreibung
                        )))
             {
             }
         }
 
         /// <summary>
+        /// TODO: Error -> Unsuported Media-Type
         /// Legt eine Buchgruppe in der Datenbank an
         /// </summary>
-        public async void ErstelleBuchgruppe(Gateway.DTO.Buchgruppe buchgruppe)
+        public async void ErstelleBuchgruppe(Gateway.DTO.Buchgruppe gruppe)
         {
-            const string Adresse = "{0}ErstelleBuchgruppe?buchgruppe={1}";
-
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+            const string Adresse = "{0}ErstelleBuchgruppe?Gruppennummer={1}&Beschreibung={2}";
+            
+            string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       buchgruppe
-                       )))
+                       gruppe.Gruppennummer,
+                       gruppe.Beschreibung
+                       );
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                   ZielAdresse))
             {
             }
         }

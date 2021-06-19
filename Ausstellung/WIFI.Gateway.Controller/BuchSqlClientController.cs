@@ -86,12 +86,12 @@ namespace WIFI.Gateway.Controller
 
                         Verbindung.Open();
 
-                        Befehl.Parameters.AddWithValue("Nummer", buch.Buchnummer);
-                        Befehl.Parameters.AddWithValue("Bezeichnung", buch.Titel);
+                        Befehl.Parameters.AddWithValue("Buchnummer", buch.Buchnummer);
+                        Befehl.Parameters.AddWithValue("Titel", buch.Titel);
                         Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
                         Befehl.Parameters.AddWithValue("Preis", buch.Preis);
                         Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
-                        Befehl.Parameters.AddWithValue("Kategorie", buch.Kategoriegruppe);
+                        Befehl.Parameters.AddWithValue("Kategorieid", buch.Kategoriegruppe);
                         Befehl.Parameters.AddWithValue("Verlagname", buch.VerlagName);
 
                         Befehl.Prepare();

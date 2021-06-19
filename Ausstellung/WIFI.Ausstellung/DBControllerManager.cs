@@ -48,5 +48,30 @@ namespace WIFI.Ausstellung
             }
         }
 
+
+        /// <summary>
+        /// Ruft den Controller zum Verwalten der Daten zu den Buchgruppen 
+        /// ab 
+        /// </summary>
+        public static WIFI.Ausstellung.Models.RestApiController.BuchgruppenWebController BuchgruppenController
+        {
+            get
+            {
+                return new Models.RestApiController.BuchgruppenWebController();
+            }
+        }
+
+        /// <summary>
+        /// Ruft den Controller zum Verwalten der Buchdaten 
+        /// ab 
+        /// </summary>
+        public static WIFI.Ausstellung.Models.RestApiController.BuchWebController BuchController
+        {
+            get
+            {
+                return new Models.RestApiController.BuchWebController();
+            }
+        }
+
     }
 }

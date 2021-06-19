@@ -278,7 +278,7 @@
             Ruft den Clientcontroller für die Buchgruppen ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.EntferneBuchgruppeController.Get(WIFI.Gateway.DTO.Buchgruppe)">
+        <member name="M:WIFI.Gateway.Controllers.EntferneBuchgruppeController.Get(System.Int32,System.String)">
             <summary>
             Entfernt eine Buchgruppe aus der Datenbank
             </summary>
@@ -351,7 +351,7 @@
             <summary>
             Übergibt die Daten zum Erstellen eines Buches
             </summary>
-            <param name="buch">Die Daten des Buches,
+            <param name="Buch">Die Daten des Buches,
             welches in der Datenbank angelegt werden soll</param>
             <returns></returns>
         </member>
@@ -370,12 +370,11 @@
             Ruft den Clientcontroller für die Buchgruppen ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchgruppeController.Get(WIFI.Gateway.DTO.Buchgruppe)">
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchgruppeController.Get(System.Int32,System.String)">
             <summary>
             Befehl zum Erstellen einer
             Buchgruppe in der Datenbank
             </summary>
-            <param name="buchgruppe">Daten der Buchgruppe</param>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleVeranstaltungController">
             <summary>
@@ -506,10 +505,6 @@
             Ruft den Befehl zum Starten einer
             Veranstaltung in der Datenbank ab
             </summary>
-            <param name="StartDatum">Beginn der Veranstaltung</param>
-            <param name="EndDatum">Ende der Veranstaltung</param>
-            <param name="Ort">Ort der Veranstaltung</param>
-            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.UpdateBuchController">
             <summary>

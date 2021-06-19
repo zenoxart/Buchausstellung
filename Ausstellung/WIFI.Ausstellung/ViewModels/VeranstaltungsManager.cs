@@ -88,6 +88,8 @@ namespace WIFI.Ausstellung.ViewModels
                                     this.VeranstaltungsEndDatum,
                                     this.Ort);
 
+
+
                                 // 20210617 -> Übersiedlung von MySql auf MsSql
                                 //this.AppKontext.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
                                 //    this.VeranstaltungsBeginnDatum,

@@ -143,7 +143,7 @@ namespace WIFI.Ausstellung.ViewModels
                     VeranstaltungsSektionLaden();
 
 
-                    System.Threading.Thread.Sleep(3000);
+                    System.Threading.Thread.Sleep(300);
 
                     async void VeranstaltungsSektionLaden()
                     {

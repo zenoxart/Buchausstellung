@@ -69,8 +69,8 @@ namespace WIFI.Gateway.Controller
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-                        Befehl.Parameters.AddWithValue("StartDatum", StartDatum.ToString("yyyy-MM-dd"));
-                        Befehl.Parameters.AddWithValue("EndDatum", EndDatum.ToString("yyyy-MM-dd"));
+                        Befehl.Parameters.AddWithValue("StartDatum", StartDatum);
+                        Befehl.Parameters.AddWithValue("EndDatum", EndDatum);
                         Befehl.Parameters.AddWithValue("Ort", Ort);
 
                         Verbindung.Open();

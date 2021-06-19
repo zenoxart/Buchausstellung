@@ -37,17 +37,16 @@ namespace WIFI.Ausstellung.Models.RestApiController
         public async void StarteVeranstaltung(DateTime StartDatum, DateTime EndDatum, string Ort)
         {
             const string Adresse = "{0}StarteVeranstaltung?StartDatum={1}&EndDatum={2}&Ort={3}";
-
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+            string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       StartDatum,
-                       EndDatum,
+                       StartDatum.ToString("yyyy/MM/dd"),
+                       EndDatum.ToString("yyyy/MM/dd"),
                        Ort
-                       )))
+                       );
+            using (var Antwort = await this.HttpClient.GetAsync(
+                   ZielAdresse))
             {
-                var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
             }
         }

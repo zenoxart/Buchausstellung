@@ -16,20 +16,20 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bücher _Buchausstellungsliste = null;
+        private static WIFI.Gateway.DTO.Bücher _Buchausstellungsliste = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind, ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bücher Buchausstellungsliste
+        public WIFI.Gateway.DTO.Bücher Buchausstellungsliste
         {
             get
             {
                 if (BuchManager._Buchausstellungsliste == null)
                 {
-                    Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher
+                    Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher
                     {
-                        new WIFI.Anwendung.DTO.Buch
+                        new WIFI.Gateway.DTO.Buch
                         {
                             Buchnummer = "0",
                             Titel = "Buchtitel werden geladen...",
@@ -91,8 +91,13 @@ namespace WIFI.Ausstellung.ViewModels
                     this.StartProtokollieren();
 
                     System.Threading.Thread.Sleep(7000);
+                    async void Load()
+                    {
+                        this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
 
-                    this.Buchausstellungsliste = this.AppKontext.DBControllerManager.BücherController.HoleBücher();
+                    }
+
+                    Load();
 
                     this.EndeProtokollieren();
                     this.BuecherListeGeladen = false;
@@ -155,16 +160,19 @@ namespace WIFI.Ausstellung.ViewModels
                             if (this.Buchausstellungsliste == null)
                             {
 
-                                this.Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher();
+                                this.Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher();
                             }
 
-                            this.Buchausstellungsliste.Add(this.AktuellesBuch);
 
-                            this.AppKontext.DBControllerManager.BücherController.BuchHinzufügen(
+                            if (this.AktuellesBuch != null)
+                            {
 
-                                this.AktuellesBuch);
+                                this.Buchausstellungsliste.Add(this.AktuellesBuch);
 
-                            this.AktuellesBuch = null;
+                                WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(this.AktuellesBuch);
+
+                                this.AktuellesBuch = null;
+                            }
 
                         }
                     );
@@ -186,27 +194,32 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         private void InitialisiereBuecherListe()
         {
-            this.Buchausstellungsliste =
-                this.AppKontext.DBControllerManager.BücherController.HoleBücher();
+            async void Load()
+            {
+                this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
+
+            }
+
+            Load();
         }
 
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buch _AktuellesBuch = null;
+        private WIFI.Gateway.DTO.Buch _AktuellesBuch = null;
 
         /// <summary>
         /// Ruft das aktuelle Buch ab
         /// oder legt dieses fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Buch AktuellesBuch
+        public WIFI.Gateway.DTO.Buch AktuellesBuch
         {
             get
             {
                 if (this._AktuellesBuch == null)
                 {
-                    this._AktuellesBuch = new WIFI.Anwendung.DTO.Buch();
+                    this._AktuellesBuch = new WIFI.Gateway.DTO.Buch();
                 }
 
                 return this._AktuellesBuch;
@@ -259,14 +272,14 @@ namespace WIFI.Ausstellung.ViewModels
 
                                 string[] newText = text.Split('\n');
 
-                                WIFI.Anwendung.DTO.Bücher buches = new WIFI.Anwendung.DTO.Bücher();
+                                WIFI.Gateway.DTO.Bücher buches = new WIFI.Gateway.DTO.Bücher();
 
 
                                 for (int i = 1; i < newText.Length - 1; i++)
                                 {
                                     string[] line = newText[i].Split(';');
                                     buches.Add(
-                                        new WIFI.Anwendung.DTO.Buch()
+                                        new WIFI.Gateway.DTO.Buch()
                                         {
                                             ID = Convert.ToInt32(line[0]),
                                             Buchnummer = line[1],
@@ -285,7 +298,7 @@ namespace WIFI.Ausstellung.ViewModels
                                 // update to Database
                                 foreach (var item in buches)
                                 {
-                                    this.AppKontext.DBControllerManager.BücherController.AktualisiereBuch(item);
+                                    WIFI.Ausstellung.DBControllerManager.BuchController.UpdateBuch(item);
                                 }
                             }
                             catch (Exception e)
@@ -386,19 +399,26 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buchgruppen _Büchergruppen = null;
+        private WIFI.Gateway.DTO.Buchgruppen _Büchergruppen = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Buchgruppen ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Buchgruppen Büchergruppen
+        public WIFI.Gateway.DTO.Buchgruppen Büchergruppen
         {
             get
             {
                 if (this._Büchergruppen == null)
                 {
-                    // TODO: Lade aus Datenbank
+                    this._Büchergruppen = new Gateway.DTO.Buchgruppen();
+                    // Lade aus Datenbank
                     //this.AppKontext.DBControllerManager
+                    async void Load()
+                    {
+
+                       this.Büchergruppen = await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.HoleBuchgruppen();
+                    }
+                    Load();
                 }
                 return this._Büchergruppen;
             }
@@ -412,12 +432,12 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buchgruppe _SelektierteBuchgruppe = null;
+        private WIFI.Gateway.DTO.Buchgruppe _SelektierteBuchgruppe = null;
 
         /// <summary>
         /// Ruft die Selektierte Buchgruppe ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Buchgruppe SelektierteBuchgruppe
+        public WIFI.Gateway.DTO.Buchgruppe SelektierteBuchgruppe
         {
             get { return this._SelektierteBuchgruppe; }
             set
@@ -444,7 +464,26 @@ namespace WIFI.Ausstellung.ViewModels
                     this._BuchgruppeHinzufügen = new WIFI.Anwendung.Befehl(
                         p =>
                         {
-                            
+                            if (this.NeuErstellteBuchgruppe != null)
+                            {
+                                if (this.NeuErstellteBuchgruppe.Gruppennummer != 0 &&  ! string.IsNullOrEmpty(this.NeuErstellteBuchgruppe.Beschreibung))
+                                {
+                                    // Wenn das Neuzuerstellende Objekt noch nicht existiert
+                                    if (!this.Büchergruppen.Contains(this.NeuErstellteBuchgruppe))
+                                    {
+                                        // In die Datenbank speichern
+                                        WIFI.Ausstellung.DBControllerManager.BuchgruppenController.ErstelleBuchgruppe(this.NeuErstellteBuchgruppe);
+                                        
+                                        // Durch das Casten wird eine Neue Instanz erstellt, 
+                                        // sodass eine Kopie des Objekts ensteht und kein Verweiß auf "NeuErstellteBuchgruppe"
+                                        // in der Liste steht
+                                        this.Büchergruppen.Add(this.NeuErstellteBuchgruppe as Gateway.DTO.Buchgruppe);
+
+                                        this.NeuErstellteBuchgruppe = null;
+                                    }
+
+                                }
+                            }
                         }
                         );
                 }
@@ -453,6 +492,32 @@ namespace WIFI.Ausstellung.ViewModels
             }
             set { this._BuchgruppeHinzufügen = value; }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private WIFI.Gateway.DTO.Buchgruppe _NeuErstellteBuchgruppe;
+
+        /// <summary>
+        /// Ruft die Daten zu der neu zu erstellenden Buchgruppe ab oder legt diese fest
+        /// </summary>
+        public WIFI.Gateway.DTO.Buchgruppe NeuErstellteBuchgruppe
+        {
+            get
+            {
+                if (this._NeuErstellteBuchgruppe == null)
+                {
+                    this._NeuErstellteBuchgruppe = new Gateway.DTO.Buchgruppe();
+                }
+                return this._NeuErstellteBuchgruppe;
+            }
+            set
+            {
+                this._NeuErstellteBuchgruppe = value;
+                this.OnPropertyChanged();
+            }
+        }
+
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -473,10 +538,12 @@ namespace WIFI.Ausstellung.ViewModels
                         {
                             if (this.Büchergruppen != null && this.SelektierteBuchgruppe != null)
                             {
+                                WIFI.Ausstellung.DBControllerManager.BuchgruppenController.EntferneBuchgruppe(this.SelektierteBuchgruppe);
                                 this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
+
+                                // Remove von DB
                             }
 
-                            //TODO: Remove von DB
 
                         }
                         );

@@ -36,10 +36,13 @@ namespace WIFI.Gateway.Controllers
         /// Befehl zum Erstellen einer
         /// Buchgruppe in der Datenbank
         /// </summary>
-        /// <param name="buchgruppe">Daten der Buchgruppe</param>
-        public void Get(DTO.Buchgruppe buchgruppe)
+        public object Get(int Gruppennummer, string Beschreibung)
         {
-            ClientSqlController.BuchgruppeHinzufügen(buchgruppe);
+
+            Gateway.DTO.Buchgruppe gruppe = new Gateway.DTO.Buchgruppe { Gruppennummer = Gruppennummer, Beschreibung = Beschreibung };
+            ClientSqlController.BuchgruppeHinzufügen(gruppe);
+
+            return null;
         }
     }
 }

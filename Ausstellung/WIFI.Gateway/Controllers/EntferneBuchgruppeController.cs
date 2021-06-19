@@ -39,9 +39,10 @@ namespace WIFI.Gateway.Controllers
         /// <param name="id">Interne ID 
         /// der Buchgruppe</param>
         /// <returns></returns>
-        public string Get(DTO.Buchgruppe id)
+        public string Get(int Gruppennr,string Beschreibung)
         {
-            ClientSqlController.EntferneBuchgruppe(id);
+            Gateway.DTO.Buchgruppe buchgruppe = new DTO.Buchgruppe() { Gruppennummer = Gruppennr, Beschreibung = Beschreibung };
+            ClientSqlController.EntferneBuchgruppe(buchgruppe);
             return null;
         }
     }

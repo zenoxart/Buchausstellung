@@ -38,10 +38,6 @@ namespace WIFI.Gateway.Controllers
         /// Ruft den Befehl zum Starten einer
         /// Veranstaltung in der Datenbank ab
         /// </summary>
-        /// <param name="StartDatum">Beginn der Veranstaltung</param>
-        /// <param name="EndDatum">Ende der Veranstaltung</param>
-        /// <param name="Ort">Ort der Veranstaltung</param>
-        /// <returns></returns>
         public object Get(DateTime StartDatum, DateTime EndDatum, string Ort)
         {
             ClientSqlController.StarteVeranstaltung(StartDatum, EndDatum, Ort);

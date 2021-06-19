@@ -50,12 +50,15 @@
                     <TextBox
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
-                        Width="35"/>
+                        Width="35"
+                        Text="{Binding Buch.NeuErstellteBuchgruppe.Gruppennummer}"
+                        />
                     <TextBox 
                         Width="92" 
                         Height="35" 
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Center"
+                        Text="{Binding Buch.NeuErstellteBuchgruppe.Beschreibung}"
                         />
 
                 </StackPanel>
@@ -83,7 +86,8 @@
                 Background="Transparent"
                 Grid.Column="2"
                 ItemsSource="{Binding Buch.Büchergruppen}"
-                SelectedItem="{Binding Buch.SelektierteBuchgruppe}">
+                SelectedItem="{Binding Buch.SelektierteBuchgruppe}"
+                >
                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
