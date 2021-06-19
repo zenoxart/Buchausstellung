@@ -40,7 +40,7 @@ namespace WIFI.Gateway.Controllers
         /// <param name="id">Interne ID 
         /// des Buchs</param>
         /// <returns></returns>
-        public string Get(DTO.Buch id)
+        public object Get(DTO.Buch id)
         {
             ClientSqlController.AktualisiereBuch(id);
             return null;

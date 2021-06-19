@@ -41,7 +41,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         public async void BuchbestellungHinzufügen(Gateway.DTO.Buch buch, int bestellNr, int anzahl)
         {
             //DTO.Buch buch, int bestellNr, int anzahl
-            const string Adresse = "{0}ErstelleBestellung?buch={1}&bestellNr={2}&anzahl={3}";
+            const string Adresse = "{0}BuchbestellungHinzufügen?buch={1}&bestellNr={2}&anzahl={3}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                    string.Format(
@@ -96,5 +96,63 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
 
         }
+
+        /// <summary>
+        /// Ändert die Zusatz-Informationen zu der angegebenen Bestellung
+        /// </summary>
+        public async void AktualisiereBestellungsInfo(Gateway.DTO.Bestellung id)
+        {
+
+            const string Adresse = "{0}AktualisiereBestellungsInfo?id={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     id
+                     )))
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Holt die Id einer Bestellung durch die Besucher-Informationen
+        /// </summary>
+        /// <returns>Gibt die Id der Bestellung zurück</returns>
+        public async System.Threading.Tasks.Task<int> BekommeBestellungsId(Gateway.DTO.Besucher besucher)
+        {
+            const string Adresse = "{0}BekommeBestellungsId?besucher={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     besucher
+                     )))
+            {
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+                //Enum.Parse(, AntwortText);
+                // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                // Newtonsoft.Json Nuget
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<int>(AntwortText);
+            }
+        }
+
+        /// <summary>
+        /// Trägt in die Datenbank ein, dass die Bestellung abgeholt wurde
+        /// </summary>
+        public async void BestellungAbgeholt(Gateway.DTO.Bestellung bestellung)
+        {
+            const string Adresse = "{0}BestellungAbgeholt?bestellung={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     bestellung
+                     )))
+            { }
+            }
     }
 }

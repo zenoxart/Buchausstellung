@@ -38,10 +38,10 @@ namespace WIFI.Gateway.Controllers
         /// der Datenbank zurück
         /// </summary>
         /// <returns></returns>
-        public object Get()
+        public DTO.Buchgruppen Get()
         {
-            ClientSqlController.HoleBuchgruppen();
-            return null;
+            return ClientSqlController.HoleBuchgruppen();
+            
         }
     }
 }

@@ -33,5 +33,46 @@ namespace WIFI.Ausstellung.Models.RestApiController
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.Besucher>(AntwortText);
             }
         }
+
+        /// <summary>
+        /// Ändert den übergebenen Besucher
+        /// </summary>
+        public async void AktualisiereBesucher(Gateway.DTO.Besucher besucher)
+        {
+            const string Adresse = "{0}AktualisiereBesucher?besucher={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                  string.Format(
+                      Adresse,
+                      Properties.Settings.Default.UrlGatewayAPI,
+                      besucher
+                      )))
+            {
+            }
+        }
+
+        /// <summary>
+        /// Gibt die Id des Besuchers zurück, zudem die übergebenen Informationen stimmen
+        /// </summary>
+        public async System.Threading.Tasks.Task<int> BekommeBesucherId(Gateway.DTO.Besucher besucher)
+        {
+            const string Adresse = "{0}BekommeBesucherId?besucher={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                  string.Format(
+                      Adresse,
+                      Properties.Settings.Default.UrlGatewayAPI,
+                      besucher
+                      )))
+            {
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+
+                // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                // Newtonsoft.Json Nuget
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<int>(AntwortText);
+            }
+
+
+        }
     }
 }

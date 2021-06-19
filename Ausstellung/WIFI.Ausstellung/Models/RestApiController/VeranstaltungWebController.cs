@@ -91,5 +91,20 @@ namespace WIFI.Ausstellung.Models.RestApiController
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.AusstellungsstadiumTyp>(AntwortText);
             }
         }
+
+        /// <summary>
+        /// Löscht alle Informationen zu der Veranstaltung
+        /// </summary>
+        public async void BeendeVeranstaltung()
+        {
+            const string Adresse = "{0}BeendeVeranstaltung";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                string.Format(
+                    Adresse,
+                    Properties.Settings.Default.UrlGatewayAPI
+                    )))
+            { }
+        }
     }
 }

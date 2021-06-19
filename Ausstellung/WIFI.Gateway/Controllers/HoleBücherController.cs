@@ -37,7 +37,7 @@ namespace WIFI.Gateway.Controllers
         /// Gibt die Bücher aus der Datenbank zurück
         /// </summary>
         /// <returns></returns>
-        public object Get()
+        public Gateway.DTO.Bücher Get()
         {
             return ClientSqlController.HoleBücher();
         }

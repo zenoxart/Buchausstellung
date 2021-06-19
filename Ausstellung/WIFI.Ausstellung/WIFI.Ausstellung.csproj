@@ -77,6 +77,8 @@
     <Compile Include="Models\Generisch\XmlController.cs" />
     <Compile Include="Models\RestApiController\BestellungWebController.cs" />
     <Compile Include="Models\RestApiController\BesucherWebController.cs" />
+    <Compile Include="Models\RestApiController\BuchgruppenWebController.cs" />
+    <Compile Include="Models\RestApiController\BuchWebController.cs" />
     <Compile Include="Models\RestApiController\VeranstaltungWebController.cs" />
     <Compile Include="PDFManager.cs" />
     <Compile Include="Properties\Texte.Designer.cs">
