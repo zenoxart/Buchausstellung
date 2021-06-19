@@ -90,15 +90,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AktualisiereBestellungsInfoController.cs" />
+    <Compile Include="Controllers\AktualisiereBesucherController.cs" />
     <Compile Include="Controllers\AktualisiereBuchgruppeController.cs" />
     <Compile Include="Controllers\AlleBuchbestellungenHinzufügenController.cs" />
     <Compile Include="Controllers\BasisApiController.cs" />
+    <Compile Include="Controllers\BeendeVeranstaltungController.cs" />
+    <Compile Include="Controllers\BekommeBestellungsIdController.cs" />
+    <Compile Include="Controllers\BekommeBesucherIdController.cs" />
+    <Compile Include="Controllers\BestellungAbgeholtController.cs" />
     <Compile Include="Controllers\BuchbestellungHinzufügenController.cs" />
     <Compile Include="Controllers\EntferneBuchController.cs" />
     <Compile Include="Controllers\EntferneBuchgruppeController.cs" />
     <Compile Include="Controllers\ErstelleBestellungController.cs" />
     <Compile Include="Controllers\ErstelleBesucherController.cs" />
     <Compile Include="Controllers\ErstelleBuchController.cs" />
+    <Compile Include="Controllers\ErstelleBuchgruppeController.cs" />
     <Compile Include="Controllers\ErstelleVeranstaltungController.cs" />
     <Compile Include="Controllers\HoleBestellungenController.cs" />
     <Compile Include="Controllers\HoleBuchgruppenController.cs" />

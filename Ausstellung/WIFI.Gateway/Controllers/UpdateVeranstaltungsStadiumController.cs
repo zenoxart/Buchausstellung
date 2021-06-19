@@ -9,12 +9,10 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum ändern des Veranstaltungs-Stadiums
+    /// Stellt einen REST-API-Controller zum Ändern des Veranstaltungs-Stadiums
     /// </summary>
     public class UpdateVeranstaltungsStadiumController : Controllers.BasisApiController
     {
-
-
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
@@ -35,13 +33,17 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft den Befehl zum Ändern des
+        /// Veranstaltungs-Stadiums in der 
+        /// Datenbank ab
+        /// </summary>
+        /// <param name="Typ"></param>
+        /// <returns></returns>
         public object Get(DTO.AusstellungsstadiumTyp Typ)
         {
             ClientSqlController.UpdateVeranstaltungsStadium(Typ);
             return null;
         }
-
-      
     }
 }

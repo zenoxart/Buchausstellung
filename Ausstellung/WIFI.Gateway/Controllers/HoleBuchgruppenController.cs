@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum laden der Buchgruppen
+    /// Stellt einen REST-API-Controller zum Laden der Buchgruppen
     /// </summary>
     public class HoleBuchgruppenController : Controllers.BasisApiController
     {
@@ -34,7 +34,8 @@ namespace WIFI.Gateway.Controllers
         }
 
         /// <summary>
-        /// Gibt die Buchgruppen aus der Datenbank zurück
+        /// Gibt die Buchgruppen aus 
+        /// der Datenbank zurück
         /// </summary>
         /// <returns></returns>
         public object Get()

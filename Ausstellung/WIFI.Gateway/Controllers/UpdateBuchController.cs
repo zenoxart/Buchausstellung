@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum ändern des Buches
+    /// Stellt einen REST-API-Controller zum Ändern des Buches
     /// </summary>
     public class UpdateBuchController : Controllers.BasisApiController
     {

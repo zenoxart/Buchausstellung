@@ -51,8 +51,6 @@ namespace WIFI.Gateway.Controller
                                     });
                             }
                         }
-
-                        Verbindung.Close();
                     }
                 }
             }
@@ -100,8 +98,6 @@ namespace WIFI.Gateway.Controller
 
                         Befehl.ExecuteScalar();
                     }
-
-                    Verbindung.Close();
                 }
             }
             catch (Exception e)
@@ -146,8 +142,6 @@ namespace WIFI.Gateway.Controller
 
                         Befehl.ExecuteScalar();
                     }
-
-                    Verbindung.Close();
                 }
             }
             catch (Exception e)
@@ -185,8 +179,6 @@ namespace WIFI.Gateway.Controller
 
                         Befehl.ExecuteScalar();
                     }
-
-                    Verbindung.Close();
                 }
             }
             catch (Exception e)
@@ -201,6 +193,5 @@ namespace WIFI.Gateway.Controller
                     });
             }
         }
-
     }
 }

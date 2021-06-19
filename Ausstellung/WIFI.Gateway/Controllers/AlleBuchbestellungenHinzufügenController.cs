@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum hinzufügen aller Bestellungen
+    /// Stellt einen REST-API-Controller zum Hinzufügen aller Bestellungen
     /// </summary>
     public class AlleBuchbestellungenHinzufügenController : Controllers.BasisApiController
     {
@@ -20,7 +20,7 @@ namespace WIFI.Gateway.Controllers
         private WIFI.Gateway.Controller.BestellungSqlClientController _ClientSqlController;
 
         /// <summary>
-        /// Ruft den Clientcontroller für die Veranstaltung ab 
+        /// Ruft den Clientcontroller für die Bestellung ab 
         /// </summary>
         public WIFI.Gateway.Controller.BestellungSqlClientController ClientSqlController
         {
@@ -34,7 +34,12 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft den Befehl zum Hinzufügen der
+        /// Bücher zu einer Bestellung ab
+        /// </summary>
+        /// <param name="Bestellung">Interne ID der Bestellung</param>
+        /// <returns></returns>
         public object Get(Gateway.DTO.Bestellung Bestellung)
         {
             ClientSqlController.AlleBuchbestellungenHinzufügen(Bestellung);

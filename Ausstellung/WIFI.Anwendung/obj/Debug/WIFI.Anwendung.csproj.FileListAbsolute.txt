@@ -65,7 +65,6 @@ C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\D
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.dll
 C:\Users\Humer\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.xml
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.dll
 C:\PP\Buchausstellung\Ausstellung\WIFI.Anwendung\bin\Debug\WIFI.Anwendung.pdb

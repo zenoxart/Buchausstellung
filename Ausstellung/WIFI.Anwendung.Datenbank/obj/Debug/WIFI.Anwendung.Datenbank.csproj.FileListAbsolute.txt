@@ -27,7 +27,6 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\b
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\WIFI.Anwendung.resources.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\PdfSharp.resources.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\PdfSharp.Charting.resources.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csprojAssemblyReference.cache
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CoreCompileInputs.cache
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CopyComplete
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.dll
@@ -234,3 +233,4 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Daten
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CopyComplete
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.dll
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.AssemblyReference.cache

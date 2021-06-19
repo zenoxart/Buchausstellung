@@ -9,18 +9,17 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum erstellen eines Besuchers
+    /// Stellt einen REST-API-Controller zum Erstellen eines Besuchers
     /// </summary>
     public class ErstelleBesucherController : Controllers.BasisApiController
     {
-
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
         private WIFI.Gateway.Controller.BesucherSqlClientController _ClientSqlController;
 
         /// <summary>
-        /// Ruft den Clientcontroller für die Veranstaltung ab 
+        /// Ruft den Clientcontroller für die Besucher ab 
         /// </summary>
         public WIFI.Gateway.Controller.BesucherSqlClientController ClientSqlController
         {
@@ -33,13 +32,16 @@ namespace WIFI.Gateway.Controllers
                 return this._ClientSqlController;
             }
         }
-        // GET api/<controller>
+
+        /// <summary>
+        /// Befehl zum Erstellen eines
+        /// Besuchers in der Datenbank
+        /// </summary>
+        /// <param name="besucher">Daten des Besuchers</param>
+        /// <returns></returns>
         public DTO.Besucher Get(DTO.Besucher besucher)
         {
-            return ClientSqlController.ErstelleBesucher(besucher);
-           
+            return ClientSqlController.ErstelleBesucher(besucher);  
         }
-
-       
     }
 }

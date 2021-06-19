@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum entfernen eines Buches
+    /// Stellt einen REST-API-Controller zum Entfernen eines Buches
     /// </summary>
     public class EntferneBuchController : Controllers.BasisApiController
     {

@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum laden des Veranstaltungs-Stadiums
+    /// Stellt einen REST-API-Controller zum Laden des Veranstaltungs-Stadiums
     /// </summary>
     public class HoleVeranstaltungsStadiumController : Controllers.BasisApiController
     {
@@ -33,7 +33,11 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft den Befehl zum Ermitteln
+        /// des Veranstaltungs-Stadiums ab
+        /// </summary>
+        /// <returns></returns>
         public DTO.AusstellungsstadiumTyp Get()
         {
             return ClientSqlController.VeranstaltungsStadium();

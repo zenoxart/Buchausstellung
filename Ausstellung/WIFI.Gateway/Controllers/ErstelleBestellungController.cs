@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum erstellen einer Bestellung
+    /// Stellt einen REST-API-Controller zum Erstellen einer Bestellung
     /// </summary>
     public class ErstelleBestellungController : Controllers.BasisApiController
     {
@@ -20,7 +20,7 @@ namespace WIFI.Gateway.Controllers
         private WIFI.Gateway.Controller.BestellungSqlClientController _ClientSqlController;
 
         /// <summary>
-        /// Ruft den Clientcontroller für die Veranstaltung ab 
+        /// Ruft den Clientcontroller für die Bestellung ab 
         /// </summary>
         public WIFI.Gateway.Controller.BestellungSqlClientController ClientSqlController
         {
@@ -33,13 +33,16 @@ namespace WIFI.Gateway.Controllers
                 return this._ClientSqlController;
             }
         }
-        // GET api/<controller>
+
+        /// <summary>
+        /// Befehl zum Anlegen einer Bestellung
+        /// in der Datenbank
+        /// </summary>
+        /// <param name="Besucher">Daten des Bestellers</param>
+        /// <returns></returns>
         public int Get(Gateway.DTO.Besucher Besucher)
         {
-            return ClientSqlController.ErstelleBestellung(Besucher);
-            
+            return ClientSqlController.ErstelleBestellung(Besucher);   
         }
-
-       
     }
 }

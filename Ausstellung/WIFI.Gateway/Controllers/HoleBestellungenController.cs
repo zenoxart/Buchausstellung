@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum laden aller Bestellungen
+    /// Stellt einen REST-API-Controller zum Laden aller Bestellungen
     /// </summary>
     public class HoleBestellungenController : Controllers.BasisApiController
     {
@@ -19,7 +19,7 @@ namespace WIFI.Gateway.Controllers
         private WIFI.Gateway.Controller.BestellungSqlClientController _ClientSqlController;
 
         /// <summary>
-        /// Ruft den Clientcontroller für die Veranstaltung ab 
+        /// Ruft den Clientcontroller für die Bestellungen ab 
         /// </summary>
         public WIFI.Gateway.Controller.BestellungSqlClientController ClientSqlController
         {
@@ -33,12 +33,14 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft den Befehl zum Abrufen aller
+        /// Bestellungen aus der Datenbank ab
+        /// </summary>
+        /// <returns></returns>
         public Gateway.DTO.Bestellungen Get()
         {
             return ClientSqlController.HoleBestellungen();
         }
-
-      
     }
 }

@@ -14,9 +14,56 @@
             Registriert die übergebenen Daten
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController">
+            <summary>
+            Stellt einen REST-API-Controller zum Aktualisieren der Bestellung
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bestellung ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController.Get(WIFI.Gateway.DTO.Bestellung)">
+            <summary>
+            Aktualisiert den Eintrag einer 
+            Bestellung in der Datenbank
+            </summary>
+            <param name="id">Interne ID 
+            der Bestellung</param>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.AktualisiereBesucherController">
+            <summary>
+            Stellt einen REST-API-Controller zum Aktualisieren der Besuchers
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.AktualisiereBesucherController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.AktualisiereBesucherController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Besucher ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.AktualisiereBesucherController.Get(WIFI.Gateway.DTO.Besucher)">
+            <summary>
+            Befehl zum Erstellen eines
+            Besuchers in der Datenbank
+            </summary>
+            <param name="besucher">Daten des Besuchers</param>
+            <returns></returns>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.AktualisiereBuchgruppeController">
             <summary>
-            Stellt einen REST-API-Controller zum ändern der Buchgruppe
+            Stellt einen REST-API-Controller zum Ändern der Buchgruppe
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.AktualisiereBuchgruppeController._ClientSqlController">
@@ -40,7 +87,7 @@
         </member>
         <member name="T:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController">
             <summary>
-            Stellt einen REST-API-Controller zum hinzufügen aller Bestellungen
+            Stellt einen REST-API-Controller zum Hinzufügen aller Bestellungen
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController._ClientSqlController">
@@ -50,8 +97,16 @@
         </member>
         <member name="P:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController.ClientSqlController">
             <summary>
-            Ruft den Clientcontroller für die Veranstaltung ab 
+            Ruft den Clientcontroller für die Bestellung ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController.Get(WIFI.Gateway.DTO.Bestellung)">
+            <summary>
+            Ruft den Befehl zum Hinzufügen der
+            Bücher zu einer Bestellung ab
+            </summary>
+            <param name="Bestellung">Interne ID der Bestellung</param>
+            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.BasisApiController">
             <summary>
@@ -68,6 +123,96 @@
             Ruft die WIFI Infrastruktur ab
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.BeendeVeranstaltungController">
+            <summary>
+            Stellt einen REST-API-Controller um die Veranstaltung zu beenden
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.BeendeVeranstaltungController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.BeendeVeranstaltungController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bestellung ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.BeendeVeranstaltungController.Get">
+            <summary>
+            Ruft den Befehl zum Beenden
+            der Veranstaltung ab
+            </summary>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.BekommeBestellungsIdController">
+            <summary>
+            Stellt einen REST-API-Controller zum Ermitteln der Bestellung-ID
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.BekommeBestellungsIdController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.BekommeBestellungsIdController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bestellung ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.BekommeBestellungsIdController.Get(WIFI.Gateway.DTO.Besucher)">
+            <summary>
+            Ruft anhand des aktuellen Besuchers
+            die dazugehörige Bestellung ab
+            </summary>
+            <param name="besucher">Daten des Besuchers</param>
+            <returns>Interne Nummer der Bestellung</returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.BekommeBesucherIdController">
+            <summary>
+            Stellt einen REST-API-Controller zum Ermitteln der Besucher-ID
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.BekommeBesucherIdController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.BekommeBesucherIdController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Besucher ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.BekommeBesucherIdController.Get(WIFI.Gateway.DTO.Besucher)">
+            <summary>
+            Ruft anhand des aktuellen Besuchers
+            die dazugehörige ID ab
+            </summary>
+            <param name="besucher">Daten des Besuchers</param>
+            <returns>Interne Nummer des Besuchers</returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.BestellungAbgeholtController">
+            <summary>
+            Stellt einen REST-API-Controller zum Setzen des Bestell-Status
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.BestellungAbgeholtController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.BestellungAbgeholtController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bestellung ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.BestellungAbgeholtController.Get(WIFI.Gateway.DTO.Bestellung)">
+            <summary>
+            Setzt den Status einer
+            Bestellung in der Datenbank
+            </summary>
+            <param name="bestellung">Daten
+            der Bestellung</param>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController">
             <summary>
             Stellt einen REST-API-Controller um eine Bestellung der Datenbank hinzuzufügen
@@ -80,12 +225,23 @@
         </member>
         <member name="P:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController.ClientSqlController">
             <summary>
-            Ruft den Clientcontroller für die Veranstaltung ab 
+            Ruft den Clientcontroller für die Bestellung ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController.Get(WIFI.Gateway.DTO.Buch,System.Int32,System.Int32)">
+            <summary>
+            Ruft den Befehl zum Hinzufügen von
+            Büchern zu einer Bestellung ab
+            </summary>
+            <param name="buch">Daten des Buches</param>
+            <param name="bestellNr">Interne Nr der Bestellung</param>
+            <param name="anzahl">Anzahl, wie viele Stück 
+            des Buches bestellt werden</param>
+            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.EntferneBuchController">
             <summary>
-            Stellt einen REST-API-Controller zum entfernen eines Buches
+            Stellt einen REST-API-Controller zum Entfernen eines Buches
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.EntferneBuchController._ClientSqlController">
@@ -109,7 +265,7 @@
         </member>
         <member name="T:WIFI.Gateway.Controllers.EntferneBuchgruppeController">
             <summary>
-            Stellt einen REST-API-Controller zum entfernen der Buchgruppe
+            Stellt einen REST-API-Controller zum Entfernen der Buchgruppe
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.EntferneBuchgruppeController._ClientSqlController">
@@ -132,7 +288,7 @@
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBestellungController">
             <summary>
-            Stellt einen REST-API-Controller zum erstellen einer Bestellung
+            Stellt einen REST-API-Controller zum Erstellen einer Bestellung
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleBestellungController._ClientSqlController">
@@ -142,12 +298,20 @@
         </member>
         <member name="P:WIFI.Gateway.Controllers.ErstelleBestellungController.ClientSqlController">
             <summary>
-            Ruft den Clientcontroller für die Veranstaltung ab 
+            Ruft den Clientcontroller für die Bestellung ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBestellungController.Get(WIFI.Gateway.DTO.Besucher)">
+            <summary>
+            Befehl zum Anlegen einer Bestellung
+            in der Datenbank
+            </summary>
+            <param name="Besucher">Daten des Bestellers</param>
+            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBesucherController">
             <summary>
-            Stellt einen REST-API-Controller zum erstellen eines Besuchers
+            Stellt einen REST-API-Controller zum Erstellen eines Besuchers
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleBesucherController._ClientSqlController">
@@ -157,12 +321,20 @@
         </member>
         <member name="P:WIFI.Gateway.Controllers.ErstelleBesucherController.ClientSqlController">
             <summary>
-            Ruft den Clientcontroller für die Veranstaltung ab 
+            Ruft den Clientcontroller für die Besucher ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBesucherController.Get(WIFI.Gateway.DTO.Besucher)">
+            <summary>
+            Befehl zum Erstellen eines
+            Besuchers in der Datenbank
+            </summary>
+            <param name="besucher">Daten des Besuchers</param>
+            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBuchController">
             <summary>
-            Stellt einen REST-API-Controller zum erstellen eines Buches
+            Stellt einen REST-API-Controller zum Erstellen eines Buches
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleBuchController._ClientSqlController">
@@ -175,10 +347,39 @@
             Ruft den Clientcontroller für die Bücher ab 
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(WIFI.Gateway.DTO.Buch)" -->
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(WIFI.Gateway.DTO.Buch)">
+            <summary>
+            Übergibt die Daten zum Erstellen eines Buches
+            </summary>
+            <param name="buch">Die Daten des Buches,
+            welches in der Datenbank angelegt werden soll</param>
+            <returns></returns>
+        </member>
+        <member name="T:WIFI.Gateway.Controllers.ErstelleBuchgruppeController">
+            <summary>
+            Stellt einen REST-API-Controller zum Erstellen einer Buchgruppe
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.ErstelleBuchgruppeController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.ErstelleBuchgruppeController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Buchgruppen ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchgruppeController.Get(WIFI.Gateway.DTO.Buchgruppe)">
+            <summary>
+            Befehl zum Erstellen einer
+            Buchgruppe in der Datenbank
+            </summary>
+            <param name="buchgruppe">Daten der Buchgruppe</param>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleVeranstaltungController">
             <summary>
-            Stellt einen REST-API-Controller zum erstellen einer Veranstaltung
+            Stellt einen REST-API-Controller zum Erstellen einer Veranstaltung
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.ErstelleVeranstaltungController._ClientSqlController">
@@ -191,9 +392,16 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="M:WIFI.Gateway.Controllers.ErstelleVeranstaltungController.Get">
+            <summary>
+            Ruft den Befehl zum Erstellen einer
+            Veranstaltung in der Datenbank ab
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.HoleBestellungenController">
             <summary>
-            Stellt einen REST-API-Controller zum laden aller Bestellungen
+            Stellt einen REST-API-Controller zum Laden aller Bestellungen
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.HoleBestellungenController._ClientSqlController">
@@ -203,12 +411,19 @@
         </member>
         <member name="P:WIFI.Gateway.Controllers.HoleBestellungenController.ClientSqlController">
             <summary>
-            Ruft den Clientcontroller für die Veranstaltung ab 
+            Ruft den Clientcontroller für die Bestellungen ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleBestellungenController.Get">
+            <summary>
+            Ruft den Befehl zum Abrufen aller
+            Bestellungen aus der Datenbank ab
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.HoleBuchgruppenController">
             <summary>
-            Stellt einen REST-API-Controller zum laden der Buchgruppen
+            Stellt einen REST-API-Controller zum Laden der Buchgruppen
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.HoleBuchgruppenController._ClientSqlController">
@@ -223,13 +438,14 @@
         </member>
         <member name="M:WIFI.Gateway.Controllers.HoleBuchgruppenController.Get">
             <summary>
-            Gibt die Buchgruppen aus der Datenbank zurück
+            Gibt die Buchgruppen aus 
+            der Datenbank zurück
             </summary>
             <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.HoleBücherController">
             <summary>
-            Stellt einen REST-API-Controller zum laden der Bücher
+            Stellt einen REST-API-Controller zum Laden der Bücher
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.HoleBücherController._ClientSqlController">
@@ -250,7 +466,7 @@
         </member>
         <member name="T:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController">
             <summary>
-            Stellt einen REST-API-Controller zum laden des Veranstaltungs-Stadiums
+            Stellt einen REST-API-Controller zum Laden des Veranstaltungs-Stadiums
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController._ClientSqlController">
@@ -263,9 +479,16 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController.Get">
+            <summary>
+            Ruft den Befehl zum Ermitteln
+            des Veranstaltungs-Stadiums ab
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.StarteVeranstaltungController">
             <summary>
-            Stellt einen REST-API-Controller zum starten der Veranstaltung
+            Stellt einen REST-API-Controller zum Starten der Veranstaltung
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.StarteVeranstaltungController._ClientSqlController">
@@ -278,9 +501,19 @@
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
         </member>
+        <member name="M:WIFI.Gateway.Controllers.StarteVeranstaltungController.Get(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            Ruft den Befehl zum Starten einer
+            Veranstaltung in der Datenbank ab
+            </summary>
+            <param name="StartDatum">Beginn der Veranstaltung</param>
+            <param name="EndDatum">Ende der Veranstaltung</param>
+            <param name="Ort">Ort der Veranstaltung</param>
+            <returns></returns>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.UpdateBuchController">
             <summary>
-            Stellt einen REST-API-Controller zum ändern des Buches
+            Stellt einen REST-API-Controller zum Ändern des Buches
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.UpdateBuchController._ClientSqlController">
@@ -304,7 +537,7 @@
         </member>
         <member name="T:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController">
             <summary>
-            Stellt einen REST-API-Controller zum ändern des Veranstaltungs-Stadiums
+            Stellt einen REST-API-Controller zum Ändern des Veranstaltungs-Stadiums
             </summary>
         </member>
         <member name="F:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController._ClientSqlController">
@@ -316,6 +549,15 @@
             <summary>
             Ruft den Clientcontroller für die Veranstaltung ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.UpdateVeranstaltungsStadiumController.Get(WIFI.Gateway.DTO.AusstellungsstadiumTyp)">
+            <summary>
+            Ruft den Befehl zum Ändern des
+            Veranstaltungs-Stadiums in der 
+            Datenbank ab
+            </summary>
+            <param name="Typ"></param>
+            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.WebApiApplication">
             <summary>

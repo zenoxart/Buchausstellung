@@ -26,19 +26,14 @@ namespace WIFI.Gateway.Controller
                     // Erstelle einen Befehl mit
                     // einer MySQL-Stored-Procedure
                     using (var Befehl = new System.Data.SqlClient.SqlCommand("ErstelleVeranstaltung", Verbindung))
-                    {
-
-                        
+                    {             
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
 
                         Befehl.Prepare();
 
                         Verbindung.Open();
 
-                        Befehl.ExecuteScalar();
-
-                        Verbindung.Close();
+                        Befehl.ExecuteNonQuery();
                     }
                 }
             }
@@ -54,7 +49,6 @@ namespace WIFI.Gateway.Controller
                     });
             }
         }
-
 
         /// <summary>
         /// Enthält die Grundddaten der Buchausstellung
@@ -84,8 +78,6 @@ namespace WIFI.Gateway.Controller
                         Befehl.Prepare();
 
                         Befehl.ExecuteScalar();
-
-                        Verbindung.Close();
                     }
                 }
             }
@@ -126,8 +118,6 @@ namespace WIFI.Gateway.Controller
                         Befehl.Prepare();
 
                         Befehl.ExecuteScalar();
-
-                        Verbindung.Close();
                     }
                 }
 
@@ -153,9 +143,7 @@ namespace WIFI.Gateway.Controller
         /// wird ein DTO.AusstellungsstadiumTyp.Verbindungsfehler
         /// zurückgegeben</returns>
         public WIFI.Gateway.DTO.AusstellungsstadiumTyp VeranstaltungsStadium()
-        {
-            
-            
+        {        
             WIFI.Gateway.DTO.AusstellungsstadiumTyp Stadium = Gateway.DTO.AusstellungsstadiumTyp.Abholung;
 
             try
@@ -170,11 +158,9 @@ namespace WIFI.Gateway.Controller
 
                         //if (Verbindung.Ping() == false)
                         //    return Stadium;
-
                         Verbindung.Open();
 
                         Befehl.Prepare();
-
 
                         using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                         {
@@ -212,6 +198,43 @@ namespace WIFI.Gateway.Controller
             return Stadium;
         }
 
+        /// <summary>
+        /// Aktualisiert das Stadium der Veranstaltung
+        /// </summary>
+        /// <param name="stadium">Das Stadium, welches für
+        /// die Veranstaltung eingestellt wird</param>
+        public void BeendeVeranstaltung()
+        {
+            try
+            {
+                // Erstelle eine Datenbankverbindung
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+                {
+                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("BeendeVeranstaltung", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+
+                        Befehl.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+        }
     }
 }

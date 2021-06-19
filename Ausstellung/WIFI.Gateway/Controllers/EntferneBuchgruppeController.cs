@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum entfernen der Buchgruppe
+    /// Stellt einen REST-API-Controller zum Entfernen der Buchgruppe
     /// </summary>
     public class EntferneBuchgruppeController : Controllers.BasisApiController
     {

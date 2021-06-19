@@ -20,7 +20,7 @@ namespace WIFI.Gateway.Controllers
         private WIFI.Gateway.Controller.BestellungSqlClientController _ClientSqlController;
 
         /// <summary>
-        /// Ruft den Clientcontroller für die Veranstaltung ab 
+        /// Ruft den Clientcontroller für die Bestellung ab 
         /// </summary>
         public WIFI.Gateway.Controller.BestellungSqlClientController ClientSqlController
         {
@@ -34,14 +34,19 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft den Befehl zum Hinzufügen von
+        /// Büchern zu einer Bestellung ab
+        /// </summary>
+        /// <param name="buch">Daten des Buches</param>
+        /// <param name="bestellNr">Interne Nr der Bestellung</param>
+        /// <param name="anzahl">Anzahl, wie viele Stück 
+        /// des Buches bestellt werden</param>
+        /// <returns></returns>
         public object Get(DTO.Buch buch, int bestellNr, int anzahl)
         {
-
             ClientSqlController.BuchbestellungHinzufügen(buch, bestellNr, anzahl);
-
             return null;
         }
-
     }
 }

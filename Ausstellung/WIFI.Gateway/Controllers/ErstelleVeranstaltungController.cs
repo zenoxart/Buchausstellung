@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum erstellen einer Veranstaltung
+    /// Stellt einen REST-API-Controller zum Erstellen einer Veranstaltung
     /// </summary>
     public class ErstelleVeranstaltungController : Controllers.BasisApiController
     {
@@ -33,15 +33,16 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-
-
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft den Befehl zum Erstellen einer
+        /// Veranstaltung in der Datenbank ab
+        /// </summary>
+        /// <returns></returns>
         public object Get()
         {
             ClientSqlController.ErstelleVeranstaltung();
 
             return null;
         }
-
     }
 }

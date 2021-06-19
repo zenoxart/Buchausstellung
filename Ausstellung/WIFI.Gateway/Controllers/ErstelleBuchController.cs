@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum erstellen eines Buches
+    /// Stellt einen REST-API-Controller zum Erstellen eines Buches
     /// </summary>
     public class ErstelleBuchController : Controllers.BasisApiController
     {
@@ -37,7 +37,8 @@ namespace WIFI.Gateway.Controllers
         /// Übergibt die Daten zum Erstellen eines Buches
         /// </summary>
         /// <param name="buch">Die Daten des Buches,
-        /// welches in der Datenbank angelegt werden soll</returns>
+        /// welches in der Datenbank angelegt werden soll</param>
+        /// <returns></returns>
         public object Get(DTO.Buch buch)
         {
             ClientSqlController.BuchHinzufügen(buch);

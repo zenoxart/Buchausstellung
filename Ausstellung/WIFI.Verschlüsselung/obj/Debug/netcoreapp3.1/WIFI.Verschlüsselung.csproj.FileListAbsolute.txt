@@ -89,19 +89,13 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Verschlüsselung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.Datenbank.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\PdfSharp.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\HtmlRenderer.PdfSharp.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\MySqlConnector.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.Datenbank.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.Datenbank.dll.config
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.xml
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\PdfSharp.xml
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\HtmlRenderer.PdfSharp.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\MySqlConnector.xml
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\de\WIFI.Anwendung.resources.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\de\PdfSharp.resources.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csprojAssemblyReference.cache
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.AssemblyInfoInputs.cache
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.AssemblyInfo.cs
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csproj.CoreCompileInputs.cache
@@ -109,8 +103,6 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.genruntimeconfig.cache
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\HtmlRenderer.dll
-D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\HtmlRenderer.pdb
 C:\PP\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Verschlüsselung.exe
 C:\PP\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Verschlüsselung.deps.json
 C:\PP\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Verschlüsselung.runtimeconfig.json
@@ -193,3 +185,4 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselun
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csproj.CopyComplete
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.dll
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csproj.AssemblyReference.cache

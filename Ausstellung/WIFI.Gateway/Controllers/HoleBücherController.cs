@@ -9,7 +9,7 @@ namespace WIFI.Gateway.Controllers
 {
 
     /// <summary>
-    /// Stellt einen REST-API-Controller zum laden der Bücher
+    /// Stellt einen REST-API-Controller zum Laden der Bücher
     /// </summary>
     public class HoleBücherController : Controllers.BasisApiController
     {
@@ -39,8 +39,7 @@ namespace WIFI.Gateway.Controllers
         /// <returns></returns>
         public object Get()
         {
-            ClientSqlController.HoleBücher();
-            return null;
+            return ClientSqlController.HoleBücher();
         }
     }
 }

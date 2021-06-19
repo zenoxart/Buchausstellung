@@ -55,8 +55,6 @@ namespace WIFI.Gateway.Controller
                             }
                         }
                     }
-
-                    Verbindung.Close();
                 }
             }
             catch (Exception e)
@@ -96,8 +94,6 @@ namespace WIFI.Gateway.Controller
                         Befehl.Prepare();
 
                         Befehl.ExecuteScalar();
-
-                        Verbindung.Close();
                     }
                 }
             }
@@ -175,7 +171,6 @@ namespace WIFI.Gateway.Controller
                                     );
                             }
                         }
-                        Verbindung.Close();
                     }
                 }
 
@@ -214,7 +209,6 @@ namespace WIFI.Gateway.Controller
                                 }
                             }
                         }
-                        Verbindung.Close();
                     }
                 }
 
@@ -287,7 +281,6 @@ namespace WIFI.Gateway.Controller
                                     );
                             }
                         }
-                        Verbindung.Close();
                     }
                 }
 
@@ -324,7 +317,6 @@ namespace WIFI.Gateway.Controller
                                 }
                             }
                         }
-                        Verbindung.Close();
                     }
                 }
             }
@@ -370,14 +362,14 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Aktualisiert die einzelne Bestellung
         /// </summary>
-        /// <param name="BestellNr"></param>
+        /// <param name="BestellNr">Interne Nummer der Bestellung</param>
         public void BestellungAbgeholt(int BestellNr)
         {
             try
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
                 {
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleBestellungsInfo", Verbindung))
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("BestellungAbgeholt", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -386,9 +378,7 @@ namespace WIFI.Gateway.Controller
 
                         Befehl.Prepare();
 
-                        Befehl.ExecuteScalar();
-
-                        Verbindung.Close();
+                        Befehl.ExecuteNonQuery();
                     }
                 }
             }
@@ -423,9 +413,7 @@ namespace WIFI.Gateway.Controller
 
                     Befehl.Prepare();
 
-                    Befehl.ExecuteScalar();
-
-                    Verbindung.Close();
+                    Befehl.ExecuteNonQuery();
                 }
             }
 
@@ -449,8 +437,6 @@ namespace WIFI.Gateway.Controller
                     Befehl.Prepare();
 
                     Befehl.ExecuteScalar();
-
-                    Verbindung.Close();
                 }
             }
 
@@ -479,12 +465,51 @@ namespace WIFI.Gateway.Controller
                         Befehl.Prepare();
 
                         Befehl.ExecuteScalar();
-
-                        Verbindung.Close();
                     }
                 }
             }
         }
 
+        public int BekommeBestellungsID(DTO.Besucher besucher)
+        {
+            int BestellNr = -1;
+
+            try
+            {
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
+                {
+                    // Befehl zur Rückgabe der Bestell-ID
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("BekommeBestellungsId", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Befehl.Parameters.AddWithValue("PersonId", besucher.Id);
+
+                        Befehl.Prepare();
+
+                        using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                        {
+                            while (DatenLeser.Read())
+                            {
+                                BestellNr = Convert.ToInt32(DatenLeser["id"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("ErstelleEinzelBestellung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+
+            return BestellNr;
+        }
     }
 }
