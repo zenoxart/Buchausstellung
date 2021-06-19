@@ -188,6 +188,28 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private int _IEStatus = 0;
+
+        /// <summary>
+        /// Gibt den Status der Import oder Export auf:
+        /// 0.  Neutral
+        /// 1.  Erfolg
+        /// 2.  Fehler
+        /// </summary>
+        public int IEStatus
+        {
+            get { return this._IEStatus; }
+            set
+            {
+                this._IEStatus = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+
 
         /// <summary>
         /// Läd alle Bücher von der Datenbank in die Buchausstellungsliste
@@ -233,6 +255,33 @@ namespace WIFI.Ausstellung.ViewModels
                 }
             }
         }
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private Gateway.DTO.Buchgruppe _AktuellesBuchKategorie;
+
+        /// <summary>
+        /// Gibt die Aktuelle Kategorie des Anzulegenden Buches zurück oder legt diese fest
+        /// </summary>
+        public Gateway.DTO.Buchgruppe AktuellesBuchKategorie
+        {
+            get
+            {
+                if (this._AktuellesBuchKategorie == null)
+                {
+                    this._AktuellesBuchKategorie = new Gateway.DTO.Buchgruppe();
+                }
+                return this._AktuellesBuchKategorie;
+            }
+            set
+            {
+                this._AktuellesBuchKategorie = value;
+                this.AktuellesBuch.Kategoriegruppe = value.ID;
+                this.OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Import-Export-Funktionen
@@ -300,6 +349,8 @@ namespace WIFI.Ausstellung.ViewModels
                                 {
                                     WIFI.Ausstellung.DBControllerManager.BuchController.UpdateBuch(item);
                                 }
+
+                                this.IEStatus = 1;
                             }
                             catch (Exception e)
                             {
@@ -311,6 +362,8 @@ namespace WIFI.Ausstellung.ViewModels
                                               $"{e.StackTrace}",
                                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                                    });
+
+                                this.IEStatus = 2;
                             }
 
 
@@ -371,6 +424,9 @@ namespace WIFI.Ausstellung.ViewModels
 
                                     // write from file
                                     System.IO.File.WriteAllText(sfd.FileName, content);
+
+
+                                    this.IEStatus = 1;
                                 }
                                 catch (Exception e)
                                 {
@@ -382,6 +438,8 @@ namespace WIFI.Ausstellung.ViewModels
                                                   $"{e.StackTrace}",
                                            Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                                        });
+
+                                    this.IEStatus = 2;
                                 }
                             }
 
@@ -416,7 +474,7 @@ namespace WIFI.Ausstellung.ViewModels
                     async void Load()
                     {
 
-                       this.Büchergruppen = await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.HoleBuchgruppen();
+                        this.Büchergruppen = await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.HoleBuchgruppen();
                     }
                     Load();
                 }
@@ -466,14 +524,14 @@ namespace WIFI.Ausstellung.ViewModels
                         {
                             if (this.NeuErstellteBuchgruppe != null)
                             {
-                                if (this.NeuErstellteBuchgruppe.Gruppennummer != 0 &&  ! string.IsNullOrEmpty(this.NeuErstellteBuchgruppe.Beschreibung))
+                                if (this.NeuErstellteBuchgruppe.Gruppennummer != 0 && !string.IsNullOrEmpty(this.NeuErstellteBuchgruppe.Beschreibung))
                                 {
                                     // Wenn das Neuzuerstellende Objekt noch nicht existiert
                                     if (!this.Büchergruppen.Contains(this.NeuErstellteBuchgruppe))
                                     {
                                         // In die Datenbank speichern
                                         WIFI.Ausstellung.DBControllerManager.BuchgruppenController.ErstelleBuchgruppe(this.NeuErstellteBuchgruppe);
-                                        
+
                                         // Durch das Casten wird eine Neue Instanz erstellt, 
                                         // sodass eine Kopie des Objekts ensteht und kein Verweiß auf "NeuErstellteBuchgruppe"
                                         // in der Liste steht

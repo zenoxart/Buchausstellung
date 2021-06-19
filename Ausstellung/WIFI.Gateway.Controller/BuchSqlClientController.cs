@@ -89,7 +89,7 @@ namespace WIFI.Gateway.Controller
                         Befehl.Parameters.AddWithValue("Buchnummer", buch.Buchnummer);
                         Befehl.Parameters.AddWithValue("Titel", buch.Titel);
                         Befehl.Parameters.AddWithValue("Autor", buch.AutorName);
-                        Befehl.Parameters.AddWithValue("Preis", buch.Preis);
+                        Befehl.Parameters.AddWithValue("Preis", Convert.ToDecimal(buch.Preis));
                         Befehl.Parameters.AddWithValue("Rabattgruppe", buch.Rabattgruppe);
                         Befehl.Parameters.AddWithValue("Kategorieid", buch.Kategoriegruppe);
                         Befehl.Parameters.AddWithValue("Verlagname", buch.VerlagName);

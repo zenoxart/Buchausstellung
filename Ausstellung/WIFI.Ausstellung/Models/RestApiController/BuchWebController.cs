@@ -32,14 +32,21 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async void ErstelleBuch(Gateway.DTO.Buch buch)
         {
-            const string Adresse = "{0}ErstelleBuch?Buch={1}";
 
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+
+            const string Adresse = "{0}ErstelleBuch?Anzahl={1}&Autorname={2}&Buchnummer={3}&Kategorie={4}&Rabatt={5}&Titel={6}&Verlag={7}";
+            string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       buch
-                       )))
+                       buch.Anzahl,
+                       buch.AutorName,
+                       buch.Buchnummer,
+                       buch.Kategoriegruppe,
+                       buch.Rabattgruppe,
+                       buch.Titel,
+                       buch.VerlagName
+                       );
+            using (var Antwort = await this.HttpClient.GetAsync( ZielAdresse))
             { }
         }
 

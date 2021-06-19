@@ -39,8 +39,20 @@ namespace WIFI.Gateway.Controllers
         /// <param name="Buch">Die Daten des Buches,
         /// welches in der Datenbank angelegt werden soll</param>
         /// <returns></returns>
-        public object Get(Gateway.DTO.Buch Buch)
+        public object Get(int Anzahl, string Autorname, string Buchnummer, int? Kategorie, int? Rabatt, string Titel, string Verlag)
         {
+
+            Gateway.DTO.Buch Buch = new DTO.Buch {
+                VerlagName = Verlag,
+                Kategoriegruppe = Kategorie,
+                Rabattgruppe = Rabatt,
+                Titel = Titel,
+                Anzahl = Anzahl,
+                AutorName = Autorname,
+                Buchnummer = Buchnummer
+                
+            };
+
             ClientSqlController.BuchHinzufügen(Buch);
             return null;
         }

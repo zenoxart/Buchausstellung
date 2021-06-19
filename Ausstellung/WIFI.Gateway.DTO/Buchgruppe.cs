@@ -66,6 +66,16 @@ namespace WIFI.Gateway.DTO
             }
         }
 
+        /// <summary>
+        /// Gibt Beschreibung und Gruppennummer als String zurück
+        /// </summary>
+        public string FormatierteAnzeige
+        {
+            get
+            {
+                return Gruppennummer + " " + Beschreibung;
+            }
+        }
 
     }
 

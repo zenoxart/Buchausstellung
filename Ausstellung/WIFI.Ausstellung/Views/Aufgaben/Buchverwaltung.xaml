@@ -43,7 +43,7 @@
             Width="65" 
             BorderThickness="0" 
             CornerRadius="5 0 0 5"
-            Height="40"
+            Height="50"
             Name="bord">
             <StackPanel 
                 Orientation="Vertical" 
@@ -70,6 +70,27 @@
                     ToolTip="Export To CSV" 
                     Command="{Binding Buch.Export}">
                 </Button>
+                <Ellipse Width="10" 
+                         Height="10" 
+                         HorizontalAlignment="Left" 
+                         Margin="5 0 0 3"
+                         >
+                    <Ellipse.Style>
+                        <Style TargetType="Ellipse">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Buch.IEStatus}" Value="1">
+                                    <Setter Property="Fill" Value="Lime"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Buch.IEStatus}" Value="2">
+                                    <Setter Property="Fill" Value="Red"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Buch.IEStatus}" Value="0">
+                                    <Setter Property="Fill" Value="Gray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Ellipse.Style>
+                </Ellipse>
             </StackPanel>
         </Border>
 
@@ -123,18 +144,26 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="170"/>
                         <ColumnDefinition Width="70"/>
-                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="0" 
+                              ItemsSource="{Binding Buch.Büchergruppen}" 
+                              SelectedItem="{Binding Buch.AktuellesBuchKategorie}"
+                              DisplayMemberPath="FormatierteAnzeige"
+                              VerticalContentAlignment="Center"
+                              HorizontalContentAlignment="Left">
 
+                    </ComboBox>
+                    
                     <TextBox x:Name="BuchnummerEingabe"
-                             Grid.Column="0"
+                             Grid.Column="1"
                              Tag="Nr."
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
@@ -143,7 +172,7 @@
                              Text="{Binding Buch.AktuellesBuch.Buchnummer}"
                      ></TextBox>
                     <TextBox x:Name="TitelEingabe"
-                             Grid.Column="1"
+                             Grid.Column="2"
                              Tag="Buchtitel"
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
@@ -151,7 +180,7 @@
                              Text="{Binding Buch.AktuellesBuch.Titel}"
                      ></TextBox>
                     <TextBox x:Name="AutorEingabe"
-                             Grid.Column="2"
+                             Grid.Column="3"
                              Tag="Autor"
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
@@ -159,30 +188,25 @@
                              Text="{Binding Buch.AktuellesBuch.AutorName}"
                     ></TextBox>
                     <TextBox x:Name="VerlagEingabe"
-                             Grid.Column="3"
+                             Grid.Column="4"
                              Tag="Verlag"
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
                              Style="{DynamicResource WasserzeichenStyle}"
                              Text="{Binding Buch.AktuellesBuch.VerlagName}"
                      ></TextBox>
+
                     <TextBox x:Name="RabattgruppeEingabe"
-                             Grid.Column="4"
+                             Grid.Column="5"
                              Tag="Rabattgr."
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
                              Style="{DynamicResource WasserzeichenStyle}"
                              Text="{Binding Buch.AktuellesBuch.Rabattgruppe}"
                      ></TextBox>
-                    <TextBox x:Name="KategorieEingabe"
-                             Grid.Column="5"
-                             Tag="Kategorie"
-                             HorizontalContentAlignment="Center"
-                             VerticalContentAlignment="Center"
-                             Style="{DynamicResource WasserzeichenStyle}"
-                             Text="{Binding Buch.AktuellesBuch.Kategoriegruppe}"
-                            >
-                    </TextBox>
+
+
+
                     <TextBox x:Name="PreisEingabe"
                              Grid.Column="6"
                              Tag="Preis"
@@ -191,6 +215,7 @@
                              VerticalContentAlignment="Center"
                              Text="{Binding Buch.AktuellesBuch.Preis}"
                      />
+
 
                     <Button Width="25"
                             Height="25"

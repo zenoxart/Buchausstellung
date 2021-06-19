@@ -347,7 +347,7 @@
             Ruft den Clientcontroller für die Bücher ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(WIFI.Gateway.DTO.Buch)">
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
             <summary>
             Übergibt die Daten zum Erstellen eines Buches
             </summary>
