@@ -37,11 +37,20 @@ namespace WIFI.Gateway.Controllers
         /// Befehl zum Erstellen eines
         /// Besuchers in der Datenbank
         /// </summary>
-        /// <param name="besucher">Daten des Besuchers</param>
-        /// <returns></returns>
-        public DTO.Besucher Get(DTO.Besucher besucher)
+        public DTO.Besucher Get(string Vorname, string Nachname, int Hausnummer, string Ort, int PLZ, string Straßenname, string Telefon)
         {
-            return ClientSqlController.ErstelleBesucher(besucher);  
+
+            var neu = new Gateway.DTO.Besucher
+            {
+                Vorname = Vorname,
+                Nachname = Nachname,
+                Hausnummer = Hausnummer,
+                Ort = Ort,
+                Postleitzahl = PLZ,
+                Straßenname = Straßenname,
+                Telefon = Telefon
+            };
+            return ClientSqlController.ErstelleBesucher(neu);  
         }
     }
 }

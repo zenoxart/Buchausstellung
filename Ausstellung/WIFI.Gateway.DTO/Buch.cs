@@ -145,13 +145,13 @@ namespace WIFI.Gateway.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private double? _Preis = null;
+        private decimal? _Preis = 0;
 
         /// <summary>
         /// Ruft den Preis des Buches ab,
         /// oder legt diesen fest
         /// </summary>
-        public double? Preis
+        public decimal? Preis
         {
             get
             {
@@ -170,13 +170,13 @@ namespace WIFI.Gateway.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private int? _Kategoriegruppe = null;
+        private int _Kategoriegruppe = 0;
 
         /// <summary>
         /// Ruft die Kategorie des Buches ab,
         /// oder legt diese fest
         /// </summary>
-        public int? Kategoriegruppe
+        public int Kategoriegruppe
         {
             get
             {
@@ -195,13 +195,13 @@ namespace WIFI.Gateway.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private int? _Rabattgruppe = null;
+        private int _Rabattgruppe = 0;
 
         /// <summary>
         /// Ruft die Rabattgruppe des Buches ab,
         /// oder legt diese fest
         /// </summary>
-        public int? Rabattgruppe
+        public int Rabattgruppe
         {
             get
             {

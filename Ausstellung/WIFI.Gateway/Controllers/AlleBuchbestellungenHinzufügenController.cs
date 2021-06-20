@@ -40,9 +40,13 @@ namespace WIFI.Gateway.Controllers
         /// </summary>
         /// <param name="Bestellung">Interne ID der Bestellung</param>
         /// <returns></returns>
-        public object Get(Gateway.DTO.Bestellung Bestellung)
+        public object Get(int BestellNr, Dictionary<DTO.Buch, int> buchliste)
         {
-            ClientSqlController.AlleBuchbestellungenHinzufügen(Bestellung);
+            var neueBestellung = new Gateway.DTO.Bestellung();
+            neueBestellung.BestellNr = BestellNr;
+            neueBestellung.Buchliste = buchliste;
+
+            ClientSqlController.AlleBuchbestellungenHinzufügen(neueBestellung);
             return null;
         }
 

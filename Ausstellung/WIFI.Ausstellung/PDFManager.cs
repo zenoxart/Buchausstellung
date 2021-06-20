@@ -110,7 +110,7 @@ namespace WIFI.Ausstellung
         public void GeneriereBestellungenübersicht(WIFI.Gateway.DTO.Bestellungen bestellungsliste)
         {
             // Ortne nach Kategoriegruppe
-            IEnumerable<IGrouping<int?, WIFI.Gateway.DTO.Buch>> Bücherliste = OrdneBestellungsBücherNachKategorie(bestellungsliste);
+            IEnumerable<IGrouping<int, WIFI.Gateway.DTO.Buch>> Bücherliste = OrdneBestellungsBücherNachKategorie(bestellungsliste);
 
 
 
@@ -283,7 +283,7 @@ namespace WIFI.Ausstellung
         /// Gibt alle Bücher nach der Kategorie gruppiert aus der gesammtBestellungenliste zurück
         /// </summary>
         /// <param name="alleBestellungen">Eine ObservableCollection<DTO.Bestellung> </param>
-        public IEnumerable<IGrouping<int?, WIFI.Gateway.DTO.Buch>> OrdneBestellungsBücherNachKategorie(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
+        public IEnumerable<IGrouping<int, WIFI.Gateway.DTO.Buch>> OrdneBestellungsBücherNachKategorie(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
         {
             WIFI.Gateway.DTO.Bücher Buchliste = new WIFI.Gateway.DTO.Bücher();
 

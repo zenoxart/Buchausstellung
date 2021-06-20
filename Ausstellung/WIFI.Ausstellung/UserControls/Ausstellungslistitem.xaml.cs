@@ -262,7 +262,7 @@ namespace WIFI.Ausstellung.UserControls
                                     AutorName = Autor,
                                     ID = Convert.ToInt32(Id),
                                     Kategoriegruppe = Convert.ToInt32(Kategorie),
-                                    Preis = Convert.ToDouble(Preis),
+                                    Preis = Convert.ToDecimal(Preis),
                                     Rabattgruppe = Convert.ToInt32(Rabatt),
                                     Titel = Titel,
                                     VerlagName = Verlag

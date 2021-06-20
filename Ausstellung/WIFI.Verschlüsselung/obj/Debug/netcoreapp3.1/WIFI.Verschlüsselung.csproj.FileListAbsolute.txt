@@ -179,10 +179,10 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselun
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\WIFI.Anwendung.xml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\MySqlConnector.xml
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\bin\Debug\netcoreapp3.1\de\WIFI.Anwendung.resources.dll
-C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csprojAssemblyReference.cache
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.AssemblyInfoInputs.cache
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.AssemblyInfo.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csproj.CopyComplete
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.dll
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csproj.AssemblyReference.cache
+C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Verschlüsselung\obj\Debug\netcoreapp3.1\WIFI.Verschlüsselung.csprojAssemblyReference.cache

@@ -18,13 +18,23 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <returns></returns>
         public async System.Threading.Tasks.Task<int> ErstelleBestellung(Gateway.DTO.Besucher besucher)
         {
-            const string Adresse = "{0}ErstelleBestellung?besucher={1}";
+            //int Id, string Vorname,string Nachname,int Hausnummer,string Ort,int PLZ,string Straßenname,string Telefon
+
+
+            const string Adresse = "{0}ErstelleBestellung?Id={1}&Vorname={2}&Nachname={3}&Hausnummer={4}&Ort={5}&PLZ={6}&Straßenname={7}&Telefon={8}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                    string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       besucher
+                       besucher.Id,
+                       besucher.Vorname,
+                       besucher.Nachname,
+                       besucher.Hausnummer,
+                       besucher.Ort,
+                       besucher.Postleitzahl,
+                       besucher.Straßenname,
+                       besucher.Telefon
                        )))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
@@ -40,14 +50,22 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async void BuchbestellungHinzufügen(Gateway.DTO.Buch buch, int bestellNr, int anzahl)
         {
+            //int Id,string Titel,string Autor, string buchnummr, int kategorie, int rabatt, decimal? preis, string verlag,
             //DTO.Buch buch, int bestellNr, int anzahl
-            const string Adresse = "{0}BuchbestellungHinzufügen?buch={1}&bestellNr={2}&anzahl={3}";
+            const string Adresse = "{0}BuchbestellungHinzufügen?Id={1}&Titel={2}&Autor={3}&buchnummr={4}&kategorie={5}&rabatt={6}&preis={7}&verlag={8}&anzahl={9}&bestellNr={10}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                    string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       buch,
+                       buch.ID,
+                       buch.Titel,
+                       buch.AutorName,
+                       buch.Buchnummer,
+                       buch.Kategoriegruppe,
+                       buch.Rabattgruppe,
+                       buch.Preis,
+                       buch.VerlagName,
                        bestellNr,
                        anzahl
                        )))
@@ -84,16 +102,46 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async void AlleBuchbestellungenHinzufügen(Gateway.DTO.Bestellung bestellung)
         {
-            const string Adresse = "{0}AlleBuchbestellungenHinzufügen?Bestellung={1}";
 
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
-                       Adresse,
-                       Properties.Settings.Default.UrlGatewayAPI,
-                       bestellung
-                       )))
+            foreach (var item in bestellung.Buchliste.Keys)
             {
+                const string NewAdresse = "{0}BuchbestellungHinzufügen?Id={1}&Titel={2}&Autor={3}&buchnummr={4}&kategorie={5}&rabatt={6}&preis={7}&verlag={8}&bestellNr={9}&anzahl={10}";
+                string ZielAdresse = string.Format(
+                          NewAdresse,
+                          Properties.Settings.Default.UrlGatewayAPI,
+                          item.ID,
+                          item.Titel,
+                          item.AutorName,
+                          item.Buchnummer,
+                          item.Kategoriegruppe,
+                          item.Rabattgruppe,
+                          item.Preis.Value,
+                          item.VerlagName,
+                          bestellung.BestellNr,
+                          item.Anzahl
+                          );
+
+                ZielAdresse = ZielAdresse.Replace(",", ".");
+
+
+                using (var Antwort = await this.HttpClient.GetAsync(
+                     ZielAdresse))
+                {
+                    // TODO: Aufruf funktioniert noch nicht so ganz
+                }
             }
+
+            //const string Adresse = "{0}AlleBuchbestellungenHinzufügen?BestellNr={1}&buchliste={2}";
+
+            //using (var Antwort = await this.HttpClient.GetAsync(
+            //       string.Format(
+            //           Adresse,
+            //           Properties.Settings.Default.UrlGatewayAPI,
+            //           bestellung.BestellNr,
+            //           bestellung.Buchliste
+            //           )))
+            //{
+            //}
 
         }
 

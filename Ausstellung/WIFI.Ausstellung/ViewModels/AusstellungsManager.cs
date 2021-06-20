@@ -17,21 +17,21 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private static WIFI.Anwendung.DTO.Bücher _Liste = null;
+        private static WIFI.Gateway.DTO.Bücher _Liste = null;
 
         /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bücher Buchausstellungsliste
+        public WIFI.Gateway.DTO.Bücher Buchausstellungsliste
         {
             get
             {
                 if (AusstellungsManager._Liste == null)
                 {
 
-                    Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher
+                    Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher
                     {
-                        new WIFI.Anwendung.DTO.Buch{
+                        new WIFI.Gateway.DTO.Buch{
                             Buchnummer = "0",
                             Titel="Buchtitel werden geladen...",
                             AutorName="Bitte warten.",
@@ -99,8 +99,11 @@ namespace WIFI.Ausstellung.ViewModels
                     //System.Threading.Thread.Sleep(7000);
                     //this.Buchausstellungsliste = this.Controller.HoleAusRessourcen();
 
-                    this.Buchausstellungsliste = this.AppKontext.DBControllerManager.BücherController.HoleBücher();
-
+                    async void Load()
+                    {
+                        this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
+                    }
+                    Load();
 
                     //this.Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher();
 
@@ -244,7 +247,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         public WIFI.Anwendung.Befehl BestellungHinzufügen
         {
-             get
+            get
             {
                 if (this._BestellungHinzufügen == null)
                 {
@@ -340,7 +343,7 @@ namespace WIFI.Ausstellung.ViewModels
                                 //    this.AppKontext.DBControllerManager.BestellungController.ErstelleBestellung(
                                 //        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
 
-                               
+
 
                             }
                         }
@@ -445,8 +448,8 @@ namespace WIFI.Ausstellung.ViewModels
                         p =>
                         {
                             var pdfManager = new WIFI.Ausstellung.PDFManager();
-                            
-                            
+
+
                             //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
 
                             if (this.Gesamtbestellungendruck)
@@ -480,7 +483,7 @@ namespace WIFI.Ausstellung.ViewModels
             set { this._AusstellungAbschließen = value; }
         }
 
-        
+
 
 
     }

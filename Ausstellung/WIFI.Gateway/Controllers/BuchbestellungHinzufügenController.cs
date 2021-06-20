@@ -38,14 +38,21 @@ namespace WIFI.Gateway.Controllers
         /// Ruft den Befehl zum Hinzufügen von
         /// Büchern zu einer Bestellung ab
         /// </summary>
-        /// <param name="buch">Daten des Buches</param>
-        /// <param name="bestellNr">Interne Nr der Bestellung</param>
-        /// <param name="anzahl">Anzahl, wie viele Stück 
-        /// des Buches bestellt werden</param>
-        /// <returns></returns>
-        public object Get(DTO.Buch buch, int bestellNr, int anzahl)
+        public object Get(int Id,string Titel,string Autor, string buchnummr, int kategorie, int rabatt, decimal preis, string verlag, int bestellNr, int anzahl)
         {
-            ClientSqlController.BuchbestellungHinzufügen(buch, bestellNr, anzahl);
+
+            var neuBook = new Gateway.DTO.Buch()
+            {
+                ID = Id,
+                Titel = Titel,
+                AutorName = Autor,
+                Buchnummer = buchnummr,
+                Kategoriegruppe = kategorie,
+                Rabattgruppe = rabatt,
+                Preis = preis,
+                VerlagName = verlag
+            };
+            ClientSqlController.BuchbestellungHinzufügen(neuBook, bestellNr, anzahl);
             return null;
         }
     }

@@ -100,7 +100,7 @@
             Ruft den Clientcontroller für die Bestellung ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController.Get(WIFI.Gateway.DTO.Bestellung)">
+        <member name="M:WIFI.Gateway.Controllers.AlleBuchbestellungenHinzufügenController.Get(System.Int32,System.Collections.Generic.Dictionary{WIFI.Gateway.DTO.Buch,System.Int32})">
             <summary>
             Ruft den Befehl zum Hinzufügen der
             Bücher zu einer Bestellung ab
@@ -228,16 +228,11 @@
             Ruft den Clientcontroller für die Bestellung ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController.Get(WIFI.Gateway.DTO.Buch,System.Int32,System.Int32)">
+        <member name="M:WIFI.Gateway.Controllers.BuchbestellungHinzufügenController.Get(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32,System.Decimal,System.String,System.Int32,System.Int32)">
             <summary>
             Ruft den Befehl zum Hinzufügen von
             Büchern zu einer Bestellung ab
             </summary>
-            <param name="buch">Daten des Buches</param>
-            <param name="bestellNr">Interne Nr der Bestellung</param>
-            <param name="anzahl">Anzahl, wie viele Stück 
-            des Buches bestellt werden</param>
-            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.EntferneBuchController">
             <summary>
@@ -303,13 +298,11 @@
             Ruft den Clientcontroller für die Bestellung ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.ErstelleBestellungController.Get(WIFI.Gateway.DTO.Besucher)">
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBestellungController.Get(System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.String)">
             <summary>
             Befehl zum Anlegen einer Bestellung
             in der Datenbank
             </summary>
-            <param name="Besucher">Daten des Bestellers</param>
-            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBesucherController">
             <summary>
@@ -326,13 +319,11 @@
             Ruft den Clientcontroller für die Besucher ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.ErstelleBesucherController.Get(WIFI.Gateway.DTO.Besucher)">
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBesucherController.Get(System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.String)">
             <summary>
             Befehl zum Erstellen eines
             Besuchers in der Datenbank
             </summary>
-            <param name="besucher">Daten des Besuchers</param>
-            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBuchController">
             <summary>
@@ -349,19 +340,11 @@
             Ruft den Clientcontroller für die Bücher ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(System.Int32,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Decimal)">
             <summary>
             Übergibt die Daten zum Speichern eines Buches
             in der Datenbank
             </summary>
-            <param name="Anzahl">Die Stückzahl des Buches</param>
-            <param name="Autorname">Der Autor des Buches</param>
-            <param name="Buchnummer">Die Nummer des Buches</param>
-            <param name="Kategorie">Die Buchkategorie des Buches</param>
-            <param name="Rabatt">Die Rabattgruppe des Buches</param>
-            <param name="Titel">Der Titel des Buches</param>
-            <param name="Verlag">Der Verlag des Buches</param>
-            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBuchgruppeController">
             <summary>

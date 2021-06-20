@@ -45,7 +45,8 @@
                         <StackPanel Orientation="Horizontal" Cursor="Hand">
                             <Image
                                 Source="{Binding AktuellerFarbPfad}"
-                                Height="30" Width="30"/>
+                                Height="30" Width="30"
+                                ToolTip="{Binding Name}"/>
 
                             <TextBlock  Margin="10 0 0 0"
                                 Text="{Binding Name}"

@@ -38,11 +38,20 @@ namespace WIFI.Gateway.Controllers
         /// Befehl zum Anlegen einer Bestellung
         /// in der Datenbank
         /// </summary>
-        /// <param name="Besucher">Daten des Bestellers</param>
-        /// <returns></returns>
-        public int Get(Gateway.DTO.Besucher Besucher)
+        public int Get(int Id, string Vorname,string Nachname,int Hausnummer,string Ort,int PLZ,string Straßenname,string Telefon)
         {
-            return ClientSqlController.ErstelleBestellung(Besucher);   
+
+            var neu = new Gateway.DTO.Besucher {
+            Id = Id,
+            Vorname = Vorname,
+            Nachname = Nachname,
+            Hausnummer = Hausnummer,
+            Ort = Ort,
+            Postleitzahl = PLZ,
+            Straßenname = Straßenname,
+            Telefon = Telefon
+            };
+            return ClientSqlController.ErstelleBestellung(neu);   
         }
     }
 }

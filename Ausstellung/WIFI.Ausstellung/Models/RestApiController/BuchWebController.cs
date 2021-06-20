@@ -34,7 +34,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         {
 
 
-            const string Adresse = "{0}ErstelleBuch?Anzahl={1}&Autorname={2}&Buchnummer={3}&Kategorie={4}&Rabatt={5}&Titel={6}&Verlag={7}";
+            const string Adresse = "{0}ErstelleBuch?Anzahl={1}&Autorname={2}&Buchnummer={3}&Kategorie={4}&Rabatt={5}&Titel={6}&Verlag={7}&Preis={8}";
             string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
@@ -44,8 +44,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        buch.Kategoriegruppe,
                        buch.Rabattgruppe,
                        buch.Titel,
-                       buch.VerlagName
+                       buch.VerlagName,
+                       buch.Preis.Value
                        );
+            ZielAdresse = ZielAdresse.Replace(",", ".");
             using (var Antwort = await this.HttpClient.GetAsync( ZielAdresse))
             { }
         }

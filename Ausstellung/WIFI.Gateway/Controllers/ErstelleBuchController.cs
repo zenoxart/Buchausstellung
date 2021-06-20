@@ -37,15 +37,7 @@ namespace WIFI.Gateway.Controllers
         /// Übergibt die Daten zum Speichern eines Buches
         /// in der Datenbank
         /// </summary>
-        /// <param name="Anzahl">Die Stückzahl des Buches</param>
-        /// <param name="Autorname">Der Autor des Buches</param>
-        /// <param name="Buchnummer">Die Nummer des Buches</param>
-        /// <param name="Kategorie">Die Buchkategorie des Buches</param>
-        /// <param name="Rabatt">Die Rabattgruppe des Buches</param>
-        /// <param name="Titel">Der Titel des Buches</param>
-        /// <param name="Verlag">Der Verlag des Buches</param>
-        /// <returns></returns>
-        public object Get(int Anzahl, string Autorname, string Buchnummer, int? Kategorie, int? Rabatt, string Titel, string Verlag)
+        public object Get(int Anzahl, string Autorname, string Buchnummer, int Kategorie, int Rabatt, string Titel, string Verlag, decimal Preis)
         {
 
             Gateway.DTO.Buch Buch = new DTO.Buch {
@@ -55,7 +47,8 @@ namespace WIFI.Gateway.Controllers
                 Titel = Titel,
                 Anzahl = Anzahl,
                 AutorName = Autorname,
-                Buchnummer = Buchnummer
+                Buchnummer = Buchnummer,
+                Preis = Preis
                 
             };
 

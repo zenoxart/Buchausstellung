@@ -90,7 +90,6 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this.StartProtokollieren();
 
-                    System.Threading.Thread.Sleep(7000);
                     async void Load()
                     {
                         this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
@@ -337,17 +336,21 @@ namespace WIFI.Ausstellung.ViewModels
                                             VerlagName = line[4],
                                             Rabattgruppe = Convert.ToInt32(line[5]),
                                             Kategoriegruppe = Convert.ToInt32(line[6]),
-                                            Preis = Convert.ToDouble(line[7])
+                                            Preis = Convert.ToDecimal(line[7])
                                         }
                                     );
                                 }
-                                this.Buchausstellungsliste = buches;
+
+                                foreach (var item in buches)
+                                {
+                                    this.Buchausstellungsliste.Add(item);
+                                }
 
                                 this.OnPropertyChanged();
                                 // update to Database
                                 foreach (var item in buches)
                                 {
-                                    WIFI.Ausstellung.DBControllerManager.BuchController.UpdateBuch(item);
+                                    WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(item);
                                 }
 
                                 this.IEStatus = 1;

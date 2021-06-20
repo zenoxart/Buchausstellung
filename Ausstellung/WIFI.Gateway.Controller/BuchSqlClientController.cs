@@ -44,10 +44,10 @@ namespace WIFI.Gateway.Controller
                                         Buchnummer = DatenLeser["buchnr"].ToString(),
                                         AutorName = DatenLeser["autor"].ToString(),
                                         Titel = DatenLeser["titel"].ToString(),
-                                        Preis = Convert.ToDouble(DatenLeser["preis"]),
-                                        Kategoriegruppe = Convert.ToInt32(DatenLeser["rabgr"]),
-                                        Rabattgruppe = Convert.ToInt32(DatenLeser["katgr"]),
-                                        VerlagName = DatenLeser["name"].ToString()
+                                        Preis = Convert.ToDecimal(DatenLeser["preis"]),
+                                        Kategoriegruppe = Convert.ToInt32(DatenLeser["kategorie"]),
+                                        Rabattgruppe = Convert.ToInt32(DatenLeser["rabatt"]),
+                                        VerlagName = DatenLeser["verlag"].ToString()
                                     });
                             }
                         }

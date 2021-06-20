@@ -30,10 +30,10 @@
 
 
                         <ItemsControl 
+                            
                             HorizontalAlignment="Center"
                             Background="Transparent" 
                             HorizontalContentAlignment="Center"
-                            Style="{DynamicResource HellDunkelDesign}"
                             ItemsSource="{Binding Ausstellung.Buchausstellungsliste}">
 
 
@@ -53,11 +53,23 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
 
-
-                        </ItemsControl>
+                        <ItemsControl.Style>
+                                <Style TargetType="ItemsControl">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                        </ItemsControl.Style>
+                    </ItemsControl>
                     </StackPanel>
 
                 </ScrollViewer.Content>
+                
             </ScrollViewer>
 
 
