@@ -282,7 +282,9 @@
             <summary>
             Entfernt eine Buchgruppe aus der Datenbank
             </summary>
-            <param name="id">Interne ID 
+            <param name="Gruppennr">Nummer
+            der Buchgruppe</param>
+            <param name="Beschreibung">Beschreibung
             der Buchgruppe</param>
             <returns></returns>
         </member>
@@ -349,10 +351,16 @@
         </member>
         <member name="M:WIFI.Gateway.Controllers.ErstelleBuchController.Get(System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
             <summary>
-            Übergibt die Daten zum Erstellen eines Buches
+            Übergibt die Daten zum Speichern eines Buches
+            in der Datenbank
             </summary>
-            <param name="Buch">Die Daten des Buches,
-            welches in der Datenbank angelegt werden soll</param>
+            <param name="Anzahl">Die Stückzahl des Buches</param>
+            <param name="Autorname">Der Autor des Buches</param>
+            <param name="Buchnummer">Die Nummer des Buches</param>
+            <param name="Kategorie">Die Buchkategorie des Buches</param>
+            <param name="Rabatt">Die Rabattgruppe des Buches</param>
+            <param name="Titel">Der Titel des Buches</param>
+            <param name="Verlag">Der Verlag des Buches</param>
             <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.ErstelleBuchgruppeController">

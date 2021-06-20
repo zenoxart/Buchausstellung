@@ -36,7 +36,9 @@ namespace WIFI.Gateway.Controllers
         /// <summary>
         /// Entfernt eine Buchgruppe aus der Datenbank
         /// </summary>
-        /// <param name="id">Interne ID 
+        /// <param name="Gruppennr">Nummer
+        /// der Buchgruppe</param>
+        /// <param name="Beschreibung">Beschreibung
         /// der Buchgruppe</param>
         /// <returns></returns>
         public string Get(int Gruppennr,string Beschreibung)
