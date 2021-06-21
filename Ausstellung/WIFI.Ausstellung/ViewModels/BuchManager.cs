@@ -31,7 +31,7 @@ namespace WIFI.Ausstellung.ViewModels
                     {
                         new WIFI.Gateway.DTO.Buch
                         {
-                            Buchnummer = "0",
+                            Buchnummer = 0,
                             Titel = "Buchtitel werden geladen...",
                             AutorName = "Bitte warten.",
                             ID = 0,
@@ -330,7 +330,7 @@ namespace WIFI.Ausstellung.ViewModels
                                         new WIFI.Gateway.DTO.Buch()
                                         {
                                             ID = Convert.ToInt32(line[0]),
-                                            Buchnummer = line[1],
+                                            Buchnummer = Convert.ToInt32(line[1]),
                                             Titel = line[2],
                                             AutorName = line[3],
                                             VerlagName = line[4],

@@ -69,7 +69,7 @@
                 ToolTip="Öffne Bestellung in externem Fenster"
                 Width="25"
                 Height="25"
-                
+                Command="{Binding ElementName=Bestellungenitem,Path=BearbeiteBestellung}"
                 Content="&#xE8;"
                 Style="{DynamicResource BestellButton}" 
                 Template="{DynamicResource AddBestellungRoundButton}"/>

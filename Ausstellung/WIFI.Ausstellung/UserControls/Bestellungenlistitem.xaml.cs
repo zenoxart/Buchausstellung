@@ -51,14 +51,14 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty BesucherProperty =
-        DependencyProperty.Register("Besucher", typeof(WIFI.Anwendung.DTO.Besucher), typeof(Bestellungenlistitem));
+        DependencyProperty.Register("Besucher", typeof(WIFI.Gateway.DTO.Besucher), typeof(Bestellungenlistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public WIFI.Anwendung.DTO.Besucher Besucher
+        public WIFI.Gateway.DTO.Besucher Besucher
         {
-            get { return (WIFI.Anwendung.DTO.Besucher)GetValue(BesucherProperty); }
+            get { return (WIFI.Gateway.DTO.Besucher)GetValue(BesucherProperty); }
             set { SetValue(BesucherProperty, value); }
         }
 
@@ -81,8 +81,8 @@ namespace WIFI.Ausstellung.UserControls
                     this._BearbeiteBestellung = new WIFI.Anwendung.Befehl(
                         p =>
                         {
-                            var neuesBestellungsfenster = new WIFI.Ausstellung.Views.Bestellungsfentser();
-                            neuesBestellungsfenster.BestellNr = this.BestellNr;
+                            var neuesFenster = new WIFI.Ausstellung.Views.Bestellungsfentser(this.BestellNr);
+                            neuesFenster.Show();
                         }
                     );
                 }

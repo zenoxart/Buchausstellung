@@ -36,14 +36,14 @@ namespace WIFI.Ausstellung.UserControls
         /// Erstellt ein DependencyProperty
         /// </summary>
         public static readonly DependencyProperty BuchnrProperty =
-        DependencyProperty.Register("Buchnr", typeof(string), typeof(Ausstellungslistitem));
+        DependencyProperty.Register("Buchnr", typeof(int), typeof(Ausstellungslistitem));
 
         /// <summary>
         /// Erstellt eine Benutzbare Schnittstelle zu dem Property
         /// </summary>
-        public string Buchnr
+        public int Buchnr
         {
-            get { return (string)GetValue(BuchnrProperty); }
+            get { return (int)GetValue(BuchnrProperty); }
             set { SetValue(BuchnrProperty, value); }
         }
         #endregion
@@ -265,7 +265,8 @@ namespace WIFI.Ausstellung.UserControls
                                     Preis = Convert.ToDecimal(Preis),
                                     Rabattgruppe = Convert.ToInt32(Rabatt),
                                     Titel = Titel,
-                                    VerlagName = Verlag
+                                    VerlagName = Verlag,
+                                    Buchnummer = Buchnr
                                 }
                             );
                             }

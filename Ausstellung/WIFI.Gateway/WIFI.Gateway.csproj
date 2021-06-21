@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AktualisiereBestellungBuchController.cs" />
     <Compile Include="Controllers\AktualisiereBestellungsInfoController.cs" />
     <Compile Include="Controllers\AktualisiereBesucherController.cs" />
     <Compile Include="Controllers\AktualisiereBuchgruppeController.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Controllers\ErstelleBuchController.cs" />
     <Compile Include="Controllers\ErstelleBuchgruppeController.cs" />
     <Compile Include="Controllers\ErstelleVeranstaltungController.cs" />
+    <Compile Include="Controllers\HoleBestellungController.cs" />
     <Compile Include="Controllers\HoleBestellungenController.cs" />
     <Compile Include="Controllers\HoleBuchgruppenController.cs" />
     <Compile Include="Controllers\HoleBücherController.cs" />

@@ -18,9 +18,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         public async System.Threading.Tasks.Task<WIFI.Gateway.DTO.Besucher> ErstelleBesucher(WIFI.Gateway.DTO.Besucher besucher)
         {
             const string Adresse = "{0}ErstelleBesucher?Vorname={1}&Nachname={2}&Hausnummer={3}&Ort={4}&PLZ={5}&Straßenname={6}&Telefon={7}";
-
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+            string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
                        besucher.Vorname,
@@ -31,7 +29,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        besucher.Straßenname,
                        besucher.Telefon
 
-                       )))
+                       );
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 ZielAdresse ))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
 

@@ -196,7 +196,7 @@ namespace WIFI.Gateway.Controller
                                         {
                                             AutorName = ZweiterDatenLeser["Autor"].ToString(),
                                             ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
-                                            Buchnummer = ZweiterDatenLeser["BuchNr"].ToString(),
+                                            Buchnummer = Convert.ToInt32(ZweiterDatenLeser["BuchNr"]),
                                             Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
                                             Preis = Convert.ToDecimal(ZweiterDatenLeser["Preis"]),
                                             Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
@@ -304,7 +304,7 @@ namespace WIFI.Gateway.Controller
                                         {
                                             AutorName = ZweiterDatenLeser["Autor"].ToString(),
                                             ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
-                                            Buchnummer = ZweiterDatenLeser["BuchNr"].ToString(),
+                                            Buchnummer = Convert.ToInt32(ZweiterDatenLeser["BuchNr"]),
                                             Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
                                             Preis = Convert.ToDecimal(ZweiterDatenLeser["Preis"]),
                                             Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
@@ -398,7 +398,7 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Aktualisiert eine Bestellung und alle untergeordneten Elemente in der Datenbank
         /// </summary>
-        public void AktualisiereBestellung(DTO.Bestellung bestellung)
+        public void AktualisiereBestellung(int BestellNr, int BesucherId , Gateway.DTO.Besucher besucher)
         {
             using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
             {
@@ -406,8 +406,8 @@ namespace WIFI.Gateway.Controller
                 {
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    Befehl.Parameters.AddWithValue("ID", bestellung.BestellNr);
-                    Befehl.Parameters.AddWithValue("Besucher_ID", bestellung.ZugehörigerBesucher.Id);
+                    Befehl.Parameters.AddWithValue("ID", BestellNr);
+                    Befehl.Parameters.AddWithValue("Besucher_ID", BesucherId);
 
                     Verbindung.Open();
 
@@ -424,48 +424,19 @@ namespace WIFI.Gateway.Controller
                 {
                     Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    Befehl.Parameters.AddWithValue("ID", bestellung.ZugehörigerBesucher.Id);
-                    Befehl.Parameters.AddWithValue("Vorname", bestellung.ZugehörigerBesucher.Vorname);
-                    Befehl.Parameters.AddWithValue("Nachname", bestellung.ZugehörigerBesucher.Nachname);
-                    Befehl.Parameters.AddWithValue("PLZ", bestellung.ZugehörigerBesucher.Postleitzahl);
-                    Befehl.Parameters.AddWithValue("Telefon", bestellung.ZugehörigerBesucher.Telefon);
-                    Befehl.Parameters.AddWithValue("Straße", bestellung.ZugehörigerBesucher.Straßenname);
-                    Befehl.Parameters.AddWithValue("Hausnummer", bestellung.ZugehörigerBesucher.Hausnummer);
-                    Befehl.Parameters.AddWithValue("Ort", bestellung.ZugehörigerBesucher.Ort);
+                    Befehl.Parameters.AddWithValue("ID", BestellNr);
+                    Befehl.Parameters.AddWithValue("Vorname", besucher.Vorname);
+                    Befehl.Parameters.AddWithValue("Nachname", besucher.Nachname);
+                    Befehl.Parameters.AddWithValue("PLZ", besucher.Postleitzahl);
+                    Befehl.Parameters.AddWithValue("Telefon", besucher.Telefon);
+                    Befehl.Parameters.AddWithValue("Straße", besucher.Straßenname);
+                    Befehl.Parameters.AddWithValue("Hausnummer", besucher.Hausnummer);
+                    Befehl.Parameters.AddWithValue("Ort", besucher.Ort);
                     Verbindung.Open();
 
                     Befehl.Prepare();
 
                     Befehl.ExecuteScalar();
-                }
-            }
-
-            // Aktualisiert die Bücher der Bestellung
-            foreach (DTO.Buch item in bestellung.Buchliste.Keys)
-            {
-                using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
-                {
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("AktualisiereBuch", Verbindung))
-                    {
-                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        Befehl.Parameters.AddWithValue("ID", item.ID);
-                        Befehl.Parameters.AddWithValue("Buchnr", item.Buchnummer);
-                        Befehl.Parameters.AddWithValue("Autor", item.AutorName);
-                        Befehl.Parameters.AddWithValue("Preis", item.Preis);
-                        Befehl.Parameters.AddWithValue("Rabgr", item.Rabattgruppe);
-                        Befehl.Parameters.AddWithValue("Katgr", item.Kategoriegruppe);
-                        Befehl.Parameters.AddWithValue("Verlagname", item.VerlagName);
-                        Befehl.Parameters.AddWithValue("Titel", item.Titel);
-                        Befehl.Parameters.AddWithValue("Anzahl", item.Anzahl);
-                        Befehl.Parameters.AddWithValue("BestellID", bestellung.BestellNr);
-
-                        Verbindung.Open();
-
-                        Befehl.Prepare();
-
-                        Befehl.ExecuteScalar();
-                    }
                 }
             }
         }
@@ -484,6 +455,9 @@ namespace WIFI.Gateway.Controller
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Befehl.Parameters.AddWithValue("PersonId", besucher.Id);
+
+
+                        Verbindung.Open();
 
                         Befehl.Prepare();
 
@@ -510,6 +484,46 @@ namespace WIFI.Gateway.Controller
             }
 
             return BestellNr;
+        }
+
+        /// <summary>
+        /// Ändert die Daten zu dem Buch
+        /// </summary>
+        public void AktualisiereBestellungBuch(int buchid,int anzahl,int bestellId)
+        {
+            try
+            {
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
+                {
+                    // Befehl zur Rückgabe der Bestell-ID
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("AktualisiereBestellungBuch", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Befehl.Parameters.AddWithValue("BuchId", buchid);
+                        Befehl.Parameters.AddWithValue("Anzahl", anzahl);
+                        Befehl.Parameters.AddWithValue("BestellID", bestellId);
+
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+
+
+                        Befehl.ExecuteScalar();                    }
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("ErstelleEinzelBestellung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+
         }
     }
 }

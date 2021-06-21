@@ -45,13 +45,13 @@ namespace WIFI.Gateway.DTO
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private string _Buchnummer = string.Empty;
+        private int _Buchnummer = 0;
 
         /// <summary>
-        /// Ruft den Titel des Buches ab,
+        /// Ruft den Nummerierung des Buches ab,
         /// oder legt diesen fest
         /// </summary>
-        public string Buchnummer
+        public int Buchnummer
         {
             get
             {

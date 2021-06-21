@@ -54,8 +54,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
             //DTO.Buch buch, int bestellNr, int anzahl
             const string Adresse = "{0}BuchbestellungHinzufügen?Id={1}&Titel={2}&Autor={3}&buchnummr={4}&kategorie={5}&rabatt={6}&preis={7}&verlag={8}&anzahl={9}&bestellNr={10}";
 
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+            string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
                        buch.ID,
@@ -67,8 +66,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        buch.Preis,
                        buch.VerlagName,
                        bestellNr,
-                       anzahl
-                       )))
+                       anzahl);
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                  ZielAdresse))
             {
             }
 
@@ -201,6 +202,83 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      bestellung
                      )))
             { }
+        }
+
+        /// <summary>
+        /// Läd alle Daten zu einer Bestellid
+        /// </summary>
+        public async System.Threading.Tasks.Task<Gateway.DTO.Bestellung> HoleBestellung(int bestellId)
+        {
+
+            const string Adresse = "{0}HoleBestellung?bestellId={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     bestellId
+                     )))
+            {
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+
+                // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                // Newtonsoft.Json Nuget
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bestellung>(AntwortText);
             }
+        }
+
+        /// <summary>
+        /// Aktualisiert die Daten zu einer Bestellung
+        /// </summary>
+        /// <param name="bestellung"></param>
+        public async void AktualisiereBestellung(Gateway.DTO.Bestellung bestellung)
+        {
+
+            // Für die Bücher der Bestellung
+
+
+            //int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon
+            const string Adresse =
+                    "{0}AktualisiereBestellungsInfo?" +
+                        "BestellNr={1}&BesucherId={2}&BesucherVorname={3}" +
+                        "&BesucherNachname={4}&BesucherHausnummer={5}&Ort={6}" +
+                        "&PLZ={7}&Straße={8}&Telefon={9}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     Adresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     bestellung.BestellNr,
+                     bestellung.ZugehörigerBesucher.Id,
+                     bestellung.ZugehörigerBesucher.Vorname,
+                     bestellung.ZugehörigerBesucher.Nachname,
+                     bestellung.ZugehörigerBesucher.Hausnummer,
+                     bestellung.ZugehörigerBesucher.Ort,
+                     bestellung.ZugehörigerBesucher.Postleitzahl,
+                     bestellung.ZugehörigerBesucher.Straßenname,
+                     bestellung.ZugehörigerBesucher.Telefon
+
+                     )))
+            {
+
+            }
+            foreach (var item in bestellung.Buchliste.Keys)
+            {
+                const string SecAdresse = "{0}AktualisiereBestellungBuch?buchid={1}&anzahl={2}&bestellId={3}";
+
+                using (var Antwort = await this.HttpClient.GetAsync(
+                     string.Format(
+                         SecAdresse,
+                         Properties.Settings.Default.UrlGatewayAPI,
+                         item.ID,
+                         bestellung.Buchliste[item],
+                         bestellung.BestellNr
+
+                         )))
+                {
+                }
+            }
+
+        }
     }
 }

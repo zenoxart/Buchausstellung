@@ -32,7 +32,7 @@ namespace WIFI.Ausstellung.ViewModels
                     Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher
                     {
                         new WIFI.Gateway.DTO.Buch{
-                            Buchnummer = "0",
+                            Buchnummer = 0,
                             Titel="Buchtitel werden geladen...",
                             AutorName="Bitte warten.",
                             ID = 0,

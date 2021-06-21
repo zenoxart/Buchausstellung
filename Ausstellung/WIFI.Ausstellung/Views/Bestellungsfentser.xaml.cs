@@ -54,20 +54,21 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Haupteinstiegspunkt der Anwendung
         /// </summary>
-        public Bestellungsfentser()
+        public Bestellungsfentser(string BestellNr)
         {
+            this.BestellNr = BestellNr;
             InitializeComponent();
         }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellung _AktuelleBestellung;
+        private WIFI.Gateway.DTO.Bestellung _AktuelleBestellung;
 
         /// <summary>
         /// Legt die Aktuelle Bestellung fest oder gibt diese
         /// </summary>
-        public WIFI.Anwendung.DTO.Bestellung AktuelleBestellung
+        public WIFI.Gateway.DTO.Bestellung AktuelleBestellung
         {
             get
             {
@@ -75,7 +76,15 @@ namespace WIFI.Ausstellung.Views
                 {
                     if (!string.IsNullOrEmpty(this.BestellNr))
                     {
-                        this._AktuelleBestellung = this.AppKontext.DBControllerManager.BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
+                        async void Load()
+                        {
+                            //
+                            this.AktuelleBestellung = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
+
+                            
+                        }
+                        Load();
+
                     }
                 }
                 return this._AktuelleBestellung;
@@ -106,19 +115,21 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bücher _BücherDerSelektiertenBestellung;
+        private WIFI.Gateway.DTO.Bücher _BücherDerSelektiertenBestellung;
 
         /// <summary>
         /// Ruft ein Auflistung an Büchern ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bücher BücherDerSelektiertenBestellung
+        public WIFI.Gateway.DTO.Bücher BücherDerSelektiertenBestellung
         {
-            get {
+            get
+            {
                 if (this._BücherDerSelektiertenBestellung == null)
                 {
                     HoleSelektierteBuchBestellungAsync();
                 }
-                return this._BücherDerSelektiertenBestellung; }
+                return this._BücherDerSelektiertenBestellung;
+            }
             set
             {
                 this._BücherDerSelektiertenBestellung = value;
@@ -136,12 +147,12 @@ namespace WIFI.Ausstellung.Views
             await System.Threading.Tasks.Task.Run(
                  () =>
                  {
-                     BücherDerSelektiertenBestellung = new WIFI.Anwendung.DTO.Bücher();
+                     BücherDerSelektiertenBestellung = new WIFI.Gateway.DTO.Bücher();
                      // Wenn Eine Bestellung ausgewählt ist, nimm dessen Bücher, ansonst eine leere liste
 
                      if (this.AktuelleBestellung != null && this.AktuelleBestellung.Buchliste != null)
                      {
-                         var bücher = new WIFI.Anwendung.DTO.Bücher();
+                         var bücher = new WIFI.Gateway.DTO.Bücher();
 
                          foreach (var item in this.AktuelleBestellung.Buchliste)
                          {
@@ -169,7 +180,7 @@ namespace WIFI.Ausstellung.Views
                     {
                         if (BücherDerSelektiertenBestellung.Count > 0)
                         {
-                            Dictionary<WIFI.Anwendung.DTO.Buch, int> TempListe = new Dictionary<WIFI.Anwendung.DTO.Buch, int>();
+                            Dictionary<WIFI.Gateway.DTO.Buch, int> TempListe = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
 
                             foreach (var item in BücherDerSelektiertenBestellung)
                             {
@@ -187,14 +198,19 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private string _BestellNr = string.Empty;
+        private string _BestellNr;
 
         /// <summary>
         /// Ruft die Bestellungsnummer ab oder legt diese fest
         /// </summary>
         public string BestellNr
         {
-            get { return this._BestellNr; }
+            get {
+                if (this._BestellNr == null)
+                {
+                    this._BestellNr = "";
+                }
+                return this._BestellNr; }
             set
             {
                 this._BestellNr = value;
@@ -212,17 +228,21 @@ namespace WIFI.Ausstellung.Views
         /// </summary>
         public WIFI.Anwendung.Befehl AktualisiereBestellung
         {
-            get {
+            get
+            {
                 if (this._AktualisiereBestellung == null)
                 {
                     this._AktualisiereBestellung = new Anwendung.Befehl(
-                        p => {
+                        p =>
+                        {
                             //TODO: Implementiere 
-                            this.AppKontext.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
+                            WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
+                            //this.AppKontext.DBControllerManager.BestellungController.AktualisiereBestellung();
                         }
                     );
                 }
-                return this._AktualisiereBestellung; }
+                return this._AktualisiereBestellung;
+            }
             set { this._AktualisiereBestellung = value; }
         }
     }

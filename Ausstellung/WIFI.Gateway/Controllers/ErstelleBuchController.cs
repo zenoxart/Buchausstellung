@@ -47,7 +47,7 @@ namespace WIFI.Gateway.Controllers
                 Titel = Titel,
                 Anzahl = Anzahl,
                 AutorName = Autorname,
-                Buchnummer = Buchnummer,
+                Buchnummer = Convert.ToInt32(Buchnummer),
                 Preis = Preis
                 
             };

@@ -39,7 +39,7 @@
                     HorizontalContentAlignment="Center"
                     
                     Style="{DynamicResource HellDunkelDesign}"
-                    ItemsSource="{Binding ElementName=BF, Path=BücherDerSelektiertenBestellung}" >
+                    ItemsSource="{Binding ElementName=BF, Path=AktuelleBestellung}" >
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <us:Bestellungslistitem

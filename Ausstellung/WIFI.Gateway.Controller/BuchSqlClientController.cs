@@ -41,7 +41,7 @@ namespace WIFI.Gateway.Controller
                                     new DTO.Buch
                                     {
                                         ID = Convert.ToInt32(DatenLeser["buchid"]),
-                                        Buchnummer = DatenLeser["buchnr"].ToString(),
+                                        Buchnummer = Convert.ToInt32(DatenLeser["buchnr"]),
                                         AutorName = DatenLeser["autor"].ToString(),
                                         Titel = DatenLeser["titel"].ToString(),
                                         Preis = Convert.ToDecimal(DatenLeser["preis"]),

@@ -14,6 +14,21 @@
             Registriert die übergebenen Daten
             </summary>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.AktualisiereBestellungBuchController">
+            <summary>
+            Stellt einen REST-API-Controller zum Ändern des Buches der Bestellung
+            </summary>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.AktualisiereBestellungBuchController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.AktualisiereBestellungBuchController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bestellung ab 
+            </summary>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController">
             <summary>
             Stellt einen REST-API-Controller zum Aktualisieren der Bestellung
@@ -29,7 +44,7 @@
             Ruft den Clientcontroller für die Bestellung ab 
             </summary>
         </member>
-        <member name="M:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController.Get(WIFI.Gateway.DTO.Bestellung)">
+        <member name="M:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController.Get(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.String)">
             <summary>
             Aktualisiert den Eintrag einer 
             Bestellung in der Datenbank
@@ -388,6 +403,16 @@
             Veranstaltung in der Datenbank ab
             </summary>
             <returns></returns>
+        </member>
+        <member name="F:WIFI.Gateway.Controllers.HoleBestellungController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.HoleBestellungController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Bestellung ab 
+            </summary>
         </member>
         <member name="T:WIFI.Gateway.Controllers.HoleBestellungenController">
             <summary>

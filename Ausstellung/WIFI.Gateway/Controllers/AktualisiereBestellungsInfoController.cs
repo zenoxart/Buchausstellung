@@ -39,9 +39,30 @@ namespace WIFI.Gateway.Controllers
         /// <param name="id">Interne ID 
         /// der Bestellung</param>
         /// <returns></returns>
-        public void Get(DTO.Bestellung id)
+        public object Get(int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon)
         {
-            ClientSqlController.AktualisiereBestellung(id);
+            DTO.Bestellung bestellung = new DTO.Bestellung() { 
+                BestellNr= BestellNr,
+
+            
+            };
+            DTO.Besucher besucher = new DTO.Besucher { 
+                Id = BesucherId,
+                Vorname = BesucherVorname,
+                Nachname = BesucherNachname,
+                Hausnummer = BesucherHausnummer,
+                Ort = Ort,
+                Postleitzahl = PLZ,
+                Straßenname = Straße,
+                Telefon = Telefon
+            
+            };
+            
+            
+
+            ClientSqlController.AktualisiereBestellung(BestellNr,BesucherId, besucher);
+
+            return null;
         }
     }
 }
