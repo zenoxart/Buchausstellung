@@ -24,10 +24,6 @@ Abholungsverwaltung  -> In die Datenbank pushen
 Filter entfernen
 
 TODOs 22.06.2021:
-Preisanzeige mit zwei Nachkommastellen
-Kategorie wird nicht übernommen, wenn die Auswahl nicht geändert wird; führt wohl zu ->
-Bücher werden nicht gespeichert oder geladen (Fehler in der gespeicherten Prozedur "ErstelleBuch"
-Debuggen läuft nach Beenden einfach weiter
 Kategorieverwaltung mit Titel
 In der Bücherverwaltung überdecken die Nummern die Wasserzeichen-Texte
 Buchexport schlägt keinen Dateityp vor

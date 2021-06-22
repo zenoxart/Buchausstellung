@@ -305,18 +305,17 @@ namespace WIFI.Ausstellung.ViewModels
 
                             try
                             {
-                                // Lade aus einer CSV-Datei
+                                // Laden von Daten aus einer CSV-Datei
+                                string text = string.Empty;
 
-                                // open FileChooser
-
-                                Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-
-
-                                // read from file
-                                string text = "";
-                                if (openFileDialog.ShowDialog() == true)
-                                    text = System.IO.File.ReadAllText(openFileDialog.FileName);
-
+                                using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
+                                {
+                                    // read from file
+                                    if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                                        text = System.IO.File.ReadAllText(openFileDialog.FileName);
+                                    else
+                                        return;
+                                }
 
                                 string[] newText = text.Split('\n');
 
@@ -368,9 +367,6 @@ namespace WIFI.Ausstellung.ViewModels
 
                                 this.IEStatus = 2;
                             }
-
-
-
                         }
                     );
                 }
@@ -402,32 +398,35 @@ namespace WIFI.Ausstellung.ViewModels
                                 try
                                 {
                                     // open FileChooser
-                                    Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
-                                    string fileName = "";
-                                    if (sfd.ShowDialog() == true) fileName = sfd.FileName;
-
-                                    string content = "ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis";
-
-                                    content += "\n";
-
-
-                                    foreach (var item in this.Buchausstellungsliste)
+                                    using (System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog())
                                     {
-                                        content +=
-                                            item.ID + ";" +
-                                            item.Buchnummer + ";" +
-                                            item.Titel + ";" +
-                                            item.AutorName + ";" +
-                                            item.VerlagName + ";" +
-                                            item.Rabattgruppe + ";" +
-                                            item.Kategoriegruppe + ";" +
-                                            item.Preis + "\n";
+                                        string fileName = "Bücherliste";
+                                        sfd.DefaultExt = ".csv";
+                                        sfd.Filter = "csv files (*.csv)|*.csv";
+                                        sfd.FileName = fileName;
+                                        if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                                            fileName = sfd.FileName;
+
+                                        string content = "ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis";
+                                        content += "\n";
+
+                                        foreach (var item in this.Buchausstellungsliste)
+                                        {
+                                            content +=
+                                                item.ID + ";" +
+                                                item.Buchnummer + ";" +
+                                                item.Titel + ";" +
+                                                item.AutorName + ";" +
+                                                item.VerlagName + ";" +
+                                                item.Rabattgruppe + ";" +
+                                                item.Kategoriegruppe + ";" +
+                                                item.Preis + "\n";
+                                        }
+
+
+                                        // write from file
+                                        System.IO.File.WriteAllText(sfd.FileName, content);
                                     }
-
-
-                                    // write from file
-                                    System.IO.File.WriteAllText(sfd.FileName, content);
-
 
                                     this.IEStatus = 1;
                                 }

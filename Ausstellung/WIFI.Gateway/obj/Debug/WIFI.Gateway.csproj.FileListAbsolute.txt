@@ -59,10 +59,7 @@ C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\WIF
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\WIFI.Anwendung.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\WIFI.Gateway.Controller.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\WIFI.Gateway.DTO.dll
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\PdfSharp.dll
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\HtmlRenderer.PdfSharp.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\MySqlConnector.dll
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\HtmlRenderer.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Threading.Tasks.Extensions.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Memory.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Buffers.dll
@@ -79,10 +76,7 @@ C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\Sys
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Web.Http.xml
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Web.Http.WebHost.xml
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\PdfSharp.xml
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\HtmlRenderer.PdfSharp.pdb
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\MySqlConnector.xml
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\HtmlRenderer.pdb
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Memory.xml
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\System.Buffers.xml
@@ -92,7 +86,6 @@ C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Net.Http.Formatting.resources.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Web.Http.resources.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Web.Http.WebHost.resources.dll
-C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\PdfSharp.resources.dll
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.AssemblyReference.cache
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.CoreCompileInputs.cache
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.CopyComplete
@@ -285,3 +278,4 @@ D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Web.Http.resources.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Web.Http.WebHost.resources.dll
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.CopyComplete
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\WIFI.Gateway.xml
