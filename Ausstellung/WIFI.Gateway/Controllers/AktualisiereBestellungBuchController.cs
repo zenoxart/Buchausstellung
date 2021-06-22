@@ -32,7 +32,16 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Aktualisiert die Bücher 
+        /// in einer Bestellung
+        /// </summary>
+        /// <param name="buchid">Interne ID 
+        /// des Buchs</param>
+        /// <param name="anzahl">Anzahl 
+        /// des Buchs</param>
+        /// <param name="bestellId">Interne ID 
+        /// der Bestellung</param>
         public object Get(int buchid, int anzahl, int bestellId)
         {
             ClientSqlController.AktualisiereBestellungBuch(buchid, anzahl, bestellId);
