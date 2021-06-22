@@ -74,18 +74,14 @@ namespace WIFI.Ausstellung.Views
             {
                 if (this._AktuelleBestellung == null)
                 {
-                    if (!string.IsNullOrEmpty(this.BestellNr))
+                    async void Load()
                     {
-                        async void Load()
+                        if (!string.IsNullOrEmpty(this.BestellNr))
                         {
-                            //
                             this.AktuelleBestellung = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
-
-                            
                         }
-                        Load();
-
                     }
+                    Load();
                 }
                 return this._AktuelleBestellung;
             }
@@ -205,12 +201,14 @@ namespace WIFI.Ausstellung.Views
         /// </summary>
         public string BestellNr
         {
-            get {
+            get
+            {
                 if (this._BestellNr == null)
                 {
                     this._BestellNr = "";
                 }
-                return this._BestellNr; }
+                return this._BestellNr;
+            }
             set
             {
                 this._BestellNr = value;

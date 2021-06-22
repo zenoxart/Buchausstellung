@@ -36,19 +36,27 @@
                    FontWeight="Bold"
                    Style="{DynamicResource DunkelHellSchrift}"/>
             <!-- Darstellung aller Bestellungen -->
-            <ListView  Background="Transparent" Grid.Row="1" ItemsSource="{Binding Lieferung.Gesamtbestellungen}" SelectedItem="{Binding Lieferung.SelektierteBestellung}" >
+            <ListView
+                Margin="10 0 5 0"
+                Background="Transparent" 
+                Grid.Row="1" 
+                ItemsSource="{Binding Lieferung.Gesamtbestellungen}" 
+                SelectedItem="{Binding Lieferung.SelektierteBestellung}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-
+                        <Grid HorizontalAlignment="Center" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
                             <!-- Bestellnr -->
 
-                            <TextBlock Text="{Binding BestellNr}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="0" Text="{Binding BestellNr}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" />
 
-                            <Label Width="20"/>
                             <!-- Kundenname -->
-                            <TextBlock Text="{Binding ZugehörigerBesucher.Nachname}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" />
-                        </StackPanel>
+                            <TextBlock Grid.Column="2" Text="{Binding ZugehörigerBesucher.Nachname}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        </Grid>
 
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -66,7 +74,9 @@
                    FontWeight="Bold"
                    Style="{DynamicResource DunkelHellSchrift}" />
             <!-- Darstellen aller Bücher der Ausgewählten Bestellung -->
-            <ListView  Background="Transparent" Grid.Row="1" 
+            <ListView  Background="Transparent" 
+                       Grid.Row="1"
+                       Margin="5 0 10 0"
                        ItemsSource="{Binding Lieferung.BücherDerSelektiertenBestellung}" 
                        SelectedItem="{Binding Lieferung.SelektiertesBuch}">
                 <ListView.ItemTemplate>

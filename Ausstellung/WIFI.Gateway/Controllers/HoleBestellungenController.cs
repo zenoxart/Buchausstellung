@@ -42,5 +42,15 @@ namespace WIFI.Gateway.Controllers
         {
             return ClientSqlController.HoleBestellungen();
         }
+
+        /// <summary>
+        /// Ruft die Bücher zu der Bestellung der bestellNr ab
+        /// </summary>
+        public Gateway.DTO.Bücher Get(int bestellNr)
+        {
+            return ClientSqlController.HoleBücherZuBestellung(bestellNr);
+        }
+
+
     }
 }

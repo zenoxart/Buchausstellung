@@ -179,6 +179,8 @@ namespace WIFI.Ausstellung
                     }
 
                     var eintrag = reff.Last(x => x.ZugehörigerBesucher == zuvorigerBesucher);
+
+                    eintrag.Liste = new Gateway.DTO.Bücher();
                     foreach (var alleBücher in alleBestellungen[i].Buchliste.Keys.ToList())
                     {
                         eintrag.Liste.Add(alleBücher);

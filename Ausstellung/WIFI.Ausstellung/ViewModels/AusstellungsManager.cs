@@ -232,6 +232,20 @@ namespace WIFI.Ausstellung.ViewModels
         {
             this.BestellungenListe = await
             WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellungen();
+
+            foreach (var item in this.BestellungenListe)
+            {
+                var bücher = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(item.BestellNr);
+
+                item.Buchliste = new Dictionary<Gateway.DTO.Buch, int>();
+
+                foreach (var buch in bücher)
+                {
+                    item.Buchliste.Add(buch, buch.Anzahl);
+                }
+            }
+
+
             //this.BestellungenListe =
             //    this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
         }

@@ -94,7 +94,30 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+                // TODO: Buchliste in der Bestellung kann nicht deserializiert werden
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bestellungen>(AntwortText);
+            }
+        }
+
+        /// <summary>
+        /// Läd alle Bücher zu der angegebenen BestellNr
+        /// </summary>
+        public async System.Threading.Tasks.Task<Gateway.DTO.Bücher> HoleBücherZuBestellung(int BestellNr)
+        {
+            const string Adresse = "{0}HoleBestellungen?BestellNr={1}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                   string.Format(
+                       Adresse,
+                       Properties.Settings.Default.UrlGatewayAPI,
+                       BestellNr
+                       )))
+            {
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+
+                // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                // Newtonsoft.Json Nuget
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bücher>(AntwortText);
             }
         }
 
@@ -211,20 +234,28 @@ namespace WIFI.Ausstellung.Models.RestApiController
         {
 
             const string Adresse = "{0}HoleBestellung?bestellId={1}";
-
-            using (var Antwort = await this.HttpClient.GetAsync(
-                 string.Format(
+            string ZielAdresse = string.Format(
                      Adresse,
                      Properties.Settings.Default.UrlGatewayAPI,
-                     bestellId
-                     )))
+                     bestellId);
+            try
             {
-                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+                using (var Antwort = await this.HttpClient.GetAsync(
+                 ZielAdresse))
+                {
+                    var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
-                // Weil JSON erst ab .Net 5 intern unterstützt ist,
-                // Newtonsoft.Json Nuget
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bestellung>(AntwortText);
+                    // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                    // Newtonsoft.Json Nuget
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bestellung>(AntwortText);
+                }
             }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
         }
 
         /// <summary>

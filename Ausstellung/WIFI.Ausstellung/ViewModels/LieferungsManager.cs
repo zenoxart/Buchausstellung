@@ -14,19 +14,47 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellungen _Gesamtbestellungen = null;
+        private WIFI.Gateway.DTO.Bestellungen _Gesamtbestellungen = null;
 
         /// <summary>
         /// Stellt eine Liste aller Bestellungen
         /// </summary>
-        public WIFI.Anwendung.DTO.Bestellungen Gesamtbestellungen
+        public WIFI.Gateway.DTO.Bestellungen Gesamtbestellungen
         {
             get
             {
                 if (this._Gesamtbestellungen == null)
                 {
-                    this._Gesamtbestellungen =
-                        this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
+                    async void Load()
+                    {
+                        this.Gesamtbestellungen = await
+                            WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellungen();
+
+                        foreach (var item in this.Gesamtbestellungen)
+                        {
+                            var bücher = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(item.BestellNr);
+
+                            item.Buchliste = new Dictionary<Gateway.DTO.Buch, int>();
+
+                            foreach (var buch in bücher)
+                            {
+                                item.Buchliste.Add(buch, buch.Anzahl);
+                            }
+                        }
+
+
+                        //var bestellungen = new Gateway.DTO.Bestellungen();
+                        //foreach (var item in this.Gesamtbestellungen)
+                        //{
+                        //    bestellungen.Add(await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellung(item.BestellNr));
+                        //}
+
+                        //this.Gesamtbestellungen = bestellungen;
+
+                    }
+                    Load();
+                    //this._Gesamtbestellungen =
+                    //    this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
 
                     // Aus der Datenbank holen
                     //this._Gesamtbestellungen = 
@@ -47,19 +75,19 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellung _SelektierteBestellung = null;
+        private WIFI.Gateway.DTO.Bestellung _SelektierteBestellung = null;
 
         /// <summary>
         /// Ruft die aktuell selektierte Bestellung ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bestellung SelektierteBestellung
+        public WIFI.Gateway.DTO.Bestellung SelektierteBestellung
         {
             get
             {
 
                 if (this._SelektierteBestellung == null)
                 {
-                    this._SelektierteBestellung = new WIFI.Anwendung.DTO.Bestellung();
+                    this._SelektierteBestellung = new WIFI.Gateway.DTO.Bestellung();
 
                     //Wenn eine Bestellungsliste existiert
                 }
@@ -110,12 +138,12 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bücher _BücherDerSelektiertenBestellung = null;
+        private WIFI.Gateway.DTO.Bücher _BücherDerSelektiertenBestellung = null;
 
         /// <summary>
         /// Ruft eine Liste aller Bücher der ausgewählten Bestellung ab oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bücher BücherDerSelektiertenBestellung
+        public WIFI.Gateway.DTO.Bücher BücherDerSelektiertenBestellung
         {
             get
             {
@@ -145,14 +173,16 @@ namespace WIFI.Ausstellung.ViewModels
             await System.Threading.Tasks.Task.Run(
                  () =>
                  {
-                     BücherDerSelektiertenBestellung = new WIFI.Anwendung.DTO.Bücher();
+                     BücherDerSelektiertenBestellung = new WIFI.Gateway.DTO.Bücher();
 
                      // Wenn Eine Bestellung ausgewählt ist, nimm dessen Bücher, ansonst eine leere liste
 
                      if (this.SelektierteBestellung != null && this.SelektierteBestellung.Buchliste != null)
                      {
+                         // Call HoleBücherZuBestellungsInfo
+                         
 
-                         var bücher = new WIFI.Anwendung.DTO.Bücher();
+                         var bücher = new WIFI.Gateway.DTO.Bücher();
 
                          foreach (var item in this.SelektierteBestellung.Buchliste)
                          {
@@ -180,7 +210,7 @@ namespace WIFI.Ausstellung.ViewModels
                     {
                         if (BücherDerSelektiertenBestellung.Count > 0)
                         {
-                            Dictionary<WIFI.Anwendung.DTO.Buch, int> TempListe = new Dictionary<WIFI.Anwendung.DTO.Buch, int>();
+                            Dictionary<WIFI.Gateway.DTO.Buch, int> TempListe = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
 
                             foreach (var item in BücherDerSelektiertenBestellung)
                             {
@@ -199,18 +229,18 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Buch _SelektiertesBuch = null;
+        private WIFI.Gateway.DTO.Buch _SelektiertesBuch = null;
 
         /// <summary>
         /// Ruft das zu bearbeitende Buch der Bestellung ab oder legt dieses fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Buch SelektiertesBuch
+        public WIFI.Gateway.DTO.Buch SelektiertesBuch
         {
             get
             {
                 if (this._SelektiertesBuch == null)
                 {
-                    this._SelektiertesBuch = new WIFI.Anwendung.DTO.Buch();
+                    this._SelektiertesBuch = new WIFI.Gateway.DTO.Buch();
 
                     // Wenn eine Bestellung ausgewählt ist und die Bücherliste nicht null ist
 
@@ -234,35 +264,55 @@ namespace WIFI.Ausstellung.ViewModels
         private WIFI.Anwendung.Befehl _Lieferanschluss = null;
 
         /// <summary>
-        /// 
+        /// Schließt das Stadium Lieferung ab und Speichert die Änderungen 
         /// </summary>
         public WIFI.Anwendung.Befehl Lieferabschluss
         {
-            get {
+            get
+            {
 
                 if (this._Lieferanschluss == null)
                 {
                     this._Lieferanschluss = new WIFI.Anwendung.Befehl(
-                        p => {
+                        p =>
+                        {
 
-                            // TODO: Lieferabschluss
+                            // Lieferabschluss
                             // Aktuallisiere alle Bestellungen und Bücher in der Datenbank
+                            var neuZuDruckende = new Gateway.DTO.Bestellungen();
 
-                            // Drucke alle Einzelnen Bestellungen neu, welche sich geändert haben
+                            foreach (Gateway.DTO.Bestellung item in this.Gesamtbestellungen)
+                            {
+                                WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(item);
+                                // Wenn das Element geändert wurde, drucke es neu
+                                if (item.Geändert)
+                                {
+                                    neuZuDruckende.Add(item);
+                                }
+
+                            }
+                            if (neuZuDruckende.Count != 0)
+                            {
+                                // Drucke alle Einzelnen Bestellungen neu, welche sich geändert haben
+                                var pdfManager = new WIFI.Ausstellung.PDFManager();
+                                pdfManager.GeneriereBesucherBestellungen(neuZuDruckende);
+                            }
+
 
                             // Ändere den Status auf Abholungsverwaltung
                             WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Abholung);
 
                             // 20210617 -> Übersiedlung von MySql auf MsSql
                             //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung);
-                            
+
 
                             this.OnPropertyChanged();
-                        
+
                         }
                    );
                 }
-                return this._Lieferanschluss; }
+                return this._Lieferanschluss;
+            }
             set { this._Lieferanschluss = value; }
         }
 

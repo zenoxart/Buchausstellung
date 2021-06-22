@@ -240,5 +240,7 @@ namespace WIFI.Gateway.DTO
                 }
             }
         }
+
+
     }
 }
