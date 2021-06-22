@@ -14,13 +14,13 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Bestellungen _Abholungsliste = null;
+        private WIFI.Gateway.DTO.Bestellungen _Abholungsliste = null;
 
         /// <summary>
         /// Ruft eine Auflistung der Bestellungen für die 
         /// Abholung ab, oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Bestellungen Abholungsliste
+        public WIFI.Gateway.DTO.Bestellungen Abholungsliste
         {
             get
             {
@@ -46,8 +46,12 @@ namespace WIFI.Ausstellung.ViewModels
             await System.Threading.Tasks.Task.Run(
                 () =>
                 {
-
-                    this.Abholungsliste = this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
+                    async void Load()
+                    {
+                        this.Abholungsliste = await
+                        WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellungen();
+                    }
+                    Load();
                 });
 
         }
@@ -72,7 +76,16 @@ namespace WIFI.Ausstellung.ViewModels
                             // Aktuallisiere alle Bücher welche Abgeholt wurden
                             if (this.Abholungsliste != null)
                             {
-                                this.AppKontext.DBControllerManager.BestellungController.FürAlleBestellungenAbgeholt(this.Abholungsliste);
+
+                                foreach (var item in this.Abholungsliste)
+                                {
+                                    if (item.Abgeholt)
+                                    {
+
+                                        WIFI.Ausstellung.DBControllerManager.BestellungController.BestellungAbgeholt(item);
+                                    }
+                                }
+                                //this.AppKontext.DBControllerManager.BestellungController.FürAlleBestellungenAbgeholt(this.Abholungsliste);
 
                                 // TODO: Zeige die Oberfläche an, dass der Programmdurchlauf abgeschlossen ist
                             }

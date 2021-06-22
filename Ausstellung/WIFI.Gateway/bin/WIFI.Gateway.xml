@@ -436,6 +436,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleBestellungenController.Get(System.Int32)">
+            <summary>
+            Ruft die Bücher zu der Bestellung der bestellNr ab
+            </summary>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.HoleBuchgruppenController">
             <summary>
             Stellt einen REST-API-Controller zum Laden der Buchgruppen

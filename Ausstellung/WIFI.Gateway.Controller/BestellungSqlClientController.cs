@@ -124,9 +124,9 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Ruft alle Bestellungen ab 
         /// </summary>
-        public DTO.Bestellungen HoleBestellungen()
+        public Gateway.DTO.Bestellungen HoleBestellungen()
         {
-            var bestellungen = new DTO.Bestellungen();
+            var bestellungen = new Gateway.DTO.Bestellungen();
 
             try
             {
@@ -151,10 +151,10 @@ namespace WIFI.Gateway.Controller
                                 }
 
                                 bestellungen.Add(
-                                    new DTO.Bestellung
+                                    new Gateway.DTO.Bestellung
                                     {
                                         BestellNr = Convert.ToInt32(DatenLeser["ID"]),
-                                        ZugehörigerBesucher = new DTO.Besucher
+                                        ZugehörigerBesucher = new Gateway.DTO.Besucher
                                         {
                                             Id = Convert.ToInt32(DatenLeser["Besucherid"]),
                                             Vorname = DatenLeser["Vorname"].ToString(),
@@ -176,41 +176,7 @@ namespace WIFI.Gateway.Controller
 
                 // Alle Bücher zu der dazugehörigen
                 // Bestellung ermitteln
-                foreach (var item in bestellungen)
-                {
-                    using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
-                    {
-                        using (var ZweiterBefehl = new System.Data.SqlClient.SqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
-                        {
-                            ZweiterBefehl.CommandType = System.Data.CommandType.StoredProcedure;
-                            Verbindung.Open();
-                            ZweiterBefehl.Parameters.AddWithValue("bestellungsid", item.BestellNr);
-                            ZweiterBefehl.Prepare();
 
-                            using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                            {
-                                while (ZweiterDatenLeser.Read())
-                                {
-                                    item.Buchliste.Add(
-                                        new DTO.Buch
-                                        {
-                                            AutorName = ZweiterDatenLeser["Autor"].ToString(),
-                                            ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
-                                            Buchnummer = Convert.ToInt32(ZweiterDatenLeser["BuchNr"]),
-                                            Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
-                                            Preis = Convert.ToDecimal(ZweiterDatenLeser["Preis"]),
-                                            Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
-                                            VerlagName = ZweiterDatenLeser["Verlag"].ToString(),
-                                            Rabattgruppe = Convert.ToInt32(ZweiterDatenLeser["Rabatt"]),
-                                            Anzahl = Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
-                                        }, Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
-
-                                        );
-                                }
-                            }
-                        }
-                    }
-                }
 
             }
             catch (Exception e)
@@ -229,15 +195,70 @@ namespace WIFI.Gateway.Controller
         }
 
         /// <summary>
+        /// Läd alle Bücher zu der angegebenen BestellNr
+        /// </summary>
+        public Gateway.DTO.Bücher HoleBücherZuBestellung(int BestellNr)
+        {
+            var bücherliste = new Gateway.DTO.Bücher();
+            try
+            {
+
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+                {
+                    using (var ZweiterBefehl = new System.Data.SqlClient.SqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
+                    {
+                        ZweiterBefehl.CommandType = System.Data.CommandType.StoredProcedure;
+                        Verbindung.Open();
+                        ZweiterBefehl.Parameters.AddWithValue("bestellungsid", BestellNr);
+                        ZweiterBefehl.Prepare();
+
+                        using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader())
+                        {
+                            while (ZweiterDatenLeser.Read())
+                            {
+                                var newBook = new Gateway.DTO.Buch
+                                {
+                                    ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
+                                    Anzahl = Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"]),
+                                    Buchnummer = Convert.ToInt32(ZweiterDatenLeser["BuchNr"]),
+                                    Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
+                                    AutorName = ZweiterDatenLeser["Autor"].ToString(),
+                                    Preis = Convert.ToDecimal(ZweiterDatenLeser["Preis"]),
+                                    Rabattgruppe = Convert.ToInt32(ZweiterDatenLeser["Rabatt"]),
+                                    Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
+                                    VerlagName = ZweiterDatenLeser["Verlag"].ToString()
+                                };
+
+                                bücherliste.Add(newBook);
+                            }
+                        }
+
+                        Verbindung.Close();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BestellungSqlClientController).GetMethod("HoleBestellungsInfo")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+
+            return bücherliste;
+        }
+
+        /// <summary>
         /// Ruft die Daten einer einzelnen
         /// Bestellung ab
         /// </summary>
-        /// <param name="BestellNr">Die interne ID der Bestellung</param>
-        /// <returns></returns>
-        public DTO.Bestellung HoleBestellung(int BestellNr)
+        public Gateway.DTO.Bestellung HoleBestellung(int BestellNr)
         {
-            var bestellungen = new DTO.Bestellungen();
-
+            Gateway.DTO.Bestellung bestellung1 = new DTO.Bestellung();
             try
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
@@ -260,11 +281,11 @@ namespace WIFI.Gateway.Controller
                                     abgeholtBool = true;
                                 }
 
-                                bestellungen.Add(
-                                    new DTO.Bestellung
+                                bestellung1 =
+                                    new Gateway.DTO.Bestellung
                                     {
                                         BestellNr = Convert.ToInt32(DatenLeser["ID"]),
-                                        ZugehörigerBesucher = new DTO.Besucher
+                                        ZugehörigerBesucher = new Gateway.DTO.Besucher
                                         {
                                             Id = Convert.ToInt32(DatenLeser["Besucherid"]),
                                             Vorname = DatenLeser["Vorname"].ToString(),
@@ -272,52 +293,16 @@ namespace WIFI.Gateway.Controller
                                             Straßenname = DatenLeser["Strasse"].ToString(),
                                             Hausnummer = Convert.ToInt32(DatenLeser["Hausnummer"]),
                                             Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
-                                            Ort = DatenLeser["Ort"].ToString()
+                                            Ort = DatenLeser["Ort"].ToString(),
+                                            Telefon = DatenLeser["Telefon"].ToString()
                                         },
-                                        Buchliste = new Dictionary<DTO.Buch, int>() { },
+                                        Buchliste = new Dictionary<Gateway.DTO.Buch, int>() { },
                                         Abgeholt = abgeholtBool
-                                    }
-
-                                    );
+                                    };
                             }
                         }
                     }
-                }
 
-                foreach (var item in bestellungen)
-                {
-                    using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
-                    {
-                        using (var ZweiterBefehl = new System.Data.SqlClient.SqlCommand("HoleBücherZuBestellungsInfo", Verbindung))
-                        {
-                            ZweiterBefehl.CommandType = System.Data.CommandType.StoredProcedure;
-                            Verbindung.Open();
-                            ZweiterBefehl.Parameters.AddWithValue("bestellungsid", item.BestellNr);
-                            ZweiterBefehl.Prepare();
-
-                            using (var ZweiterDatenLeser = ZweiterBefehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                            {
-                                while (ZweiterDatenLeser.Read())
-                                {
-                                    item.Buchliste.Add(
-                                        new DTO.Buch
-                                        {
-                                            AutorName = ZweiterDatenLeser["Autor"].ToString(),
-                                            ID = Convert.ToInt32(ZweiterDatenLeser["BuchId"]),
-                                            Buchnummer = Convert.ToInt32(ZweiterDatenLeser["BuchNr"]),
-                                            Kategoriegruppe = Convert.ToInt32(ZweiterDatenLeser["Kategorie"]),
-                                            Preis = Convert.ToDecimal(ZweiterDatenLeser["Preis"]),
-                                            Titel = ZweiterDatenLeser["BuchTitel"].ToString(),
-                                            VerlagName = ZweiterDatenLeser["Verlag"].ToString(),
-                                            Rabattgruppe = Convert.ToInt32(ZweiterDatenLeser["Rabatt"]),
-                                            Anzahl = Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
-                                        }, Convert.ToInt32(ZweiterDatenLeser["Buchanzahl"])
-
-                                        );
-                                }
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception e)
@@ -331,17 +316,8 @@ namespace WIFI.Gateway.Controller
                         Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                     });
             }
-            var bestellung = new WIFI.Gateway.DTO.Bestellung();
 
-            foreach (var item in bestellungen)
-            {
-                if (item.BestellNr == BestellNr)
-                {
-                    bestellung = item;
-                }
-            }
-
-            return bestellung;
+            return bestellung1;
         }
 
         /// <summary>
@@ -398,7 +374,7 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Aktualisiert eine Bestellung und alle untergeordneten Elemente in der Datenbank
         /// </summary>
-        public void AktualisiereBestellung(int BestellNr, int BesucherId , Gateway.DTO.Besucher besucher)
+        public void AktualisiereBestellung(int BestellNr, int BesucherId, Gateway.DTO.Besucher besucher)
         {
             using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
             {
@@ -489,7 +465,7 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Ändert die Daten zu dem Buch
         /// </summary>
-        public void AktualisiereBestellungBuch(int buchid,int anzahl,int bestellId)
+        public void AktualisiereBestellungBuch(int buchid, int anzahl, int bestellId)
         {
             try
             {
@@ -509,7 +485,8 @@ namespace WIFI.Gateway.Controller
                         Befehl.Prepare();
 
 
-                        Befehl.ExecuteScalar();                    }
+                        Befehl.ExecuteScalar();
+                    }
                 }
             }
             catch (Exception e)
