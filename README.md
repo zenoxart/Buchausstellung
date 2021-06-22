@@ -69,42 +69,42 @@ Anwendung
 
 
 
-Aktuell Offene Arbeit!!!
+# Aktuell Offene Arbeit!!!
 
 + HoleBestellungen(); Datenbank-Controller
-  Priorität: WICHTIG
-  Status   : [offen]
-  Probleme :
+  * Priorität: WICHTIG
+  * Status   : [offen]
+  * Probleme :
   
 + Bearbeiten und Aktualisieren einer Bestellung
-  Priorität: WICHTIG
-  Status   : [offen]
-  Probleme :
+  * Priorität: WICHTIG
+  * Status   : [offen]
+  * Probleme :
   
 + Lieferung Aktualisieren
-  Priorität: WICHTIG
-  Status   : [offen]
-  Probleme :
+  * Priorität: WICHTIG
+  * Status   : [offen]
+  * Probleme :
   
 + Abholung Laden & Aktualisieren
-  Priorität: WICHTIG
-  Status   : [offen]
-  Probleme :
+  * Priorität: WICHTIG
+  * Status   : [offen]
+  * Probleme :
   
 + PDF's testen und Pfade in den Einstellungen nutzen
-  Priorität: WICHTIG
-  Status   : [offen]
-  Probleme :
+  * Priorität: WICHTIG
+  * Status   : [offen]
+  * Probleme :
   
 + Bestellungliste die Kategorie aus Zeile und Header entfernen
-  Priorität: WICHTIG
-  Status   : [offen]
-  Probleme :
+  * Priorität: WICHTIG
+  * Status   : [offen]
+  * Probleme :
   
 + Bild für Anwendungsstart
-  Priorität: MEDIUM
-  Status   : [offen]
-  Probleme :
+  * Priorität: MEDIUM
+  * Status   : [offen]
+  * Probleme :
   
 + RESTZEIT:	Hell-Dunkel-Design für die Listen bei folgenden Views
 +	=> Kategorieverwaltung
