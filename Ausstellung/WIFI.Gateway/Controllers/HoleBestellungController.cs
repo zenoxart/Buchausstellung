@@ -7,9 +7,11 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum Laden einer einzelnen Bestellung
+    /// </summary>
     public class HoleBestellungController : Controllers.BasisApiController
     {
-
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
@@ -30,13 +32,16 @@ namespace WIFI.Gateway.Controllers
             }
         }
 
-        // GET api/<controller>
+        /// <summary>
+        /// Ruft die Daten einer
+        /// einzelnen Bestellung ab
+        /// </summary>
+        /// <param name="bestellId">Die interne ID
+        /// der Bestellung</param>
+        /// <returns>DTO Objekt der Bestellung</returns>
         public Gateway.DTO.Bestellung Get(int bestellId)
         {
-            return ClientSqlController.HoleBestellung(bestellId);
-          
+            return ClientSqlController.HoleBestellung(bestellId); 
         }
-
-     
     }
 }
