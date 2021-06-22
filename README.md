@@ -102,7 +102,7 @@ Anwendung
   * Probleme :
   
 + Bild für Anwendungsstart
-  * Priorität: MEDIUM
+  * Priorität: SEMI
   * Status   : [offen]
   * Probleme :
   
