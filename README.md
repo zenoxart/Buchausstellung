@@ -73,7 +73,7 @@ Anwendung
 
 + HoleBestellungen(); Datenbank-Controller
   * Priorität: WICHTIG
-  * Status   : [offen]
+  * Status   : [abgeschlossen]
   * Probleme :
   
 + Bearbeiten und Aktualisieren einer Bestellung
@@ -83,7 +83,7 @@ Anwendung
   
 + Lieferung Aktualisieren
   * Priorität: WICHTIG
-  * Status   : [offen]
+  * Status   : [inArbeit]
   * Probleme :
   
 + Abholung Laden & Aktualisieren
@@ -93,7 +93,7 @@ Anwendung
   
 + PDF's testen und Pfade in den Einstellungen nutzen
   * Priorität: WICHTIG
-  * Status   : [offen]
+  * Status   : [inArbeit]
   * Probleme :
   
 + Bestellungliste die Kategorie aus Zeile und Header entfernen
@@ -103,7 +103,7 @@ Anwendung
   
 + Bild für Anwendungsstart
   * Priorität: SEMI
-  * Status   : [offen]
+  * Status   : [abgeschlossen]
   * Probleme :
   
 # RESTZEIT:	Hell-Dunkel-Design für die Listen bei folgenden Views
