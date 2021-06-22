@@ -29,6 +29,18 @@
             Ruft den Clientcontroller für die Bestellung ab 
             </summary>
         </member>
+        <member name="M:WIFI.Gateway.Controllers.AktualisiereBestellungBuchController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Aktualisiert die Bücher 
+            in einer Bestellung
+            </summary>
+            <param name="buchid">Interne ID 
+            des Buchs</param>
+            <param name="anzahl">Anzahl 
+            des Buchs</param>
+            <param name="bestellId">Interne ID 
+            der Bestellung</param>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.AktualisiereBestellungsInfoController">
             <summary>
             Stellt einen REST-API-Controller zum Aktualisieren der Bestellung
@@ -401,6 +413,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.HoleBestellungController">
+            <summary>
+            Stellt einen REST-API-Controller zum Laden einer einzelnen Bestellung
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.HoleBestellungController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -410,6 +427,15 @@
             <summary>
             Ruft den Clientcontroller für die Bestellung ab 
             </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleBestellungController.Get(System.Int32)">
+            <summary>
+            Ruft die Daten einer
+            einzelnen Bestellung ab
+            </summary>
+            <param name="bestellId">Die interne ID
+            der Bestellung</param>
+            <returns>DTO Objekt der Bestellung</returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.HoleBestellungenController">
             <summary>

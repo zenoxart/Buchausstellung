@@ -21,16 +21,21 @@
 
         <!-- TODO: Darstellung aller Bestellungen-->
 
-        <uc:Abholungskopfzeile
-                        Background="#1e90ff"/>
-        
-        <ItemsControl Grid.Row="2" ItemsSource="{Binding Abholung.Abholungsliste}">
+        <ScrollViewer  Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
+                <StackPanel Orientation="Vertical">
+                    <uc:Abholungskopfzeile
+                        Background="#1e90ff"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                    />
+                    <ItemsControl ItemsSource="{Binding Abholung.Abholungsliste}">
+                        <ItemsControl.ItemTemplate >
+                            <DataTemplate>
 
-                    
-                    <uc:Abholungslistitem
+
+                                <uc:Abholungslistitem
                         HorizontalAlignment="Center"
                         BestellNr="{Binding BestellNr}"
                         BesucherNachname="{Binding ZugehörigerBesucher.Nachname}"
@@ -38,9 +43,14 @@
                         Abgeholt="{Binding Abgeholt}"
                         
                         />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </StackPanel>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+        
         
         <!-- Knopf um die Abgeholten Elemente zu bestätigen-->
         <Button 

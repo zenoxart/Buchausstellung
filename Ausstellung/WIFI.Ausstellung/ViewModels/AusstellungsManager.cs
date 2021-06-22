@@ -352,6 +352,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                                     }
                                 }
+                                this.BestellungenListe = null;
 
                                 //int AktuelleBestellNr =
                                 //    this.AppKontext.DBControllerManager.BestellungController.ErstelleBestellung(
