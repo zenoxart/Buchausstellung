@@ -320,3 +320,5 @@ C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungskopfzeile.g.cs
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungskopfzeile.baml
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungskopfzeile.g.cs
+C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungskopfzeile.baml
