@@ -21,13 +21,6 @@ Ausstellungsabschluss -> PDFs
 
 Abholungsverwaltung  -> In die Datenbank pushen
 
-Filter entfernen
-
-TODOs 22.06.2021:
-Kategorieverwaltung mit Titel
-In der Bücherverwaltung überdecken die Nummern die Wasserzeichen-Texte
-Buchexport schlägt keinen Dateityp vor
-
 
 
 

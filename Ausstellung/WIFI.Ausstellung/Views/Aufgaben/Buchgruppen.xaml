@@ -32,13 +32,14 @@
                Grid.Row="0">
             Buchgruppen</Label>
 
+        <!-- Eingabe und Anzeige der Buchgruppen -->
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Vertical" Grid.Column="0" Height="110" Width="299">
+            <StackPanel Orientation="Vertical" Grid.Column="0" Height="110" Width="399">
                
                 <!-- Spalte für die Daten der jeweiligen Gruppe -->
                 <StackPanel Orientation="Horizontal" Height="35">
@@ -50,11 +51,11 @@
                     <TextBox
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
-                        Width="35"
+                        Width="50"
                         Text="{Binding Buch.NeuErstellteBuchgruppe.Gruppennummer}"
                         />
                     <TextBox 
-                        Width="125" 
+                        Width="210" 
                         Height="35" 
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Center"
@@ -80,7 +81,6 @@
                     Command="{Binding Buch.BuchgruppeEntfernen}"/>
             </StackPanel>
 
-            <!-- TODO: Binden an eine Observable<Buchgruppe> -->
             <!-- Darstellung aller Büchergruppen-->
             <ListBox 
                 Background="Transparent"
@@ -88,7 +88,11 @@
                 ItemsSource="{Binding Buch.Büchergruppen}"
                 SelectedItem="{Binding Buch.SelektierteBuchgruppe}"
                 >
-               
+
+                <ScrollViewer>
+                    
+                    
+                </ScrollViewer>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
