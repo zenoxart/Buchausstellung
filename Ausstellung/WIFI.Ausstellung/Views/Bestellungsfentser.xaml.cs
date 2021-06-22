@@ -79,6 +79,25 @@ namespace WIFI.Ausstellung.Views
                         if (!string.IsNullOrEmpty(this.BestellNr))
                         {
                             this.AktuelleBestellung = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
+
+
+
+                            var bücherliste = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(Convert.ToInt32(this.BestellNr));
+                            Dictionary<Gateway.DTO.Buch, int> liste = new Dictionary<Gateway.DTO.Buch, int>();
+                            foreach (var item in bücherliste)
+                            {
+                                liste.Add(item, item.Anzahl);
+                            }
+
+
+                            if (liste != null)
+                            {
+                                this.AktuelleBestellung.Buchliste = liste;
+
+                                HoleSelektierteBuchBestellungAsync();
+                            }
+
+
                         }
                     }
                     Load();
@@ -120,7 +139,7 @@ namespace WIFI.Ausstellung.Views
         {
             get
             {
-                if (this._BücherDerSelektiertenBestellung == null)
+                if (this._BücherDerSelektiertenBestellung == null || this._BücherDerSelektiertenBestellung.Count == 0)
                 {
                     HoleSelektierteBuchBestellungAsync();
                 }
@@ -129,8 +148,8 @@ namespace WIFI.Ausstellung.Views
             set
             {
                 this._BücherDerSelektiertenBestellung = value;
-                this.OnPropertyChanged();
                 PusheSelektierteBuchBestellungAsync();
+                this.OnPropertyChanged();
             }
         }
 
@@ -233,9 +252,10 @@ namespace WIFI.Ausstellung.Views
                     this._AktualisiereBestellung = new Anwendung.Befehl(
                         p =>
                         {
-                            //TODO: Implementiere 
-                            WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
-                            //this.AppKontext.DBControllerManager.BestellungController.AktualisiereBestellung();
+                            if (this.AktuelleBestellung != null)
+                            {
+                                WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
+                            }
                         }
                     );
                 }

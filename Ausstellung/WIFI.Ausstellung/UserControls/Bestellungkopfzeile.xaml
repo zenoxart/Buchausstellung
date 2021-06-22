@@ -11,7 +11,6 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="40"/>
@@ -49,29 +48,23 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
 
-        <!-- Kategoriegruppe -->
-        <Label
-            Grid.Column="4"
-            Content="Gruppe"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"/>
 
         <!-- Rabattgruppe -->
         <Label
-            Grid.Column="5"
+            Grid.Column="4"
             Content="Rabattgr."
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
 
         <!-- Anzahl -->
-        <Label Grid.Column="6"
+        <Label Grid.Column="5"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             Content="Anzahl"
             />
 
         <!-- Enterfnen des Eintrages -->
-        <Label Grid.Column="7"
+        <Label Grid.Column="6"
                Content="Entf."
             HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"/>

@@ -132,7 +132,18 @@
                                     />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
-
+                        <ItemsControl.Style>
+                            <Style TargetType="ItemsControl">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DunklesDesign}" Value="False">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding DunklesDesign}" Value="True">
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ItemsControl.Style>
                     </ItemsControl>
 
                 </StackPanel>

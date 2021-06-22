@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" 
-               Content="Bestellung" 
+               Content="Bestellung bearbeiten" 
                Style="{DynamicResource TitleStyle}"/>
 
 
@@ -34,12 +34,12 @@
                         HorizontalContentAlignment="Center"
                     />
                     <ItemsControl 
-                    HorizontalAlignment="Center"
-                    Background="Transparent" 
-                    HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Background="Transparent" 
+                        HorizontalContentAlignment="Center"
                     
-                    Style="{DynamicResource HellDunkelDesign}"
-                    ItemsSource="{Binding ElementName=BF, Path=AktuelleBestellung}" >
+                        Style="{DynamicResource HellDunkelDesign}"
+                        ItemsSource="{Binding ElementName=BF, Path=BücherDerSelektiertenBestellung}" >
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <us:Bestellungslistitem
@@ -162,7 +162,7 @@
                     Height="30" 
                     Template="{DynamicResource RoundBlueButton}"
                     
-                    Command="{Binding ElementName=BF, Path=AktualisiereBestellung}">Bestellen</Button>
+                    Command="{Binding ElementName=BF, Path=AktualisiereBestellung}">Aktualisiere Bestellung</Button>
             </Grid>
         </ScrollViewer>
 

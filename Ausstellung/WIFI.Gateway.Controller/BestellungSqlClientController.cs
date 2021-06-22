@@ -257,7 +257,7 @@ namespace WIFI.Gateway.Controller
         /// </summary>
         public Gateway.DTO.Bestellung HoleBestellung(int BestellNr)
         {
-            Gateway.DTO.Bestellung bestellung1 = new DTO.Bestellung();
+            Gateway.DTO.Bestellungen bestellung1 = new DTO.Bestellungen();
             try
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
@@ -280,7 +280,7 @@ namespace WIFI.Gateway.Controller
                                     abgeholtBool = true;
                                 }
 
-                                bestellung1 =
+                                bestellung1.Add(
                                     new Gateway.DTO.Bestellung
                                     {
                                         BestellNr = Convert.ToInt32(DatenLeser["ID"]),
@@ -297,7 +297,7 @@ namespace WIFI.Gateway.Controller
                                         },
                                         Buchliste = new Dictionary<Gateway.DTO.Buch, int>() { },
                                         Abgeholt = abgeholtBool
-                                    };
+                                    });
                             }
                         }
                     }
@@ -315,8 +315,14 @@ namespace WIFI.Gateway.Controller
                         Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                     });
             }
+            foreach (var item in bestellung1)
+            {
+                if (item.BestellNr == BestellNr) {
+                    return item;
+                }
+            }
 
-            return bestellung1;
+            return null;
         }
 
         /// <summary>

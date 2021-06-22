@@ -47,7 +47,6 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="40"/>
@@ -85,24 +84,17 @@
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
 
-        <!-- Kategorie -->
-        <Label
-            Grid.Column="4"
-            Content="{Binding ElementName=Bestellungsitem,Path=Kategorie}"
-            VerticalContentAlignment="Center"
-            Style="{DynamicResource DunkelHellSchrift}"/>
-
 
         <!-- Rabattgruppe -->
         <Label
-            Grid.Column="5"
+            Grid.Column="4"
             Content="{Binding ElementName=Bestellungsitem,Path=Rabatt}"
             VerticalContentAlignment="Center"
             Style="{DynamicResource DunkelHellSchrift}"/>
 
 
         <!-- Anzahl -->
-        <TextBox Grid.Column="6"
+        <TextBox Grid.Column="5"
             Width="70"
             Height="25"
             Template="{DynamicResource RoundTextBox}"
@@ -116,7 +108,7 @@
         <Button
             Width="25"
             Height="25"
-            Grid.Column="7"
+            Grid.Column="6"
             Content="X"
             Style="{DynamicResource BestellButton}"
             Template="{DynamicResource AddBestellungRoundButton}"
