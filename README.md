@@ -106,14 +106,14 @@ Anwendung
   * Status   : [offen]
   * Probleme :
   
-+ RESTZEIT:	Hell-Dunkel-Design für die Listen bei folgenden Views
-+	=> Kategorieverwaltung
-+	=> Buchverwaltung
-+	=> Ausstellung
-+	=> Bestellung
-+	=> Bestellungen
-+	=> Lieferung
-+	=> Abholung
+# RESTZEIT:	Hell-Dunkel-Design für die Listen bei folgenden Views
++	Kategorieverwaltung
++	Buchverwaltung
++	Ausstellung
++	Bestellung
++	Bestellungen
++	Lieferung
++	Abholung
 
 
 
