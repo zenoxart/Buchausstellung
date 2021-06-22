@@ -167,8 +167,7 @@ namespace WIFI.Gateway.Controller
                                         Buchliste = new Dictionary<DTO.Buch, int>() { },
                                         Abgeholt = abgeholtBool
                                     }
-
-                                    );
+                                );
                             }
                         }
                     }
