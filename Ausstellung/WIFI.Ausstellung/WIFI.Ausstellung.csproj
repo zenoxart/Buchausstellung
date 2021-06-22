@@ -86,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="UserControls\Abholungskopfzeile.xaml.cs">
+      <DependentUpon>Abholungskopfzeile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Abholungslistitem.xaml.cs">
       <DependentUpon>Abholungslistitem.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Abholungskopfzeile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Abholungslistitem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -408,6 +415,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Bilder\Aufgaben\GruppenHell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Bilder\Titelbild.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

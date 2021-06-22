@@ -417,6 +417,9 @@ namespace WIFI.Gateway.Controller
             }
         }
 
+        /// <summary>
+        /// Gibt die DatenbankId einer Bestellung welche dem Besucher gehört zurück
+        /// </summary>
         public int BekommeBestellungsID(DTO.Besucher besucher)
         {
             int BestellNr = -1;
@@ -502,5 +505,7 @@ namespace WIFI.Gateway.Controller
             }
 
         }
+
+       
     }
 }

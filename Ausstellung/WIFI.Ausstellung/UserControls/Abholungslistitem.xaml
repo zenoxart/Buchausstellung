@@ -12,27 +12,35 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
 
         <!-- Abgeholt-Status -->
-        <CheckBox Template="{DynamicResource CheckBoxTemplate}" 
-                  VerticalAlignment="Center"  
-                  HorizontalAlignment="Center"
-                  IsChecked="{Binding ElementName=Abholitem,Path=Abgeholt}"/>
+        <CheckBox
+            Grid.Column="0"
+            Template="{DynamicResource CheckBoxTemplate}" 
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center"
+            IsChecked="{Binding ElementName=Abholitem,Path=Abgeholt}"/>
 
         <!-- Bestellnr -->
-        <TextBlock Text="{Binding ElementName=Abholitem,Path=BestellNr}"
-                   Style="{DynamicResource DunkelSchrift}"/>
+        <TextBlock
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Grid.Column="1"
+            Text="{Binding ElementName=Abholitem,Path=BestellNr}"
+            Style="{DynamicResource DunkelSchrift}"/>
 
         <!-- Kundenname-->
-        <StackPanel Orientation="Horizontal" Grid.Column="2">
+        <StackPanel Orientation="Horizontal" Grid.Column="2" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left">
             <TextBlock Text="{Binding ElementName=Abholitem,Path=BesucherNachname}" 
                        Style="{DynamicResource DunkelSchrift}"/>
             <TextBlock Text="{Binding ElementName=Abholitem,Path=BesucherVorname}" 
                        Style="{DynamicResource DunkelSchrift}"/>
         </StackPanel>
-     </Grid>
+    </Grid>
 </UserControl>

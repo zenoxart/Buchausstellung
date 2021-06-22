@@ -36,9 +36,6 @@ namespace WIFI.Gateway.Controllers
         /// Aktualisiert den Eintrag einer 
         /// Bestellung in der Datenbank
         /// </summary>
-        /// <param name="id">Interne ID 
-        /// der Bestellung</param>
-        /// <returns></returns>
         public object Get(int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon)
         {
             DTO.Bestellung bestellung = new DTO.Bestellung() { 
@@ -64,5 +61,7 @@ namespace WIFI.Gateway.Controllers
 
             return null;
         }
+
+        
     }
 }

@@ -49,9 +49,6 @@
             Aktualisiert den Eintrag einer 
             Bestellung in der Datenbank
             </summary>
-            <param name="id">Interne ID 
-            der Bestellung</param>
-            <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.AktualisiereBesucherController">
             <summary>

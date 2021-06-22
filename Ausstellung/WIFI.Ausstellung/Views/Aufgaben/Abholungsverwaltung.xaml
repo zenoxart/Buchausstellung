@@ -20,10 +20,18 @@
             Abholungsverwaltung</Label>
 
         <!-- TODO: Darstellung aller Bestellungen-->
+
+        <uc:Abholungskopfzeile
+                        Background="#1e90ff"/>
+        
         <ItemsControl Grid.Row="2" ItemsSource="{Binding Abholung.Abholungsliste}">
+
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
+
+                    
                     <uc:Abholungslistitem
+                        HorizontalAlignment="Center"
                         BestellNr="{Binding BestellNr}"
                         BesucherNachname="{Binding ZugehörigerBesucher.Nachname}"
                         BesucherVorname="{Binding ZugehörigerBesucher.Vorname}"

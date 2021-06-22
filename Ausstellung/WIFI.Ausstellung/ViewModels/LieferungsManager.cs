@@ -281,13 +281,18 @@ namespace WIFI.Ausstellung.ViewModels
                             // Aktuallisiere alle Bestellungen und Bücher in der Datenbank
                             var neuZuDruckende = new Gateway.DTO.Bestellungen();
 
-                            foreach (Gateway.DTO.Bestellung item in this.Gesamtbestellungen)
+                            foreach (Gateway.DTO.Bestellung bestellung in this.Gesamtbestellungen)
                             {
-                                WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(item);
                                 // Wenn das Element geändert wurde, drucke es neu
-                                if (item.Geändert)
+                                if (bestellung.Geändert)
                                 {
-                                    neuZuDruckende.Add(item);
+                                    // Für jedes Buch der Bestellung
+                                    foreach (var bücher in bestellung.Buchliste.Keys)
+                                    {
+                                        WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellungBuch(bücher.ID, bücher.Anzahl, bestellung.BestellNr);
+                                    }
+
+                                    neuZuDruckende.Add(bestellung);
                                 }
 
                             }

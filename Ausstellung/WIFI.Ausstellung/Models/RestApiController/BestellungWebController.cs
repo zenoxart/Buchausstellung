@@ -295,21 +295,30 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
             foreach (var item in bestellung.Buchliste.Keys)
             {
-                const string SecAdresse = "{0}AktualisiereBestellungBuch?buchid={1}&anzahl={2}&bestellId={3}";
-
-                using (var Antwort = await this.HttpClient.GetAsync(
-                     string.Format(
-                         SecAdresse,
-                         Properties.Settings.Default.UrlGatewayAPI,
-                         item.ID,
-                         bestellung.Buchliste[item],
-                         bestellung.BestellNr
-
-                         )))
-                {
-                }
+               
+                AktualisiereBestellungBuch(item.ID, bestellung.Buchliste[item], bestellung.BestellNr);
             }
 
+        }
+
+        /// <summary>
+        /// Ändert die Buchanzahl eines Buches von einer Bestellung
+        /// </summary>
+        public async void AktualisiereBestellungBuch(int buchid,int anzahl,int bestellid)
+        {
+            const string SecAdresse = "{0}AktualisiereBestellungBuch?buchid={1}&anzahl={2}&bestellId={3}";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                 string.Format(
+                     SecAdresse,
+                     Properties.Settings.Default.UrlGatewayAPI,
+                     buchid,
+                     anzahl,
+                     bestellid
+
+                     )))
+            {
+            }
         }
     }
 }
