@@ -429,3 +429,5 @@ C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\ob
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 C:\Users\F10509\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungskopfzeile.g.cs
+D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\UserControls\Abholungskopfzeile.baml
