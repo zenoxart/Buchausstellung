@@ -7,6 +7,9 @@ using System.Web.Http;
 
 namespace WIFI.Gateway.Controllers
 {
+    /// <summary>
+    /// Stellt einen REST-API-Controller zum Laden des Gemeindenamens
+    /// </summary>
     public class HoleGemeindeController : Controllers.BasisApiController
     {
         /// <summary>
@@ -28,12 +31,14 @@ namespace WIFI.Gateway.Controllers
                 return this._ClientSqlController;
             }
         }
-        // GET api/<controller>
+
+        /// <summary>
+        /// Gibt den Namen der Gemeinde
+        /// aus der Datenbank zurück
+        /// </summary>
         public string Get()
         {
-            return ClientSqlController.HoleGemeinde();
-          
+            return ClientSqlController.HoleGemeinde(); 
         }
-
     }
 }

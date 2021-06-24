@@ -88,11 +88,32 @@
                 ItemsSource="{Binding Buch.Büchergruppen}"
                 SelectedItem="{Binding Buch.SelektierteBuchgruppe}"
                 >
-
+                
+                <ListBox.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Nummer" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="Bezeichnung" HorizontalAlignment="Left"/>
+                            </Grid>
+                            <ItemsPresenter></ItemsPresenter>
+                        </StackPanel>
+                    </ControlTemplate>
+                </ListBox.Template>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Label 
+                            <Label
+                                Width="70"
+                                HorizontalContentAlignment="Center"
                                 Content="{Binding Gruppennummer}" 
                                 Style="{DynamicResource StandartFont}"/>
                             <Label 
