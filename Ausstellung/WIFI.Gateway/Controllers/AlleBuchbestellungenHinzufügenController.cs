@@ -38,7 +38,9 @@ namespace WIFI.Gateway.Controllers
         /// Ruft den Befehl zum Hinzufügen der
         /// Bücher zu einer Bestellung ab
         /// </summary>
-        /// <param name="Bestellung">Interne ID der Bestellung</param>
+        /// <param name="BestellNr">Interne ID der Bestellung</param>
+        /// <param name="buchliste">Dictionary mit 
+        /// den Büchern der Bestellung</param>
         /// <returns></returns>
         public object Get(int BestellNr, Dictionary<DTO.Buch, int> buchliste)
         {
