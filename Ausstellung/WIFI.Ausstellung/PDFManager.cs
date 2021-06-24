@@ -149,49 +149,58 @@ namespace WIFI.Ausstellung
             }
             LoadGruppen();
 
-            // Für jede Gruppe
-            if (Bücherliste.Count() > 0)
+            // Funktioniert nicht zu 100%
+            try
             {
-                for (int i = 0; i < Bücherliste.Count(); i++)
+
+                // Für jede Gruppe
+                if (Bücherliste.Count() > 0)
                 {
-                    string EinzelBlock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe " +
-                            buchgruppes.Where(x => x.ID == i).FirstOrDefault().Gruppennummer + " - " + 
-                            buchgruppes.Where(x => x.ID == i).FirstOrDefault().Beschreibung + "</p>" +
-                           "<table style='width: 90%; border-collapse: collapse'>" +
-                           "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
-                               "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
-                               "<td style='font-weight:bold'> Nr </td>" +
-                               "<td style='font-weight:bold'> Titel, Autor </td>" +
-                               "<td style='font-weight:bold'> Verlag </td>" +
-                               "<td style='font-weight:bold;text-align:right;padding: 0px 10px 0px 0px'> Preis </td>" +
-                               "<td style='font-weight:bold;text-align:center'> Rab.Gr </td>" +
-                           "</tr>";
-
-                    // Für jedes Buch der jeweiligen Gruppe
-                    foreach (var Buch in Bücherliste[i])
+                    for (int i = 0; i < Bücherliste.Count(); i++)
                     {
-                        EinzelBlock += "<tr>" +
-                                "<td style='text-align: center'>" +
-                                    Buch.Anzahl + " </td>" +
-                                "<td style='text-align: left'> " + Buch.Buchnummer + " </td>" +
-                                "<td style='text-align: left'> " + Buch.Titel + ", " + Buch.AutorName + "</td>" +
-                                "<td style='text-align: left'> " + Buch.VerlagName + " </td>" +
-                                "<td style='text-align: right; padding: 0px 5px 0px 0px'> " + Buch.Preis + " </td>" +
-                                "<td style='text-align: center'> " + Buch.Rabattgruppe + " </td>" +
-                            "</tr>";
+                        string EinzelBlock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe " +
+                                buchgruppes.Where(x => x.ID == i).FirstOrDefault().Gruppennummer + " - " +
+                                buchgruppes.Where(x => x.ID == i).FirstOrDefault().Beschreibung + "</p>" +
+                               "<table style='width: 90%; border-collapse: collapse'>" +
+                               "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
+                                   "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
+                                   "<td style='font-weight:bold'> Nr </td>" +
+                                   "<td style='font-weight:bold'> Titel, Autor </td>" +
+                                   "<td style='font-weight:bold'> Verlag </td>" +
+                                   "<td style='font-weight:bold;text-align:right;padding: 0px 10px 0px 0px'> Preis </td>" +
+                                   "<td style='font-weight:bold;text-align:center'> Rab.Gr </td>" +
+                               "</tr>";
+
+                        // Für jedes Buch der jeweiligen Gruppe
+                        foreach (var Buch in Bücherliste[i])
+                        {
+                            EinzelBlock += "<tr>" +
+                                    "<td style='text-align: center'>" +
+                                        Buch.Anzahl + " </td>" +
+                                    "<td style='text-align: left'> " + Buch.Buchnummer + " </td>" +
+                                    "<td style='text-align: left'> " + Buch.Titel + ", " + Buch.AutorName + "</td>" +
+                                    "<td style='text-align: left'> " + Buch.VerlagName + " </td>" +
+                                    "<td style='text-align: right; padding: 0px 5px 0px 0px'> " + Buch.Preis + " </td>" +
+                                    "<td style='text-align: center'> " + Buch.Rabattgruppe + " </td>" +
+                                "</tr>";
+                        }
+
+                        EinzelBlock += "</table>";
+
+                        // Erstellt eine Seite aus den 2 Blöcken
+                        string darstellung = string.Format(this.EinzelSeitenStruktur, EinzelBlock);
+                        var dokument = GenerierePDFVonHTML(darstellung, PdfSharp.PageOrientation.Portrait);
+
+                        string dokumentname = "{0}_Bestellungenübersicht_{1}";
+                        var path = WIFI.Ausstellung.Properties.Settings.Default.Gesamtbestelllistenpfad + "\\";
+                        dokument.Save(
+                             path + string.Format(dokumentname, this.AktuellesJahr, i + 1) + ".pdf");
                     }
-
-                    EinzelBlock += "</table>";
-
-                    // Erstellt eine Seite aus den 2 Blöcken
-                    string darstellung = string.Format(this.EinzelSeitenStruktur, EinzelBlock);
-                    var dokument = GenerierePDFVonHTML(darstellung, PdfSharp.PageOrientation.Portrait);
-
-                    string dokumentname = "{0}_Bestellungenübersicht_{1}";
-                    var path = WIFI.Ausstellung.Properties.Settings.Default.Gesamtbestelllistenpfad + "\\";
-                    dokument.Save(
-                         path + string.Format(dokumentname, this.AktuellesJahr, i + 1) + ".pdf");
                 }
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen("Fehler aufgetaucht beim generieren der PDFs" + e.Message);
             }
         }
 
