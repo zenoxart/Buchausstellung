@@ -289,6 +289,9 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         private WIFI.Anwendung.Befehl _Einstellungen = null;
 
+        /// <summary>
+        /// Öffnet ein Einstellungsfenster
+        /// </summary>
         public WIFI.Anwendung.Befehl Einstellungen
         {
             get

@@ -30,7 +30,7 @@ namespace WIFI.Ausstellung
             //        stylesheet: css);
 
 
-            return TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.GeneratePdf(htmltext,config);
+            return TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.GeneratePdf(htmltext, config);
 
         }
 
@@ -46,13 +46,13 @@ namespace WIFI.Ausstellung
                   "<table style='width: 100%; border-collapse: collapse;'>" +
                       "<tr style='max-height: 21cm !IMPORTANT'>" +
                           "<td style='width: 11cm !IMPORTANT;background:white; text-align:left'>" +
-                              "<p style='margin: 0px 0px 0px 15px; font-size:20pt; text-align:left; font-weight: bold '> Buchausstellung " + this.AktuellesJahr + ", $gemeinde</p>" +
+                              "<p style='margin: 0px 0px 0px 15px; font-size:20pt; text-align:left; font-weight: bold '> Buchausstellung " + this.AktuellesJahr + ", " + this.Gemeinde + "</p>" +
                               "<div style='margin: 0px 0px 10px 10px'>" +
                                   "{0}" +
                               "</div>" +
                           "</td>" +
                           "<td style='width: 11cm !IMPORTANT;background:white; text-align:left'>" +
-                              "<p style='margin: 0px 0px 0px 15px; font-size:20pt; text-align:left; font-weight: bold'> Buchausstellung " + this.AktuellesJahr + ", $gemeinde</p>" +
+                              "<p style='margin: 0px 0px 0px 15px; font-size:20pt; text-align:left; font-weight: bold'> Buchausstellung " + this.AktuellesJahr + ", " + this.Gemeinde + "</p>" +
                               "<div style='margin: 0px 0px 10px 10px'>" +
                                   "{1}" +
                               "</div>" +
@@ -66,6 +66,34 @@ namespace WIFI.Ausstellung
         }
 
 
+        private string gemeinde = string.Empty;
+        /// <summary>
+        /// Ruft den Ort der Veranstaltung ab
+        /// </summary>
+        public string Gemeinde
+        {
+            get
+            {
+                if (this.gemeinde == string.Empty)
+                {
+                    async void Load()
+                    {
+                        this.Gemeinde = await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.HoleGemeinde();
+
+                    }
+                    Load();
+                }
+
+
+                return this.gemeinde;
+            }
+            set
+            {
+                this.gemeinde = value;
+                this.OnPropertyChanged();
+            }
+        }
+
         /// <summary>
         /// Ruft einen HTML-Seitenaufbau im Hochformat 1 Text-Block auf eine A4 Seite zu drucken
         /// </summary>
@@ -78,7 +106,7 @@ namespace WIFI.Ausstellung
                                 "<table style='width: 100%; border-collapse: collapse;'>" +
                                     "<tr style='max-height: 11cm !IMPORTANT'>" +
                                         "<td style='width: 21cm !IMPORTANT;background:white; text-align:left'>" +
-                                            "<p style='margin: 0px 0px 0px 15px; font-size:20pt; text-align:left; font-weight: bold '> Buchausstellung " + this.AktuellesJahr + ", $gemeinde</p>" +
+                                            "<p style='margin: 0px 0px 0px 15px; font-size:20pt; text-align:left; font-weight: bold '> Buchausstellung " + this.AktuellesJahr + ", " + this.Gemeinde + "</p>" +
                                             "<div style='margin: 0px 0px 10px 10px'>" +
                                                 "{0}" +
                                             "</div>" +
@@ -110,16 +138,25 @@ namespace WIFI.Ausstellung
         public void GeneriereBestellungenübersicht(WIFI.Gateway.DTO.Bestellungen bestellungsliste)
         {
             // Ortne nach Kategoriegruppe
-            IEnumerable<IGrouping<int, WIFI.Gateway.DTO.Buch>> Bücherliste = OrdneBestellungsBücherNachKategorie(bestellungsliste);
+            var Bücherliste = OrdneBestellungsBücherNachKategorie(bestellungsliste);
 
-
+            Gateway.DTO.Buchgruppen buchgruppes = new Gateway.DTO.Buchgruppen();
+            // Hole Alle Kategorien
+            async void LoadGruppen()
+            {
+                buchgruppes = await
+                WIFI.Ausstellung.DBControllerManager.BuchgruppenController.HoleBuchgruppen();
+            }
+            LoadGruppen();
 
             // Für jede Gruppe
             if (Bücherliste.Count() > 0)
             {
                 for (int i = 0; i < Bücherliste.Count(); i++)
                 {
-                    string EinzelBlock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe $Zahl - $Name</p>" +
+                    string EinzelBlock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe " +
+                            buchgruppes.Where(x => x.ID == i).FirstOrDefault().Gruppennummer + " - " + 
+                            buchgruppes.Where(x => x.ID == i).FirstOrDefault().Beschreibung + "</p>" +
                            "<table style='width: 90%; border-collapse: collapse'>" +
                            "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
                                "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
@@ -131,17 +168,16 @@ namespace WIFI.Ausstellung
                            "</tr>";
 
                     // Für jedes Buch der jeweiligen Gruppe
-                    foreach (var Buch in Bücherliste.Where(l => l.Key == i))
+                    foreach (var Buch in Bücherliste[i])
                     {
                         EinzelBlock += "<tr>" +
                                 "<td style='text-align: center'>" +
-                                    Buch.Select(
-                                        p => p.Anzahl).First() + " </td>" +
-                                "<td style='text-align: left'> " + Buch.Select(p => p.Buchnummer).First() + " </td>" +
-                                "<td style='text-align: left'> " + Buch.Select(p => p.Titel).First() + ", " + Buch.Select(p => p.AutorName).First() + "</td>" +
-                                "<td style='text-align: left'> " + Buch.Select(p => p.VerlagName).First() + " </td>" +
-                                "<td style='text-align: right; padding: 0px 5px 0px 0px'> " + Buch.Select(p => p.Preis).First() + " </td>" +
-                                "<td style='text-align: center'> " + Buch.Select(p => p.Rabattgruppe).First() + " </td>" +
+                                    Buch.Anzahl + " </td>" +
+                                "<td style='text-align: left'> " + Buch.Buchnummer + " </td>" +
+                                "<td style='text-align: left'> " + Buch.Titel + ", " + Buch.AutorName + "</td>" +
+                                "<td style='text-align: left'> " + Buch.VerlagName + " </td>" +
+                                "<td style='text-align: right; padding: 0px 5px 0px 0px'> " + Buch.Preis + " </td>" +
+                                "<td style='text-align: center'> " + Buch.Rabattgruppe + " </td>" +
                             "</tr>";
                     }
 
@@ -152,7 +188,9 @@ namespace WIFI.Ausstellung
                     var dokument = GenerierePDFVonHTML(darstellung, PdfSharp.PageOrientation.Portrait);
 
                     string dokumentname = "{0}_Bestellungenübersicht_{1}";
-                    dokument.Save(@"C://Temp//Bestellübersichten//" + string.Format(dokumentname, this.AktuellesJahr, i + 1) + ".pdf");
+                    var path = WIFI.Ausstellung.Properties.Settings.Default.Gesamtbestelllistenpfad + "\\";
+                    dokument.Save(
+                         path + string.Format(dokumentname, this.AktuellesJahr, i + 1) + ".pdf");
                 }
             }
         }
@@ -200,7 +238,7 @@ namespace WIFI.Ausstellung
 
             int counter = 0;
             string[] arr = new string[2];
-
+            int secCounter = 0;
             foreach (var besucherBuch in referenzen)
             {
                 // Nur 2 Blöcke immer nebeneinander
@@ -210,15 +248,15 @@ namespace WIFI.Ausstellung
 
 
 
-                string gruppenblock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe $Zahl - $Name</p>" +
+                string gruppenblock = "<p style='margin: 10px'> Besucher: " + besucher + " </p>" +
                             "<table style='width: 90%; border-collapse: collapse'>" +
                             "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
                                 "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
                                 "<td style='font-weight:bold'> Nr </td>" +
                                 "<td style='font-weight:bold'> Titel, Autor </td>" +
                                 "<td style='font-weight:bold'> Verlag </td>" +
-                                "<td style='font-weight:bold;text-align:right;padding: 0px 10px 0px 0px'> Preis </td>" +
-                                "<td style='font-weight:bold;text-align:center'> Rab.Gr </td>" +
+                                "<td style='font-weight:bold;text-align:left;padding: 0px 10px 0px 0px'>  </td>" +
+                                "<td style='font-weight:bold;text-align:right'> </td>" +
                             "</tr>";
 
                 foreach (var buch in besucherBuch.Liste)
@@ -228,8 +266,8 @@ namespace WIFI.Ausstellung
                                         "<td style='text-align: left'> " + buch.Buchnummer + " </td>" +
                                         "<td style='text-align: left'> " + buch.Titel + " , " + buch.AutorName + "</td>" +
                                         "<td style='text-align: left'> " + buch.VerlagName + "</td>" +
-                                        "<td style='text-align: right; padding: 0px 5px 0px 0px'> " + buch.Preis + " </td>" +
-                                        "<td style='text-align: center'> " + buch.Rabattgruppe + " </td>" +
+                                        "<td style='text-align: left; padding: 0px 5px 0px 0px'>  </td>" +
+                                        "<td style='text-align: right'>  </td>" +
                                    "</tr>";
                 }
 
@@ -255,9 +293,21 @@ namespace WIFI.Ausstellung
 
                     ////var a =newDokument.AddPage(page);
 
-                    dokument.Save(@"C://Temp//test.pdf");
-                    arr = new string[2] {string.Empty, string.Empty };
+                    // 
+                    string dokumentname = "{0}_Bestellung_{1}";
+                    var path = WIFI.Ausstellung.Properties.Settings.Default.Bestellbestätigungenpfad + "\\";
+
+                    dokument.Save(
+                         path + string.Format(
+                             dokumentname,
+                             this.AktuellesJahr,
+                             secCounter +
+                             ".pdf"));
+
+
+                    arr = new string[2] { string.Empty, string.Empty };
                 }
+                secCounter++;
 
             }
 
@@ -266,7 +316,15 @@ namespace WIFI.Ausstellung
             {
                 var druckdarstellung = string.Format(this.DoppelSeitenStruktur, arr[0], "");
                 var dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
-                dokument.Save(@"C://Temp//test.pdf");
+
+                string dokumentname = "{0}_Bestellung_{1}";
+                var path = WIFI.Ausstellung.Properties.Settings.Default.Gesamtbestelllistenpfad + "\\";
+                dokument.Save(
+                        path + string.Format(
+                            dokumentname,
+                            this.AktuellesJahr,
+                            secCounter +
+                            ".pdf"));
 
             }
         }
@@ -285,7 +343,7 @@ namespace WIFI.Ausstellung
         /// Gibt alle Bücher nach der Kategorie gruppiert aus der gesammtBestellungenliste zurück
         /// </summary>
         /// <param name="alleBestellungen">Eine ObservableCollection<DTO.Bestellung> </param>
-        public IEnumerable<IGrouping<int, WIFI.Gateway.DTO.Buch>> OrdneBestellungsBücherNachKategorie(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
+        public Dictionary<int, Gateway.DTO.Bücher> OrdneBestellungsBücherNachKategorie(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
         {
             WIFI.Gateway.DTO.Bücher Buchliste = new WIFI.Gateway.DTO.Bücher();
 
@@ -298,12 +356,37 @@ namespace WIFI.Ausstellung
                 }
             }
 
+            // KategorieId, Bücher der Kategorie
+            Dictionary<int, Gateway.DTO.Bücher> outva = new Dictionary<int, Gateway.DTO.Bücher>();
+
+
+            for (int i = 0; i < Buchliste.Max(x => x.Kategoriegruppe); i++)
+            {
+                var bücherDerGruppe =
+                     Buchliste.Where(x => x.Kategoriegruppe == i);
+
+                var liste = new Gateway.DTO.Bücher();
+                if (bücherDerGruppe.Count() > 0)
+                {
+                    foreach (var item in bücherDerGruppe)
+                    {
+                        liste.Add(item);
+                    }
+
+                    if (liste.Count() > 0)
+                    {
+                        outva.Add(i, liste);
+                    }
+
+                }
+            }
+
 
 
 
             //var Büchergruppen = Buchliste.GroupBy(l => l.Kategoriegruppe);
 
-            return (from d in Buchliste group d by d.Kategoriegruppe);
+            return outva;
 
         }
         #endregion

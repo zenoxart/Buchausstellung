@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WIFI.Ausstellung.Views"
         mc:Ignorable="d"
         Title="Einstellungen" 
+        Name="EN"
         MinHeight="450" 
         MinWidth="800"
         Height="450" 
@@ -61,13 +62,14 @@
                          Height="30" 
                          Margin="5"  
                          Style="{DynamicResource TextCenteredBox}" 
-                         Template="{DynamicResource RoundTextBox}"/>
+                         Template="{DynamicResource RoundTextBox}"
+                         Text="{Binding ElementName=EN,Path=GesammtListenPfad}"/>
 
                 <Button Width="30"
                         Height="30"
                         Style="{DynamicResource BestellButton}"
                         Template="{DynamicResource RoundOrangeButton}"
-                        
+                        Command="{Binding ElementName=EN,Path=PfadWählenFürGesammtListenPfad}"
                         >
                     <Image Source="/Assets/Bilder/Lupe.png" Width="20" Height="20"/>
                 </Button>
@@ -82,13 +84,16 @@
                          Height="30" 
                          Margin="5"  
                          Style="{DynamicResource TextCenteredBox}" 
-                         Template="{DynamicResource RoundTextBox}"/>
+                         Template="{DynamicResource RoundTextBox}"
+                         Text="{Binding ElementName=EN,Path=BestellbestätigungsPfad}"/>
 
                 <Button Width="30"
                         Height="30"
                         Style="{DynamicResource BestellButton}"
                         Template="{DynamicResource RoundOrangeButton}"
                         
+                        Command="{Binding ElementName=EN,Path=PfadWählenFürBestellbestätigungsPfad}"
+                        CommandParameter="2"
                         >
                     <Image Source="/Assets/Bilder/Lupe.png" Width="20" Height="20"/>
                 </Button>

@@ -110,3 +110,4 @@ C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\D
 C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.pdb
 D:\peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.AssemblyReference.cache
 C:\Users\Peter\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csproj.AssemblyReference.cache
+C:\Users\zenox\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung\obj\Debug\WIFI.Anwendung.csprojAssemblyReference.cache

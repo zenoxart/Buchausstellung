@@ -38,6 +38,7 @@
                                 <uc:Bestellungenlistitem
                                  BestellNr="{Binding BestellNr}"
                                  Besucher="{Binding ZugehörigerBesucher}"
+                                    
                                 />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

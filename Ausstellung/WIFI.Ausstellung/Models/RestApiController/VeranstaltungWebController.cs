@@ -105,5 +105,27 @@ namespace WIFI.Ausstellung.Models.RestApiController
                     )))
             { }
         }
+
+        /// <summary>
+        /// Läd den Ort einer Veranstaltung
+        /// </summary>
+        public async System.Threading.Tasks.Task<string> HoleGemeinde()
+        {
+            const string Adresse = "{0}HoleGemeinde";
+
+            using (var Antwort = await this.HttpClient.GetAsync(
+                string.Format(
+                    Adresse,
+                    Properties.Settings.Default.UrlGatewayAPI
+                    )))
+            {
+
+                var AntwortText = await Antwort.Content.ReadAsStringAsync();
+                //Enum.Parse(, AntwortText);
+                // Weil JSON erst ab .Net 5 intern unterstützt ist,
+                // Newtonsoft.Json Nuget
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<string>(AntwortText);
+            }
+        }
     }
 }

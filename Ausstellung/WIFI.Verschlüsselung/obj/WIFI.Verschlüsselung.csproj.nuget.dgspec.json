@@ -1,19 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {}
+    "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {}
   },
   "projects": {
-    "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+    "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
+        "projectUniqueName": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
         "projectName": "WIFI.Anwendung.Datenbank",
-        "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
+        "projectPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-                "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+              "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+                "projectPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
               }
             }
           }
@@ -23,33 +24,29 @@
         "net472": {}
       }
     },
-    "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+    "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj",
+        "projectUniqueName": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj",
         "projectName": "WIFI.Anwendung",
-        "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+        "projectPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {
+    "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+        "projectUniqueName": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
         "projectName": "WIFI.Verschlüsselung",
-        "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
-        "packagesPath": "C:\\Users\\F10509\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
+        "projectPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+        "packagesPath": "C:\\Users\\zenox\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\F10509\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\zenox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -61,11 +58,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
-                "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
+              "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+                "projectPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
               },
-              "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-                "projectPath": "C:\\Users\\F10509\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+              "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+                "projectPath": "C:\\Users\\zenox\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
               }
             }
           }
@@ -93,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

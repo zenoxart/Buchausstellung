@@ -257,15 +257,16 @@ namespace WIFI.Gateway.Controller
         /// </summary>
         public Gateway.DTO.Bestellung HoleBestellung(int BestellNr)
         {
-            Gateway.DTO.Bestellungen bestellung1 = new DTO.Bestellungen();
+            Gateway.DTO.Bestellung bestellung1 = new DTO.Bestellung();
             try
             {
                 using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))
                 {
-                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleBestellungsInfo", Verbindung))
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleEinzelBestellungsInfo", Verbindung))
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
+                        Befehl.Parameters.AddWithValue("bestellnr", BestellNr);
                         Verbindung.Open();
 
                         Befehl.Prepare();
@@ -280,8 +281,7 @@ namespace WIFI.Gateway.Controller
                                     abgeholtBool = true;
                                 }
 
-                                bestellung1.Add(
-                                    new Gateway.DTO.Bestellung
+                                bestellung1 =  new Gateway.DTO.Bestellung
                                     {
                                         BestellNr = Convert.ToInt32(DatenLeser["ID"]),
                                         ZugehörigerBesucher = new Gateway.DTO.Besucher
@@ -297,7 +297,7 @@ namespace WIFI.Gateway.Controller
                                         },
                                         Buchliste = new Dictionary<Gateway.DTO.Buch, int>() { },
                                         Abgeholt = abgeholtBool
-                                    });
+                                    };
                             }
                         }
                     }
@@ -315,20 +315,12 @@ namespace WIFI.Gateway.Controller
                         Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                     });
             }
-            foreach (var item in bestellung1)
-            {
-                if (item.BestellNr == BestellNr) {
-                    return item;
-                }
-            }
-
-            return null;
+            return bestellung1;
         }
 
         /// <summary>
         /// Aktualisiert alle abgeholten Bestellungen
         /// </summary>
-        /// <param name="bestellungs"></param>
         public void FürAlleBestellungenAbgeholt(WIFI.Anwendung.DTO.Bestellungen bestellungs)
         {
             foreach (var item in bestellungs)
@@ -394,9 +386,10 @@ namespace WIFI.Gateway.Controller
 
                     Befehl.Prepare();
 
-                    Befehl.ExecuteNonQuery();
+                    Befehl.ExecuteScalar();
                 }
             }
+
 
             // Aktualisiert die Besucherdaten der Bestellung
             using (var Verbindung = new System.Data.SqlClient.SqlConnection(ConnectionString))

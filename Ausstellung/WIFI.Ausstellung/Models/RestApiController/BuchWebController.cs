@@ -52,6 +52,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
             { }
         }
 
+        /// <summary>
+        /// Läd die Daten aller Bücher
+        /// </summary>
         public async System.Threading.Tasks.Task<Gateway.DTO.Bücher> HoleBücher()
         {
             const string Adresse = "{0}HoleBücher";

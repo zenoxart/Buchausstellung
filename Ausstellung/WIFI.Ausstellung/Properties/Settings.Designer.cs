@@ -82,5 +82,29 @@ namespace WIFI.Ausstellung.Properties {
                 return ((bool)(this["OfflineModus"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Gesamtbestelllistenpfad {
+            get {
+                return ((string)(this["Gesamtbestelllistenpfad"]));
+            }
+            set {
+                this["Gesamtbestelllistenpfad"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Bestellbestätigungenpfad {
+            get {
+                return ((string)(this["Bestellbestätigungenpfad"]));
+            }
+            set {
+                this["Bestellbestätigungenpfad"] = value;
+            }
+        }
     }
 }

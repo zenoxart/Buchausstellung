@@ -81,6 +81,8 @@ namespace WIFI.Ausstellung.UserControls
                     this._BearbeiteBestellung = new WIFI.Anwendung.Befehl(
                         p =>
                         {
+
+                            
                             var neuesFenster = new WIFI.Ausstellung.Views.Bestellungsfentser(this.BestellNr);
                             neuesFenster.Show();
                         }

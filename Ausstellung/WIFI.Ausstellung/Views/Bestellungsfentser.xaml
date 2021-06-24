@@ -8,14 +8,14 @@
         xmlns:us="clr-namespace:WIFI.Ausstellung.UserControls"
         
         Title="Bestellungsfentser"
-        Name="BF" Height="450" Width="800">
+        Name="BF" Height="450" MinWidth="800">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="3*" />
             <RowDefinition Height="5"  />
-            <RowDefinition Height="1*" MaxHeight="130" MinHeight="85"/>
+            <RowDefinition Height="1.5*" MaxHeight="130" MinHeight="85"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" 

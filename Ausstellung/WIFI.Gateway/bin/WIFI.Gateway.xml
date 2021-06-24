@@ -507,6 +507,16 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="F:WIFI.Gateway.Controllers.HoleGemeindeController._ClientSqlController">
+            <summary>
+            Internes Feld für die Eigenschaft
+            </summary>
+        </member>
+        <member name="P:WIFI.Gateway.Controllers.HoleGemeindeController.ClientSqlController">
+            <summary>
+            Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
         <member name="T:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController">
             <summary>
             Stellt einen REST-API-Controller zum Laden des Veranstaltungs-Stadiums

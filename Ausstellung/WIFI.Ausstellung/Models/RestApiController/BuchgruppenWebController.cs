@@ -48,7 +48,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         }
 
         /// <summary>
-        /// TODO: Error -> Unsuported Media-Type
+        /// 
         /// Legt eine Buchgruppe in der Datenbank an
         /// </summary>
         public async void ErstelleBuchgruppe(Gateway.DTO.Buchgruppe gruppe)

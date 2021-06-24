@@ -105,19 +105,20 @@ namespace WIFI.Ausstellung.Models.RestApiController
         public async System.Threading.Tasks.Task<Gateway.DTO.Bücher> HoleBücherZuBestellung(int BestellNr)
         {
             const string Adresse = "{0}HoleBestellungen?BestellNr={1}";
-
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+            string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
-                       BestellNr
-                       )))
+                       BestellNr);
+            using (var Antwort = await this.HttpClient.GetAsync(
+
+                       ZielAdresse))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bücher>(AntwortText);
+                var bücher = Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bücher>(AntwortText);
+                return bücher;
             }
         }
 
@@ -292,11 +293,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      )))
             {
 
-            }
-            foreach (var item in bestellung.Buchliste.Keys)
-            {
-               
-                AktualisiereBestellungBuch(item.ID, bestellung.Buchliste[item], bestellung.BestellNr);
             }
 
         }

@@ -39,7 +39,7 @@ namespace WIFI.Gateway.Controllers
         public object Get(int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon)
         {
             DTO.Bestellung bestellung = new DTO.Bestellung() { 
-                BestellNr= BestellNr,
+                BestellNr= BestellNr
 
             
             };

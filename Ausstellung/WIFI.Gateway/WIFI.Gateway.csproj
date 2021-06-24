@@ -112,6 +112,7 @@
     <Compile Include="Controllers\HoleBestellungenController.cs" />
     <Compile Include="Controllers\HoleBuchgruppenController.cs" />
     <Compile Include="Controllers\HoleBücherController.cs" />
+    <Compile Include="Controllers\HoleGemeindeController.cs" />
     <Compile Include="Controllers\HoleVeranstaltungsStadiumController.cs" />
     <Compile Include="Controllers\StarteVeranstaltungController.cs" />
     <Compile Include="Controllers\UpdateBuchController.cs" />

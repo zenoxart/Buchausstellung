@@ -54,9 +54,9 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Haupteinstiegspunkt der Anwendung
         /// </summary>
-        public Bestellungsfentser(string BestellNr)
+        public Bestellungsfentser(string best)
         {
-            this.BestellNr = BestellNr;
+            this.BestellNr = best;
             InitializeComponent();
         }
 
@@ -78,24 +78,26 @@ namespace WIFI.Ausstellung.Views
                     {
                         if (!string.IsNullOrEmpty(this.BestellNr))
                         {
-                            this.AktuelleBestellung = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
+                            this.AktuelleBestellung = 
+                                await WIFI.Ausstellung.DBControllerManager.
+                                BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
 
 
 
-                            var bücherliste = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(Convert.ToInt32(this.BestellNr));
-                            Dictionary<Gateway.DTO.Buch, int> liste = new Dictionary<Gateway.DTO.Buch, int>();
-                            foreach (var item in bücherliste)
-                            {
-                                liste.Add(item, item.Anzahl);
-                            }
+                            //var bücherliste = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(Convert.ToInt32(this.BestellNr));
+                            //Dictionary<Gateway.DTO.Buch, int> liste = new Dictionary<Gateway.DTO.Buch, int>();
+                            //foreach (var item in bücherliste)
+                            //{
+                            //    liste.Add(item, item.Anzahl);
+                            //}
 
 
-                            if (liste != null)
-                            {
-                                this.AktuelleBestellung.Buchliste = liste;
+                            //if (liste != null)
+                            //{
+                            //    this.AktuelleBestellung.Buchliste = liste;
 
-                                HoleSelektierteBuchBestellungAsync();
-                            }
+                            //    HoleSelektierteBuchBestellungAsync();
+                            //}
 
 
                         }
@@ -141,14 +143,23 @@ namespace WIFI.Ausstellung.Views
             {
                 if (this._BücherDerSelektiertenBestellung == null || this._BücherDerSelektiertenBestellung.Count == 0)
                 {
-                    HoleSelektierteBuchBestellungAsync();
+
+
+                    async void Load()
+                    {
+                        this.BücherDerSelektiertenBestellung =
+                            await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(Convert.ToInt32(this.BestellNr));
+
+                    }
+
+                    Load();
+                    //HoleSelektierteBuchBestellungAsync();
                 }
                 return this._BücherDerSelektiertenBestellung;
             }
             set
             {
                 this._BücherDerSelektiertenBestellung = value;
-                PusheSelektierteBuchBestellungAsync();
                 this.OnPropertyChanged();
             }
         }
@@ -252,9 +263,17 @@ namespace WIFI.Ausstellung.Views
                     this._AktualisiereBestellung = new Anwendung.Befehl(
                         p =>
                         {
-                            if (this.AktuelleBestellung != null)
+                            if (this.AktuelleBestellung != null && this.BücherDerSelektiertenBestellung != null)
                             {
-                                WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
+                                //WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
+                                
+                                foreach (var item in this.BücherDerSelektiertenBestellung)
+                                {
+                                    WIFI.Ausstellung.DBControllerManager.BestellungController.
+                                        AktualisiereBestellungBuch(item.ID, item.Anzahl, this.AktuelleBestellung.BestellNr);
+                                }
+
+                                this.Close();
                             }
                         }
                     );

@@ -89,10 +89,6 @@
                 SelectedItem="{Binding Buch.SelektierteBuchgruppe}"
                 >
 
-                <ScrollViewer>
-                    
-                    
-                </ScrollViewer>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

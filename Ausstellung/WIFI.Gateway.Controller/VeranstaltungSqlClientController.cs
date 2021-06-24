@@ -219,7 +219,7 @@ namespace WIFI.Gateway.Controller
 
                         Befehl.Prepare();
 
-                        Befehl.ExecuteNonQuery();
+                        Befehl.ExecuteScalar();
                     }
                 }
 
@@ -235,6 +235,53 @@ namespace WIFI.Gateway.Controller
                         Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                     });
             }
+        }
+
+        /// <summary>
+        /// Läd den Ort der Veranstaltung
+        /// </summary>
+        public string HoleGemeinde()
+        {
+            string result = "";
+            try
+            {
+                // Erstelle eine Datenbankverbindung
+                using (var Verbindung = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+                {
+                    // Erstelle einen Befehl mit einer MySQL-Stored-Procedure
+                    using (var Befehl = new System.Data.SqlClient.SqlCommand("HoleGemeinde", Verbindung))
+                    {
+                        Befehl.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        Verbindung.Open();
+
+                        Befehl.Prepare();
+                        using (var DatenLeser = Befehl.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                        {
+                            while (DatenLeser.Read())
+                            {
+                                result = DatenLeser["ort"].ToString();
+
+
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                this.AppKontext.Protokoll.Eintragen(
+                    new WIFI.Anwendung.Daten.ProtokollEintrag
+                    {
+                        Text = $"Im {this.GetType().FullName} in der Funktion {typeof(VeranstaltungSqlClientController).GetMethod("ErstelleVeranstaltung")} ist ein Fehler aufgetreten \n" +
+                               $"{e.GetType().FullName} = {e.Message} \n " +
+                               $"{e.StackTrace}",
+                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
+                    });
+            }
+
+            return result;
         }
     }
 }
