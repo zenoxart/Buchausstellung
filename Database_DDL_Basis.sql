@@ -686,10 +686,10 @@ USE buchausstellung;
 SHOW PROCEDURE STATUS;
 
 ###	Testdatensätze
-INSERT INTO verlag (id,name) VALUES (1,"Thalia");
-INSERT INTO verlag (id,name) VALUES (2,"Amazon");
-INSERT INTO verlag (id,name) VALUES (3,"Abenteuer Medien Verlag");
-INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("110","Harry Potter","J.K.Rowling",13.5,1,0,3);
-INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("210","Peter Pan","James Matthew Barrie",12.5,1,0,1);
-INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("111","Herr der Ringe","J. R. R. Tolkien",18.3,0,1,3);
-INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("310","Handbuch der Tonstudiotechnik","ARD.ZDF",30.87,1,1,2);
+### INSERT INTO verlag (id,name) VALUES (1,"Thalia");
+### INSERT INTO verlag (id,name) VALUES (2,"Amazon");
+### INSERT INTO verlag (id,name) VALUES (3,"Abenteuer Medien Verlag");
+### INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("110","Harry Potter","J.K.Rowling",13.5,1,0,3);
+### INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("210","Peter Pan","James Matthew Barrie",12.5,1,0,1);
+### INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("111","Herr der Ringe","J. R. R. Tolkien",18.3,0,1,3);
+### INSERT INTO buch (buchnr,titel,autor,preis,rabgr,katgr,verlag_id) VALUES("310","Handbuch der Tonstudiotechnik","ARD.ZDF",30.87,1,1,2);

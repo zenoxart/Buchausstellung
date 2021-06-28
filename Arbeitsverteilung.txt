@@ -1,17 +1,17 @@
 Arbeitsverteilung
 
 Masken
-	Veranstaltungs-Erstellung	Peter		//Logic ist noch ausstehend
-	Bücherverwaltung		Peter		//Wird gerade designed, Datenbank und Logic fehlt, HellDunkelliste
-	Ausstellung			Daniel		//Filter, HellDunkelliste
-	Ausstellungsabschluss		Daniel		//PDF generieren
+	Veranstaltungs-Erstellung	Peter		
+	Bücherverwaltung		Peter		
+	Ausstellung			Daniel		
+	Ausstellungsabschluss		Daniel		
 
-	Bestellung			Daniel		//Normalisieren, HellDunkelliste
-	Gesammtbestellungen				//Filter, HellDunkelliste
-	Bestellungsbearbeitungsfenster			//Alles
-	Offlineanzeige			Peter		//Alles
-	Lieferverwaltung		Daniel		//Alles
-	Abholverwaltung			Peter		//Alles
+	Bestellung			Daniel		
+	Gesammtbestellungen				
+	Bestellungsbearbeitungsfenster			
+	Offlineanzeige			Peter		
+	Lieferverwaltung		Daniel		
+	Abholverwaltung			Peter		
 
 Daten-Controller
 	Grundcontroller
@@ -50,3 +50,8 @@ Raspberry aufstetzen
 	Packete Installieren für mysql und x2go		Daniel
 	Öffnet mit SSH
 	x2go-client installieren
+
+Datenbank-migration:
+	.mdf Datenbank und Prozeduren			Daniel
+	SqlController, API-Controller & WebController	Daniel, Peter
+
