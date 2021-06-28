@@ -129,7 +129,9 @@
             Ruft den Befehl zum Hinzufügen der
             Bücher zu einer Bestellung ab
             </summary>
-            <param name="Bestellung">Interne ID der Bestellung</param>
+            <param name="BestellNr">Interne ID der Bestellung</param>
+            <param name="buchliste">Dictionary mit 
+            den Büchern der Bestellung</param>
             <returns></returns>
         </member>
         <member name="T:WIFI.Gateway.Controllers.BasisApiController">
@@ -507,6 +509,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:WIFI.Gateway.Controllers.HoleGemeindeController">
+            <summary>
+            Stellt einen REST-API-Controller zum Laden des Gemeindenamens
+            </summary>
+        </member>
         <member name="F:WIFI.Gateway.Controllers.HoleGemeindeController._ClientSqlController">
             <summary>
             Internes Feld für die Eigenschaft
@@ -515,6 +522,12 @@
         <member name="P:WIFI.Gateway.Controllers.HoleGemeindeController.ClientSqlController">
             <summary>
             Ruft den Clientcontroller für die Veranstaltung ab 
+            </summary>
+        </member>
+        <member name="M:WIFI.Gateway.Controllers.HoleGemeindeController.Get">
+            <summary>
+            Gibt den Namen der Gemeinde
+            aus der Datenbank zurück
             </summary>
         </member>
         <member name="T:WIFI.Gateway.Controllers.HoleVeranstaltungsStadiumController">
