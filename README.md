@@ -1,10 +1,14 @@
-# Buchausstellung
-Software zum Abwickeln einer Buchausstellung
+# Buchausstellungs Verwaltungs Software (BAVS)
+* WIFI Linz 27.04.2021
+* Daniel Kasper & Peter Humer
+
+> Die Idee zu der Software entstand aus dem Lastenheft des 
+> 3 Teiles des WIFI-Kurses:
+> 3881 Software Developer in C# - Komplettausbildung
+> Die Software entstand im Zeitrahmen von 27.04.2021 bis 29.06.2021 
 
 
-# Pflichtenheft
-Verwalterung der Bücher 
-die Bücher besitzen Gruppen nachdenen man filtern kann
+
 
 # Datenbank-Skizze
 ein Buch besitzt
@@ -51,62 +55,29 @@ eine Veranstaltung besitzt
 Anwendung
 
 		// Vor der Veranstaltung
-		Neue Veranstaltung
+		Kategorieverwaltung
 		Bücherverwaltung
+		ErstelleVeranstaltung
 
 		// Wärend der Veranstaltung
 		Ausstellung
-		Warenkorb
-
-		// Nach der Veranstaltung
+		Bestellung
+		Bestellungenliste -> bearbeitbare Bestellung
 		Ausstellungsabschluss
+
+		// Lieferung nach der Veranstaltung 
 		Lieferverwaltung
+		
+		// Abholung nach der Veranstaltung
 		Abholungsverwaltung
 		
-		// Wenn keine Datenbankverbindung aufgebaut werden kann
+# Fremdkomponenten
+In diesem Projekt wurde das Framework PDFSharp zum erstellen von PDFs aus einer HTML-Seite benutzt. 
+
+		// Wenn keine Datenbankverbindung aufgebaut werden kann oder kein Netz vorhanden ist
 		Offlineanzeige
 		
 
-
-
-# Aktuell Offene Arbeit!!!
-
-  
-+ Bearbeiten und Aktualisieren einer Bestellung
-  * Priorität: WICHTIG
-  * Status   : [inArbeiten]
-  * Probleme :
-  
-+ Abholung Laden & Aktualisieren
-  * Priorität: WICHTIG
-  * Status   : [offen]
-  * Probleme :
-  
-+ PDF's testen und Pfade in den Einstellungen nutzen
-  * Priorität: WICHTIG
-  * Status   : [inArbeit]
-  * Probleme :
-  
- 
-+ Mock-Up neu arrangieren
-  * Priorität: WICHTIG
-  * Status   : [offen]
-  * Probleme :
-
-+ HoleBestellung
-  * Priorität: WICHTIG
-  * Status   : [offen]
-  * Probleme :
-
-  
-# RESTZEIT:	Hell-Dunkel-Design für die Listen bei folgenden Views
-+	Kategorieverwaltung
-+	Buchverwaltung
-+	Ausstellung
-+	Bestellung
-+	Bestellungen
-+	Lieferung
-+	Abholung
 
 
 
