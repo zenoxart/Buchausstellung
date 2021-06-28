@@ -71,11 +71,12 @@ Anwendung
 		// Abholung nach der Veranstaltung
 		Abholungsverwaltung
 		
+		// Wenn keine Datenbankverbindung aufgebaut werden kann oder kein Netz vorhanden ist
+		Offlineanzeige
+		
 # Fremdkomponenten
 In diesem Projekt wurde das Framework PDFSharp zum erstellen von PDFs aus einer HTML-Seite benutzt. 
 
-		// Wenn keine Datenbankverbindung aufgebaut werden kann oder kein Netz vorhanden ist
-		Offlineanzeige
 		
 
 
