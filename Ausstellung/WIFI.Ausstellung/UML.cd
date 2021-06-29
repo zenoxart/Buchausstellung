@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Comment CommentText="Aufgaben-‎VVM">
-    <Position X="5.57" Y="7.964" Height="15.892" Width="1.156" />
+    <Position X="5.57" Y="8.735" Height="7.246" Width="1.156" />
   </Comment>
   <Comment CommentText="Aufgaben">
     <Position X="5.427" Y="3.458" Height="0.302" Width="6.512" />
   </Comment>
   <Comment CommentText="Fenster">
-    <Position X="0.5" Y="8.75" Height="0.302" Width="4.721" />
+    <Position X="0.5" Y="8.75" Height="0.302" Width="4.461" />
   </Comment>
   <Class Name="WIFI.Ausstellung.App">
-    <Position X="0.5" Y="0.75" Width="2" />
+    <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
@@ -32,7 +32,6 @@
       <Field Name="_Aufgaben" Hidden="true" />
       <Field Name="_Ausstellung" Hidden="true" />
       <Field Name="_Buch" Hidden="true" />
-      <Field Name="_DBController" Hidden="true" />
       <Field Name="_DesignUmschalten" Hidden="true" />
       <Field Name="_Einstellungen" Hidden="true" />
       <Field Name="_FensterSchließen" Hidden="true" />
@@ -45,7 +44,7 @@
     </Members>
     <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="3.312" Y="2.636" />
+        <Point X="3.312" Y="1.191" />
         <Point X="3.312" Y="3.75" />
       </Path>
     </InheritanceLine>
@@ -61,7 +60,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAICMAEAAEAKBIACIhAQAgwAhDAIBAAQAEAAgRAAAMA=</HashCode>
+      <HashCode>CAICEAEAAEAKBIACIhAQAgwAhDAIBAAQAEAAARAAAMA=</HashCode>
       <FileName>ViewModels\Anwendung.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -118,14 +117,18 @@
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Einstellungsfenster">
     <Position X="3" Y="9.5" Width="2" />
+    <Members>
+      <Field Name="_PfadWählenBestellbestätigungsPfad" Hidden="true" />
+      <Field Name="_PfadWählenFürGesammtListenPfad" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgABAAAAAAACgIAAIAAAAAAAwAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Einstellungsfenster.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Aufgaben.Abholungsverwaltung" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="8.5" Width="2" />
+    <Position X="9.5" Y="8.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Abholungsverwaltung.xaml.cs</FileName>
@@ -133,7 +136,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Aufgaben.Ausstellung" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="10.75" Width="2" />
+    <Position X="9.5" Y="10.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Ausstellung.xaml.cs</FileName>
@@ -141,7 +144,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Aufgaben.Ausstellungsabschluss" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="24" Width="2" />
+    <Position X="7.25" Y="16.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Ausstellungsabschluss.xaml.cs</FileName>
@@ -149,15 +152,15 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Aufgaben.Buchverwaltung" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="14.75" Width="2" />
+    <Position X="9.5" Y="11.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Buchverwaltung.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WIFI.Ausstellung.Views.Aufgaben.Lieferverwaltung" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="18.25" Width="2" />
+  <Class Name="WIFI.Ausstellung.Views.Aufgaben.Lieferverwaltung" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="13.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Lieferverwaltung.xaml.cs</FileName>
@@ -165,7 +168,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Aufgaben.Offlineanzeige" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.25" Y="26.25" Width="2" />
+    <Position X="9.5" Y="16.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Offlineanzeige.xaml.cs</FileName>
@@ -173,7 +176,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIFI.Ausstellung.Views.Aufgaben.Veranstaltungserstellung" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="21.5" Width="2" />
+    <Position X="9.5" Y="14.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Aufgaben\Veranstaltungserstellung.xaml.cs</FileName>
@@ -195,15 +198,17 @@
     </Members>
     <TypeIdentifier />
   </Class>
-  <Class Name="WIFI.Anwendung.ViewModelAppObjekt">
+  <Class Name="WIFI.Anwendung.ViewModelAppObjekt" Collapsed="true">
     <Position X="3" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="AppKontext" Type="WIFI.Anwendung.DatenbankAppKontext" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="3" Y="2.312" />
-        <Point X="1.5" Y="2.312" />
+        <Point X="3" Y="1.086" />
+        <Point X="2.75" Y="1.086" />
+        <Point X="2.75" Y="1.983" />
+        <Point X="1.5" Y="1.983" />
         <Point X="1.5" Y="3.75" />
       </Path>
     </AssociationLine>
@@ -213,22 +218,22 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WIFI.Ausstellung.ViewModels.AbholungsManager">
-    <Position X="7.25" Y="8.5" Width="2" />
+  <Class Name="WIFI.Ausstellung.ViewModels.AbholungsManager" Collapsed="true">
+    <Position X="7.25" Y="8.75" Width="2" />
     <Members>
       <Field Name="_Abholungsbestätigung" Hidden="true" />
       <Field Name="_Abholungsliste" Hidden="true" />
     </Members>
     <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true">
       <Path>
-        <Point X="3.75" Y="2.636" />
+        <Point X="3.75" Y="1.191" />
         <Point X="3.75" Y="3.5" />
         <Point X="3.855" Y="3.5" Type="JumpStart" />
         <Point X="4.021" Y="3.5" Type="JumpEnd" />
         <Point X="5.25" Y="3.5" />
         <Point X="5.25" Y="8.255" />
         <Point X="8.25" Y="8.255" />
-        <Point X="8.25" Y="8.5" />
+        <Point X="8.25" Y="8.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -236,8 +241,8 @@
       <FileName>ViewModels\AbholungsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WIFI.Ausstellung.ViewModels.AusstellungsManager">
-    <Position X="7.25" Y="10.75" Width="2" />
+  <Class Name="WIFI.Ausstellung.ViewModels.AusstellungsManager" Collapsed="true">
+    <Position X="7.25" Y="10.25" Width="2" />
     <Members>
       <Field Name="_AktuelleBestellung" Hidden="true" />
       <Field Name="_AktuelleBücherbestellung" Hidden="true" />
@@ -251,16 +256,16 @@
     </Members>
     <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="3.75" Y="2.636" />
+        <Point X="3.75" Y="1.191" />
         <Point X="3.75" Y="3.502" />
         <Point X="3.855" Y="3.502" Type="JumpStart" />
         <Point X="4.021" Y="3.502" Type="JumpEnd" />
-        <Point X="5.301" Y="3.502" />
-        <Point X="5.301" Y="8.285" />
-        <Point X="6.179" Y="8.285" />
-        <Point X="6.179" Y="10.545" />
-        <Point X="8.25" Y="10.545" />
-        <Point X="8.25" Y="10.75" />
+        <Point X="5.25" Y="3.502" />
+        <Point X="5.25" Y="10.156" />
+        <Point X="6.014" Y="10.156" Type="JumpStart" />
+        <Point X="6.18" Y="10.156" Type="JumpEnd" />
+        <Point X="8.25" Y="10.156" />
+        <Point X="8.25" Y="10.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -268,41 +273,44 @@
       <FileName>ViewModels\AusstellungsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WIFI.Ausstellung.ViewModels.BuchManager">
-    <Position X="7.25" Y="14.75" Width="2" />
+  <Class Name="WIFI.Ausstellung.ViewModels.BuchManager" Collapsed="true">
+    <Position X="7.25" Y="11.75" Width="2" />
     <Members>
       <Field Name="_AktuelleBücher" Hidden="true" />
       <Field Name="_AktuellesBuch" Hidden="true" />
+      <Field Name="_AktuellesBuchKategorie" Hidden="true" />
       <Field Name="_Buchausstellungsliste" Hidden="true" />
       <Field Name="_Büchergruppen" Hidden="true" />
       <Field Name="_BuchgruppeEntfernen" Hidden="true" />
       <Field Name="_BuchgruppeHinzufügen" Hidden="true" />
       <Field Name="_BuchHinzufügen" Hidden="true" />
       <Field Name="_export" Hidden="true" />
+      <Field Name="_IEStatus" Hidden="true" />
       <Field Name="_import" Hidden="true" />
+      <Field Name="_NeuErstellteBuchgruppe" Hidden="true" />
       <Field Name="_SelektierteBuchgruppe" Hidden="true" />
     </Members>
     <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true">
       <Path>
-        <Point X="3.75" Y="2.636" />
+        <Point X="3.75" Y="1.191" />
         <Point X="3.75" Y="3.502" />
         <Point X="3.855" Y="3.502" Type="JumpStart" />
         <Point X="4.021" Y="3.502" Type="JumpEnd" />
         <Point X="5.25" Y="3.502" />
         <Point X="5.25" Y="8.235" />
         <Point X="6.097" Y="8.235" />
-        <Point X="6.097" Y="14.543" />
-        <Point X="8.25" Y="14.543" />
-        <Point X="8.25" Y="14.75" />
+        <Point X="6.097" Y="11.106" />
+        <Point X="8.25" Y="11.106" />
+        <Point X="8.25" Y="11.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAIARAAAiAAgAQAQYAAABBBQAAAACACAABIEAAAAAAw=</HashCode>
+      <HashCode>BAIARACAiACgEQAQYAAABBBQAAAADAGAABIEAAAAAAw=</HashCode>
       <FileName>ViewModels\BuchManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WIFI.Ausstellung.ViewModels.LieferungsManager">
-    <Position X="7.25" Y="18.75" Width="2" />
+  <Class Name="WIFI.Ausstellung.ViewModels.LieferungsManager" Collapsed="true">
+    <Position X="7.25" Y="13.25" Width="2" />
     <Members>
       <Field Name="_BuchanzahlAktuallisieren" Hidden="true" />
       <Field Name="_BücherDerSelektiertenBestellung" Hidden="true" />
@@ -313,16 +321,16 @@
     </Members>
     <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true">
       <Path>
-        <Point X="3.75" Y="2.636" />
+        <Point X="3.75" Y="1.191" />
         <Point X="3.75" Y="3.502" />
         <Point X="3.855" Y="3.502" Type="JumpStart" />
         <Point X="4.021" Y="3.502" Type="JumpEnd" />
         <Point X="5.25" Y="3.502" />
         <Point X="5.25" Y="8.287" />
         <Point X="6.097" Y="8.287" />
-        <Point X="6.097" Y="18.61" />
-        <Point X="8.25" Y="18.61" />
-        <Point X="8.25" Y="18.75" />
+        <Point X="6.097" Y="12.787" />
+        <Point X="8.25" Y="12.787" />
+        <Point X="8.25" Y="13.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -330,26 +338,24 @@
       <FileName>ViewModels\LieferungsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WIFI.Ausstellung.ViewModels.VeranstaltungsManager">
-    <Position X="7.25" Y="21.75" Width="2" />
+  <Class Name="WIFI.Ausstellung.ViewModels.VeranstaltungsManager" Collapsed="true">
+    <Position X="7.25" Y="14.25" Width="2" />
     <Members>
       <Field Name="_ErstelleVeranstaltung" Hidden="true" />
       <Field Name="_Ort" Hidden="true" />
       <Field Name="_VeranstaltungsBeginnDatum" Hidden="true" />
       <Field Name="_VeranstaltungsEndDatum" Hidden="true" />
     </Members>
-    <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true">
+    <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="3.75" Y="2.636" />
+        <Point X="3.75" Y="1.191" />
         <Point X="3.75" Y="3.502" />
         <Point X="3.855" Y="3.502" Type="JumpStart" />
         <Point X="4.021" Y="3.502" Type="JumpEnd" />
         <Point X="5.25" Y="3.502" />
-        <Point X="5.25" Y="8.241" />
-        <Point X="6.071" Y="8.241" />
-        <Point X="6.071" Y="21.593" />
-        <Point X="8.25" Y="21.593" />
-        <Point X="8.25" Y="21.75" />
+        <Point X="5.25" Y="14.096" />
+        <Point X="8.125" Y="14.096" />
+        <Point X="8.125" Y="14.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -357,23 +363,19 @@
       <FileName>ViewModels\VeranstaltungsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WIFI.Anwendung.PDFManager">
-    <Position X="7.25" Y="24" Width="2" />
-    <InheritanceLine Type="WIFI.Anwendung.ViewModelAppObjekt" ManuallyRouted="true">
-      <Path>
-        <Point X="3.75" Y="2.636" />
-        <Point X="3.75" Y="3.502" />
-        <Point X="3.855" Y="3.502" Type="JumpStart" />
-        <Point X="4.021" Y="3.502" Type="JumpEnd" />
-        <Point X="5.321" Y="3.502" />
-        <Point X="5.321" Y="8.238" />
-        <Point X="6.025" Y="8.238" />
-        <Point X="6.025" Y="23.793" />
-        <Point X="8.25" Y="23.793" />
-        <Point X="8.25" Y="24" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier />
+  <Class Name="WIFI.Ausstellung.PDFManager" Collapsed="true">
+    <Position X="7.25" Y="15.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgACAAAAAAAEAEAAAAAAAAAAAABAAIACAAAAAAMA=</HashCode>
+      <FileName>PDFManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WIFI.Ausstellung.BesucherZuBestellung" Collapsed="true">
+    <Position X="5.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAYAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDFManager.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
