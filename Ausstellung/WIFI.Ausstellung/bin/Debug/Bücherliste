@@ -1,13 +1,7 @@
 ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis
-27;110;Der kleine Zauberer;Heinrich;Thalia;1;2;124,0
-28;210;Kernphysik - Atomkraft;Einstein;Wissensverlag;1;4;3,0
-29;510;Musterbuch;Mustermann;Musterverlag;1;12;3,0
-30;410;Detektiv Conan;Hiritastu;Hamegaki GmbH;0;11;11,0
-31;610;Die Bibel;Unbekannt;Kirche;0;7;23,0
-32;611;Mein Weg zu Gott;Test;Verlag;1;7;15,0
-34;210;Kernphysik - Atomkraft;Einstein;Wissensverlag;1;4;3,0
-35;110;Der kleine Zauberer;Heinrich;Thalia;1;2;124,0
-36;611;Mein Weg zu Gott;Test;Verlag;1;7;15,0
-37;410;Detektiv Conan;Hiritastu;Hamegaki GmbH;0;11;11,0
-38;510;Musterbuch;Mustermann;Musterverlag;1;12;3,0
-39;610;Die Bibel;Unbekannt;Kirche;0;7;23,0
+0;210;Chemie - Elementarteilchen;Unbekannt;Thalia;0;18;12,4
+0;110;Kleine König Kalle Wirsch;Petra Lind;Thalia;0;17;12,83
+0;211;Physik - Atomkraft;Unbekannt;Thalia;0;18;155
+0;212;Physik - Quantenmechanik;Unbekannt;Thalia;1;0;15,6
+0;510;Bibel;Unbekannt;Kirche;0;0;24
+0;111;Kindermärchen;Gebrüder Grim;Thalia;0;16;14,5

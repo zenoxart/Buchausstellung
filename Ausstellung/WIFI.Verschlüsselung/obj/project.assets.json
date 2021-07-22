@@ -44,41 +44,41 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zenox\\.nuget\\packages\\": {},
-    "F:\\visual_Studio\\tools\\NuGetPackages": {}
+    "C:\\Users\\U731233\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "projectUniqueName": "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
       "projectName": "WIFI.Verschlüsselung",
-      "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
-      "packagesPath": "C:\\Users\\zenox\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
+      "projectPath": "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\WIFI.Verschlüsselung.csproj",
+      "packagesPath": "C:\\Users\\U731233\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Verschlüsselung\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\visual_Studio\\tools\\NuGetPackages"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\zenox\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\U731233\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
-              "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
+            "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj": {
+              "projectPath": "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung.Datenbank\\WIFI.Anwendung.Datenbank.csproj"
             },
-            "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
-              "projectPath": "C:\\Users\\zenox\\Documents\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
+            "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj": {
+              "projectPath": "C:\\Users\\U731233\\Documents\\GitHub\\Buchausstellung\\Ausstellung\\WIFI.Anwendung\\WIFI.Anwendung.csproj"
             }
           }
         }
@@ -91,7 +91,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -107,7 +106,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
