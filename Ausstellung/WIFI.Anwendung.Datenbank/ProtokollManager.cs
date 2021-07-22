@@ -582,8 +582,7 @@ namespace WIFI.Anwendung
                     {
                         using (var Schreiber = new System.IO.StreamWriter(
                             this.Pfad,
-                            append: true,
-                            System.Text.Encoding.Default))
+                            append: true))
                         {
 
                             const string Ausgabemuster = "{0}\t{1}\t{2}";
