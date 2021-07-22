@@ -1,9 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\zenox\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\zenox\\.nuget\\packages",
-      "F:\\visual_Studio\\tools\\NuGetPackages"
-    ]
-  }
-}
