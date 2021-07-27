@@ -81,8 +81,12 @@ namespace WIFI.Ausstellung.ViewModels
                                 {
                                     if (item.Abgeholt)
                                     {
+                                        async void Load()
+                                        {
 
-                                        WIFI.Ausstellung.DBControllerManager.BestellungController.BestellungAbgeholt(item);
+                                            await WIFI.Ausstellung.DBControllerManager.BestellungController.BestellungAbgeholt(item);
+                                        }
+                                        Load();
                                     }
                                 }
                                 //this.AppKontext.DBControllerManager.BestellungController.FürAlleBestellungenAbgeholt(this.Abholungsliste);

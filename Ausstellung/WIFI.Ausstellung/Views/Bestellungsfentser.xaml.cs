@@ -40,14 +40,9 @@ namespace WIFI.Ausstellung.Views
         {
             // Wegen des Multithreadings mit einer 
             // Kopie vom Ereignisbehandler arbeiten
-            var BehandlerKopie = this.PropertyChanged;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(
+            this.PropertyChanged?.Invoke(
                     this,
                     new System.ComponentModel.PropertyChangedEventArgs(eigenschaft));
-            }
         }
 
 
@@ -269,8 +264,13 @@ namespace WIFI.Ausstellung.Views
                                 
                                 foreach (var item in this.BücherDerSelektiertenBestellung)
                                 {
-                                    WIFI.Ausstellung.DBControllerManager.BestellungController.
+                                    async void Load()
+                                    {
+                                        await WIFI.Ausstellung.DBControllerManager.BestellungController.
                                         AktualisiereBestellungBuch(item.ID, item.Anzahl, this.AktuelleBestellung.BestellNr);
+                                    }
+                                    Load();
+                                    
                                 }
 
                                 this.Close();

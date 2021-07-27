@@ -329,7 +329,12 @@ namespace WIFI.Ausstellung.ViewModels
                                     {
                                         AusstellungsManager.AktuelleBestellung.BestellNr = AktuelleBestellNr;
 
-                                        WIFI.Ausstellung.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(AusstellungsManager.AktuelleBestellung);
+                                        async void Load()
+                                        {
+                                            await WIFI.Ausstellung.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(AusstellungsManager.AktuelleBestellung);
+
+                                        }
+                                        Load();
                                         // Alles von der Aktuellen Bestellung auf die Datenbank schieben
                                         //this.AppKontext.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(
                                         //    AusstellungsManager.AktuelleBestellung);
@@ -483,7 +488,12 @@ namespace WIFI.Ausstellung.ViewModels
 
 
                             //Stadium auf der Datenbank ändern
-                            WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Lieferung);
+                            async void Load()
+                            {
+                               await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Lieferung);
+
+                            }
+                            Load();
 
                             // 20210617 -> Übersiedlung von MySql auf MsSql
                             //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung);

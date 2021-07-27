@@ -15,7 +15,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Ändert die Informationen zu der übergebenen Buchgruppe
         /// </summary>
-        public async void AktualisiereBuchgruppe(Gateway.DTO.Buchgruppe id)
+        public async System.Threading.Tasks.Task AktualisiereBuchgruppe(Gateway.DTO.Buchgruppe id)
         {
             const string Adresse = "{0}AktualisiereBuchgruppe?id={1}";
 
@@ -32,7 +32,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Entfernt die Buchgruppe aus der Datenbank
         /// </summary>
-        public async void EntferneBuchgruppe(Gateway.DTO.Buchgruppe id)
+        public async System.Threading.Tasks.Task EntferneBuchgruppe(Gateway.DTO.Buchgruppe id)
         {
             const string Adresse = "{0}EntferneBuchgruppe?Gruppennr={1}&Beschreibung={2}";
 
@@ -51,7 +51,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// 
         /// Legt eine Buchgruppe in der Datenbank an
         /// </summary>
-        public async void ErstelleBuchgruppe(Gateway.DTO.Buchgruppe gruppe)
+        public async System.Threading.Tasks.Task ErstelleBuchgruppe(Gateway.DTO.Buchgruppe gruppe)
         {
             const string Adresse = "{0}ErstelleBuchgruppe?Gruppennummer={1}&Beschreibung={2}";
             

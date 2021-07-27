@@ -48,7 +48,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Fügt ein Buch mit der Anzahl einer BestellNr hinzu
         /// </summary>
-        public async void BuchbestellungHinzufügen(Gateway.DTO.Buch buch, int bestellNr, int anzahl)
+        public async System.Threading.Tasks.Task BuchbestellungHinzufügen(Gateway.DTO.Buch buch, int bestellNr, int anzahl)
         {
             //int Id,string Titel,string Autor, string buchnummr, int kategorie, int rabatt, decimal? preis, string verlag,
             //DTO.Buch buch, int bestellNr, int anzahl
@@ -125,7 +125,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// FÜgt alle Bestellungen der Datenbank hinzu
         /// </summary>
-        public async void AlleBuchbestellungenHinzufügen(Gateway.DTO.Bestellung bestellung)
+        public async System.Threading.Tasks.Task AlleBuchbestellungenHinzufügen(Gateway.DTO.Bestellung bestellung)
         {
 
             foreach (var item in bestellung.Buchliste.Keys)
@@ -173,7 +173,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Ändert die Zusatz-Informationen zu der angegebenen Bestellung
         /// </summary>
-        public async void AktualisiereBestellungsInfo(Gateway.DTO.Bestellung id)
+        public async System.Threading.Tasks.Task AktualisiereBestellungsInfo(Gateway.DTO.Bestellung id)
         {
 
             const string Adresse = "{0}AktualisiereBestellungsInfo?id={1}";
@@ -215,7 +215,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Trägt in die Datenbank ein, dass die Bestellung abgeholt wurde
         /// </summary>
-        public async void BestellungAbgeholt(Gateway.DTO.Bestellung bestellung)
+        public async System.Threading.Tasks.Task BestellungAbgeholt(Gateway.DTO.Bestellung bestellung)
         {
             const string Adresse = "{0}BestellungAbgeholt?bestellung={1}";
 
@@ -253,9 +253,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
             }
             catch (Exception e)
             {
-
-                throw;
+                this.OnFehlerAufgetreten(new Anwendung.FehlerAufgetretenEventArgs(e));
+                this.AppKontext.Protokoll.Eintragen(string.Format(@"In {0} ist ein Fehler aufgetreten: {1}", this.GetType().FullName, e.Message));
             }
+            return new Gateway.DTO.Bestellung();
 
         }
 
@@ -263,7 +264,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// Aktualisiert die Daten zu einer Bestellung
         /// </summary>
         /// <param name="bestellung"></param>
-        public async void AktualisiereBestellung(Gateway.DTO.Bestellung bestellung)
+        public async System.Threading.Tasks.Task AktualisiereBestellung(Gateway.DTO.Bestellung bestellung)
         {
 
             // Für die Bücher der Bestellung
@@ -300,7 +301,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Ändert die Buchanzahl eines Buches von einer Bestellung
         /// </summary>
-        public async void AktualisiereBestellungBuch(int buchid,int anzahl,int bestellid)
+        public async System.Threading.Tasks.Task AktualisiereBestellungBuch(int buchid,int anzahl,int bestellid)
         {
             const string SecAdresse = "{0}AktualisiereBestellungBuch?buchid={1}&anzahl={2}&bestellId={3}";
 

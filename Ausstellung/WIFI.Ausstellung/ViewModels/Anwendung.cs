@@ -120,13 +120,15 @@ namespace WIFI.Ausstellung.ViewModels
             fenster.Closing += (sender, e) =>
             {
                 // Ein Positionsobjekt initialisieren
-                var Position = new WIFI.Anwendung.Daten.Fenster();
+                var Position = new WIFI.Anwendung.Daten.Fenster
+                {
 
-                // Damit die Position wieder gefunden wird
-                Position.Name = fenster.Name;
+                    // Damit die Position wieder gefunden wird
+                    Name = fenster.Name,
 
-                // Auf alle Fällen den Zustand merken
-                Position.Zustand = (int)fenster.WindowState;
+                    // Auf alle Fällen den Zustand merken
+                    Zustand = (int)fenster.WindowState
+                };
 
                 // die Position und Größe nur, wenn
                 // es ein normales Fenster ist
@@ -320,10 +322,12 @@ namespace WIFI.Ausstellung.ViewModels
 
             // Dem Fenster mitteilen, dass
             // es von uns kontrolliert wird...
-            var View = new Views.Einstellungsfenster();
+            var View = new Views.Einstellungsfenster
+            {
 
-            // Bindet den AppKontext mit dem DataContext
-            View.DataContext = this;
+                // Bindet den AppKontext mit dem DataContext
+                DataContext = this
+            };
 
 
 
@@ -402,9 +406,7 @@ namespace WIFI.Ausstellung.ViewModels
                             // Allen Fenster mitteilen
                             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                             {
-                                var VM = window.DataContext as WIFI.Ausstellung.ViewModels.Anwendung;
-
-                                if (VM != null && VM != this)
+                                if (window.DataContext is WIFI.Ausstellung.ViewModels.Anwendung VM && VM != this)
                                 {
                                     VM.DunklesDesign = this.DunklesDesign;
                                 }
@@ -572,8 +574,12 @@ namespace WIFI.Ausstellung.ViewModels
                 this._StarteSoftware = new WIFI.Anwendung.Befehl(
                     p =>
                     {
+                        async void Load()
+                        {
+                            await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.ErstelleVeranstaltung();
+                        }
 
-                        WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.ErstelleVeranstaltung();
+                        Load();
                         //this.AppKontext.DBControllerManager.VeranstaltungsController.AnwendungsStart();
 
                         this.ZeigeStart = false;

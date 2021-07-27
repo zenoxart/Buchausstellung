@@ -14,7 +14,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Entfernt das Buch aus der Datenbank
         /// </summary>
-        public async void EntferneBuch(Gateway.DTO.Buch id)
+        public async System.Threading.Tasks.Task EntferneBuch(Gateway.DTO.Buch id)
         {
             const string Adresse = "{0}EntferneBuch?id={1}";
 
@@ -30,7 +30,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Legt ein Buch in der Datenbank an
         /// </summary>
-        public async void ErstelleBuch(Gateway.DTO.Buch buch)
+        public async System.Threading.Tasks.Task ErstelleBuch(Gateway.DTO.Buch buch)
         {
 
 
@@ -76,7 +76,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Aktualisiert die Daten zu dem Buch
         /// </summary>
-        public async void UpdateBuch(Gateway.DTO.Buch id)
+        public async System.Threading.Tasks.Task UpdateBuch(Gateway.DTO.Buch id)
         {
             const string Adresse = "{0}UpdateBuch?id={1}";
 

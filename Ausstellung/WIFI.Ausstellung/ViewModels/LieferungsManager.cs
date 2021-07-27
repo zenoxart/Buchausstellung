@@ -289,7 +289,12 @@ namespace WIFI.Ausstellung.ViewModels
                                     // Für jedes Buch der Bestellung
                                     foreach (var bücher in bestellung.Buchliste.Keys)
                                     {
-                                        WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellungBuch(bücher.ID, bücher.Anzahl, bestellung.BestellNr);
+                                        async void Load()
+                                        {
+                                           await WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellungBuch(bücher.ID, bücher.Anzahl, bestellung.BestellNr);
+                                        }
+                                        Load();
+                                       
                                     }
 
                                     neuZuDruckende.Add(bestellung);
@@ -305,7 +310,12 @@ namespace WIFI.Ausstellung.ViewModels
 
 
                             // Ändere den Status auf Abholungsverwaltung
-                            WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Abholung);
+                            async void LoadSek()
+                            {
+                               await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Abholung);
+
+                            }
+                            LoadSek();
 
                             // 20210617 -> Übersiedlung von MySql auf MsSql
                             //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung);

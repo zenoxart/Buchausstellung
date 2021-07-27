@@ -83,10 +83,15 @@ namespace WIFI.Ausstellung.ViewModels
                             if (this.VeranstaltungsEndDatum != DateTime.Today && this.Ort != string.Empty)
                             {
                                 // Die Veranstaltung kann gestartet werden
-                                WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
+                                async void Load()
+                                {
+                                    await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
                                     this.VeranstaltungsBeginnDatum,
                                     this.VeranstaltungsEndDatum,
                                     this.Ort);
+                                }
+                                Load();
+                               
 
 
 

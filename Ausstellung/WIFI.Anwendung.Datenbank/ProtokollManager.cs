@@ -157,10 +157,7 @@ namespace WIFI.Anwendung
                     foreach (var r in this.Rückrufe)
                     {
 
-                        if (r.Methode != null)
-                        {
-                            r.Methode();
-                        }
+                        r.Methode?.Invoke();
                     }
 
                     // 20210307 die if-Abfrage war falsch
@@ -399,9 +396,10 @@ namespace WIFI.Anwendung
         /// </summary>
         private void StarteZähler()
         {
-            var zähler = new System.Timers.Timer(Zählzeit);
-
-            zähler.AutoReset = true;
+            var zähler = new System.Timers.Timer(Zählzeit)
+            {
+                AutoReset = true
+            };
             zähler.Elapsed += Komprimieren;
 
             zähler.Enabled = true;
@@ -609,10 +607,13 @@ namespace WIFI.Anwendung
                         // gesperrt ist
 
                         System.Threading.Thread.Sleep(100);
+                        this.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ioex));
+
                         Versuche--;
                     }
                     catch (System.Exception ex)
                     {
+                        this.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
                         this.Pfad = string.Empty;
                         Versuche = 0;
                     }

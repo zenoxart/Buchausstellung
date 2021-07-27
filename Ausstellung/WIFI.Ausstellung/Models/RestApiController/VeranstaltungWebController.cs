@@ -14,7 +14,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Erstellt einen Eintrag unter dem Table Veranstaltung in der Datenbank, falls noch keiner existiert
         /// </summary>
-        public async void ErstelleVeranstaltung()
+        public async System.Threading.Tasks.Task ErstelleVeranstaltung()
         {
             const string Adresse = "{0}ErstelleVeranstaltung";
 
@@ -34,7 +34,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Ändert Daten der Veranstaltung sowie das Stadium
         /// </summary>
-        public async void StarteVeranstaltung(DateTime StartDatum, DateTime EndDatum, string Ort)
+        public async System.Threading.Tasks.Task StarteVeranstaltung(DateTime StartDatum, DateTime EndDatum, string Ort)
         {
             const string Adresse = "{0}StarteVeranstaltung?StartDatum={1}&EndDatum={2}&Ort={3}";
             string ZielAdresse = string.Format(
@@ -54,7 +54,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Aktuallisiert das Stadium der Veranstaltung
         /// </summary>
-        public async void UpdateVeranstaltungsStadium(WIFI.Gateway.DTO.AusstellungsstadiumTyp typ)
+        public async System.Threading.Tasks.Task UpdateVeranstaltungsStadium(WIFI.Gateway.DTO.AusstellungsstadiumTyp typ)
         {
             const string Adresse = "{0}UpdateVeranstaltungsStadium?Typ={1}";
 

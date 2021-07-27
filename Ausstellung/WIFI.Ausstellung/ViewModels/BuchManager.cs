@@ -168,7 +168,12 @@ namespace WIFI.Ausstellung.ViewModels
 
                                 this.Buchausstellungsliste.Add(this.AktuellesBuch);
 
-                                WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(this.AktuellesBuch);
+                                async void Load()
+                                {
+
+                                    await WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(this.AktuellesBuch);
+                                }
+                                Load();
 
                                 this.AktuellesBuch = null;
                             }
@@ -210,19 +215,7 @@ namespace WIFI.Ausstellung.ViewModels
 
 
 
-        /// <summary>
-        /// Läd alle Bücher von der Datenbank in die Buchausstellungsliste
-        /// </summary>
-        private void InitialisiereBuecherListe()
-        {
-            async void Load()
-            {
-                this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
-
-            }
-
-            Load();
-        }
+       
 
 
         /// <summary>
@@ -349,7 +342,12 @@ namespace WIFI.Ausstellung.ViewModels
                                 // update to Database
                                 foreach (var item in buches)
                                 {
-                                    WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(item);
+                                    async void Load()
+                                    {
+                                        await WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(item);
+                                    }
+                                    Load();
+                                    
                                 }
 
                                 this.IEStatus = 1;
@@ -532,7 +530,11 @@ namespace WIFI.Ausstellung.ViewModels
                                     if (!this.Büchergruppen.Contains(this.NeuErstellteBuchgruppe))
                                     {
                                         // In die Datenbank speichern
-                                        WIFI.Ausstellung.DBControllerManager.BuchgruppenController.ErstelleBuchgruppe(this.NeuErstellteBuchgruppe);
+                                        async void Load()
+                                        {
+                                            await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.ErstelleBuchgruppe(this.NeuErstellteBuchgruppe);
+                                        }
+                                        Load();
 
                                         // Durch das Casten wird eine Neue Instanz erstellt, 
                                         // sodass eine Kopie des Objekts ensteht und kein Verweiß auf "NeuErstellteBuchgruppe"
@@ -598,8 +600,13 @@ namespace WIFI.Ausstellung.ViewModels
                         {
                             if (this.Büchergruppen != null && this.SelektierteBuchgruppe != null)
                             {
-                                WIFI.Ausstellung.DBControllerManager.BuchgruppenController.EntferneBuchgruppe(this.SelektierteBuchgruppe);
-                                this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
+                                async void Load()
+                                {
+                                    await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.EntferneBuchgruppe(this.SelektierteBuchgruppe);
+                                    this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
+                                }
+                                Load();
+                               
 
                                 // Remove von DB
                             }

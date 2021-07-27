@@ -44,7 +44,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Ändert den übergebenen Besucher
         /// </summary>
-        public async void AktualisiereBesucher(Gateway.DTO.Besucher besucher)
+        public async System.Threading.Tasks.Task AktualisiereBesucher(Gateway.DTO.Besucher besucher)
         {
             const string Adresse = "{0}AktualisiereBesucher?besucher={1}";
 
