@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WIFI.Ausstellung.UserControls
 {
@@ -207,7 +197,7 @@ namespace WIFI.Ausstellung.UserControls
         /// <param name="e"></param>
         private void OnIdChanged(DependencyPropertyChangedEventArgs e)
         {
-            BuchId = (string)e.NewValue;
+            BuchId1 = (string)e.NewValue;
         }
 
 
@@ -272,7 +262,7 @@ namespace WIFI.Ausstellung.UserControls
                             }
 
                             
-                            //ParrentViewModel.Ausstellung.AktuelleBücherbestellung.add(new Buch() { Preis =  });
+
                         }
                         );
                 }
@@ -283,8 +273,6 @@ namespace WIFI.Ausstellung.UserControls
             set { this._BuchbestellungHinzufügen = value; }
         }
 
-
-
-
+        public string BuchId1 { get => BuchId; set => BuchId = value; }
     }
 }

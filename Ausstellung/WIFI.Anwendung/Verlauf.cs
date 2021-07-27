@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt einen Dienst zum
@@ -29,12 +23,7 @@ namespace WIFI.Anwendung
         /// </summary>
         protected virtual void OnKeinZurück()
         {
-            var BehandlerKopie = this.KeinZurück;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(this, System.EventArgs.Empty);
-            }
+            this.KeinZurück?.Invoke(this, System.EventArgs.Empty);
         }
 
         /// <summary>
@@ -48,12 +37,7 @@ namespace WIFI.Anwendung
         /// </summary>
         protected virtual void OnZurückMöglich()
         {
-            var BehandlerKopie = this.ZurückMöglich;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(this, System.EventArgs.Empty);
-            }
+            this.ZurückMöglich?.Invoke(this, System.EventArgs.Empty);
         }
 
         /// <summary>
@@ -67,12 +51,7 @@ namespace WIFI.Anwendung
         /// </summary>
         protected virtual void OnKeinVorwärts()
         {
-            var BehandlerKopie = this.KeinVorwärts;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(this, System.EventArgs.Empty);
-            }
+            this.KeinVorwärts?.Invoke(this, System.EventArgs.Empty);
         }
 
         /// <summary>
@@ -86,12 +65,7 @@ namespace WIFI.Anwendung
         /// </summary>
         protected virtual void OnVorwärtsMöglich()
         {
-            var BehandlerKopie = this.VorwärtsMöglich;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(this, System.EventArgs.Empty);
-            }
+            this.VorwärtsMöglich?.Invoke(this, System.EventArgs.Empty);
         }
 
         /// <summary>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.Models.RestApiController
 {
@@ -25,8 +21,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        )))
             {
 
-                var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage ErstelleVeranstaltung beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -48,6 +45,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
                    ZielAdresse))
             {
 
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage StarteVeranstaltung beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -66,6 +64,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      )))
             {
 
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage UpdateVerantaltungsStadium beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -84,9 +83,11 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      )))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
-                //Enum.Parse(, AntwortText);
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleVeranstaltungStadium beträgt {Antwort.StatusCode}");
+
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.AusstellungsstadiumTyp>(AntwortText);
             }
         }
@@ -103,7 +104,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                     Adresse,
                     Properties.Settings.Default.UrlGatewayAPI
                     )))
-            { }
+            {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BeendeVeranstaltung beträgt {Antwort.StatusCode}");
+            }
         }
 
         /// <summary>
@@ -121,9 +125,11 @@ namespace WIFI.Ausstellung.Models.RestApiController
             {
 
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
-                //Enum.Parse(, AntwortText);
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleGemeinde beträgt {Antwort.StatusCode}");
+
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<string>(AntwortText);
             }
         }

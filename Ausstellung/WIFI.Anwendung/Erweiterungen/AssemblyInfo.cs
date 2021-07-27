@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Anwendung.Erweiterungen
 {
@@ -20,6 +16,11 @@ namespace WIFI.Anwendung.Erweiterungen
         /// bei dem die Erweiterung benutzt wird</param>
         public static string HoleFirmenname(this object fürObjekt)
         {
+            if (fürObjekt is null)
+            {
+                throw new ArgumentNullException(nameof(fürObjekt));
+            }
+
             var Daten = System.Reflection.Assembly.GetEntryAssembly()
                 .GetCustomAttributes(
                     typeof(System.Reflection.AssemblyCompanyAttribute),
@@ -41,6 +42,11 @@ namespace WIFI.Anwendung.Erweiterungen
         /// bei dem die Erweiterung benutzt wird</param>
         public static string HoleTitel(this object fürObjekt)
         {
+            if (fürObjekt is null)
+            {
+                throw new ArgumentNullException(nameof(fürObjekt));
+            }
+
             var Daten = System.Reflection.Assembly.GetEntryAssembly()
                 .GetCustomAttributes(
                     typeof(System.Reflection.AssemblyTitleAttribute),
@@ -62,6 +68,10 @@ namespace WIFI.Anwendung.Erweiterungen
         /// bei dem die Erweiterung benutzt wird</param>
         public static string HoleVersion(this object fürObjekt)
         {
+            if (fürObjekt is null)
+            {
+                throw new ArgumentNullException(nameof(fürObjekt));
+            }
 
             // Warum System.Reflection.AssemblyVersionAttribute
             // nicht wie die anderen Attribute funktionieren,
@@ -80,6 +90,11 @@ namespace WIFI.Anwendung.Erweiterungen
         /// bei dem die Erweiterung benutzt wird</param>
         public static string HoleCopyright(this object fürObjekt)
         {
+            if (fürObjekt is null)
+            {
+                throw new ArgumentNullException(nameof(fürObjekt));
+            }
+
             var Daten = System.Reflection.Assembly.GetEntryAssembly()
                 .GetCustomAttributes(
                     typeof(System.Reflection.AssemblyCopyrightAttribute),

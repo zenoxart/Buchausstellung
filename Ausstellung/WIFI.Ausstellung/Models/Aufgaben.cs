@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Ausstellung.Models
+﻿namespace WIFI.Ausstellung.Models
 {
     /// <summary>
     /// Stellt eine Liste von Anwendungsbereichen bereit.
@@ -98,18 +92,9 @@ namespace WIFI.Ausstellung.Models
         }
 
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private string _HellPfad;
-
-        /// <summary>
         /// Ruft den Pfad zu dem Hellhintergrundbild ab oder legt diesen fest
         /// </summary>
-        public string HellPfad
-        {
-            get { return this._HellPfad; }
-            set { this._HellPfad = value; }
-        }
+        public string HellPfad { get; set; }
 
         /// <summary>
         /// Internes Feld für die Eigenschaft

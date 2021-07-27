@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Anwendung.Daten
 {
@@ -17,7 +15,7 @@ namespace WIFI.Anwendung.Daten
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private int _Index = 0;
+        private readonly int _Index = 0;
 
         /// <summary>
         /// Ruft die Position der
@@ -56,7 +54,7 @@ namespace WIFI.Anwendung.Daten
     /// </summary>
     /// <remarks>Objekte basierend auf der DatenBasis
     /// können für die WPF Datenbindung benutzt werden</remarks>
-    public abstract class DatenBasis : System.Object, System.ComponentModel.INotifyPropertyChanged
+    public abstract class DatenBasis : object, System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
         /// Wird ausgelöst, wenn sich der Inhalt
@@ -79,14 +77,9 @@ namespace WIFI.Anwendung.Daten
         {
             // Wegen des Multithreadings mit einer 
             // Kopie vom Ereignisbehandler arbeiten
-            var BehandlerKopie = this.PropertyChanged;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(
+            this.PropertyChanged?.Invoke(
                     this,
                     new System.ComponentModel.PropertyChangedEventArgs(eigenschaft));
-            }
         }
 
         #region ToString() - Unterstützung
@@ -272,7 +265,6 @@ namespace WIFI.Anwendung.Daten
                 foreach (var e in this.GetType().GetProperties())
                 {
                     // 20210223 Den Index zum Sortieren berücksichtigen
-                    //if (e.GetCustomAttributes(typeof(InToStringAttribute), inherit: true).Length > 0)
 
                     var InToStringAttribut = e.GetCustomAttributes(typeof(InToStringAttribute), inherit: true);
                     if (InToStringAttribut.Length > 0)
@@ -288,8 +280,8 @@ namespace WIFI.Anwendung.Daten
                 }
 
                 // 20210223 Vor dem Cachen die Liste nach dem Index sortieren
-                var EigenschaftenSortiert = (from e in InToStringEigenschaften 
-                                             orderby e.Index 
+                var EigenschaftenSortiert = (from e in InToStringEigenschaften
+                                             orderby e.Index
                                              select e).ToArray();
                 InToStringEigenschaften.Clear();
                 InToStringEigenschaften.AddRange(EigenschaftenSortiert);
@@ -315,12 +307,14 @@ namespace WIFI.Anwendung.Daten
                 // 1, 2 Eigenschaften nicht rechtfertigt
                 Ergebnis = this.GetType().Name + "(";
 
+                StringBuilder StrB = new StringBuilder(Ergebnis);
+
                 foreach (var e in InToStringEigenschaften)
                 {
                     var AktuellerWert = e.Eigenschaft.GetValue(this);
-                    Ergebnis += AktuellerWert == null ?
-                        e.AusgabemusterWennNull :
-                        string.Format(e.Ausgabemuster, AktuellerWert);
+                    StrB.Append(AktuellerWert != null ?
+                        string.Format(e.Ausgabemuster, AktuellerWert) :
+                        e.AusgabemusterWennNull);
                 }
 
                 // Vor dem Schließen der Klammer
@@ -349,8 +343,8 @@ namespace WIFI.Anwendung.Daten
         {
             if (DatenBasis.NeuerTypWurdeAnalysiert != null)
             {
-                DatenBasis.NeuerTypWurdeAnalysiert(
-                    null, 
+                NeuerTypWurdeAnalysiert(
+                    null,
                     new System.ComponentModel.AddingNewEventArgs(typ)
                     );
             }

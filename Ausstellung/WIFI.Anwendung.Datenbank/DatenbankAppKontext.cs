@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Erweitert die Infrastruktur um
@@ -107,30 +101,21 @@ namespace WIFI.Anwendung
         }
 
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private bool _EnthältFehler;
-
-        /// <summary>
         /// Ruft einen Warheitswert ab ob ein Fehler enthalten ist 
         /// oder legt fest
         /// </summary>
-        public bool EnthältFehler
-        {
-            get { return this._EnthältFehler; }
-            set { this._EnthältFehler = value; }
-        }
+        public bool EnthältFehler { get; set; }
 
 
         /// <summary>
         /// Internes Feld für die Eigenschaft der Prozessbar
         /// </summary>
-        public bool? _KreisProzessbarSichtbarkeit = null;
+        private bool? kreisProzessbarSichtbarkeit = null;
 
         /// <summary>
         /// Internes Feld, gibt an wie viele Einstellungsfenster geöffnet sind
         /// </summary>
-        public int OffeneEinstellungsFenster = 0;
+        private int offeneEinstellungsFenster = 0;
 
         /// <summary>
         /// Ruft die Adresse des zu benutzenden SQL-Servers ab oder legt diese fest
@@ -175,40 +160,11 @@ namespace WIFI.Anwendung
         }
 
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private string _AktuelleAufgabenSektion = string.Empty;
-
-        /// <summary>
         /// Ruft den Pfad der aktuellen Aufgaben-Datei ab, oder legt diese fest
         /// </summary>
-        public string AktuelleAufgabenSektion
-        {
-            get { return this._AktuelleAufgabenSektion; }
-            set { this._AktuelleAufgabenSektion = value; }
-        }
+        public string AktuelleAufgabenSektion { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private DatenbankControllerManager _DBContollerManager = null;
-
-        /// <summary>
-        /// Ruft einen Manager zum Verwalten der Datenbank-Controller ab
-        /// </summary>
-        public DatenbankControllerManager DBControllerManager
-        {
-            get
-            {
-                if (this._DBContollerManager == null)
-                {
-                    this._DBContollerManager = this.Produziere<DatenbankControllerManager>();
-                }
-                return this._DBContollerManager;
-            }
-        }
-
-       
-
+        public bool? KreisProzessbarSichtbarkeit { get => kreisProzessbarSichtbarkeit; set => kreisProzessbarSichtbarkeit = value; }
+        public int OffeneEinstellungsFenster { get => offeneEinstellungsFenster; set => offeneEinstellungsFenster = value; }
     }
 }

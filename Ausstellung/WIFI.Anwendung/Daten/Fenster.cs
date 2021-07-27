@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung.Daten
+﻿namespace WIFI.Anwendung.Daten
 {
     /// <summary>
     /// Stellt eine Auflistung von
@@ -31,7 +25,7 @@ namespace WIFI.Anwendung.Daten
     /// </summary>
     /// <remarks>Hier handelt es sich um ein
     /// Datentransferobjekt (DTO)</remarks>
-    public class Fenster : System.Object
+    public class Fenster : object
     {
         /// <summary>
         /// Ruft den Namen des Fensters
@@ -57,7 +51,6 @@ namespace WIFI.Anwendung.Daten
         // nur gültige Werte, wenn der Zustand normal ist
 
         // So zu schreiben, uninteressant
-        //public System.Nullable<int> Links { get; set; }
 
         /// <summary>
         /// Ruft die linke Position ab
@@ -97,7 +90,6 @@ namespace WIFI.Anwendung.Daten
         /// </summary>
         public override string ToString()
         {
-            //return base.ToString();
 
             return $"{this.GetType().Name}(Name=\"{this.Name}\")";
         }

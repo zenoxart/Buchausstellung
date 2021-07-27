@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Anwendung.Daten
 {
@@ -16,7 +12,7 @@ namespace WIFI.Anwendung.Daten
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private System.WeakReference _Methode;
+        private readonly System.WeakReference _Methode;
 
         /// <summary>
         /// Ruft die gekapselte Methode ab

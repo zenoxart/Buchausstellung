@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -56,7 +52,7 @@ namespace WIFI.Ausstellung.ViewModels
                     || AufgabenManager._Liste[0].Name == Properties.Texte.DatenHolen)
                 {
                     // Hier wäre die Oberfläche während des Holens blockiert
-                    //this._Liste = this.Controller.HoleAusRessourcen();
+
 
                     // Damit Benutzer sehen, dass etwas passiert...
                     AufgabenManager._Liste = new Models.Aufgaben
@@ -108,19 +104,18 @@ namespace WIFI.Ausstellung.ViewModels
 
                 this.AppKontext.Protokoll.Eintragen($"Aufgabensektion wurde auf {xmlPfad} geändert. ");
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                this.OnFehlerAufgetreten(new WIFI.Anwendung.FehlerAufgetretenEventArgs(e));
+
+                this.AppKontext.Protokoll.Eintragen("Beim Laden der Aufgaben-Sektion ist ein Fehler aufgetreten" + e.Message);
                 //TODO: 
             }
 
             if (this.AppKontext.AktuelleAufgabenSektion != xmlPfad)
             {
                 //TODO: Wenn die Sektion unterschiedlich ist, nimm einen Viewer mit dem 0ten Element der AktivenViewer
-                //this.AktiverViewer = null;
-                //this.AktuelleAufgabe = this.Liste[0];
 
-                //InitialisiereAktivenViewer();
-                //this.OnPropertyChanged();
             }
 
         }
@@ -150,12 +145,9 @@ namespace WIFI.Ausstellung.ViewModels
                         try
                         {
                             // Frage die Datenbank ab
-                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response =
-                            //    this.AppKontext.DBControllerManager.VeranstaltungsController.VeranstaltungsStadium();
 
                             WIFI.Gateway.DTO.AusstellungsstadiumTyp response = await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.HoleVeranstaltungsStadium();
                             // Eine Hilfe um ohne Datenbank masken anzeigen zu lassen
-                            //WIFI.Anwendung.DTO.AusstellungsstadiumTyp response = WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Vorbereitung;
 
                             // Entscheide aufgrund des Status, welche XML-Datei geladen werden soll
                             switch (response)
@@ -185,6 +177,7 @@ namespace WIFI.Ausstellung.ViewModels
                             this.AppKontext.Protokoll.Eintragen($"In der Datenbank ist beim laden des Veranstaltungs-Stadiums ein Fehler aufgetreten" +
                                 $"{e.GetType().FullName} | {e.Message} \n" +
                                 $"{e.StackTrace}", WIFI.Anwendung.Daten.ProtokollEintragTyp.Warnung);
+                            this.OnFehlerAufgetreten(new WIFI.Anwendung.FehlerAufgetretenEventArgs(e));
                         }
 
 
@@ -216,7 +209,7 @@ namespace WIFI.Ausstellung.ViewModels
                 {
                     this.InitialisiereAufgabenLäuft = true;
                     // SO NIE, nicht mit dem Feld!!!
-                    //this._Liste = this.Controller.HoleAusRessourcen();
+
                     // a) Damit WPF mitbekommt, dass sich die Liste
                     //    geändert hat, wird PropertyChanged benötigt
                     // b) Weil kein Thread in die Daten von einem
@@ -348,13 +341,10 @@ namespace WIFI.Ausstellung.ViewModels
                         // ist und diese auch nicht null ist, bekomme den
                         // Index der Aufgabe
 
-                        if (this.Liste != null)
+                        if (this.Liste != null && this.Liste.Contains(this._AktuelleAufgabe))
                         {
-                            if (this.Liste.Contains(this._AktuelleAufgabe))
-                            {
                                 Properties.Settings.Default.IndexAktuelleAufgabe
                                 = this.Liste.IndexOf(this._AktuelleAufgabe);
-                            }
                         }
 
 
@@ -448,7 +438,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                 this.StartProtokollieren();
 
-                object Viewer = null;
+                object Viewer;
 
                 // Prüfen, ob der Viewer bereits vorhanden ist
                 if (this.VorhandeneViewer.ContainsKey(this.AktuelleAufgabe.ViewerName))

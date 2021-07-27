@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt die Grundlage für WIFI ViewModels
@@ -34,14 +28,9 @@ namespace WIFI.Anwendung
         {
             // Wegen des Multithreadings mit einer 
             // Kopie vom Ereignisbehandler arbeiten
-            var BehandlerKopie = this.PropertyChanged;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(
-                    this, 
+            this.PropertyChanged?.Invoke(
+                    this,
                     new System.ComponentModel.PropertyChangedEventArgs(eigenschaft));
-            }
         }
 
 

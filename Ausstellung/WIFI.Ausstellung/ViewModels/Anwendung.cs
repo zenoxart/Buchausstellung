@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -333,12 +329,9 @@ namespace WIFI.Ausstellung.ViewModels
 
             var dialogresult = View.ShowDialog();
             // Fenster öffnen
-            if (dialogresult.HasValue)
+            if (dialogresult.HasValue && !dialogresult.Value)
             {
-                if (!dialogresult.Value)
-                {
-                    this.AppKontext.OffeneEinstellungsFenster--;
-                }
+                this.AppKontext.OffeneEinstellungsFenster--;
             }
         }
         #endregion
@@ -369,7 +362,6 @@ namespace WIFI.Ausstellung.ViewModels
                 // wird nur im aktuellen Fenster die Einstellung 
                 // an die Lotto View weitergegeben. Damit die Änderung
                 // in allen offenen Fenstern zieht, ohne dieser Entscheidung
-                //if (value != Properties.Settings.Default.DunklesDesign)
 
                 Properties.Settings.Default.DunklesDesign = value;
 
@@ -528,13 +520,14 @@ namespace WIFI.Ausstellung.ViewModels
             set
             {
                 // Wenn es Falsch ist soll der Arbeitsbereich gezeigt werden, sonst nicht
-                if (value == false)
+                switch (value)
                 {
-                    ZeigeArbeitsbereich = true;
-                }
-                else
-                {
-                    ZeigeArbeitsbereich = false;
+                    case false:
+                        ZeigeArbeitsbereich = true;
+                        break;
+                    default:
+                        ZeigeArbeitsbereich = false;
+                        break;
                 }
                 this._ZeigeStart = value;
                 this.OnPropertyChanged();
@@ -571,20 +564,24 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                this._StarteSoftware = new WIFI.Anwendung.Befehl(
-                    p =>
-                    {
-                        async void Load()
-                        {
-                            await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.ErstelleVeranstaltung();
-                        }
+                if (this._StarteSoftware == null)
+                {
+                    this._StarteSoftware = new WIFI.Anwendung.Befehl(
+                   p =>
+                   {
+                       async void Load()
+                       {
+                           await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.ErstelleVeranstaltung();
+                       }
 
-                        Load();
-                        //this.AppKontext.DBControllerManager.VeranstaltungsController.AnwendungsStart();
+                       Load();
 
-                        this.ZeigeStart = false;
-                    }
-                );
+
+                       this.ZeigeStart = false;
+                   }
+               );
+                }
+               
 
                 return this._StarteSoftware;
             }

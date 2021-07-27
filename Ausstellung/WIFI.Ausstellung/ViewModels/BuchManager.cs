@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -81,7 +78,7 @@ namespace WIFI.Ausstellung.ViewModels
                     this.BuecherListeGeladen = true;
 
                     // SO NIE, nicht mit dem Feld!!!
-                    //this._Liste = this.Controller.HoleAusRessourcen();
+
                     // a) Damit WPF mitbekommt, dass sich die Liste
                     //    geändert hat, wird PropertyChanged benötigt
                     // b) Weil kein Thread in die Daten von einem
@@ -362,7 +359,7 @@ namespace WIFI.Ausstellung.ViewModels
                                               $"{e.StackTrace}",
                                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                                    });
-
+                                this.OnFehlerAufgetreten(new WIFI.Anwendung.FehlerAufgetretenEventArgs(e));
                                 this.IEStatus = 2;
                             }
                         }
@@ -403,27 +400,37 @@ namespace WIFI.Ausstellung.ViewModels
                                         sfd.Filter = "csv files (*.csv)|*.csv";
                                         sfd.FileName = fileName;
                                         if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                                        {
                                             fileName = sfd.FileName;
+                                        }
 
-                                        string content = "ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis";
-                                        content += "\n";
+
+                                        var strB = new StringBuilder("ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis\n");
 
                                         foreach (var item in this.Buchausstellungsliste)
                                         {
-                                            content +=
-                                                item.ID + ";" +
-                                                item.Buchnummer + ";" +
-                                                item.Titel + ";" +
-                                                item.AutorName + ";" +
-                                                item.VerlagName + ";" +
-                                                item.Rabattgruppe + ";" +
-                                                item.Kategoriegruppe + ";" +
-                                                item.Preis + "\n";
+                                            strB.Append(
+                                                item.ID
+                                                + ";"
+                                                + item.Buchnummer
+                                                + ";"
+                                                + item.Titel
+                                                + ";"
+                                                + item.AutorName
+                                                + ";"
+                                                + item.VerlagName
+                                                + ";"
+                                                + item.Rabattgruppe
+                                                + ";"
+                                                + item.Kategoriegruppe
+                                                + ";"
+                                                + item.Preis
+                                                + "\n");
                                         }
 
 
                                         // write from file
-                                        System.IO.File.WriteAllText(sfd.FileName, content);
+                                        System.IO.File.WriteAllText(sfd.FileName, strB.ToString());
                                     }
 
                                     this.IEStatus = 1;
@@ -438,6 +445,7 @@ namespace WIFI.Ausstellung.ViewModels
                                                   $"{e.StackTrace}",
                                            Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                                        });
+                                    this.OnFehlerAufgetreten(new WIFI.Anwendung.FehlerAufgetretenEventArgs(e));
 
                                     this.IEStatus = 2;
                                 }
@@ -470,7 +478,6 @@ namespace WIFI.Ausstellung.ViewModels
                 {
                     this._Büchergruppen = new Gateway.DTO.Buchgruppen();
                     // Lade aus Datenbank
-                    //this.AppKontext.DBControllerManager
                     async void Load()
                     {
 
@@ -522,29 +529,21 @@ namespace WIFI.Ausstellung.ViewModels
                     this._BuchgruppeHinzufügen = new WIFI.Anwendung.Befehl(
                         p =>
                         {
-                            if (this.NeuErstellteBuchgruppe != null)
+                            if (this.NeuErstellteBuchgruppe != null && this.NeuErstellteBuchgruppe.Gruppennummer != 0 && !string.IsNullOrEmpty(this.NeuErstellteBuchgruppe.Beschreibung) && !this.Büchergruppen.Contains(this.NeuErstellteBuchgruppe))
                             {
-                                if (this.NeuErstellteBuchgruppe.Gruppennummer != 0 && !string.IsNullOrEmpty(this.NeuErstellteBuchgruppe.Beschreibung))
+                                // In die Datenbank speichern
+                                async void Load()
                                 {
-                                    // Wenn das Neuzuerstellende Objekt noch nicht existiert
-                                    if (!this.Büchergruppen.Contains(this.NeuErstellteBuchgruppe))
-                                    {
-                                        // In die Datenbank speichern
-                                        async void Load()
-                                        {
-                                            await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.ErstelleBuchgruppe(this.NeuErstellteBuchgruppe);
-                                        }
-                                        Load();
-
-                                        // Durch das Casten wird eine Neue Instanz erstellt, 
-                                        // sodass eine Kopie des Objekts ensteht und kein Verweiß auf "NeuErstellteBuchgruppe"
-                                        // in der Liste steht
-                                        this.Büchergruppen.Add(this.NeuErstellteBuchgruppe as Gateway.DTO.Buchgruppe);
-
-                                        this.NeuErstellteBuchgruppe = null;
-                                    }
-
+                                    await WIFI.Ausstellung.DBControllerManager.BuchgruppenController.ErstelleBuchgruppe(this.NeuErstellteBuchgruppe);
                                 }
+                                Load();
+
+                                // Durch das Casten wird eine Neue Instanz erstellt, 
+                                // sodass eine Kopie des Objekts ensteht und kein Verweiß auf "NeuErstellteBuchgruppe"
+                                // in der Liste steht
+                                this.Büchergruppen.Add(this.NeuErstellteBuchgruppe);
+
+                                this.NeuErstellteBuchgruppe = null;
                             }
                         }
                         );

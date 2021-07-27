@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt einen Dienst zum Verwalten
@@ -33,7 +27,19 @@ namespace WIFI.Anwendung
         /// </summary>
         /// <param name="info">Code der benötigten Information</param>
         [System.Runtime.InteropServices.DllImport("User32.dll")]
-        protected static extern int GetSystemMetrics(int info);
+        internal static extern int GetSystemMetrics(int info);
+
+        /// <summary>
+        /// Stellt einen Wrapper üfr die System-Matrix
+        /// </summary>
+        public int GetSystemMetricsWrapper(int info)
+        {
+            if (info != 0)
+            {
+                return GetSystemMetrics(info);
+            }
+            return 0;
+        }
 
         /// <summary>
         /// Ruft ein Schlüsseltext ab, der
@@ -47,7 +53,8 @@ namespace WIFI.Anwendung
             get
             {
                 // NICHT CACHEN!!!
-                return $"_M{FensterManager.GetSystemMetrics(SM_CMONITORS)}";
+               return $"_M{ GetSystemMetricsWrapper(SM_CMONITORS) }";
+                
             }
         }
 
@@ -137,7 +144,7 @@ namespace WIFI.Anwendung
             // 20210204 Um mit mehreren Bildschirmen besser 
             //          umgehen zu können, zusätzlich die
             //          Anzahl der Monitore berücksichtigen
-            //return this.Liste.Suchen(fensterName);
+
             return this.Liste.Suchen(fensterName + this.MonitorSchlüssel);
         }
 

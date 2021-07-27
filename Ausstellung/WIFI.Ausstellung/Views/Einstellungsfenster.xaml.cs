@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace WIFI.Ausstellung.Views
 {
@@ -40,14 +28,9 @@ namespace WIFI.Ausstellung.Views
         {
             // Wegen des Multithreadings mit einer 
             // Kopie vom Ereignisbehandler arbeiten
-            var BehandlerKopie = this.PropertyChanged;
-
-            if (BehandlerKopie != null)
-            {
-                BehandlerKopie(
+            this.PropertyChanged?.Invoke(
                     this,
                     new System.ComponentModel.PropertyChangedEventArgs(eigenschaft));
-            }
         }
 
 
@@ -74,9 +57,10 @@ namespace WIFI.Ausstellung.Views
                     this._PfadWählenFürGesammtListenPfad = new Anwendung.Befehl(
                         p =>
                         {
-                            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-
-                            folderBrowserDialog.Description = "Wählen Sie einen Ordner";
+                            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog
+                            {
+                                Description = "Wählen Sie einen Ordner"
+                            };
                             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                                     GesammtListenPfad = folderBrowserDialog.SelectedPath;
                         }
@@ -104,9 +88,10 @@ namespace WIFI.Ausstellung.Views
                     this._PfadWählenBestellbestätigungsPfad = new Anwendung.Befehl(
                         p =>
                         {
-                            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-
-                            folderBrowserDialog.Description = "Wählen Sie einen Ordner";
+                            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog
+                            {
+                                Description = "Wählen Sie einen Ordner"
+                            };
                             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                                     BestellbestätigungsPfad = folderBrowserDialog.SelectedPath;
                         }

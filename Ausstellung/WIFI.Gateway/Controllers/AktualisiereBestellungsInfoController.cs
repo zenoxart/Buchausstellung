@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-
-namespace WIFI.Gateway.Controllers
+﻿namespace WIFI.Gateway.Controllers
 {
     /// <summary>
     /// Stellt einen REST-API-Controller zum Aktualisieren der Bestellung
@@ -38,11 +31,7 @@ namespace WIFI.Gateway.Controllers
         /// </summary>
         public object Get(int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon)
         {
-            DTO.Bestellung bestellung = new DTO.Bestellung() { 
-                BestellNr= BestellNr
 
-            
-            };
             DTO.Besucher besucher = new DTO.Besucher { 
                 Id = BesucherId,
                 Vorname = BesucherVorname,

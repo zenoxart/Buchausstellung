@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Gateway.Controller
 {
@@ -156,8 +152,7 @@ namespace WIFI.Gateway.Controller
                     {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
-                        //if (Verbindung.Ping() == false)
-                        //    return Stadium;
+
                         Verbindung.Open();
 
                         Befehl.Prepare();

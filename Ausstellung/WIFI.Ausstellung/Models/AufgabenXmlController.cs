@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Ausstellung.Models
+﻿namespace WIFI.Ausstellung.Models
 {
     /// <summary>
     /// Stellt einen Dienst zum Lesen und
@@ -27,11 +21,11 @@ namespace WIFI.Ausstellung.Models
 
             if (string.IsNullOrEmpty(this.AppKontext.AktuelleAufgabenSektion))
             {
-                return null;
+                return new Aufgaben();
             }
 
             Xml.LoadXml(this.AppKontext.AktuelleAufgabenSektion);
-            //Xml.LoadXml(WIFI.CS.Teil2.Properties.Resources.Aufgaben);
+
 
             var Aufgaben = new Aufgaben();
 

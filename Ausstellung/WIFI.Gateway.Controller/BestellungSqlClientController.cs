@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Gateway.Controller
 {
@@ -321,7 +318,7 @@ namespace WIFI.Gateway.Controller
         /// <summary>
         /// Aktualisiert alle abgeholten Bestellungen
         /// </summary>
-        public void FürAlleBestellungenAbgeholt(WIFI.Anwendung.DTO.Bestellungen bestellungs)
+        public void FürAlleBestellungenAbgeholt(WIFI.Gateway.DTO.Bestellungen bestellungs)
         {
             foreach (var item in bestellungs)
             {

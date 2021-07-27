@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung.Daten
+﻿namespace WIFI.Anwendung.Daten
 {
     /// <summary>
     /// Stellt eine Liste von 
@@ -26,7 +20,7 @@ namespace WIFI.Anwendung.Daten
     /// <summary>
     /// Beschreibt eine Anwendungssprache
     /// </summary>
-    public class Sprache : System.Object
+    public class Sprache : object
     {
         /// <summary>
         /// Ruft das CultureInfo Kürzel 

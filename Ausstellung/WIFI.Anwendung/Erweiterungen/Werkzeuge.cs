@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung.Erweiterungen
+﻿namespace WIFI.Anwendung.Erweiterungen
 {
     /// <summary>
     /// Stellt diverse Erweiterungsmethoden bereit
@@ -28,10 +22,7 @@ namespace WIFI.Anwendung.Erweiterungen
         /// nicht geprüft werden</remarks>
         public static string HoleLokalisiertenOrdner(this string pfad)
         {
-            // 20210107 Hr. Plaimer
-            //          Laut Dokumentation ist in multithreading Umgebungen
-            //          besser, die aktuelle Kultur über die Globalization zu holen
-            //var AktuelleKultur = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+
             var AktuelleKultur = System.Globalization.CultureInfo.CurrentUICulture.Name;
 
             while (!System.IO.Directory.Exists(System.IO.Path.Combine(pfad, AktuelleKultur))

@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WIFI.Ausstellung.Views
 {
@@ -79,21 +69,7 @@ namespace WIFI.Ausstellung.Views
 
 
 
-                            //var bücherliste = await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBücherZuBestellung(Convert.ToInt32(this.BestellNr));
-                            //Dictionary<Gateway.DTO.Buch, int> liste = new Dictionary<Gateway.DTO.Buch, int>();
-                            //foreach (var item in bücherliste)
-                            //{
-                            //    liste.Add(item, item.Anzahl);
-                            //}
-
-
-                            //if (liste != null)
-                            //{
-                            //    this.AktuelleBestellung.Buchliste = liste;
-
-                            //    HoleSelektierteBuchBestellungAsync();
-                            //}
-
+                         
 
                         }
                     }
@@ -148,7 +124,6 @@ namespace WIFI.Ausstellung.Views
                     }
 
                     Load();
-                    //HoleSelektierteBuchBestellungAsync();
                 }
                 return this._BücherDerSelektiertenBestellung;
             }
@@ -197,19 +172,16 @@ namespace WIFI.Ausstellung.Views
                 () =>
                 {
 
-                    if (BücherDerSelektiertenBestellung != null)
+                    if (BücherDerSelektiertenBestellung != null && BücherDerSelektiertenBestellung.Count > 0)
                     {
-                        if (BücherDerSelektiertenBestellung.Count > 0)
+                        Dictionary<WIFI.Gateway.DTO.Buch, int> TempListe = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
+
+                        foreach (var item in BücherDerSelektiertenBestellung)
                         {
-                            Dictionary<WIFI.Gateway.DTO.Buch, int> TempListe = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
-
-                            foreach (var item in BücherDerSelektiertenBestellung)
-                            {
-                                TempListe.Add(item, item.Anzahl);
-                            }
-
-                            this.AktuelleBestellung.Buchliste = TempListe;
+                            TempListe.Add(item, item.Anzahl);
                         }
+
+                        this.AktuelleBestellung.Buchliste = TempListe;
                     }
 
 
@@ -260,7 +232,7 @@ namespace WIFI.Ausstellung.Views
                         {
                             if (this.AktuelleBestellung != null && this.BücherDerSelektiertenBestellung != null)
                             {
-                                //WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellung(this.AktuelleBestellung);
+
                                 
                                 foreach (var item in this.BücherDerSelektiertenBestellung)
                                 {

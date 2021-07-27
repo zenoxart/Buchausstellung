@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.Models.RestApiController
 {
@@ -18,7 +14,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <returns></returns>
         public async System.Threading.Tasks.Task<int> ErstelleBestellung(Gateway.DTO.Besucher besucher)
         {
-            //int Id, string Vorname,string Nachname,int Hausnummer,string Ort,int PLZ,string Straßenname,string Telefon
+
 
 
             const string Adresse = "{0}ErstelleBestellung?Id={1}&Vorname={2}&Nachname={3}&Hausnummer={4}&Ort={5}&PLZ={6}&Straßenname={7}&Telefon={8}";
@@ -39,6 +35,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage ErstelleBestellung beträgt {Antwort.StatusCode}");
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<int>(AntwortText);
@@ -50,8 +48,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async System.Threading.Tasks.Task BuchbestellungHinzufügen(Gateway.DTO.Buch buch, int bestellNr, int anzahl)
         {
-            //int Id,string Titel,string Autor, string buchnummr, int kategorie, int rabatt, decimal? preis, string verlag,
-            //DTO.Buch buch, int bestellNr, int anzahl
+
             const string Adresse = "{0}BuchbestellungHinzufügen?Id={1}&Titel={2}&Autor={3}&buchnummr={4}&kategorie={5}&rabatt={6}&preis={7}&verlag={8}&anzahl={9}&bestellNr={10}";
 
             string ZielAdresse = string.Format(
@@ -69,9 +66,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        anzahl);
 
             using (var Antwort = await this.HttpClient.GetAsync(
-                  ZielAdresse))
-            {
-            }
+                  ZielAdresse)) {
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BuchbestellungHinzufügen beträgt {Antwort.StatusCode}");
+            };
 
         }
 
@@ -95,6 +92,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
                 // TODO: Buchliste in der Bestellung kann nicht deserializiert werden
+
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleBestellungen beträgt {Antwort.StatusCode}");
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bestellungen>(AntwortText);
             }
         }
@@ -117,6 +117,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleBücherZuBestellung beträgt {Antwort.StatusCode}");
+
                 var bücher = Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bücher>(AntwortText);
                 return bücher;
             }
@@ -153,20 +156,11 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      ZielAdresse))
                 {
                     // TODO: Aufruf funktioniert noch nicht so ganz
+
+                    this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AlleBuchbestellungenHinzufügen beträgt {Antwort.StatusCode}");
                 }
             }
 
-            //const string Adresse = "{0}AlleBuchbestellungenHinzufügen?BestellNr={1}&buchliste={2}";
-
-            //using (var Antwort = await this.HttpClient.GetAsync(
-            //       string.Format(
-            //           Adresse,
-            //           Properties.Settings.Default.UrlGatewayAPI,
-            //           bestellung.BestellNr,
-            //           bestellung.Buchliste
-            //           )))
-            //{
-            //}
 
         }
 
@@ -185,6 +179,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      id
                      )))
             {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AktualisiereBestellungsInfo beträgt {Antwort.StatusCode}");
             }
 
         }
@@ -205,9 +201,12 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      )))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
-                //Enum.Parse(, AntwortText);
+
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BekommeBestellungsId beträgt {Antwort.StatusCode}");
+
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<int>(AntwortText);
             }
         }
@@ -225,7 +224,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      Properties.Settings.Default.UrlGatewayAPI,
                      bestellung
                      )))
-            { }
+            {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BestellungAbgeholt beträgt {Antwort.StatusCode}");
+            }
         }
 
         /// <summary>
@@ -248,6 +250,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                     // Weil JSON erst ab .Net 5 intern unterstützt ist,
                     // Newtonsoft.Json Nuget
+
+                    this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleBestellung beträgt {Antwort.StatusCode}");
+
                     return Newtonsoft.Json.JsonConvert.DeserializeObject<Gateway.DTO.Bestellung>(AntwortText);
                 }
             }
@@ -268,9 +273,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
         {
 
             // Für die Bücher der Bestellung
-
-
-            //int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon
             const string Adresse =
                     "{0}AktualisiereBestellungsInfo?" +
                         "BestellNr={1}&BesucherId={2}&BesucherVorname={3}" +
@@ -294,6 +296,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
                      )))
             {
 
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AktualisiereBestellung beträgt {Antwort.StatusCode}");
             }
 
         }
@@ -315,6 +318,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                      )))
             {
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AktualisiereBestellungBuch beträgt {Antwort.StatusCode}");
             }
         }
     }

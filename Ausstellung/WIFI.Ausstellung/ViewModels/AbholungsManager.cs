@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Ausstellung.ViewModels
+﻿namespace WIFI.Ausstellung.ViewModels
 {
     /// <summary>
     /// Stellt einen Dienst zum Verwalten der Daten zu der Bücherabholung der Ausstellung
@@ -89,7 +83,7 @@ namespace WIFI.Ausstellung.ViewModels
                                         Load();
                                     }
                                 }
-                                //this.AppKontext.DBControllerManager.BestellungController.FürAlleBestellungenAbgeholt(this.Abholungsliste);
+
 
                                 // TODO: Zeige die Oberfläche an, dass der Programmdurchlauf abgeschlossen ist
                             }

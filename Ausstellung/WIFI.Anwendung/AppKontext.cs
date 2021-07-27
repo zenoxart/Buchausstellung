@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 // Die Erweiterungen für die AssemblyInfo aktivieren
 using WIFI.Anwendung.Erweiterungen;
@@ -15,12 +11,12 @@ namespace WIFI.Anwendung
     /// </summary>
     /// <remarks>Hier handelt es sich um 
     /// Xml Dokumentationskommentar</remarks>
-    public class AppKontext : System.Object
+    public class AppKontext : object
     {
         // (das ist C/C++ Kommenatar
         //  automatich am Zeilenende beendet)
 
-
+            
         // Deklarationen auf Klassenebene
         // sind IMMER PRIVAT und heißen "Felder"
 
@@ -39,10 +35,6 @@ namespace WIFI.Anwendung
             {
                 if (this._Fenster == null)
                 {
-                    /*
-                    this._Fenster = new FensterManager();
-                    this._Fenster.AppKontext = this;
-                    */
                     // Dazu gibt's eine eigene Methode
                     this._Fenster = this.Produziere<FensterManager>();
                 }
@@ -82,10 +74,12 @@ namespace WIFI.Anwendung
         /// die AppKontext Eigenschaft eingestellt ist</returns>
         public virtual T Produziere<T>() where T: IAppKontext, new()
         {
-            var NeuesObjekt = new T();
+            var NeuesObjekt = new T
+            {
 
-            // Die Infrastruktur im neuen Objekt einstellen
-            NeuesObjekt.AppKontext = this;
+                // Die Infrastruktur im neuen Objekt einstellen
+                AppKontext = this
+            };
 
             // Im Ausgabefenster vom Studio
             // einen Produktionshinweis hinterlassen

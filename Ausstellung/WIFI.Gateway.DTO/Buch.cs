@@ -1,8 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Gateway.DTO
 {
@@ -22,25 +19,10 @@ namespace WIFI.Gateway.DTO
     public class Buch : WIFI.Anwendung.Daten.DatenBasis
     {
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private int _ID = 0;
-
-        /// <summary>
         /// Ruft die interne Nummer des Buches ab,
         /// oder legt diese fest
         /// </summary>
-        public int ID
-        {
-            get
-            {
-                return this._ID;
-            }
-            set
-            {
-                this._ID = value;
-            }
-        }
+        public int ID { get; set; } = 0;
 
         /// <summary>
         /// Internes Feld für die Eigenschaft

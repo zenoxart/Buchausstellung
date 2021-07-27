@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -24,7 +20,7 @@ namespace WIFI.Ausstellung.ViewModels
                 {
                     Properties.Settings.Default.DunklesDesign = value;
                     // Es wird davon ausgegangen, dass die
-                    // Einstellung im Main() gespeichert wird
+                    // Einstellung im Main gespeichert wird
                 }
 
                 // Weil die Anwendung mehrere Fenster haben kann,
@@ -96,11 +92,7 @@ namespace WIFI.Ausstellung.ViewModels
 
 
                                 // 20210617 -> Übersiedlung von MySql auf MsSql
-                                //this.AppKontext.DBControllerManager.VeranstaltungsController.StarteVeranstaltung(
-                                //    this.VeranstaltungsBeginnDatum,
-                                //    this.VeranstaltungsEndDatum,
-                                //    this.Ort
-                                //    );
+                               
 
                                 this.AppKontext.Protokoll.Eintragen(
                                     $"Die erstellte Veranstaltung wurde gestartet"

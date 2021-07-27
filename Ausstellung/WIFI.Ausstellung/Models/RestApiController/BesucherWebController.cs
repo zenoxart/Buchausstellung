@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Ausstellung.Models.RestApiController
+﻿namespace WIFI.Ausstellung.Models.RestApiController
 {
 
     /// <summary>
@@ -37,6 +31,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage ErstelleBesucher beträgt {Antwort.StatusCode}");
+
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.Besucher>(AntwortText);
             }
         }
@@ -55,6 +52,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                       besucher
                       )))
             {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AktualisiereBesucher beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -76,6 +75,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BekommeBesucherId beträgt {Antwort.StatusCode}");
+
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<int>(AntwortText);
             }
 

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 // Zum Sortieren der Standardliste der Sprachen
 // wird die sprachintegrierte Abfrage, realisiert
 // als Erweiterungsmethoden benutzt
 using System.Linq;
 //---
 
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Anwendung
 {
@@ -62,7 +58,7 @@ namespace WIFI.Anwendung
                 if (SprachenManager._StandardListe == null)
                 {
                     // 20210211 Die Liste nach Namen sortieren
-                    //SprachenManager._StandardListe = this.Controller.HoleStandardListe();
+
 
                     SprachenManager._StandardListe = new Daten.Sprachen();
                     SprachenManager._StandardListe.AddRange((from s in this.Controller.HoleStandardListe()
@@ -88,25 +84,10 @@ namespace WIFI.Anwendung
         }
 
         /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private WIFI.Anwendung.Daten.Sprache _Aktuell = null;
-
-        /// <summary>
         /// Ruft die aktuelle Anwendungssprache ab
         /// oder legt diese fest
         /// </summary>
-        public WIFI.Anwendung.Daten.Sprache Aktuell
-        {
-            get
-            {
-                return this._Aktuell;
-            }
-            set
-            {
-                this._Aktuell = value;
-            }
-        }
+        public Daten.Sprache Aktuell { get; set; } = null;
 
         /// <summary>
         /// Legt die aktuelle Sprache fest

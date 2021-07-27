@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Ausstellung.Models.RestApiController
+﻿namespace WIFI.Ausstellung.Models.RestApiController
 {
 
     /// <summary>
@@ -26,6 +20,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        id
                        )))
             {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AktualisiereBuchgruppe beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -44,6 +40,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        id.Beschreibung
                        )))
             {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage EntferneBuchgruppe beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -65,6 +63,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
             using (var Antwort = await this.HttpClient.GetAsync(
                    ZielAdresse))
             {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage ErstelleBuchgruppe beträgt {Antwort.StatusCode}");
             }
         }
 
@@ -85,6 +85,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleBuchgruppen beträgt {Antwort.StatusCode}");
+
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.Buchgruppen>(AntwortText);
             }
         }

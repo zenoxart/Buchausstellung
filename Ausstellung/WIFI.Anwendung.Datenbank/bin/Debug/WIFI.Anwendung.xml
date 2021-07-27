@@ -346,6 +346,11 @@
             </summary>
             <param name="info">Code der benötigten Information</param>
         </member>
+        <member name="M:WIFI.Anwendung.FensterManager.GetSystemMetricsWrapper(System.Int32)">
+            <summary>
+            Stellt einen Wrapper üfr die System-Matrix
+            </summary>
+        </member>
         <member name="P:WIFI.Anwendung.FensterManager.MonitorSchlüssel">
             <summary>
             Ruft ein Schlüsseltext ab, der
@@ -515,11 +520,6 @@
             <summary>
             Stellt sicher, dass die Namen der Sprachen
             der Oberflächen-Sprache entsprechen
-            </summary>
-        </member>
-        <member name="F:WIFI.Anwendung.SprachenManager._Aktuell">
-            <summary>
-            Internes Feld für die Eigenschaft
             </summary>
         </member>
         <member name="P:WIFI.Anwendung.SprachenManager.Aktuell">

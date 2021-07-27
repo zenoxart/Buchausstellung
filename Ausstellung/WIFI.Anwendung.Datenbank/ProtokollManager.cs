@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Anwendung
 {
@@ -18,6 +14,8 @@ namespace WIFI.Anwendung
     /// gewährleistet.</remarks>
     public class ProtokollManager : WIFI.Anwendung.ViewModelAppObjekt
     {
+        private const int VersuchAnzahl = 10;
+
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
@@ -106,38 +104,7 @@ namespace WIFI.Anwendung
 
                 this.Einträge.Add(eintrag);
 
-                // 20210406
-                // Funktioniert so nicht, weil wir nicht über eine Assembly übergreifend Dateien mit einem IO.StreamWriter schreiben können
-                // Wenn der Pfad gesetzt ist und auch existiert
-                //if (this.Pfad != string.Empty)
-                //{
-
-                //    if (!System.IO.File.Exists(this.Pfad))
-                //    {
-                //        System.IO.File.Create(this.Pfad);
-                //    }
-
-                //    try
-                //    {
-                //        // Schreibe die Zeile in die Datei
-                //        using (System.IO.StreamWriter reader = new System.IO.StreamWriter(this.Pfad))
-                //        {
-                //            reader.WriteLine(eintrag);
-                //        }
-                //    }
-                //    catch (Exception r)
-                //    {
-                //        this.Einträge.Add(new Daten.ProtokollEintrag
-                //        {
-                //            Text = 
-                //            $"Beim schreiben in die Datei '{this.Pfad}' ist ein Fehler aufgetaucht.\n\r" +
-                //            $"{r.GetType().FullName}:\n\r {r.Message}",
-                //            Typ=Daten.ProtokollEintragTyp.Fehler
-                            
-                //        });
-                //    }
-                    
-                //}
+                
 
                 // Falls ein Fehler eingetragen wurde,
                 // EnthältFehler einschalten
@@ -161,7 +128,6 @@ namespace WIFI.Anwendung
                     }
 
                     // 20210307 die if-Abfrage war falsch
-                    //if (LebendeRückrufe != this.Rückrufe.Count)
                     if (LebendeRückrufe > 0)
                     {
                         this._Einträge.Add(
@@ -513,18 +479,15 @@ namespace WIFI.Anwendung
 
 
         /// <summary>
-        /// Ruft den Wahrheitswert ab ob das Protokoll 
+        /// Ob das Protokoll 
         /// im Interval Komprimiert wird, 
         /// oder setzt dieses
         /// </summary>
-        public bool AutomatischKomprimieren
+        public void SetAutomatischKomprimieren(bool value)
         {
-            set
+            if (value)
             {
-                if (value)
-                {
-                    StarteZähler();
-                }
+                StarteZähler();
             }
         }
 
@@ -572,7 +535,7 @@ namespace WIFI.Anwendung
         {
             if (!string.IsNullOrEmpty(this.Pfad))
             {
-                int Versuche = 10;
+                int Versuche = VersuchAnzahl;
                 do
                 {
 
@@ -589,8 +552,8 @@ namespace WIFI.Anwendung
                             Schreiber.WriteLine(
                                 string.Format(
                                     Ausgabemuster,
-                                    eintrag.Zeitstempel.ToString(), // {0}
-                                    eintrag.Typ.ToString(), // {1}
+                                    eintrag.Zeitstempel.ToString(), //
+                                    eintrag.Typ.ToString(), // 
                                     eintrag.Text.Replace("\t"," ") // keine Tabulatoren in den Daten
                                                 .Replace("\r"," ") // keine Eingabetaste in den Daten
                                                 .Replace("\n"," ") // keinen Zeilenvorschub

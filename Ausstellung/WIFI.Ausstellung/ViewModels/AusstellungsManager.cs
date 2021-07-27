@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -87,7 +83,6 @@ namespace WIFI.Ausstellung.ViewModels
 
 
                     // SO NIE, nicht mit dem Feld!!!
-                    //this._Liste = this.Controller.HoleAusRessourcen();
                     // a) Damit WPF mitbekommt, dass sich die Liste
                     //    geändert hat, wird PropertyChanged benötigt
                     // b) Weil kein Thread in die Daten von einem
@@ -96,8 +91,6 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this.StartProtokollieren();
 
-                    //System.Threading.Thread.Sleep(7000);
-                    //this.Buchausstellungsliste = this.Controller.HoleAusRessourcen();
 
                     async void Load()
                     {
@@ -105,12 +98,7 @@ namespace WIFI.Ausstellung.ViewModels
                     }
                     Load();
 
-                    //this.Buchausstellungsliste = new WIFI.Anwendung.DTO.Bücher();
-
-                    //this.Buchausstellungsliste.Add(
-                    //    new WIFI.Anwendung.DTO.Buch { ID = 1, Titel = "Harry Potter", AutorName = "J. K. Rowling", VerlagName = "Thalia", Kategoriegruppe = 0, Preis = 15.30, Rabattgruppe = 1 }
-
-                    //);
+                   
 
 
                     this.EndeProtokollieren();
@@ -246,8 +234,6 @@ namespace WIFI.Ausstellung.ViewModels
             }
 
 
-            //this.BestellungenListe =
-            //    this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
         }
 
 
@@ -311,9 +297,6 @@ namespace WIFI.Ausstellung.ViewModels
                                 // Erstelle neuen Besucher oder lade dessen ID von der Datenbank
 
                                 // 20210617 -> Übersiedlung von MySql auf MsSql
-                                //AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
-                                //    this.AppKontext.DBControllerManager.BesucherController.ErstelleBesucher(
-                                //        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
 
                                 Erstelle();
 
@@ -336,13 +319,7 @@ namespace WIFI.Ausstellung.ViewModels
                                         }
                                         Load();
                                         // Alles von der Aktuellen Bestellung auf die Datenbank schieben
-                                        //this.AppKontext.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(
-                                        //    AusstellungsManager.AktuelleBestellung);
-
-                                        // 20210514 -> Kasper, bei den Bestellungen wird beim Aufruf die Liste von der Datenbank abgefragt,
-                                        // desshalb muss hier nichtmehr die Bestellung der BestellungenListe hinzugefügt werden
-                                        // Aktuelle Bestellung zu der Bestellungsliste hinzufügen
-                                        //AusstellungsManager.BestellungenListe.Add(AusstellungsManager.AktuelleBestellung);
+                                       
 
 
                                         // Aktuelle Bestellung bereinigen
@@ -351,7 +328,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                                         this.BestellBesucher = null;
 
-                                        this.BestellBesucher = new WIFI.Anwendung.DTO.Besucher();
+                                        this.BestellBesucher = new WIFI.Gateway.DTO.Besucher();
 
 
 
@@ -359,9 +336,6 @@ namespace WIFI.Ausstellung.ViewModels
                                 }
                                 this.BestellungenListe = null;
 
-                                //int AktuelleBestellNr =
-                                //    this.AppKontext.DBControllerManager.BestellungController.ErstelleBestellung(
-                                //        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
 
 
 
@@ -381,19 +355,19 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Anwendung.DTO.Besucher _BestellBesucher = null;
+        private WIFI.Gateway.DTO.Besucher _BestellBesucher = null;
 
         /// <summary>
         /// Ruft den aktuell Bestellenden Besucher ab oder legt diesen fest
         /// </summary>
-        public WIFI.Anwendung.DTO.Besucher BestellBesucher
+        public WIFI.Gateway.DTO.Besucher BestellBesucher
         {
             get
             {
 
                 if (this._BestellBesucher == null)
                 {
-                    this._BestellBesucher = new WIFI.Anwendung.DTO.Besucher();
+                    this._BestellBesucher = new WIFI.Gateway.DTO.Besucher();
                 }
                 return this._BestellBesucher;
             }
@@ -467,7 +441,7 @@ namespace WIFI.Ausstellung.ViewModels
                         // TODO: Abschluss der Bestellung umsetzen
                         p =>
                         {
-                            var pdfManager = new WIFI.Ausstellung.PDFManager();
+                            var pdfManager = new WIFI.Ausstellung.PdfManager();
 
 
                             //Fragen ob die Gesammtbestelliste gedruckt werden soll und dieses machen
@@ -496,7 +470,6 @@ namespace WIFI.Ausstellung.ViewModels
                             Load();
 
                             // 20210617 -> Übersiedlung von MySql auf MsSql
-                            //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Lieferung);
                         }
                     );
 

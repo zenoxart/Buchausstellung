@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -43,21 +39,9 @@ namespace WIFI.Ausstellung.ViewModels
                         }
 
 
-                        //var bestellungen = new Gateway.DTO.Bestellungen();
-                        //foreach (var item in this.Gesamtbestellungen)
-                        //{
-                        //    bestellungen.Add(await WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellung(item.BestellNr));
-                        //}
-
-                        //this.Gesamtbestellungen = bestellungen;
 
                     }
                     Load();
-                    //this._Gesamtbestellungen =
-                    //    this.AppKontext.DBControllerManager.BestellungController.HoleBestellungen();
-
-                    // Aus der Datenbank holen
-                    //this._Gesamtbestellungen = 
                 }
                 return this._Gesamtbestellungen;
             }
@@ -206,19 +190,16 @@ namespace WIFI.Ausstellung.ViewModels
                 () =>
                 {
 
-                    if (BücherDerSelektiertenBestellung != null)
+                    if (BücherDerSelektiertenBestellung != null && BücherDerSelektiertenBestellung.Count > 0)
                     {
-                        if (BücherDerSelektiertenBestellung.Count > 0)
+                        Dictionary<WIFI.Gateway.DTO.Buch, int> TempListe = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
+
+                        foreach (var item in BücherDerSelektiertenBestellung)
                         {
-                            Dictionary<WIFI.Gateway.DTO.Buch, int> TempListe = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
-
-                            foreach (var item in BücherDerSelektiertenBestellung)
-                            {
-                                TempListe.Add(item, item.Anzahl);
-                            }
-
-                            this.SelektierteBestellung.Buchliste = TempListe;
+                            TempListe.Add(item, item.Anzahl);
                         }
+
+                        this.SelektierteBestellung.Buchliste = TempListe;
                     }
 
 
@@ -304,7 +285,7 @@ namespace WIFI.Ausstellung.ViewModels
                             if (neuZuDruckende.Count != 0)
                             {
                                 // Drucke alle Einzelnen Bestellungen neu, welche sich geändert haben
-                                var pdfManager = new WIFI.Ausstellung.PDFManager();
+                                var pdfManager = new WIFI.Ausstellung.PdfManager();
                                 pdfManager.GeneriereBesucherBestellungen(neuZuDruckende);
                             }
 
@@ -318,8 +299,7 @@ namespace WIFI.Ausstellung.ViewModels
                             LoadSek();
 
                             // 20210617 -> Übersiedlung von MySql auf MsSql
-                            //this.AppKontext.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(WIFI.Anwendung.DTO.AusstellungsstadiumTyp.Abholung);
-
+                           
 
                             this.OnPropertyChanged();
 

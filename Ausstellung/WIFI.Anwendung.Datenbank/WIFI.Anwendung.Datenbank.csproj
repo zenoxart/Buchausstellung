@@ -77,22 +77,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Befehl.cs" />
-    <Compile Include="DatenbankControllerManager.cs" />
-    <Compile Include="DatenController\BestellungSqlClientController.cs" />
-    <Compile Include="DatenController\BesucherSqlClientController.cs" />
-    <Compile Include="DatenController\BücherSqlClientController.cs" />
-    <Compile Include="DatenController\VeranstaltungsSqlClientController.cs" />
     <Compile Include="DatenbankAppKontext.cs" />
     <Compile Include="Daten\DatenBasis.cs" />
     <Compile Include="Daten\Protokoll.cs" />
     <Compile Include="Daten\SchwacherMethodenVerweis.cs" />
-    <Compile Include="DTO\Bestellung.cs" />
-    <Compile Include="DTO\Besucher.cs" />
-    <Compile Include="DTO\Buch.cs" />
-    <Compile Include="DTO\Buchgruppe.cs" />
-    <Compile Include="DTO\Veranstaltung.cs" />
     <Compile Include="MySqlClient\Basiscontroller.cs" />
-    <Compile Include="MySqlClient\Encryptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

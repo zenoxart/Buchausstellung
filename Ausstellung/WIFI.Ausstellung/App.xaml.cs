@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace WIFI.Ausstellung
 {
@@ -27,7 +21,7 @@ namespace WIFI.Ausstellung
             var AppKontext = new WIFI.Anwendung.DatenbankAppKontext();
 
             // Aktiviert das automatische Komprimieren, wenn die Settings-Property aus der Anwendung auf true gesetzt ist
-            AppKontext.Protokoll.AutomatischKomprimieren = WIFI.Ausstellung.Properties.Settings.Default.ProtokollKomprimieren;
+            AppKontext.Protokoll.SetAutomatischKomprimieren(WIFI.Ausstellung.Properties.Settings.Default.ProtokollKomprimieren);
 
             // Damit das eigene ViewModel intialisieren
             var VM = AppKontext.Produziere<ViewModels.Anwendung>();

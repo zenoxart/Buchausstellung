@@ -80,7 +80,7 @@
     <Compile Include="Models\RestApiController\BuchgruppenWebController.cs" />
     <Compile Include="Models\RestApiController\BuchWebController.cs" />
     <Compile Include="Models\RestApiController\VeranstaltungWebController.cs" />
-    <Compile Include="PDFManager.cs" />
+    <Compile Include="PdfManager.cs" />
     <Compile Include="Properties\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>
       <AutoGen>True</AutoGen>

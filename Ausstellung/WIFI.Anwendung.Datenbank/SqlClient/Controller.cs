@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung.SqlClient
+﻿namespace WIFI.Anwendung.SqlClient
 {
     /// <summary>
     /// Stellt die Grundlage [Basisklasse] für eine Klasse bereit,
@@ -32,12 +26,14 @@ namespace WIFI.Anwendung.SqlClient
             {
                 if (Controller._ConnectionString == null)
                 {
-                    
 
-                    var CB = new System.Data.SqlClient.SqlConnectionStringBuilder();
 
-                    // Auf alle Fälle den Server einstellen
-                    CB.DataSource = this.AppKontext.SqlServer;
+                    var CB = new System.Data.SqlClient.SqlConnectionStringBuilder
+                    {
+
+                        // Auf alle Fälle den Server einstellen
+                        DataSource = this.AppKontext.SqlServer
+                    };
 
                     // Abhängig davon, ob es eine angehängte Datebank ist oder nicht
                     if (this.AppKontext.DatenbankPfad != null 
@@ -57,8 +53,7 @@ namespace WIFI.Anwendung.SqlClient
 
                     CB.IntegratedSecurity = true;
 
-                    //CB.UserID=...
-                    //CB.Password=...
+
 
                     
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Collections.Generic;
 
 namespace WIFI.Gateway.Controllers
 {
@@ -44,9 +39,11 @@ namespace WIFI.Gateway.Controllers
         /// <returns></returns>
         public object Get(int BestellNr, Dictionary<DTO.Buch, int> buchliste)
         {
-            var neueBestellung = new Gateway.DTO.Bestellung();
-            neueBestellung.BestellNr = BestellNr;
-            neueBestellung.Buchliste = buchliste;
+            var neueBestellung = new Gateway.DTO.Bestellung
+            {
+                BestellNr = BestellNr,
+                Buchliste = buchliste
+            };
 
             ClientSqlController.AlleBuchbestellungenHinzufügen(neueBestellung);
             return null;

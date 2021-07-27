@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt die Grundlage für
@@ -14,7 +8,7 @@ namespace WIFI.Anwendung
     /// </summary>
     /// <remarks>Diese Klasse kann
     /// nur als Basisklasse benutzt werden</remarks>
-    public abstract class AppObjekt : System.Object, IAppKontext
+    public abstract class AppObjekt : object, IAppKontext
     {
         /// <summary>
         /// Ruft die Anwendungsinfrastruktur ab

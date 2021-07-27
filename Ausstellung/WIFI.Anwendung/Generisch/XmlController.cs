@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung.Generisch
+﻿namespace WIFI.Anwendung.Generisch
 {
     /// <summary>
     /// Stellt einen typsicheren Dienst zum Schreiben

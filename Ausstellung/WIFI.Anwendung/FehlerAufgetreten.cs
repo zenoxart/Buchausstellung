@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt die Methode dar, die das
@@ -23,7 +17,7 @@ namespace WIFI.Anwendung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private System.Exception _Ursache = null;
+        private readonly System.Exception _Ursache = null;
 
         /// <summary>
         /// Ruft das Ausnahmeobjekt ab,

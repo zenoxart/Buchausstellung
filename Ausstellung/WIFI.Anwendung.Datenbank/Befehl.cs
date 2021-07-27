@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Anwendung
 {
@@ -44,9 +40,14 @@ namespace WIFI.Anwendung
         /// sonst das Ergebnis der Prüfmethode</returns>
         public bool CanExecute(object parameter)
         {
-            return 
-                this._CanExecuteMethode == null ? 
-                true : this._CanExecuteMethode(parameter);
+
+            switch (_CanExecuteMethode)
+            {
+                case null:
+                    return true;
+                default:
+                    return _CanExecuteMethode(parameter);
+            }
         }
 
         /// <summary>
@@ -62,14 +63,14 @@ namespace WIFI.Anwendung
         /// Internes Feld für die Methode, die
         /// in diesem Befehl-Objekt gekapselt ist
         /// </summary>
-        private System.Action<object> _ExecuteMethode = null;
+        private readonly System.Action<object> _ExecuteMethode = null;
 
         /// <summary>
         /// Internes Feld für die Methode, die
         /// prüft, ob der Befehl aktuell zulässig ist
         /// oder nicht
         /// </summary>
-        private System.Predicate<object> _CanExecuteMethode = null;
+        private readonly System.Predicate<object> _CanExecuteMethode = null;
 
         /// <summary>
         /// Initialisiert ein neues Befehl-Objekt

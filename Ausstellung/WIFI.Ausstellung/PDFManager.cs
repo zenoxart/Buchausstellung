@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WIFI.Ausstellung
 {
@@ -10,25 +9,18 @@ namespace WIFI.Ausstellung
     /// Stellt einen Dienst aufgrund des Nuget-Paketes PDF-Sharp 
     /// zum Konvertieren von HTML-Seiten in PDF-Dateien
     /// </summary>
-    public class PDFManager : WIFI.Anwendung.ViewModelAppObjekt
+    public class PdfManager : WIFI.Anwendung.ViewModelAppObjekt
     {
         #region Basis
         public PdfSharp.Pdf.PdfDocument GenerierePDFVonHTML(string htmltext, PdfSharp.PageOrientation orientation)
         {
             // Erstellt die Standardkonfiguration für das Format des PDF's
-            TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerateConfig config = new TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerateConfig();
+            TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerateConfig config = new TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerateConfig
+            {
+                PageOrientation = orientation,
 
-            config.PageOrientation = orientation;
-
-            config.PageSize = PdfSharp.PageSize.A4;
-
-
-
-            // Erstellt ein lesbareres CSS-Objekt umd die Styles im PDF zu übernehmen
-            //TheArtOfDev.HtmlRenderer.Core.CssData myCss =
-            //    TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.ParseStyleSheet(
-            //        stylesheet: css);
-
+                PageSize = PdfSharp.PageSize.A4
+            };
 
             return TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.GeneratePdf(htmltext, config);
 
@@ -65,8 +57,16 @@ namespace WIFI.Ausstellung
             }
         }
 
+        /// <summary>
+        /// Gibt das Trennzeichen eines Dateipfades an
+        /// </summary>
+        private const string PathDelimiter = "\\";
 
-        private string gemeinde = string.Empty;
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private string _Gemeinde = string.Empty;
         /// <summary>
         /// Ruft den Ort der Veranstaltung ab
         /// </summary>
@@ -74,7 +74,7 @@ namespace WIFI.Ausstellung
         {
             get
             {
-                if (this.gemeinde == string.Empty)
+                if (this._Gemeinde == string.Empty)
                 {
                     async void Load()
                     {
@@ -85,11 +85,11 @@ namespace WIFI.Ausstellung
                 }
 
 
-                return this.gemeinde;
+                return this._Gemeinde;
             }
             set
             {
-                this.gemeinde = value;
+                this._Gemeinde = value;
                 this.OnPropertyChanged();
             }
         }
@@ -154,13 +154,13 @@ namespace WIFI.Ausstellung
             {
 
                 // Für jede Gruppe
-                if (Bücherliste.Count() > 0)
+                if (Bücherliste.Count > 0)
                 {
-                    for (int i = 0; i < Bücherliste.Count(); i++)
+                    for (int i = 0; i < Bücherliste.Count; i++)
                     {
-                        string EinzelBlock = "<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe " +
-                                buchgruppes.Where(x => x.ID == i).FirstOrDefault().Gruppennummer + " - " +
-                                buchgruppes.Where(x => x.ID == i).FirstOrDefault().Beschreibung + "</p>" +
+                        var strB = new StringBuilder("<p style='font-size:18pt;margin: 15px 0px 10px 5px '>Gruppe " +
+                                buchgruppes.FirstOrDefault(x => x.ID == i).Gruppennummer + " - " +
+                                buchgruppes.FirstOrDefault(x => x.ID == i).Beschreibung + "</p>" +
                                "<table style='width: 90%; border-collapse: collapse'>" +
                                "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
                                    "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
@@ -169,12 +169,12 @@ namespace WIFI.Ausstellung
                                    "<td style='font-weight:bold'> Verlag </td>" +
                                    "<td style='font-weight:bold;text-align:right;padding: 0px 10px 0px 0px'> Preis </td>" +
                                    "<td style='font-weight:bold;text-align:center'> Rab.Gr </td>" +
-                               "</tr>";
+                               "</tr>");
 
                         // Für jedes Buch der jeweiligen Gruppe
                         foreach (var Buch in Bücherliste[i])
                         {
-                            EinzelBlock += "<tr>" +
+                            strB.Append( "<tr>" +
                                     "<td style='text-align: center'>" +
                                         Buch.Anzahl + " </td>" +
                                     "<td style='text-align: left'> " + Buch.Buchnummer + " </td>" +
@@ -182,19 +182,19 @@ namespace WIFI.Ausstellung
                                     "<td style='text-align: left'> " + Buch.VerlagName + " </td>" +
                                     "<td style='text-align: right; padding: 0px 5px 0px 0px'> " + Buch.Preis + " </td>" +
                                     "<td style='text-align: center'> " + Buch.Rabattgruppe + " </td>" +
-                                "</tr>";
+                                "</tr>");
                         }
 
-                        EinzelBlock += "</table>";
+                        strB.Append( "</table>");
 
                         // Erstellt eine Seite aus den 2 Blöcken
-                        string darstellung = string.Format(this.EinzelSeitenStruktur, EinzelBlock);
-                        var dokument = GenerierePDFVonHTML(darstellung, PdfSharp.PageOrientation.Portrait);
+                        string darstellung = string.Format(this.EinzelSeitenStruktur, strB.ToString());
+                        PdfSharp.Pdf.PdfDocument dokument = GenerierePDFVonHTML(darstellung, PdfSharp.PageOrientation.Portrait);
 
                         string dokumentname = "{0}_Bestellungenübersicht_{1}";
-                        var path = WIFI.Ausstellung.Properties.Settings.Default.Gesamtbestelllistenpfad + "\\";
+                        string path = Properties.Settings.Default.Gesamtbestelllistenpfad + PathDelimiter;
                         dokument.Save(
-                             path + string.Format(dokumentname, this.AktuellesJahr, i + 1) + ".pdf");
+                             $"{path}{string.Format(dokumentname, AktuellesJahr, i + 1)}.pdf");
                     }
                 }
             }
@@ -217,7 +217,7 @@ namespace WIFI.Ausstellung
 
                 WIFI.Gateway.DTO.Besucher zuvorigerBesucher = new WIFI.Gateway.DTO.Besucher();
 
-                for (int i = 0; i < alleBestellungen.Count(); i++)
+                for (int i = 0; i < alleBestellungen.Count; i++)
                 {
                     if (zuvorigerBesucher != alleBestellungen[i].ZugehörigerBesucher)
                     {
@@ -242,8 +242,7 @@ namespace WIFI.Ausstellung
             var referenzen = OrdneNachReferenz();
 
 
-            // TODO: Nico fragen
-            // Für jeden Besucher
+
 
             int counter = 0;
             string[] arr = new string[2];
@@ -251,13 +250,12 @@ namespace WIFI.Ausstellung
             foreach (var besucherBuch in referenzen)
             {
                 // Nur 2 Blöcke immer nebeneinander
-                //string.Format(DoppelSeitenStruktur, block1, block2);
+
 
                 string besucher = string.Format("{0},{1}", besucherBuch.ZugehörigerBesucher.Vorname, besucherBuch.ZugehörigerBesucher.Nachname);
 
 
-
-                string gruppenblock = "<p style='margin: 10px'> Besucher: " + besucher + " </p>" +
+                var strB = new StringBuilder("<p style='margin: 10px'> Besucher: " + besucher + " </p>" +
                             "<table style='width: 90%; border-collapse: collapse'>" +
                             "<tr style='border-bottom:inset;border-color:black;border-width: 1px'>" +
                                 "<td style='font-weight:bold;text-align:center'> Anzahl </td>" +
@@ -266,23 +264,23 @@ namespace WIFI.Ausstellung
                                 "<td style='font-weight:bold'> Verlag </td>" +
                                 "<td style='font-weight:bold;text-align:left;padding: 0px 10px 0px 0px'>  </td>" +
                                 "<td style='font-weight:bold;text-align:right'> </td>" +
-                            "</tr>";
+                            "</tr>");
 
                 foreach (var buch in besucherBuch.Liste)
                 {
-                    gruppenblock += "<tr>" +
+                    strB.Append("<tr>" +
                                         "<td style='text-align: center'> " + buch.Anzahl + " </td>" +
                                         "<td style='text-align: left'> " + buch.Buchnummer + " </td>" +
                                         "<td style='text-align: left'> " + buch.Titel + " , " + buch.AutorName + "</td>" +
                                         "<td style='text-align: left'> " + buch.VerlagName + "</td>" +
                                         "<td style='text-align: left; padding: 0px 5px 0px 0px'>  </td>" +
                                         "<td style='text-align: right'>  </td>" +
-                                   "</tr>";
+                                   "</tr>");
                 }
 
-                gruppenblock += "</table>";
+                strB.Append("</table>");
 
-                arr[counter] = gruppenblock;
+                arr[counter] = strB.ToString();
 
 
 
@@ -291,20 +289,12 @@ namespace WIFI.Ausstellung
                 {
                     counter = 0;
 
-                    var druckdarstellung = string.Format(this.DoppelSeitenStruktur, arr[0], arr[1]);
+                    string druckdarstellung = string.Format(this.DoppelSeitenStruktur, arr[0], arr[1]);
 
-                    var dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
-                    //PdfSharp.Pdf.PdfPage page = new PdfSharp.Pdf.PdfPage(dokument);
-
-
-                    //////// Fügt die Seite einem neuen PdfDocument an
-                    ////var newDokument = new PdfSharp.Pdf.PdfDocument();
-
-                    ////var a =newDokument.AddPage(page);
-
+                    PdfSharp.Pdf.PdfDocument dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
                     // 
                     string dokumentname = "{0}_Bestellung_{1}";
-                    var path = WIFI.Ausstellung.Properties.Settings.Default.Bestellbestätigungenpfad + "\\";
+                    string path = $"{Properties.Settings.Default.Bestellbestätigungenpfad}"+ PathDelimiter;
 
                     dokument.Save(
                          path + string.Format(
@@ -327,9 +317,8 @@ namespace WIFI.Ausstellung
                 var dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
 
                 string dokumentname = "{0}_Bestellung_{1}";
-                var path = WIFI.Ausstellung.Properties.Settings.Default.Gesamtbestelllistenpfad + "\\";
                 dokument.Save(
-                        path + string.Format(
+                        Properties.Settings.Default.Gesamtbestelllistenpfad + PathDelimiter + string.Format(
                             dokumentname,
                             this.AktuellesJahr,
                             secCounter +
@@ -340,6 +329,9 @@ namespace WIFI.Ausstellung
         #endregion
 
         #region Ordnen
+        /// <summary>
+        /// Sortiert die Bestellungen nach dem Besucher
+        /// </summary>
         public IOrderedEnumerable<WIFI.Gateway.DTO.Bestellung> OrdneBestellungNachBesucher(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
         {
             IOrderedEnumerable<WIFI.Gateway.DTO.Bestellung> sortiert = alleBestellungen.OrderBy(k => k.ZugehörigerBesucher.Id);
@@ -355,14 +347,11 @@ namespace WIFI.Ausstellung
         public Dictionary<int, Gateway.DTO.Bücher> OrdneBestellungsBücherNachKategorie(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
         {
             WIFI.Gateway.DTO.Bücher Buchliste = new WIFI.Gateway.DTO.Bücher();
-
-            foreach (WIFI.Gateway.DTO.Bestellung Bestellung in alleBestellungen)
+            foreach (Gateway.DTO.Buch Buch in from WIFI.Gateway.DTO.Bestellung Bestellung in alleBestellungen
+                                 from WIFI.Gateway.DTO.Buch Buch in Bestellung.Buchliste.Keys
+                                 select Buch)
             {
-                foreach (WIFI.Gateway.DTO.Buch Buch in Bestellung.Buchliste.Keys)
-                {
-
-                    Buchliste.Add(Buch);
-                }
+                Buchliste.Add(Buch);
             }
 
             // KategorieId, Bücher der Kategorie
@@ -371,18 +360,16 @@ namespace WIFI.Ausstellung
 
             for (int i = 0; i < Buchliste.Max(x => x.Kategoriegruppe); i++)
             {
-                var bücherDerGruppe =
-                     Buchliste.Where(x => x.Kategoriegruppe == i);
 
-                var liste = new Gateway.DTO.Bücher();
-                if (bücherDerGruppe.Count() > 0)
+                Gateway.DTO.Bücher liste = new Gateway.DTO.Bücher();
+                if (Buchliste.Where(x => x.Kategoriegruppe == i).Count() > 0)
                 {
-                    foreach (var item in bücherDerGruppe)
+                    foreach (var item in Buchliste.Where(x => x.Kategoriegruppe == i))
                     {
                         liste.Add(item);
                     }
 
-                    if (liste.Count() > 0)
+                    if (liste.Count > 0)
                     {
                         outva.Add(i, liste);
                     }
@@ -392,8 +379,6 @@ namespace WIFI.Ausstellung
 
 
 
-
-            //var Büchergruppen = Buchliste.GroupBy(l => l.Kategoriegruppe);
 
             return outva;
 
@@ -410,7 +395,7 @@ namespace WIFI.Ausstellung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Gateway.DTO.Besucher _ZugehörigerBesucher;
+        private WIFI.Gateway.DTO.Besucher _ZugehörigerBesucher = null;
 
         /// <summary>
         /// Ruft den Besucher zu der Bücherliste ab oder legt diesen fest
@@ -428,17 +413,17 @@ namespace WIFI.Ausstellung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private WIFI.Gateway.DTO.Bücher _Liste;
+        private WIFI.Gateway.DTO.Bücher _Liste = null;
 
         /// <summary>
         /// Ruft dendie Bücherliste zu dem zugehörigen Besucher ab oder legt diesen fest
         /// </summary>
         public WIFI.Gateway.DTO.Bücher Liste
         {
-            get { return _Liste; }
+            get { return this._Liste; }
             set
             {
-                _Liste = value;
+                this._Liste = value;
                 this.OnPropertyChanged();
             }
         }

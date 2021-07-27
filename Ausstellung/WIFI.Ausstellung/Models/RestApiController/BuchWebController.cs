@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WIFI.Ausstellung.Models.RestApiController
+﻿namespace WIFI.Ausstellung.Models.RestApiController
 {
     /// <summary>
     /// Stellt einen Dienst zum Verwalten der Bestellungen über die Rest-Api
@@ -24,7 +18,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        Properties.Settings.Default.UrlGatewayAPI,
                        id
                        )))
-            { }
+            {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage EntferneBuch beträgt {Antwort.StatusCode}");
+            }
         }
 
         /// <summary>
@@ -49,7 +46,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        );
             ZielAdresse = ZielAdresse.Replace(",", ".");
             using (var Antwort = await this.HttpClient.GetAsync( ZielAdresse))
-            { }
+            {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage ErstelleBuch beträgt {Antwort.StatusCode}");
+            }
         }
 
         /// <summary>
@@ -69,6 +69,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleBücher beträgt {Antwort.StatusCode}");
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<WIFI.Gateway.DTO.Bücher>(AntwortText);
             }
         }
@@ -86,7 +88,10 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        Properties.Settings.Default.UrlGatewayAPI,
                        id
                        )))
-            { }
+            {
+
+                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage UpdateBuch beträgt {Antwort.StatusCode}");
+            }
         }
     }
 }
