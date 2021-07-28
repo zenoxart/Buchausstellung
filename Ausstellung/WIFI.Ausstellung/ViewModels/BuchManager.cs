@@ -15,13 +15,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         private static WIFI.Gateway.DTO.Bücher _Buchausstellungsliste = null;
 
-        /// <summary>
-        /// Legt die Liste fest
-        /// </summary>
-        private void SetBuchausstellungsliste(Gateway.DTO.Bücher bücher)
-        {
-            _Buchausstellungsliste = bücher;
-        }
+       
         /// <summary>
         /// Gibt die Liste zurück
         /// </summary>

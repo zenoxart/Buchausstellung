@@ -130,12 +130,6 @@ namespace WIFI.Ausstellung.ViewModels
 
             }
 
-            if (this.AppKontext.AktuelleAufgabenSektion != xmlPfad)
-            {
-
-
-
-            }
 
         }
 
@@ -277,15 +271,12 @@ namespace WIFI.Ausstellung.ViewModels
             get
             {
                 // Wenn die private Eigenschaft nicht null ist
-                if (this._AktuelleAufgabe == null)
-                {
 
-                    // Suche im Cache nach dem Schlüssel STRING
-                    if (this.AppKontext.Cache.ContainsKey(this.SchlüsselAktuelleAufgabe))
-                    {
-                        this._AktuelleAufgabe = this.AppKontext.Cache[this.SchlüsselAktuelleAufgabe]
-                            as Models.Aufgabe;
-                    }
+                // Suche im Cache nach dem Schlüssel STRING
+                if (this._AktuelleAufgabe == null && this.AppKontext.Cache.ContainsKey(this.SchlüsselAktuelleAufgabe))
+                {
+                    this._AktuelleAufgabe = this.AppKontext.Cache[this.SchlüsselAktuelleAufgabe]
+                        as Models.Aufgabe;
 
                 }
 

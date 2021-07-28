@@ -164,7 +164,7 @@ namespace WIFI.Anwendung
                 // Sicherstellen, dass der Pfad vorhanden ist
                 System.IO.Directory.CreateDirectory(GetLokalerDatenpfad());
 
-                return GetLokalerDatenpfad();
+                return _LokalerDatenpfad;
             }
         }
 

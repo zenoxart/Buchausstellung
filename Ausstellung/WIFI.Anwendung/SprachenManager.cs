@@ -76,7 +76,7 @@ namespace WIFI.Anwendung
 
                 Action();
 
-                return GetStandardListe().ToArray();
+                return _StandardListe.ToArray();
             }
         }
 
