@@ -60,11 +60,11 @@ namespace WIFI.Ausstellung.ViewModels
                     InitialisiereBuecherAsync();
                 }
 
-                return GetBuchausstellungsliste();
+                return _Buchausstellungsliste;
             }
             set
             {
-                SetBuchausstellungsliste(value);
+                _Buchausstellungsliste = value;
                 this.OnPropertyChanged();
             }
         }

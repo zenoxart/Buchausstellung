@@ -73,20 +73,30 @@ namespace WIFI.Anwendung
         {
             get
             {
-                if (GetStandardListe() == null)
-                {
-                    // 20210211 Die Liste nach Namen sortieren
 
-
-                    SetStandardListe( new Daten.Sprachen());
-                    GetStandardListe().AddRange((from s in this.Controller.HoleStandardListe()
-                                                             orderby s.Name
-                                                             select s).ToArray()
-                                                             );
-
-                }
+                Action();
 
                 return GetStandardListe().ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Hilfsmethode für das initialisieren der Standardliste
+        /// </summary>
+        private void Action()
+        {
+
+            if (GetStandardListe() == null)
+            {
+                // 20210211 Die Liste nach Namen sortieren
+
+
+                SetStandardListe(new Daten.Sprachen());
+                GetStandardListe().AddRange((from s in this.Controller.HoleStandardListe()
+                                             orderby s.Name
+                                             select s).ToArray()
+                                                         );
+
             }
         }
 

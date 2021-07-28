@@ -1,7 +1,4 @@
-﻿
-using System.Collections.Generic;
-
-namespace WIFI.Gateway.DTO
+﻿namespace WIFI.Gateway.DTO
 {
     /// <summary>
     /// Stellt die Information eines

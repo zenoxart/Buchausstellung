@@ -92,7 +92,7 @@ namespace WIFI.Ausstellung.ViewModels
             }
             protected set
             {
-                SetListe(value);
+                _Liste = value;
                 this.OnPropertyChanged();
             }
         }

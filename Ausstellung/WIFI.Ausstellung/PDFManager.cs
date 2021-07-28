@@ -78,7 +78,7 @@ namespace WIFI.Ausstellung
                 {
                     async void Load()
                     {
-                        this.Gemeinde = await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.HoleGemeinde();
+                        this.Gemeinde = await DBControllerManager.VeranstaltungsController.HoleGemeinde();
 
                     }
                     Load();
@@ -141,12 +141,14 @@ namespace WIFI.Ausstellung
             var Bücherliste = OrdneBestellungsBücherNachKategorie(bestellungsliste);
 
             Gateway.DTO.Buchgruppen buchgruppes = new Gateway.DTO.Buchgruppen();
+
             // Hole Alle Kategorien
             async void LoadGruppen()
             {
                 buchgruppes = await
                 WIFI.Ausstellung.DBControllerManager.BuchgruppenController.HoleBuchgruppen();
             }
+
             LoadGruppen();
 
             // Funktioniert nicht zu 100%
@@ -174,7 +176,7 @@ namespace WIFI.Ausstellung
                         // Für jedes Buch der jeweiligen Gruppe
                         foreach (var Buch in Bücherliste[i])
                         {
-                            strB.Append( "<tr>" +
+                            strB.Append("<tr>" +
                                     "<td style='text-align: center'>" +
                                         Buch.Anzahl + " </td>" +
                                     "<td style='text-align: left'> " + Buch.Buchnummer + " </td>" +
@@ -185,7 +187,7 @@ namespace WIFI.Ausstellung
                                 "</tr>");
                         }
 
-                        strB.Append( "</table>");
+                        strB.Append("</table>");
 
                         // Erstellt eine Seite aus den 2 Blöcken
                         string darstellung = string.Format(this.EinzelSeitenStruktur, strB.ToString());
@@ -213,6 +215,7 @@ namespace WIFI.Ausstellung
             List<BesucherZuBestellung> OrdneNachReferenz()
             {
                 List<BesucherZuBestellung> reff = new List<BesucherZuBestellung>();
+
                 var alleBestellungen = OrdneBestellungNachBesucher(bestellungsliste).ToList();
 
                 WIFI.Gateway.DTO.Besucher zuvorigerBesucher = new WIFI.Gateway.DTO.Besucher();
@@ -228,6 +231,7 @@ namespace WIFI.Ausstellung
                     var eintrag = reff.Last(x => x.ZugehörigerBesucher == zuvorigerBesucher);
 
                     eintrag.Liste = new Gateway.DTO.Bücher();
+
                     foreach (var alleBücher in alleBestellungen[i].Buchliste.Keys.ToList())
                     {
                         eintrag.Liste.Add(alleBücher);
@@ -294,7 +298,7 @@ namespace WIFI.Ausstellung
                     PdfSharp.Pdf.PdfDocument dokument = GenerierePDFVonHTML(druckdarstellung, PdfSharp.PageOrientation.Landscape);
                     // 
                     string dokumentname = "{0}_Bestellung_{1}";
-                    string path = $"{Properties.Settings.Default.Bestellbestätigungenpfad}"+ PathDelimiter;
+                    string path = $"{Properties.Settings.Default.Bestellbestätigungenpfad}" + PathDelimiter;
 
                     dokument.Save(
                          path + string.Format(
@@ -347,40 +351,49 @@ namespace WIFI.Ausstellung
         public Dictionary<int, Gateway.DTO.Bücher> OrdneBestellungsBücherNachKategorie(WIFI.Gateway.DTO.Bestellungen alleBestellungen)
         {
             WIFI.Gateway.DTO.Bücher Buchliste = new WIFI.Gateway.DTO.Bücher();
+
+            #region Füge alle Bestellungen der Buchliste hinzu
             foreach (Gateway.DTO.Buch Buch in from WIFI.Gateway.DTO.Bestellung Bestellung in alleBestellungen
-                                 from WIFI.Gateway.DTO.Buch Buch in Bestellung.Buchliste.Keys
-                                 select Buch)
+                                              from WIFI.Gateway.DTO.Buch Buch in Bestellung.Buchliste.Keys
+                                              select Buch)
             {
                 Buchliste.Add(Buch);
             }
+            #endregion
+
 
             // KategorieId, Bücher der Kategorie
-            Dictionary<int, Gateway.DTO.Bücher> outva = new Dictionary<int, Gateway.DTO.Bücher>();
+            Dictionary<int, Gateway.DTO.Bücher> result = new Dictionary<int, Gateway.DTO.Bücher>();
 
-
-            for (int i = 0; i < Buchliste.Max(x => x.Kategoriegruppe); i++)
+            // Hilfsmethode: fügt dem Dictionary die Bücher hinzu
+            Dictionary<int, Gateway.DTO.Bücher> Hinzufügen()
             {
 
-                Gateway.DTO.Bücher liste = new Gateway.DTO.Bücher();
-                if (Buchliste.Count((x => x.Kategoriegruppe == i)) > 0)
+                for (int i = 0; i < Buchliste.Max(x => x.Kategoriegruppe); i++)
                 {
-                    foreach (var item in Buchliste.Where(x => x.Kategoriegruppe == i))
-                    {
-                        liste.Add(item);
-                    }
 
-                    if (liste.Count > 0)
-                    {
-                        outva.Add(i, liste);
-                    }
+                    Gateway.DTO.Bücher liste = new Gateway.DTO.Bücher();
 
+                    // Schaut ob die Kategoriegruppe existiert
+                    if (Buchliste.Any((x => x.Kategoriegruppe == i)))
+                    {
+                        foreach (var item in Buchliste.Where(x => x.Kategoriegruppe == i))
+                        {
+                            liste.Add(item);
+                        }
+
+                        if (liste.Count > 0)
+                        {
+                            result.Add(i, liste);
+                        }
+
+                    }
                 }
+
+                return result;
             }
 
-
-
-
-            return outva;
+            return Hinzufügen();
 
         }
         #endregion

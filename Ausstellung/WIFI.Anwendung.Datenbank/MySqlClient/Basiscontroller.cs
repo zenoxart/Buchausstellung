@@ -21,6 +21,15 @@
 
 
         /// <summary>
+        /// Gibt den Wert fpr die Verbindungszeichenfolge
+        /// </summary>
+        /// <returns></returns>
+        private string GetConnectionString()
+        {
+            return _ConnectionString;
+        }
+
+        /// <summary>
         /// Ruft den ConnectionString ab, der
         /// zum Verbinden zu einer MySQL Datenbank benutzt wird
         /// </summary>
@@ -32,14 +41,11 @@
         {
             get
             {
-                if (Basiscontroller._ConnectionString == null)
+                if (GetConnectionString() == null)
                 {
-
 
                     var CB = new MySqlConnector.MySqlConnectionStringBuilder
                     {
-
-
                         // Auf alle Fälle den Server einstellen
                         Server = this.AppKontext.SqlServer,
 
@@ -47,20 +53,17 @@
                         Database = "buchausstellung"
                     };
 
-
-
-
-
-
-
                     SetConnectionString(CB.ConnectionString);
+
+
                     this.AppKontext.Protokoll.Eintragen(
                         $"{this} hat den ConnectionString für die Datenbank berechnet und gecached."
                         );
                 }
-                return Basiscontroller._ConnectionString;
+
+                return GetConnectionString();
             }
         }
 
-}
+    }
 }

@@ -207,7 +207,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                 if (GetAktuelleBestellung() != value)
                 {
-                    SetAktuelleBestellung(value);
+                    _AktuelleBestellung = value;
 
                 }
             }

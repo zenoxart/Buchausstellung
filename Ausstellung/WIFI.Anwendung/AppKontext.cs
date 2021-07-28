@@ -139,7 +139,9 @@ namespace WIFI.Anwendung
             {
                 if (GetLokalerDatenpfad() == null)
                 {
-                    SetLokalerDatenpfad(System.IO.Path.Combine(
+                    string GetPfad()
+                    {
+                        return System.IO.Path.Combine(
                         // Basisverzeichnis %user%\AppData\Local
                         System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
                         // Firmenname anhängen
@@ -152,7 +154,10 @@ namespace WIFI.Anwendung
                         , this.HoleTitel().Replace('/', '_').Replace('&', '_')
                         // Version
                         , this.HoleVersion()
-                        ));
+                        );
+                    }
+
+                    SetLokalerDatenpfad(GetPfad());
                     
                 }
 
