@@ -109,6 +109,22 @@ namespace WIFI.Anwendung
         private static string _LokalerDatenpfad = null;
 
         /// <summary>
+        /// Legt den Datenpfad fest
+        /// </summary>
+        private void SetLokalerDatenpfad(string value)
+        {
+            _LokalerDatenpfad = value;
+        }
+        /// <summary>
+        /// Gibt den Datenpfad zurück
+        /// </summary>
+
+        private string GetLokalerDatenpfad()
+        {
+            return _LokalerDatenpfad;
+        }
+
+        /// <summary>
         /// Ruft das lokale Anwendungsdatenverzeichnis ab
         /// </summary>
         /// <remarks>Es wird sichergestellt, dass 
@@ -121,9 +137,9 @@ namespace WIFI.Anwendung
             //          z. B. "/" oder "&"
             get
             {
-                if (AppKontext._LokalerDatenpfad == null)
+                if (GetLokalerDatenpfad() == null)
                 {
-                    AppKontext._LokalerDatenpfad = System.IO.Path.Combine(
+                    SetLokalerDatenpfad(System.IO.Path.Combine(
                         // Basisverzeichnis %user%\AppData\Local
                         System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
                         // Firmenname anhängen
@@ -136,13 +152,14 @@ namespace WIFI.Anwendung
                         , this.HoleTitel().Replace('/', '_').Replace('&', '_')
                         // Version
                         , this.HoleVersion()
-                        );
+                        ));
+                    
                 }
 
                 // Sicherstellen, dass der Pfad vorhanden ist
-                System.IO.Directory.CreateDirectory(AppKontext._LokalerDatenpfad);
+                System.IO.Directory.CreateDirectory(GetLokalerDatenpfad());
 
-                return AppKontext._LokalerDatenpfad;
+                return GetLokalerDatenpfad();
             }
         }
 

@@ -49,6 +49,16 @@
             </summary>
             <remarks>Kann sich während der Sitzung nicht ändern</remarks>
         </member>
+        <member name="M:WIFI.Anwendung.AppKontext.SetLokalerDatenpfad(System.String)">
+            <summary>
+            Legt den Datenpfad fest
+            </summary>
+        </member>
+        <member name="M:WIFI.Anwendung.AppKontext.GetLokalerDatenpfad">
+            <summary>
+            Gibt den Datenpfad zurück
+            </summary>
+        </member>
         <member name="P:WIFI.Anwendung.AppKontext.LokalerDatenpfad">
             <summary>
             Ruft das lokale Anwendungsdatenverzeichnis ab
@@ -394,6 +404,16 @@
             <remarks>Statisch, weil sich der Benutzer
             während der Laufzeit nicht ändern kann</remarks>
         </member>
+        <member name="M:WIFI.Anwendung.FensterManager.SetStandardPfad(System.String)">
+            <summary>
+            Legt den Standard Dateipfad fest
+            </summary>
+        </member>
+        <member name="M:WIFI.Anwendung.FensterManager.GetStandardPfad">
+            <summary>
+            Gibt den Standard Dateipfad zurück
+            </summary>
+        </member>
         <member name="P:WIFI.Anwendung.FensterManager.StandardPfad">
             <summary>
             Ruft das Verzeichnis ab, in dem
@@ -509,6 +529,18 @@
             <summary>
             Internes Feld für die gecachten Sprachen aus den Ressourcen
             </summary>
+        </member>
+        <member name="M:WIFI.Anwendung.SprachenManager.SetStandardListe(WIFI.Anwendung.Daten.Sprachen)">
+            <summary>
+            Legt die Standardliste fest
+            </summary>
+            <param name="sprachen"></param>
+        </member>
+        <member name="M:WIFI.Anwendung.SprachenManager.GetStandardListe">
+            <summary>
+            Läd die Standardliste ( Gibt zurück)
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:WIFI.Anwendung.SprachenManager.StandardListe">
             <summary>

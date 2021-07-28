@@ -1,4 +1,6 @@
-﻿namespace WIFI.Anwendung
+﻿using System.Runtime.InteropServices;
+
+namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt einen Dienst zum Verwalten
@@ -155,6 +157,26 @@
         /// während der Laufzeit nicht ändern kann</remarks>
         private static string _StandardPfad = null;
 
+
+        /// <summary>
+        /// Legt den Standard Dateipfad fest
+        /// </summary>
+        private void SetStandardPfad(string value)
+        {
+            _StandardPfad = value;
+
+
+        }
+
+        /// <summary>
+        /// Gibt den Standard Dateipfad zurück
+        /// </summary>
+
+        private string GetStandardPfad()
+        {
+            return _StandardPfad;
+        }
+
         /// <summary>
         /// Ruft das Verzeichnis ab, in dem
         /// die Fensterliste standardmäßig gespeichert wird.
@@ -164,15 +186,14 @@
         {
             get
             {
-                if (FensterManager._StandardPfad == null)
+                if (GetStandardPfad() == null)
                 {
-                    FensterManager._StandardPfad
-                        = System.IO.Path.Combine(
+                    SetStandardPfad( System.IO.Path.Combine(
                             this.AppKontext.LokalerDatenpfad,
-                            "Fenster.xml");
+                            "Fenster.xml"));
                 }
 
-                return FensterManager._StandardPfad;
+                return GetStandardPfad();
             }
         }
 

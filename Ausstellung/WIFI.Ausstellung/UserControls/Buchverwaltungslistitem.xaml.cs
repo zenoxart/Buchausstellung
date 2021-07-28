@@ -196,7 +196,7 @@ namespace WIFI.Ausstellung.UserControls
             BuchId = (string)e.NewValue;
         }
 
-        private string BuchId = "";
+
         #endregion
 
         /// <summary>
@@ -264,6 +264,6 @@ namespace WIFI.Ausstellung.UserControls
             set { this._BuchHinzufuegen = value; }
         }
 
-        public string BuchId1 { get => BuchId; set => BuchId = value; }
+        public string BuchId { get ; set ; }
     }
 }

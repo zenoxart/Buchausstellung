@@ -161,6 +161,23 @@
         private static System.Net.Http.HttpClient _HttpClient = null;
 
         /// <summary>
+        /// Setzt alle Werte auf den statischen Client
+        /// </summary>
+        /// 
+        private void SetHttpClient(System.Net.Http.HttpClient client)
+        {
+            _HttpClient = client;
+        }
+
+        /// <summary>
+        /// Holt alle Werte von dem statischen Client
+        /// </summary>
+        private System.Net.Http.HttpClient GetHttpClient()
+        {
+            return _HttpClient;
+        }
+
+        /// <summary>
         /// Ruft den Dienst zum aufrufen von Http-Aufrufen ab.
         /// Das Header-Feld "Accept-Language" wird auf die aktuelle Anwendungssprache eingestellt
         /// </summary><remarks>
@@ -174,7 +191,9 @@
                 if (ViewModelAppObjekt._HttpClient == null)
                 {
                     // Initialisieren
-                    ViewModelAppObjekt._HttpClient = new System.Net.Http.HttpClient();
+                    SetHttpClient(new System.Net.Http.HttpClient());
+
+                    _HttpClient = new System.Net.Http.HttpClient();
 
                     // Protokoll
                     this.AppKontext.Protokoll.Eintragen(
@@ -182,9 +201,13 @@
                         Daten.ProtokollEintragTyp.NeueInstanz);
 
                     // Code einstellen
-                    ViewModelAppObjekt._HttpClient.DefaultRequestHeaders.Add(
+                    var client = GetHttpClient();
+                    client.DefaultRequestHeaders.Add(
                         "Accept-Language",
                         this.AppKontext.Sprachen.Aktuell.Code);
+                    SetHttpClient(client);
+
+
 
                     // Protokoll
                     this.AppKontext.Protokoll.Eintragen(
@@ -192,7 +215,7 @@
                         Daten.ProtokollEintragTyp.Normal);
                 }
 
-                return ViewModelAppObjekt._HttpClient;
+                return GetHttpClient();
             }
         }
     }

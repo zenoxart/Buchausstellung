@@ -95,7 +95,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Löscht alle Informationen zu der Veranstaltung
         /// </summary>
-        public async void BeendeVeranstaltung()
+        public async System.Threading.Tasks.Task BeendeVeranstaltung()
         {
             const string Adresse = "{0}BeendeVeranstaltung";
 

@@ -16,13 +16,30 @@ namespace WIFI.Ausstellung.ViewModels
         private static WIFI.Gateway.DTO.Bücher _Buchausstellungsliste = null;
 
         /// <summary>
+        /// Legt die Liste fest
+        /// </summary>
+        private void SetBuchausstellungsliste(Gateway.DTO.Bücher bücher)
+        {
+            _Buchausstellungsliste = bücher;
+        }
+        /// <summary>
+        /// Gibt die Liste zurück
+        /// </summary>
+
+        private Gateway.DTO.Bücher GetBuchausstellungsliste()
+        {
+            return _Buchausstellungsliste;
+        }
+
+
+        /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind, ab oder legt diese fest
         /// </summary>
         public WIFI.Gateway.DTO.Bücher Buchausstellungsliste
         {
             get
             {
-                if (BuchManager._Buchausstellungsliste == null)
+                if (GetBuchausstellungsliste() == null)
                 {
                     Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher
                     {
@@ -43,11 +60,11 @@ namespace WIFI.Ausstellung.ViewModels
                     InitialisiereBuecherAsync();
                 }
 
-                return BuchManager._Buchausstellungsliste;
+                return GetBuchausstellungsliste();
             }
             set
             {
-                BuchManager._Buchausstellungsliste = value;
+                SetBuchausstellungsliste(value);
                 this.OnPropertyChanged();
             }
         }
@@ -89,7 +106,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                     async void Load()
                     {
-                        this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
+                        this.Buchausstellungsliste = await DBControllerManager.BuchController.HoleBücher();
 
                     }
 
@@ -149,31 +166,31 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this._BuchHinzufügen = new WIFI.Anwendung.Befehl(
 
-                        // TODO: Werte des Buches in der Bücherliste hinzufügen
                         p =>
                         {
 
                             if (this.Buchausstellungsliste == null)
                             {
 
-                                this.Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher();
+                                this.Buchausstellungsliste = new Gateway.DTO.Bücher();
                             }
 
 
-                            if (this.AktuellesBuch != null)
+                            if (this.AktuellesBuch == null)
+                            {
+                                return;
+                            }
+
+                            Buchausstellungsliste.Add(AktuellesBuch);
+
+                            async void Load()
                             {
 
-                                this.Buchausstellungsliste.Add(this.AktuellesBuch);
-
-                                async void Load()
-                                {
-
-                                    await WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(this.AktuellesBuch);
-                                }
-                                Load();
-
-                                this.AktuellesBuch = null;
+                                await DBControllerManager.BuchController.ErstelleBuch(AktuellesBuch);
                             }
+                            Load();
+
+                            AktuellesBuch = null;
 
                         }
                     );
@@ -210,9 +227,6 @@ namespace WIFI.Ausstellung.ViewModels
             }
         }
 
-
-
-       
 
 
         /// <summary>
@@ -298,68 +312,115 @@ namespace WIFI.Ausstellung.ViewModels
                                 // Laden von Daten aus einer CSV-Datei
                                 string text = string.Empty;
 
+                                #region File-Reader
+
                                 using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
                                 {
                                     // read from file
                                     if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                                    {
                                         text = System.IO.File.ReadAllText(openFileDialog.FileName);
+                                    }
                                     else
                                         return;
                                 }
 
                                 string[] newText = text.Split('\n');
 
-                                WIFI.Gateway.DTO.Bücher buches = new WIFI.Gateway.DTO.Bücher();
+                                #endregion
 
 
-                                for (int i = 1; i < newText.Length - 1; i++)
+                                // ############################################################################################
+
+                                WIFI.Gateway.DTO.Bücher buchliste = new WIFI.Gateway.DTO.Bücher();
+
+                                // Hilfsmethode um aus dem Text die Elemente zu filtern
+                                void ListeHinzufügen()
                                 {
-                                    string[] line = newText[i].Split(';');
-                                    buches.Add(
-                                        new WIFI.Gateway.DTO.Buch()
-                                        {
-                                            ID = Convert.ToInt32(line[0]),
-                                            Buchnummer = Convert.ToInt32(line[1]),
-                                            Titel = line[2],
-                                            AutorName = line[3],
-                                            VerlagName = line[4],
-                                            Rabattgruppe = Convert.ToInt32(line[5]),
-                                            Kategoriegruppe = Convert.ToInt32(line[6]),
-                                            Preis = Convert.ToDecimal(line[7])
-                                        }
-                                    );
-                                }
 
-                                foreach (var item in buches)
-                                {
-                                    this.Buchausstellungsliste.Add(item);
-                                }
 
-                                this.OnPropertyChanged();
-                                // update to Database
-                                foreach (var item in buches)
-                                {
-                                    async void Load()
+                                    for (int i = newText.Length - 1 - 1; i >= 1; i--)
                                     {
-                                        await WIFI.Ausstellung.DBControllerManager.BuchController.ErstelleBuch(item);
+                                        string[] line = newText[i].Split(';');
+                                        buchliste.Add(
+                                            new WIFI.Gateway.DTO.Buch()
+                                            {
+                                                ID = Convert.ToInt32(line[0]),
+                                                Buchnummer = Convert.ToInt32(line[1]),
+                                                Titel = line[2],
+                                                AutorName = line[3],
+                                                VerlagName = line[4],
+                                                Rabattgruppe = Convert.ToInt32(line[5]),
+                                                Kategoriegruppe = Convert.ToInt32(line[6]),
+                                                Preis = Convert.ToDecimal(line[7])
+                                            }
+                                        );
                                     }
-                                    Load();
-                                    
+
                                 }
+
+                                ListeHinzufügen();
+
+                                // ############################################################################################
+
+                                // Hilfsmethode: fügt die Bücherliste der Buchausstellungsliste hinzu
+                                void BücherlisteDerBuchausstellungHinzufügen()
+                                {
+
+
+                                    for (int i = 0; i < buchliste.Count; i++)
+                                    {
+                                        Gateway.DTO.Buch item = buchliste[i];
+                                        Buchausstellungsliste.Add(item);
+                                    }
+
+                                    this.OnPropertyChanged();
+
+                                }
+
+                                BücherlisteDerBuchausstellungHinzufügen();
+
+                                // ############################################################################################
+
+
+                                // Legt die Daten Asyncron in der Datenbank an
+                                void InDerDatenbankAnlegen()
+                                {
+
+
+                                    for (int i = 0; i < buchliste.Count; i++)
+                                    {
+                                        Gateway.DTO.Buch item = buchliste[i];
+
+                                        // Hilfsmethode
+                                        async void Load()
+                                        {
+                                            await DBControllerManager.BuchController.ErstelleBuch(item);
+                                        }
+
+                                        Load();
+
+                                    }
+                                }
+
+                                InDerDatenbankAnlegen();
 
                                 this.IEStatus = 1;
                             }
                             catch (Exception e)
                             {
                                 this.AppKontext.Protokoll.Eintragen(
-                                   new WIFI.Anwendung.Daten.ProtokollEintrag
+                                   eintrag: new WIFI.Anwendung.Daten.ProtokollEintrag
                                    {
-                                       Text = $"Im {this.GetType().FullName} in der Funktion {typeof(BuchManager).GetMethod("ErstelleEinzelBestellung")} ist ein Fehler aufgetreten \n" +
+                                       Text = $"Im {this.GetType().FullName} in der Funktion " +
+                                              $"{typeof(BuchManager).GetMethod("ErstelleEinzelBestellung")} ist ein Fehler aufgetreten \n" +
                                               $"{e.GetType().FullName} = {e.Message} \n " +
                                               $"{e.StackTrace}",
                                        Typ = WIFI.Anwendung.Daten.ProtokollEintragTyp.Normal
                                    });
+
                                 this.OnFehlerAufgetreten(new WIFI.Anwendung.FehlerAufgetretenEventArgs(e));
+
                                 this.IEStatus = 2;
                             }
                         }
@@ -404,33 +465,48 @@ namespace WIFI.Ausstellung.ViewModels
                                             fileName = sfd.FileName;
                                         }
 
-
-                                        var strB = new StringBuilder("ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis\n");
-
-                                        foreach (var item in this.Buchausstellungsliste)
+                                        // Hilfsmethode: Baut in einem StringBuilder die Liste mit dem CSV-Format
+                                        StringBuilder BaueListe()
                                         {
-                                            strB.Append(
-                                                item.ID
-                                                + ";"
-                                                + item.Buchnummer
-                                                + ";"
-                                                + item.Titel
-                                                + ";"
-                                                + item.AutorName
-                                                + ";"
-                                                + item.VerlagName
-                                                + ";"
-                                                + item.Rabattgruppe
-                                                + ";"
-                                                + item.Kategoriegruppe
-                                                + ";"
-                                                + item.Preis
-                                                + "\n");
+
+
+                                            var strB = new StringBuilder("ID;BuchNr.;Titel;Autor;Verlag;Rabattgr.;Kategoriegr.;Preis\n");
+
+                                            foreach (var item in this.Buchausstellungsliste)
+                                            {
+                                                strB.Append(
+                                                    item.ID
+                                                    + ";"
+                                                    + item.Buchnummer
+                                                    + ";"
+                                                    + item.Titel
+                                                    + ";"
+                                                    + item.AutorName
+                                                    + ";"
+                                                    + item.VerlagName
+                                                    + ";"
+                                                    + item.Rabattgruppe
+                                                    + ";"
+                                                    + item.Kategoriegruppe
+                                                    + ";"
+                                                    + item.Preis
+                                                    + "\n");
+                                            }
+                                            return strB;
+
                                         }
 
+                                        // Beinhaltet die CSV-Formatierte Liste
+                                        StringBuilder stringBuilder = BaueListe();
 
-                                        // write from file
-                                        System.IO.File.WriteAllText(sfd.FileName, strB.ToString());
+                                        // Hilfsmethode: Speichert die CSV-Liste in eine Datei
+                                        void Speichern()
+                                        {
+                                            // write from file
+                                            System.IO.File.WriteAllText(sfd.FileName, stringBuilder.ToString());
+                                        }
+
+                                        Speichern();
                                     }
 
                                     this.IEStatus = 1;
@@ -605,7 +681,7 @@ namespace WIFI.Ausstellung.ViewModels
                                     this.Büchergruppen.Remove(this.SelektierteBuchgruppe);
                                 }
                                 Load();
-                               
+
 
                                 // Remove von DB
                             }

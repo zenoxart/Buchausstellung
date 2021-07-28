@@ -68,7 +68,7 @@ namespace WIFI.Ausstellung.Models.RestApiController
             using (var Antwort = await this.HttpClient.GetAsync(
                   ZielAdresse)) {
                 this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BuchbestellungHinzufügen beträgt {Antwort.StatusCode}");
-            };
+            }
 
         }
 
@@ -91,7 +91,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
                 // Weil JSON erst ab .Net 5 intern unterstützt ist,
                 // Newtonsoft.Json Nuget
-                // TODO: Buchliste in der Bestellung kann nicht deserializiert werden
 
 
                 this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage HoleBestellungen beträgt {Antwort.StatusCode}");
@@ -155,7 +154,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
                 using (var Antwort = await this.HttpClient.GetAsync(
                      ZielAdresse))
                 {
-                    // TODO: Aufruf funktioniert noch nicht so ganz
 
                     this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AlleBuchbestellungenHinzufügen beträgt {Antwort.StatusCode}");
                 }

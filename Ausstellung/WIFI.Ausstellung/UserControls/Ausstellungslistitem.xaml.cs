@@ -197,11 +197,10 @@ namespace WIFI.Ausstellung.UserControls
         /// <param name="e"></param>
         private void OnIdChanged(DependencyPropertyChangedEventArgs e)
         {
-            BuchId1 = (string)e.NewValue;
+            BuchId = (string)e.NewValue;
         }
 
 
-        private string BuchId = "";
 
 
 
@@ -273,6 +272,6 @@ namespace WIFI.Ausstellung.UserControls
             set { this._BuchbestellungHinzufügen = value; }
         }
 
-        public string BuchId1 { get => BuchId; set => BuchId = value; }
+        public string BuchId { get ; set; }
     }
 }

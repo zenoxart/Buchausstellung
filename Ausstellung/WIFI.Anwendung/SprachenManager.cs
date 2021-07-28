@@ -48,6 +48,24 @@ namespace WIFI.Anwendung
         private static WIFI.Anwendung.Daten.Sprachen _StandardListe = null;
 
         /// <summary>
+        /// Legt die Standardliste fest
+        /// </summary>
+        /// <param name="sprachen"></param>
+        private void SetStandardListe(WIFI.Anwendung.Daten.Sprachen sprachen)
+        {
+            _StandardListe = sprachen;
+        }
+
+        /// <summary>
+        /// Läd die Standardliste ( Gibt zurück)
+        /// </summary>
+        /// <returns></returns>
+        private WIFI.Anwendung.Daten.Sprachen GetStandardListe()
+        {
+            return _StandardListe;
+        }
+
+        /// <summary>
         /// Ruft die Liste der in den Ressourcen
         /// untersützten Sprachen ab
         /// </summary>
@@ -55,20 +73,20 @@ namespace WIFI.Anwendung
         {
             get
             {
-                if (SprachenManager._StandardListe == null)
+                if (GetStandardListe() == null)
                 {
                     // 20210211 Die Liste nach Namen sortieren
 
 
-                    SprachenManager._StandardListe = new Daten.Sprachen();
-                    SprachenManager._StandardListe.AddRange((from s in this.Controller.HoleStandardListe()
+                    SetStandardListe( new Daten.Sprachen());
+                    GetStandardListe().AddRange((from s in this.Controller.HoleStandardListe()
                                                              orderby s.Name
                                                              select s).ToArray()
                                                              );
 
                 }
 
-                return SprachenManager._StandardListe.ToArray();
+                return GetStandardListe().ToArray();
             }
         }
 
@@ -80,7 +98,7 @@ namespace WIFI.Anwendung
         {
             // Damit die Sprachen neu gelesen werden,
             // den Cache zurücksetzen
-            SprachenManager._StandardListe = null;
+            SetStandardListe(null);
         }
 
         /// <summary>

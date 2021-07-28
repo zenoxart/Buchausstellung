@@ -20,7 +20,11 @@
             {
                 if (this._Abholungsliste == null)
                 {
-                    HoleBestellungenAsync();
+                    async void Load()
+                    {
+                        await HoleBestellungenAsync();
+                    }
+                    Load();
                 }
 
                 return this._Abholungsliste;
@@ -35,7 +39,7 @@
         /// <summary>
         /// Holt die Daten zu einer Bestellung Asynchon
         /// </summary>
-        private async void HoleBestellungenAsync()
+        private async System.Threading.Tasks.Task HoleBestellungenAsync()
         {
             await System.Threading.Tasks.Task.Run(
                 () =>
@@ -85,7 +89,7 @@
                                 }
 
 
-                                // TODO: Zeige die Oberfläche an, dass der Programmdurchlauf abgeschlossen ist
+
                             }
                         }
                     );

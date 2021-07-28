@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -11,7 +9,7 @@ using System.Windows;
 [assembly: AssemblyDescription("Stellt eine Buchaustellungs-Verwaltungs-Anwendung")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WIFI OÖ GmbH")]
-[assembly: AssemblyProduct("3881 C# Komplettausbildung")]
+[assembly: AssemblyProduct("3883 C# Buchausstellungsverwaltungssoftware")]
 [assembly: AssemblyCopyright("Copyright © 2020 - 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

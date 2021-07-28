@@ -107,15 +107,7 @@
         public bool EnthältFehler { get; set; }
 
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft der Prozessbar
-        /// </summary>
-        private bool? kreisProzessbarSichtbarkeit = null;
 
-        /// <summary>
-        /// Internes Feld, gibt an wie viele Einstellungsfenster geöffnet sind
-        /// </summary>
-        private int offeneEinstellungsFenster = 0;
 
         /// <summary>
         /// Ruft die Adresse des zu benutzenden SQL-Servers ab oder legt diese fest
@@ -164,7 +156,14 @@
         /// </summary>
         public string AktuelleAufgabenSektion { get; set; } = string.Empty;
 
-        public bool? KreisProzessbarSichtbarkeit { get => kreisProzessbarSichtbarkeit; set => kreisProzessbarSichtbarkeit = value; }
-        public int OffeneEinstellungsFenster { get => offeneEinstellungsFenster; set => offeneEinstellungsFenster = value; }
+        /// <summary>
+        /// Gibt einen Wahrheitswert ob die KreisProzessbar sichtbar ist oder nicht
+        /// </summary>
+        public bool? KreisProzessbarSichtbarkeit { get; set ; }
+
+        /// <summary>
+        /// Gibt eine Anzahl an offenen Einstellungsfenstern zurück oder legt diese fest
+        /// </summary>
+        public int OffeneEinstellungsFenster { get ; set ; }
     }
 }

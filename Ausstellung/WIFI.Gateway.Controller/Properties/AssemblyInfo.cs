@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("WIFI.Gateway.Controller")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("WIFI Gateway SQL Controller")]
+[assembly: AssemblyDescription("Stellt eine Sammlung an Sql-Controller zum Verwalten der Daten von der Datenbank")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("WIFI.Gateway.Controller")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2021")]
+[assembly: AssemblyCompany("WIFI OÖ GmbH")]
+[assembly: AssemblyProduct("3883 C# Buchausstellungverwaltungssoftware Datenbank-Contoller")]
+[assembly: AssemblyCopyright("Copyright © 2020 - 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

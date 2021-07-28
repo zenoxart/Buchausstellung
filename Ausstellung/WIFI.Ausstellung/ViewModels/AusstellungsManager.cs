@@ -16,13 +16,31 @@ namespace WIFI.Ausstellung.ViewModels
         private static WIFI.Gateway.DTO.Bücher _Liste = null;
 
         /// <summary>
+        /// Legt die Bücherliste fest
+        /// </summary>
+        /// <param name="bücher"></param>
+        private void SetListe(Gateway.DTO.Bücher bücher)
+        {
+            _Liste = bücher;
+        }
+        /// <summary>
+        /// Gibt die Bücherliste zurück
+        /// </summary>
+        /// <returns></returns>
+
+        private Gateway.DTO.Bücher GetListe()
+        {
+            return _Liste;
+        }
+
+        /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind ab oder legt diese fest
         /// </summary>
         public WIFI.Gateway.DTO.Bücher Buchausstellungsliste
         {
             get
             {
-                if (AusstellungsManager._Liste == null)
+                if (GetListe() == null)
                 {
 
                     Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher
@@ -44,12 +62,12 @@ namespace WIFI.Ausstellung.ViewModels
 
                 }
 
-                return AusstellungsManager._Liste;
+                return GetListe();
 
             }
             set
             {
-                AusstellungsManager._Liste = value;
+                SetListe(value);
                 this.OnPropertyChanged();
             }
         }
@@ -98,7 +116,7 @@ namespace WIFI.Ausstellung.ViewModels
                     }
                     Load();
 
-                   
+
 
 
                     this.EndeProtokollieren();
@@ -152,6 +170,24 @@ namespace WIFI.Ausstellung.ViewModels
         private static WIFI.Gateway.DTO.Bestellung _AktuelleBestellung = null;
 
         /// <summary>
+        /// Legt die Aktuelle Bestellung fest
+        /// </summary>
+        private static void SetAktuelleBestellung(Gateway.DTO.Bestellung bestellung)
+        {
+            _AktuelleBestellung = bestellung;
+        }
+
+
+        /// <summary>
+        /// Gibt die Aktuelle Bestellung zurück
+        /// </summary>
+
+        private static Gateway.DTO.Bestellung GetAktuelleBestellung()
+        {
+            return _AktuelleBestellung;
+        }
+
+        /// <summary>
         /// Ruft die Aktuelle Bestellung mit den zugehörigen Benutzerdaten 
         /// und der Bestellnummer sowie dessen Bücher jeweilige Anzahl 
         /// ab oder setzt diese
@@ -160,19 +196,18 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                if (AusstellungsManager._AktuelleBestellung == null)
+                if (GetAktuelleBestellung() == null)
                 {
-                    AusstellungsManager._AktuelleBestellung = new WIFI.Gateway.DTO.Bestellung();
+                    SetAktuelleBestellung(new Gateway.DTO.Bestellung());
                 }
-                return AusstellungsManager._AktuelleBestellung;
+                return GetAktuelleBestellung();
             }
             set
             {
 
-                if (AusstellungsManager._AktuelleBestellung != value)
+                if (GetAktuelleBestellung() != value)
                 {
-
-                    AusstellungsManager._AktuelleBestellung = value;
+                    SetAktuelleBestellung(value);
 
                 }
             }
@@ -198,7 +233,11 @@ namespace WIFI.Ausstellung.ViewModels
 
 
                     // Aus der Datenbank laden
-                    InitialisiereBestellungenListe();
+                    async void Load()
+                    {
+                        await InitialisiereBestellungenListe();
+                    }
+                    Load();
                 }
                 return this._BestellungenListe;
             }
@@ -216,7 +255,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Läd die BestellungenListe Asyncron
         /// </summary>
-        private async void InitialisiereBestellungenListe()
+        private async System.Threading.Tasks.Task InitialisiereBestellungenListe()
         {
             this.BestellungenListe = await
             WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellungen();
@@ -249,100 +288,96 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                if (this._BestellungHinzufügen == null)
+                if (_BestellungHinzufügen != null)
                 {
-                    // Den Befehl mit anoymen Methoden initialisieren
+                    return this._BestellungHinzufügen;
+                }
+                // Den Befehl mit anoymen Methoden initialisieren
 
-                    this._BestellungHinzufügen = new WIFI.Anwendung.Befehl(
+                this._BestellungHinzufügen = new WIFI.Anwendung.Befehl(
 
-                        // Werte des Buches in eine Bestellliste hinzufügen
-                        p =>
+                    // Werte des Buches in eine Bestellliste hinzufügen
+                    p =>
+                    {
+
+                        if (AusstellungsManager.AktuelleBestellung == null)
                         {
 
-                            if (AusstellungsManager.AktuelleBestellung == null)
-                            {
-
-                                AusstellungsManager.AktuelleBestellung = new WIFI.Gateway.DTO.Bestellung();
-                            }
-
-
-                            AusstellungsManager.AktuelleBestellung.Buchliste = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
-                            // Fügt jedes Buch mit der jeweiligen Anzahl der Bestellung hinzu
-                            foreach (var Buch in AusstellungsManager.AktuelleBücherbestellung)
-                            {
-                                AusstellungsManager.AktuelleBestellung.Buchliste.Add(Buch, Buch.Anzahl);
-                            }
-
-                            if (this.BestellBesucher.Nachname != string.Empty
-                                && this.BestellBesucher.Vorname != string.Empty
-                                && BestellBesucher.Telefon != string.Empty
-                                && BestellBesucher.Postleitzahl != 0
-                                && BestellBesucher.Ort != string.Empty
-                                && BestellBesucher.Straßenname != string.Empty)
-                            {
-
-                                // Erstellt einen Zugehörigen Besucher (TODO: Noch OHNE ID)
-                                AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
-                                    new WIFI.Gateway.DTO.Besucher
-                                    {
-                                        Hausnummer = this.BestellBesucher.Hausnummer,
-                                        Vorname = this.BestellBesucher.Vorname,
-                                        Nachname = this.BestellBesucher.Nachname,
-                                        Ort = this.BestellBesucher.Ort,
-                                        Postleitzahl = this.BestellBesucher.Postleitzahl,
-                                        Straßenname = this.BestellBesucher.Straßenname,
-                                        Telefon = this.BestellBesucher.Telefon
-                                    };
-
-                                // Erstelle neuen Besucher oder lade dessen ID von der Datenbank
-
-                                // 20210617 -> Übersiedlung von MySql auf MsSql
-
-                                Erstelle();
-
-                                async void Erstelle()
-                                {
-                                    AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher = await
-                                   WIFI.Ausstellung.DBControllerManager.BesucherController.ErstelleBesucher(
-                                       AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
-
-                                    int AktuelleBestellNr = await WIFI.Ausstellung.DBControllerManager.BestellungController.ErstelleBestellung(AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher);
-
-                                    if (AktuelleBestellNr != -1)
-                                    {
-                                        AusstellungsManager.AktuelleBestellung.BestellNr = AktuelleBestellNr;
-
-                                        async void Load()
-                                        {
-                                            await WIFI.Ausstellung.DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(AusstellungsManager.AktuelleBestellung);
-
-                                        }
-                                        Load();
-                                        // Alles von der Aktuellen Bestellung auf die Datenbank schieben
-                                       
-
-
-                                        // Aktuelle Bestellung bereinigen
-                                        AusstellungsManager.AktuelleBestellung = null;
-                                        AusstellungsManager.AktuelleBücherbestellung = null;
-
-                                        this.BestellBesucher = null;
-
-                                        this.BestellBesucher = new WIFI.Gateway.DTO.Besucher();
-
-
-
-                                    }
-                                }
-                                this.BestellungenListe = null;
-
-
-
-
-                            }
+                            AusstellungsManager.AktuelleBestellung = new WIFI.Gateway.DTO.Bestellung();
                         }
-                        );
-                }
+
+
+                        AusstellungsManager.AktuelleBestellung.Buchliste = new Dictionary<WIFI.Gateway.DTO.Buch, int>();
+                        // Fügt jedes Buch mit der jeweiligen Anzahl der Bestellung hinzu
+                        foreach (var Buch in AusstellungsManager.AktuelleBücherbestellung)
+                        {
+                            AusstellungsManager.AktuelleBestellung.Buchliste.Add(Buch, Buch.Anzahl);
+                        }
+
+                        if (BestellBesucher.Nachname == string.Empty
+                            || BestellBesucher.Vorname == string.Empty
+                            || BestellBesucher.Telefon == string.Empty
+                            || BestellBesucher.Postleitzahl == 0
+                            || BestellBesucher.Ort == string.Empty
+                            || BestellBesucher.Straßenname == string.Empty)
+                        {
+                            return;
+                        }
+
+
+                        AusstellungsManager.AktuelleBestellung.ZugehörigerBesucher =
+                        new WIFI.Gateway.DTO.Besucher
+                        {
+                            Hausnummer = this.BestellBesucher.Hausnummer,
+                            Vorname = this.BestellBesucher.Vorname,
+                            Nachname = this.BestellBesucher.Nachname,
+                            Ort = this.BestellBesucher.Ort,
+                            Postleitzahl = this.BestellBesucher.Postleitzahl,
+                            Straßenname = this.BestellBesucher.Straßenname,
+                            Telefon = this.BestellBesucher.Telefon
+                        };
+
+                        // Erstelle neuen Besucher oder lade dessen ID von der Datenbank
+
+                        // 20210617 -> Übersiedlung von MySql auf MsSql
+
+                        Erstelle();
+
+                        async void Erstelle()
+                        {
+                            AktuelleBestellung.ZugehörigerBesucher = await
+                           DBControllerManager.BesucherController.ErstelleBesucher(
+                               AktuelleBestellung.ZugehörigerBesucher);
+
+                            int AktuelleBestellNr = await DBControllerManager.BestellungController.ErstelleBestellung(AktuelleBestellung.ZugehörigerBesucher);
+
+                            if (AktuelleBestellNr == -1)
+                            {
+                                return;
+                            }
+                            AktuelleBestellung.BestellNr = AktuelleBestellNr;
+
+                            async void Load()
+                            {
+                                await DBControllerManager.BestellungController.AlleBuchbestellungenHinzufügen(AusstellungsManager.AktuelleBestellung);
+
+                            }
+                            Load();
+                            // Alles von der Aktuellen Bestellung auf die Datenbank schieben
+
+
+
+                            // Aktuelle Bestellung bereinigen
+                            AktuelleBestellung = null;
+                            AktuelleBücherbestellung = null;
+
+                            BestellBesucher = null;
+
+                            BestellBesucher = new WIFI.Gateway.DTO.Besucher();
+                        }
+                        BestellungenListe = null;
+                    }
+                    );
 
                 return this._BestellungHinzufügen;
             }
@@ -438,7 +473,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this._AusstellungAbschließen = new WIFI.Anwendung.Befehl(
 
-                        // TODO: Abschluss der Bestellung umsetzen
+
                         p =>
                         {
                             var pdfManager = new WIFI.Ausstellung.PdfManager();
@@ -449,13 +484,13 @@ namespace WIFI.Ausstellung.ViewModels
                             if (this.Gesamtbestellungendruck)
                             {
 
-                                pdfManager.GeneriereBestellungenübersicht(this.BestellungenListe);
+                                pdfManager.GeneriereBestellungenübersicht(BestellungenListe);
                             }
 
                             //Fragen ob die Besucherbestellungen gedruckt werden sollen und dieses machen
                             if (this.Bestellbestätigungendruck)
                             {
-                                pdfManager.GeneriereBesucherBestellungen(this.BestellungenListe);
+                                pdfManager.GeneriereBesucherBestellungen(BestellungenListe);
                             }
 
                             //am Client alle listen löschen
@@ -464,7 +499,7 @@ namespace WIFI.Ausstellung.ViewModels
                             //Stadium auf der Datenbank ändern
                             async void Load()
                             {
-                               await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Lieferung);
+                                await DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Lieferung);
 
                             }
                             Load();

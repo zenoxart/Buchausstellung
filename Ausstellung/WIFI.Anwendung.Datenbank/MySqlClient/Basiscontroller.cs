@@ -12,6 +12,15 @@
         private static string _ConnectionString = null;
 
         /// <summary>
+        /// Setzt den Wert für die Verbindungszeichenfolge
+        /// </summary>
+        private void SetConnectionString(string value)
+        {
+            _ConnectionString = value;
+        }
+
+
+        /// <summary>
         /// Ruft den ConnectionString ab, der
         /// zum Verbinden zu einer MySQL Datenbank benutzt wird
         /// </summary>
@@ -38,13 +47,13 @@
                         Database = "buchausstellung"
                     };
 
-                  
 
 
 
 
 
-                    Basiscontroller._ConnectionString = CB.ConnectionString;
+
+                    SetConnectionString(CB.ConnectionString);
                     this.AppKontext.Protokoll.Eintragen(
                         $"{this} hat den ConnectionString für die Datenbank berechnet und gecached."
                         );

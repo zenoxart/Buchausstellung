@@ -172,7 +172,7 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                if (this._FensterSchließen == null)
+                if (_FensterSchließen == null)
                 {
                     // Den Befehl mit anoymen Methoden initialisieren
 
@@ -198,18 +198,20 @@ namespace WIFI.Ausstellung.ViewModels
                                     // 20210209 Hr. Hannouf
                                     //      Die Standardantwort auf Nein festgelegt
                                     System.Windows.MessageBoxResult.No);
-                            }
 
-                            if (Antwort == System.Windows.MessageBoxResult.Yes)
-                            {
-                                foreach (System.Windows.Window w in System.Windows.Application.Current.Windows)
+                                if (Antwort == System.Windows.MessageBoxResult.Yes)
                                 {
-                                    if (w != p)
+                                    foreach (System.Windows.Window w in System.Windows.Application.Current.Windows)
                                     {
-                                        w.Close();
+                                        if (w != p)
+                                        {
+                                            w.Close();
+                                        }
                                     }
                                 }
                             }
+
+                           
 
                             this.EndeProtokollieren();
                         },

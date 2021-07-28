@@ -362,7 +362,7 @@ namespace WIFI.Ausstellung
             {
 
                 Gateway.DTO.Bücher liste = new Gateway.DTO.Bücher();
-                if (Buchliste.Where(x => x.Kategoriegruppe == i).Count() > 0)
+                if (Buchliste.Count((x => x.Kategoriegruppe == i)) > 0)
                 {
                     foreach (var item in Buchliste.Where(x => x.Kategoriegruppe == i))
                     {

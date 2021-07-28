@@ -138,7 +138,7 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Läd die Bücher der Selektierten Bestellung Asyncron
         /// </summary>
-        protected async void HoleSelektierteBuchBestellungAsync()
+        protected async System.Threading.Tasks.Task HoleSelektierteBuchBestellungAsync()
         {
             await System.Threading.Tasks.Task.Run(
                  () =>
@@ -166,7 +166,7 @@ namespace WIFI.Ausstellung.Views
         /// <summary>
         /// Übergibt die BücherDerSelektiertenBestellung der selektierten Bestellung asyncron
         /// </summary>
-        protected async void PusheSelektierteBuchBestellungAsync()
+        protected async System.Threading.Tasks.Task PusheSelektierteBuchBestellungAsync()
         {
             await System.Threading.Tasks.Task.Run(
                 () =>

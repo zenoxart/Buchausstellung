@@ -14,7 +14,10 @@ namespace WIFI.Anwendung
     /// gewährleistet.</remarks>
     public class ProtokollManager : WIFI.Anwendung.ViewModelAppObjekt
     {
-        private const int VersuchAnzahl = 10;
+        /// <summary>
+        /// Definiert die Anzahl an Versuchen
+        /// </summary>
+        private int VersuchAnzahl = 10;
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -57,35 +60,9 @@ namespace WIFI.Anwendung
         {
             // Prüfe für die Threadsicherheit ,
             // ob ein Dispatcher vorhanden ist
-            if (this.Dispatcher != null)
+            if (Dispatcher != null)
             {
-                // Die Beschreibung der InvokeAsync Methode holen
-                // Generisches Laden eines  Typen und von dem dann eine MethodInfo generiert wird
-                System.Reflection.MethodInfo InvokeMethode = this.Dispatcher.GetType()
-                    .GetMethod(
-                    "InvokeAsync",
-                    new Type[] { typeof(System.Action) })
-                    ;
-
-                // die Methode ausführen,
-                // d.h. den Dispatcher bitten,
-                // den EIntrag threadsicher zu veranlassen
-                if (InvokeMethode != null)
-                {
-                    InvokeMethode.Invoke(
-                    this.Dispatcher,
-                    new object[] {
-                        new System.Action(() => Eintragen())
-                    });
-                }
-                else
-                {
-                    // Keine Threadsicherheit
-                    // Weil das Objekt in der Dispatcher Eigenschaft
-                    // kein InvokeAsync hat
-                    Eintragen();
-                }
-
+                Invoke();
             }
             else
             {
@@ -94,9 +71,35 @@ namespace WIFI.Anwendung
                 Eintragen();
             }
 
+            // Interne Hilfsmethode zum Aktivieren der Methode aus der Reflection
+            void Invoke()
+            {
+                // Die Beschreibung der InvokeAsync Methode holen
+                // Generisches Laden eines  Typen und von dem dann eine MethodInfo generiert wird
+                System.Reflection.MethodInfo InvokeMethode = Dispatcher.GetType()
+                    .GetMethod(
+                    "InvokeAsync",
+                    new Type[] { typeof(System.Action) })
+                    ;
+
+                // die Methode ausführen,
+                // d.h. den Dispatcher bitten,
+                // den EIntrag threadsicher zu veranlassen
+                if (InvokeMethode == null)
+                    // Keine Threadsicherheit
+                    // Weil das Objekt in der Dispatcher Eigenschaft
+                    // kein InvokeAsync hat
+                    Eintragen();
+                else
+                    InvokeMethode.Invoke(
+                    obj: this.Dispatcher,
+                    parameters: new object[] {
+                        new System.Action(() => Eintragen())
+                    });
+            }
 
 
-            // Interne Hilfsmethode
+            // Interne Hilfsmethode zum Eintragen
             void Eintragen()
             {
 
@@ -219,7 +222,7 @@ namespace WIFI.Anwendung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private Daten.SchwacherMethodenVerweisListe _Rückrufe = null;
+        private  Daten.SchwacherMethodenVerweisListe _Rückrufe = null;
 
         /// <summary>
         /// Ruft die Liste mit den Methoden ab,
@@ -535,9 +538,10 @@ namespace WIFI.Anwendung
         {
             if (!string.IsNullOrEmpty(this.Pfad))
             {
-                int Versuche = VersuchAnzahl;
+                
                 do
                 {
+                    VersuchAnzahl = 10;
 
                     try
                     {
@@ -561,7 +565,7 @@ namespace WIFI.Anwendung
                         }
 
                         // Alles durchgelaufen
-                        Versuche = 0;
+                        VersuchAnzahl = 0;
                     }
                     catch (System.IO.IOException ioex)
                     {
@@ -572,15 +576,15 @@ namespace WIFI.Anwendung
                         System.Threading.Thread.Sleep(100);
                         this.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ioex));
 
-                        Versuche--;
+                        VersuchAnzahl--;
                     }
                     catch (System.Exception ex)
                     {
                         this.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
                         this.Pfad = string.Empty;
-                        Versuche = 0;
+                        VersuchAnzahl = 0;
                     }
-                } while (Versuche > 0);
+                } while (VersuchAnzahl > 0);
             }
         }
 

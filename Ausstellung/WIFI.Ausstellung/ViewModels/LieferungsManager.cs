@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace WIFI.Ausstellung.ViewModels
 {
@@ -83,7 +84,12 @@ namespace WIFI.Ausstellung.ViewModels
                 if (this._SelektierteBestellung != value)
                 {
                     this._SelektierteBestellung = value;
-                    HoleSelektierteBuchBestellungAsync();
+                    async void Load()
+                    {
+                        await HoleSelektierteBuchBestellungAsync();
+                    }
+                    Load();
+
                     this.OnPropertyChanged();
                 }
             }
@@ -108,7 +114,13 @@ namespace WIFI.Ausstellung.ViewModels
                         {
 
                             this.SelektierteBestellung.Geändert = true;
-                            PusheSelektierteBuchBestellungAsync();
+
+                            async void Load()
+                            {
+                                await PusheSelektierteBuchBestellungAsync();
+                            }
+                            Load();
+                            
                         }
                     );
                 }
@@ -134,7 +146,11 @@ namespace WIFI.Ausstellung.ViewModels
 
                 if (this._BücherDerSelektiertenBestellung == null)
                 {
-                    HoleSelektierteBuchBestellungAsync();
+                    async void Load()
+                    {
+                        await HoleSelektierteBuchBestellungAsync();
+                    }
+                    Load();
                 }
                 return this._BücherDerSelektiertenBestellung;
             }
@@ -152,7 +168,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Läd die Bücher der Selektierten Bestellung Asyncron
         /// </summary>
-        protected async void HoleSelektierteBuchBestellungAsync()
+        protected async System.Threading.Tasks.Task HoleSelektierteBuchBestellungAsync()
         {
             await System.Threading.Tasks.Task.Run(
                  () =>
@@ -164,7 +180,7 @@ namespace WIFI.Ausstellung.ViewModels
                      if (this.SelektierteBestellung != null && this.SelektierteBestellung.Buchliste != null)
                      {
                          // Call HoleBücherZuBestellungsInfo
-                         
+
 
                          var bücher = new WIFI.Gateway.DTO.Bücher();
 
@@ -184,7 +200,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// <summary>
         /// Übergibt die BücherDerSelektiertenBestellung der selektierten Bestellung asyncron
         /// </summary>
-        protected async void PusheSelektierteBuchBestellungAsync()
+        protected async System.Threading.Tasks.Task PusheSelektierteBuchBestellungAsync()
         {
             await System.Threading.Tasks.Task.Run(
                 () =>
@@ -261,31 +277,29 @@ namespace WIFI.Ausstellung.ViewModels
                             // Lieferabschluss
                             // Aktuallisiere alle Bestellungen und Bücher in der Datenbank
                             var neuZuDruckende = new Gateway.DTO.Bestellungen();
-
-                            foreach (Gateway.DTO.Bestellung bestellung in this.Gesamtbestellungen)
+                            foreach (var bestellung in from bestellung in Gesamtbestellungen// Wenn das Element geändert wurde, drucke es neu
+                                                       where bestellung.Geändert
+                                                       select bestellung)
                             {
-                                // Wenn das Element geändert wurde, drucke es neu
-                                if (bestellung.Geändert)
+                                // Für jedes Buch der Bestellung
+                                foreach (var bücher in bestellung.Buchliste.Keys)
                                 {
-                                    // Für jedes Buch der Bestellung
-                                    foreach (var bücher in bestellung.Buchliste.Keys)
+                                    async void Load()
                                     {
-                                        async void Load()
-                                        {
-                                           await WIFI.Ausstellung.DBControllerManager.BestellungController.AktualisiereBestellungBuch(bücher.ID, bücher.Anzahl, bestellung.BestellNr);
-                                        }
-                                        Load();
-                                       
+                                        await DBControllerManager.BestellungController.AktualisiereBestellungBuch(bücher.ID, bücher.Anzahl, bestellung.BestellNr);
                                     }
 
-                                    neuZuDruckende.Add(bestellung);
+                                    Load();
+
                                 }
 
+                                neuZuDruckende.Add(bestellung);
                             }
+
                             if (neuZuDruckende.Count != 0)
                             {
                                 // Drucke alle Einzelnen Bestellungen neu, welche sich geändert haben
-                                var pdfManager = new WIFI.Ausstellung.PdfManager();
+                                var pdfManager = new PdfManager();
                                 pdfManager.GeneriereBesucherBestellungen(neuZuDruckende);
                             }
 
@@ -293,13 +307,13 @@ namespace WIFI.Ausstellung.ViewModels
                             // Ändere den Status auf Abholungsverwaltung
                             async void LoadSek()
                             {
-                               await WIFI.Ausstellung.DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Abholung);
+                                await DBControllerManager.VeranstaltungsController.UpdateVeranstaltungsStadium(Gateway.DTO.AusstellungsstadiumTyp.Abholung);
 
                             }
                             LoadSek();
 
                             // 20210617 -> Übersiedlung von MySql auf MsSql
-                           
+
 
                             this.OnPropertyChanged();
 

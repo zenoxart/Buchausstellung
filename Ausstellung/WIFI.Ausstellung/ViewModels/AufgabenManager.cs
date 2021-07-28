@@ -38,6 +38,24 @@ namespace WIFI.Ausstellung.ViewModels
         private static Models.Aufgaben _Liste = null;
 
         /// <summary>
+        /// Legt die Liste fest
+        /// </summary>
+        /// <param name="liste"></param>
+        private void SetListe(Models.Aufgaben liste)
+        {
+            _Liste = liste;
+        }
+
+        /// <summary>
+        /// gibt die Liste zurück
+        /// </summary>
+        /// <returns></returns>
+        private Models.Aufgaben GetListe()
+        {
+            return _Liste;
+        }
+
+        /// <summary>
         /// Ruft die aktuell unterstützten
         /// Anwendungspunkte ab.
         /// </summary>
@@ -45,23 +63,23 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                if (AufgabenManager._Liste == null
+                if (GetListe() == null
                     // Die Daten auch holen, wenn sie noch nicht bereitstehen
                     // Das passiert, wenn das Holen länger dauert und die
                     // Benutzer bereits ein neues Fenster geöffnet haben
-                    || AufgabenManager._Liste[0].Name == Properties.Texte.DatenHolen)
+                    || GetListe()[0].Name == Properties.Texte.DatenHolen)
                 {
                     // Hier wäre die Oberfläche während des Holens blockiert
 
 
                     // Damit Benutzer sehen, dass etwas passiert...
-                    AufgabenManager._Liste = new Models.Aufgaben
+                    SetListe(new Models.Aufgaben
                     {
                         new Models.Aufgabe {
                             Name=Properties.Texte.DatenHolen,
                             Symbol="6"
                         }
-                    };
+                    });
 
 
                     this.InitialisiereAufgabenAsync();
@@ -70,11 +88,11 @@ namespace WIFI.Ausstellung.ViewModels
 
                 }
 
-                return AufgabenManager._Liste;
+                return GetListe();
             }
             protected set
             {
-                AufgabenManager._Liste = value;
+                SetListe(value);
                 this.OnPropertyChanged();
             }
         }
@@ -109,12 +127,13 @@ namespace WIFI.Ausstellung.ViewModels
                 this.OnFehlerAufgetreten(new WIFI.Anwendung.FehlerAufgetretenEventArgs(e));
 
                 this.AppKontext.Protokoll.Eintragen("Beim Laden der Aufgaben-Sektion ist ein Fehler aufgetreten" + e.Message);
-                //TODO: 
+
             }
 
             if (this.AppKontext.AktuelleAufgabenSektion != xmlPfad)
             {
-                //TODO: Wenn die Sektion unterschiedlich ist, nimm einen Viewer mit dem 0ten Element der AktivenViewer
+
+
 
             }
 
@@ -343,8 +362,8 @@ namespace WIFI.Ausstellung.ViewModels
 
                         if (this.Liste != null && this.Liste.Contains(this._AktuelleAufgabe))
                         {
-                                Properties.Settings.Default.IndexAktuelleAufgabe
-                                = this.Liste.IndexOf(this._AktuelleAufgabe);
+                            Properties.Settings.Default.IndexAktuelleAufgabe
+                            = this.Liste.IndexOf(this._AktuelleAufgabe);
                         }
 
 
