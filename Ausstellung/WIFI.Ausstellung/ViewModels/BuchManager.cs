@@ -41,6 +41,21 @@ namespace WIFI.Ausstellung.ViewModels
             Console.WriteLine(b1.Anzahl);
             return;
         }
+        private void TestHeli1(int x)
+        {
+            Gateway.DTO.Buch b1;
+            if (x > 5)
+            {
+                b1 = new Gateway.DTO.Buch();
+            }
+            else
+            {
+                b1 = null;
+            }
+
+            Console.WriteLine(b1.Anzahl);
+            return;
+        }
 
         /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind, ab oder legt diese fest
