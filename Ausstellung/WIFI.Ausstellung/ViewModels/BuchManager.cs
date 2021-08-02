@@ -26,36 +26,36 @@ namespace WIFI.Ausstellung.ViewModels
         }
 
 
-        private  void TestHeli(int x)
-        {
-            Gateway.DTO.Buch b1;
-            if (x > 5)
-            {
-                b1 = new Gateway.DTO.Buch();
-            }
-            else
-            {
-                b1 = null;
-            }
+        //private  void TestHeli(int x)
+        //{
+        //    Gateway.DTO.Buch b1;
+        //    if (x > 5)
+        //    {
+        //        b1 = new Gateway.DTO.Buch();
+        //    }
+        //    else
+        //    {
+        //        b1 = null;
+        //    }
 
-            Console.WriteLine(b1.Anzahl);
-            return;
-        }
-        private void TestHeli1(int x)
-        {
-            Gateway.DTO.Buch b1;
-            if (x > 5)
-            {
-                b1 = new Gateway.DTO.Buch();
-            }
-            else
-            {
-                b1 = null;
-            }
+        //    Console.WriteLine(b1.Anzahl);
+        //    return;
+        //}
+        //private void TestHeli1(int x)
+        //{
+        //    Gateway.DTO.Buch b1;
+        //    if (x > 5)
+        //    {
+        //        b1 = new Gateway.DTO.Buch();
+        //    }
+        //    else
+        //    {
+        //        b1 = null;
+        //    }
 
-            Console.WriteLine(b1.Anzahl);
-            return;
-        }
+        //    Console.WriteLine(b1.Anzahl);
+        //    return;
+        //}
 
         /// <summary>
         /// Ruft eine Auflistung aller Bücher, welche bei der Veranstaltung erhältlich sind, ab oder legt diese fest
