@@ -43,7 +43,7 @@
                 Straßenname = Straßenname,
                 Telefon = Telefon
             };
-            return ClientSqlController.ErstelleBesucher(neu);  
+            return ClientSqlController.ErstelleBesucher(neu);
         }
     }
 }

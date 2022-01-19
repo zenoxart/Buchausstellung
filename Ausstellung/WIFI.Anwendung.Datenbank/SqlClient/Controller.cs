@@ -36,7 +36,7 @@
                     };
 
                     // Abhängig davon, ob es eine angehängte Datebank ist oder nicht
-                    if (this.AppKontext.DatenbankPfad != null 
+                    if (this.AppKontext.DatenbankPfad != null
                         && this.AppKontext.DatenbankPfad != string.Empty)
                     {
                         // es ist eine dynamisch angehängte Datenbank
@@ -55,7 +55,7 @@
 
 
 
-                    
+
 
                     Controller._ConnectionString = CB.ConnectionString;
                     this.AppKontext.Protokoll.Eintragen(

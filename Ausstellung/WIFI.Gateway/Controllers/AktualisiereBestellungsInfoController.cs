@@ -29,10 +29,11 @@
         /// Aktualisiert den Eintrag einer 
         /// Bestellung in der Datenbank
         /// </summary>
-        public object Get(int BestellNr, int BesucherId,string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße,string Telefon)
+        public object Get(int BestellNr, int BesucherId, string BesucherVorname, string BesucherNachname, int BesucherHausnummer, string Ort, int PLZ, string Straße, string Telefon)
         {
 
-            DTO.Besucher besucher = new DTO.Besucher { 
+            DTO.Besucher besucher = new DTO.Besucher
+            {
                 Id = BesucherId,
                 Vorname = BesucherVorname,
                 Nachname = BesucherNachname,
@@ -41,16 +42,16 @@
                 Postleitzahl = PLZ,
                 Straßenname = Straße,
                 Telefon = Telefon
-            
-            };
-            
-            
 
-            ClientSqlController.AktualisiereBestellung(BestellNr,BesucherId, besucher);
+            };
+
+
+
+            ClientSqlController.AktualisiereBestellung(BestellNr, BesucherId, besucher);
 
             return null;
         }
 
-        
+
     }
 }

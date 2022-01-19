@@ -540,7 +540,6 @@ C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 C:\Users\zenox\Documents\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
-C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csprojAssemblyReference.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\Assets\Styles\Look.baml
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\App.g.cs
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\MainWindow.g.cs
@@ -649,3 +648,5 @@ C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\o
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.CopyComplete
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.exe
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.pdb
+C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.AssemblyReference.cache
+C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Ausstellung\obj\Debug\WIFI.Ausstellung.csproj.SuggestedBindingRedirects.cache

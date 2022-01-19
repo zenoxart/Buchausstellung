@@ -70,7 +70,7 @@ namespace WIFI.Ausstellung.UserControls
                         p =>
                         {
 
-                            
+
                             var neuesFenster = new WIFI.Ausstellung.Views.Bestellungsfentser(this.BestellNr);
                             neuesFenster.Show();
                         }

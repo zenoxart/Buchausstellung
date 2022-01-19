@@ -63,13 +63,13 @@ namespace WIFI.Ausstellung.Views
                     {
                         if (!string.IsNullOrEmpty(this.BestellNr))
                         {
-                            this.AktuelleBestellung = 
+                            this.AktuelleBestellung =
                                 await WIFI.Ausstellung.DBControllerManager.
                                 BestellungController.HoleBestellung(Convert.ToInt32(this.BestellNr));
 
 
 
-                         
+
 
                         }
                     }
@@ -233,7 +233,7 @@ namespace WIFI.Ausstellung.Views
                             if (this.AktuelleBestellung != null && this.BücherDerSelektiertenBestellung != null)
                             {
 
-                                
+
                                 foreach (var item in this.BücherDerSelektiertenBestellung)
                                 {
                                     async void Load()
@@ -242,7 +242,7 @@ namespace WIFI.Ausstellung.Views
                                         AktualisiereBestellungBuch(item.ID, item.Anzahl, this.AktuelleBestellung.BestellNr);
                                     }
                                     Load();
-                                    
+
                                 }
 
                                 this.Close();

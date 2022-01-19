@@ -34,7 +34,7 @@
         public DTO.Buchgruppen Get()
         {
             return ClientSqlController.HoleBuchgruppen();
-            
+
         }
     }
 }

@@ -159,11 +159,11 @@
         /// <summary>
         /// Gibt einen Wahrheitswert ob die KreisProzessbar sichtbar ist oder nicht
         /// </summary>
-        public bool? KreisProzessbarSichtbarkeit { get; set ; }
+        public bool? KreisProzessbarSichtbarkeit { get; set; }
 
         /// <summary>
         /// Gibt eine Anzahl an offenen Einstellungsfenstern zurück oder legt diese fest
         /// </summary>
-        public int OffeneEinstellungsFenster { get ; set ; }
+        public int OffeneEinstellungsFenster { get; set; }
     }
 }

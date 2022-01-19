@@ -33,7 +33,7 @@ namespace WIFI.Gateway.Controllers
         /// Ruft den Befehl zum Hinzufügen von
         /// Büchern zu einer Bestellung ab
         /// </summary>
-        public object Get(int Id,string Titel,string Autor, string buchnummr, int kategorie, int rabatt, decimal preis, string verlag, int bestellNr, int anzahl)
+        public object Get(int Id, string Titel, string Autor, string buchnummr, int kategorie, int rabatt, decimal preis, string verlag, int bestellNr, int anzahl)
         {
 
             var neuBook = new Gateway.DTO.Buch()

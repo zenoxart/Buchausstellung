@@ -24,7 +24,7 @@ namespace WIFI.Ausstellung.Views
         /// <remarks>Sollte der Name der Eigenschaft nicht angegeben
         /// werden, wird der Name vom Aufrufer benutzt</remarks>
         protected virtual void OnPropertyChanged(
-            [System.Runtime.CompilerServices.CallerMemberName]string eigenschaft = "")
+            [System.Runtime.CompilerServices.CallerMemberName] string eigenschaft = "")
         {
             // Wegen des Multithreadings mit einer 
             // Kopie vom Ereignisbehandler arbeiten
@@ -62,7 +62,7 @@ namespace WIFI.Ausstellung.Views
                                 Description = "Wählen Sie einen Ordner"
                             };
                             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                                    GesammtListenPfad = folderBrowserDialog.SelectedPath;
+                                GesammtListenPfad = folderBrowserDialog.SelectedPath;
                         }
                     );
                 }
@@ -93,7 +93,7 @@ namespace WIFI.Ausstellung.Views
                                 Description = "Wählen Sie einen Ordner"
                             };
                             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                                    BestellbestätigungsPfad = folderBrowserDialog.SelectedPath;
+                                BestellbestätigungsPfad = folderBrowserDialog.SelectedPath;
                         }
                     );
                 }

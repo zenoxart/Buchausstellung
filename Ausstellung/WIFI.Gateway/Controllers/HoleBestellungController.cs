@@ -34,7 +34,7 @@
         /// <returns>DTO Objekt der Bestellung</returns>
         public Gateway.DTO.Bestellung Get(int bestellId)
         {
-            return ClientSqlController.HoleBestellung(bestellId); 
+            return ClientSqlController.HoleBestellung(bestellId);
         }
     }
 }

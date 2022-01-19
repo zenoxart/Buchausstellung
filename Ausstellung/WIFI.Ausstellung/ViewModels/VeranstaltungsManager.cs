@@ -87,12 +87,12 @@ namespace WIFI.Ausstellung.ViewModels
                                     this.Ort);
                                 }
                                 Load();
-                               
+
 
 
 
                                 // 20210617 -> Übersiedlung von MySql auf MsSql
-                               
+
 
                                 this.AppKontext.Protokoll.Eintragen(
                                     $"Die erstellte Veranstaltung wurde gestartet"

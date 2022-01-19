@@ -14,13 +14,9 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <returns></returns>
         public async System.Threading.Tasks.Task<int> ErstelleBestellung(Gateway.DTO.Besucher besucher)
         {
-
-
-
             const string Adresse = "{0}ErstelleBestellung?Id={1}&Vorname={2}&Nachname={3}&Hausnummer={4}&Ort={5}&PLZ={6}&Straßenname={7}&Telefon={8}";
 
-            using (var Antwort = await this.HttpClient.GetAsync(
-                   string.Format(
+            var ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,
                        besucher.Id,
@@ -31,7 +27,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        besucher.Postleitzahl,
                        besucher.Straßenname,
                        besucher.Telefon
-                       )))
+                       );
+            using (var Antwort = await this.HttpClient.GetAsync(ZielAdresse))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
 
@@ -66,7 +63,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
                        anzahl);
 
             using (var Antwort = await this.HttpClient.GetAsync(
-                  ZielAdresse)) {
+                  ZielAdresse))
+            {
                 this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage BuchbestellungHinzufügen beträgt {Antwort.StatusCode}");
             }
 
@@ -75,7 +73,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// <summary>
         /// Läd alle Bestellungen
         /// </summary>
-        /// <returns></returns>
 
         public async System.Threading.Tasks.Task<Gateway.DTO.Bestellungen> HoleBestellungen()
         {
@@ -129,7 +126,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async System.Threading.Tasks.Task AlleBuchbestellungenHinzufügen(Gateway.DTO.Bestellung bestellung)
         {
-
             foreach (var item in bestellung.Buchliste.Keys)
             {
                 const string NewAdresse = "{0}BuchbestellungHinzufügen?Id={1}&Titel={2}&Autor={3}&buchnummr={4}&kategorie={5}&rabatt={6}&preis={7}&verlag={8}&bestellNr={9}&anzahl={10}";
@@ -167,7 +163,6 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async System.Threading.Tasks.Task AktualisiereBestellungsInfo(Gateway.DTO.Bestellung id)
         {
-
             const string Adresse = "{0}AktualisiereBestellungsInfo?id={1}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
@@ -233,8 +228,8 @@ namespace WIFI.Ausstellung.Models.RestApiController
         /// </summary>
         public async System.Threading.Tasks.Task<Gateway.DTO.Bestellung> HoleBestellung(int bestellId)
         {
-
             const string Adresse = "{0}HoleBestellung?bestellId={1}";
+
             string ZielAdresse = string.Format(
                      Adresse,
                      Properties.Settings.Default.UrlGatewayAPI,
@@ -263,52 +258,17 @@ namespace WIFI.Ausstellung.Models.RestApiController
 
         }
 
-        /// <summary>
-        /// Aktualisiert die Daten zu einer Bestellung
-        /// </summary>
-        /// <param name="bestellung"></param>
-        public async System.Threading.Tasks.Task AktualisiereBestellung(Gateway.DTO.Bestellung bestellung)
-        {
-
-            // Für die Bücher der Bestellung
-            const string Adresse =
-                    "{0}AktualisiereBestellungsInfo?" +
-                        "BestellNr={1}&BesucherId={2}&BesucherVorname={3}" +
-                        "&BesucherNachname={4}&BesucherHausnummer={5}&Ort={6}" +
-                        "&PLZ={7}&Straße={8}&Telefon={9}";
-
-            using (var Antwort = await this.HttpClient.GetAsync(
-                 string.Format(
-                     Adresse,
-                     Properties.Settings.Default.UrlGatewayAPI,
-                     bestellung.BestellNr,
-                     bestellung.ZugehörigerBesucher.Id,
-                     bestellung.ZugehörigerBesucher.Vorname,
-                     bestellung.ZugehörigerBesucher.Nachname,
-                     bestellung.ZugehörigerBesucher.Hausnummer,
-                     bestellung.ZugehörigerBesucher.Ort,
-                     bestellung.ZugehörigerBesucher.Postleitzahl,
-                     bestellung.ZugehörigerBesucher.Straßenname,
-                     bestellung.ZugehörigerBesucher.Telefon
-
-                     )))
-            {
-
-                this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage AktualisiereBestellung beträgt {Antwort.StatusCode}");
-            }
-
-        }
 
         /// <summary>
         /// Ändert die Buchanzahl eines Buches von einer Bestellung
         /// </summary>
-        public async System.Threading.Tasks.Task AktualisiereBestellungBuch(int buchid,int anzahl,int bestellid)
+        public async System.Threading.Tasks.Task AktualisiereBestellungBuch(int buchid, int anzahl, int bestellid)
         {
-            const string SecAdresse = "{0}AktualisiereBestellungBuch?buchid={1}&anzahl={2}&bestellId={3}";
+            const string Adresse = "{0}AktualisiereBestellungBuch?buchid={1}&anzahl={2}&bestellId={3}";
 
             using (var Antwort = await this.HttpClient.GetAsync(
                  string.Format(
-                     SecAdresse,
+                     Adresse,
                      Properties.Settings.Default.UrlGatewayAPI,
                      buchid,
                      anzahl,

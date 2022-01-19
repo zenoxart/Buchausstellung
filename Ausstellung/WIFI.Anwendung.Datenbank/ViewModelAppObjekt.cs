@@ -24,7 +24,7 @@
         /// <remarks>Sollte der Name der Eigenschaft nicht angegeben
         /// werden, wird der Name vom Aufrufer benutzt</remarks>
         protected virtual void OnPropertyChanged(
-            [System.Runtime.CompilerServices.CallerMemberName]string eigenschaft = "")
+            [System.Runtime.CompilerServices.CallerMemberName] string eigenschaft = "")
         {
             // Wegen des Multithreadings mit einer 
             // Kopie vom Ereignisbehandler arbeiten
@@ -34,7 +34,7 @@
         }
 
 
-  
+
 
 
         /// <summary>
@@ -144,8 +144,9 @@
         public virtual void IstBeschäftigtSynchronisieren(ViewModelAppObjekt mitViewModel)
         {
 
-            this.PropertyChanged += (sender,e) => { 
-                if(e.PropertyName == "IstBeschäftigt")
+            this.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == "IstBeschäftigt")
                 {
                     mitViewModel.IstBeschäftigt = this.IstBeschäftigt;
                 }

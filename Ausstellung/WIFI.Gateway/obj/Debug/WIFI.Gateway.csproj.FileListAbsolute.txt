@@ -556,8 +556,8 @@ C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\d
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Net.Http.Formatting.resources.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Web.Http.resources.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\bin\de\System.Web.Http.WebHost.resources.dll
-C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csprojAssemblyReference.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.CoreCompileInputs.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.CopyComplete
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.pdb
+C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway\obj\Debug\WIFI.Gateway.csproj.AssemblyReference.cache

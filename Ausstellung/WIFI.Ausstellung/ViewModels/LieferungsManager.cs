@@ -120,7 +120,7 @@ namespace WIFI.Ausstellung.ViewModels
                                 await PusheSelektierteBuchBestellungAsync();
                             }
                             Load();
-                            
+
                         }
                     );
                 }

@@ -31,20 +31,21 @@
         /// Befehl zum Anlegen einer Bestellung
         /// in der Datenbank
         /// </summary>
-        public int Get(int Id, string Vorname,string Nachname,int Hausnummer,string Ort,int PLZ,string Straßenname,string Telefon)
+        public int Get(int Id, string Vorname, string Nachname, int Hausnummer, string Ort, int PLZ, string Straßenname, string Telefon)
         {
 
-            var neu = new Gateway.DTO.Besucher {
-            Id = Id,
-            Vorname = Vorname,
-            Nachname = Nachname,
-            Hausnummer = Hausnummer,
-            Ort = Ort,
-            Postleitzahl = PLZ,
-            Straßenname = Straßenname,
-            Telefon = Telefon
+            var neu = new Gateway.DTO.Besucher
+            {
+                Id = Id,
+                Vorname = Vorname,
+                Nachname = Nachname,
+                Hausnummer = Hausnummer,
+                Ort = Ort,
+                Postleitzahl = PLZ,
+                Straßenname = Straßenname,
+                Telefon = Telefon
             };
-            return ClientSqlController.ErstelleBestellung(neu);   
+            return ClientSqlController.ErstelleBestellung(neu);
         }
     }
 }

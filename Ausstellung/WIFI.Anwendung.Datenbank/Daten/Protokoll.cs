@@ -30,7 +30,7 @@ namespace WIFI.Anwendung.Daten
     /// Protokolleinträgen bereit, die für die
     /// WPF Datenbindung benutzt werden kann
     /// </summary>
-    public class ProtokollEinträge 
+    public class ProtokollEinträge
         : System.Collections.ObjectModel.ObservableCollection<ProtokollEintrag>
     {
 

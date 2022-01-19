@@ -160,8 +160,8 @@ C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Contr
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\bin\Debug\de\WIFI.Anwendung.resources.dll
-C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\obj\Debug\WIFI.Gateway.Controller.csprojAssemblyReference.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\obj\Debug\WIFI.Gateway.Controller.csproj.CoreCompileInputs.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\obj\Debug\WIFI.Gateway.Controller.csproj.CopyComplete
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\obj\Debug\WIFI.Gateway.Controller.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\obj\Debug\WIFI.Gateway.Controller.pdb
+C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.Controller\obj\Debug\WIFI.Gateway.Controller.csproj.AssemblyReference.cache

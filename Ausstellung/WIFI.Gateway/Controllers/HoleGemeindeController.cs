@@ -31,7 +31,7 @@
         /// </summary>
         public string Get()
         {
-            return ClientSqlController.HoleGemeinde(); 
+            return ClientSqlController.HoleGemeinde();
         }
     }
 }

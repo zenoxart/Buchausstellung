@@ -25,7 +25,7 @@
 
                        );
             using (var Antwort = await this.HttpClient.GetAsync(
-                 ZielAdresse ))
+                 ZielAdresse))
             {
                 var AntwortText = await Antwort.Content.ReadAsStringAsync();
 

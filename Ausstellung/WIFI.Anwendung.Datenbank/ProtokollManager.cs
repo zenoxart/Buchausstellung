@@ -17,7 +17,7 @@ namespace WIFI.Anwendung
         /// <summary>
         /// Definiert die Anzahl an Versuchen
         /// </summary>
-        private int VersuchAnzahl = 10;
+        private int AktuelleVersuchsAnzahl = 10;
 
         /// <summary>
         /// Internes Feld für die Eigenschaft
@@ -107,7 +107,7 @@ namespace WIFI.Anwendung
 
                 this.Einträge.Add(eintrag);
 
-                
+
 
                 // Falls ein Fehler eingetragen wurde,
                 // EnthältFehler einschalten
@@ -222,7 +222,7 @@ namespace WIFI.Anwendung
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private  Daten.SchwacherMethodenVerweisListe _Rückrufe = null;
+        private Daten.SchwacherMethodenVerweisListe _Rückrufe = null;
 
         /// <summary>
         /// Ruft die Liste mit den Methoden ab,
@@ -538,10 +538,10 @@ namespace WIFI.Anwendung
         {
             if (!string.IsNullOrEmpty(this.Pfad))
             {
-                
+
                 do
                 {
-                    VersuchAnzahl = 10;
+                    AktuelleVersuchsAnzahl = 10;
 
                     try
                     {
@@ -558,14 +558,14 @@ namespace WIFI.Anwendung
                                     Ausgabemuster,
                                     eintrag.Zeitstempel.ToString(), //
                                     eintrag.Typ.ToString(), // 
-                                    eintrag.Text.Replace("\t"," ") // keine Tabulatoren in den Daten
-                                                .Replace("\r"," ") // keine Eingabetaste in den Daten
-                                                .Replace("\n"," ") // keinen Zeilenvorschub
+                                    eintrag.Text.Replace("\t", " ") // keine Tabulatoren in den Daten
+                                                .Replace("\r", " ") // keine Eingabetaste in den Daten
+                                                .Replace("\n", " ") // keinen Zeilenvorschub
                                     ));
                         }
 
                         // Alles durchgelaufen
-                        VersuchAnzahl = 0;
+                        AktuelleVersuchsAnzahl = 0;
                     }
                     catch (System.IO.IOException ioex)
                     {
@@ -576,15 +576,15 @@ namespace WIFI.Anwendung
                         System.Threading.Thread.Sleep(100);
                         this.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ioex));
 
-                        VersuchAnzahl--;
+                        AktuelleVersuchsAnzahl--;
                     }
                     catch (System.Exception ex)
                     {
                         this.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
                         this.Pfad = string.Empty;
-                        VersuchAnzahl = 0;
+                        AktuelleVersuchsAnzahl = 0;
                     }
-                } while (VersuchAnzahl > 0);
+                } while (AktuelleVersuchsAnzahl > 0);
             }
         }
 

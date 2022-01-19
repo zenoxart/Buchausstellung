@@ -278,23 +278,23 @@ namespace WIFI.Gateway.Controller
                                     abgeholtBool = true;
                                 }
 
-                                bestellung1 =  new Gateway.DTO.Bestellung
+                                bestellung1 = new Gateway.DTO.Bestellung
+                                {
+                                    BestellNr = Convert.ToInt32(DatenLeser["ID"]),
+                                    ZugehörigerBesucher = new Gateway.DTO.Besucher
                                     {
-                                        BestellNr = Convert.ToInt32(DatenLeser["ID"]),
-                                        ZugehörigerBesucher = new Gateway.DTO.Besucher
-                                        {
-                                            Id = Convert.ToInt32(DatenLeser["Besucherid"]),
-                                            Vorname = DatenLeser["Vorname"].ToString(),
-                                            Nachname = DatenLeser["Nachname"].ToString(),
-                                            Straßenname = DatenLeser["Strasse"].ToString(),
-                                            Hausnummer = Convert.ToInt32(DatenLeser["Hausnummer"]),
-                                            Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
-                                            Ort = DatenLeser["Ort"].ToString(),
-                                            Telefon = DatenLeser["Telefon"].ToString()
-                                        },
-                                        Buchliste = new Dictionary<Gateway.DTO.Buch, int>() { },
-                                        Abgeholt = abgeholtBool
-                                    };
+                                        Id = Convert.ToInt32(DatenLeser["Besucherid"]),
+                                        Vorname = DatenLeser["Vorname"].ToString(),
+                                        Nachname = DatenLeser["Nachname"].ToString(),
+                                        Straßenname = DatenLeser["Strasse"].ToString(),
+                                        Hausnummer = Convert.ToInt32(DatenLeser["Hausnummer"]),
+                                        Postleitzahl = Convert.ToInt32(DatenLeser["PLZ"]),
+                                        Ort = DatenLeser["Ort"].ToString(),
+                                        Telefon = DatenLeser["Telefon"].ToString()
+                                    },
+                                    Buchliste = new Dictionary<Gateway.DTO.Buch, int>() { },
+                                    Abgeholt = abgeholtBool
+                                };
                             }
                         }
                     }
@@ -501,6 +501,6 @@ namespace WIFI.Gateway.Controller
 
         }
 
-       
+
     }
 }

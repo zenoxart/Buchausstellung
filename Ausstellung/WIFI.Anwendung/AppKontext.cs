@@ -16,7 +16,7 @@ namespace WIFI.Anwendung
         // (das ist C/C++ Kommenatar
         //  automatich am Zeilenende beendet)
 
-            
+
         // Deklarationen auf Klassenebene
         // sind IMMER PRIVAT und heißen "Felder"
 
@@ -72,7 +72,7 @@ namespace WIFI.Anwendung
         /// des benötigten Anwendungsobjekts an</typeparam>
         /// <returns>Ein Objekt, bei dem
         /// die AppKontext Eigenschaft eingestellt ist</returns>
-        public virtual T Produziere<T>() where T: IAppKontext, new()
+        public virtual T Produziere<T>() where T : IAppKontext, new()
         {
             var NeuesObjekt = new T
             {
@@ -92,7 +92,7 @@ namespace WIFI.Anwendung
             if (AppObjekt != null)
             {
                 // Hier die Technik der "anonymen Methoden" benutzt
-                AppObjekt.FehlerAufgetreten 
+                AppObjekt.FehlerAufgetreten
                     += (sender, e) => System.Console.WriteLine(
                         $"ERROR: Ausname \"{e.Ursache.Message}\" in Objekt {AppObjekt}");
             }
@@ -158,7 +158,7 @@ namespace WIFI.Anwendung
                     }
 
                     SetLokalerDatenpfad(GetPfad());
-                    
+
                 }
 
                 // Sicherstellen, dass der Pfad vorhanden ist
@@ -195,11 +195,11 @@ namespace WIFI.Anwendung
                         // Firmenname anhängen
                         // 20210128
                         //, this.HoleFirmenname()
-                        , this.HoleFirmenname().Replace('/','_').Replace('&','_')
+                        , this.HoleFirmenname().Replace('/', '_').Replace('&', '_')
                         // Anwendungsname anhängen
                         // 20210128
                         //, this.HoleTitel()
-                        ,this.HoleTitel().Replace('/', '_').Replace('&', '_')
+                        , this.HoleTitel().Replace('/', '_').Replace('&', '_')
                         // Version
                         , this.HoleVersion()
                         );

@@ -548,6 +548,11 @@
             untersützten Sprachen ab
             </summary>
         </member>
+        <member name="M:WIFI.Anwendung.SprachenManager.Action">
+            <summary>
+            Hilfsmethode für das initialisieren der Standardliste
+            </summary>
+        </member>
         <member name="M:WIFI.Anwendung.SprachenManager.Aktualisieren">
             <summary>
             Stellt sicher, dass die Namen der Sprachen

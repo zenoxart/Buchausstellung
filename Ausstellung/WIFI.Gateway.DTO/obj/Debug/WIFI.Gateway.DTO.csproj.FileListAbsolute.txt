@@ -148,8 +148,8 @@ C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\b
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\bin\Debug\de\WIFI.Anwendung.resources.dll
-C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\obj\Debug\WIFI.Gateway.DTO.csprojAssemblyReference.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\obj\Debug\WIFI.Gateway.DTO.csproj.CoreCompileInputs.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\obj\Debug\WIFI.Gateway.DTO.csproj.CopyComplete
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\obj\Debug\WIFI.Gateway.DTO.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\obj\Debug\WIFI.Gateway.DTO.pdb
+C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Gateway.DTO\obj\Debug\WIFI.Gateway.DTO.csproj.AssemblyReference.cache

@@ -20,11 +20,14 @@
             {
                 if (this._Abholungsliste == null)
                 {
-                    async void Load()
+                    // Erwartet die asyncrone Ladung von der Bestellungen
+                    async void HoleBestellungenAsyncCalled()
                     {
                         await HoleBestellungenAsync();
                     }
-                    Load();
+
+                    // Triggert die asyncrone Ladung der Bestellungen
+                    HoleBestellungenAsyncCalled();
                 }
 
                 return this._Abholungsliste;
@@ -44,12 +47,15 @@
             await System.Threading.Tasks.Task.Run(
                 () =>
                 {
-                    async void Load()
+                    // Läd die Bestellungen asyncron
+                    async void LadeListeAsync()
                     {
                         this.Abholungsliste = await
                         WIFI.Ausstellung.DBControllerManager.BestellungController.HoleBestellungen();
                     }
-                    Load();
+
+                    // Triggert die asyncrone Ladung
+                    LadeListeAsync();
                 });
 
         }
@@ -79,12 +85,16 @@
                                 {
                                     if (item.Abgeholt)
                                     {
-                                        async void Load()
+
+                                        // Bestätigt die Abholung des
+                                        async void BestätigeBestellungsAbholungAsync()
                                         {
 
                                             await WIFI.Ausstellung.DBControllerManager.BestellungController.BestellungAbgeholt(item);
                                         }
-                                        Load();
+
+                                        // Triggert die asyncrone Ladung der Bestellung
+                                        BestätigeBestellungsAbholungAsync();
                                     }
                                 }
 
@@ -97,7 +107,7 @@
 
                 return this._Abholungsbestätigung;
             }
-            set { this._Abholungsbestätigung = value; }
+            set => this._Abholungsbestätigung = value;
         }
 
 

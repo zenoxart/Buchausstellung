@@ -52,7 +52,7 @@
         public async System.Threading.Tasks.Task ErstelleBuchgruppe(Gateway.DTO.Buchgruppe gruppe)
         {
             const string Adresse = "{0}ErstelleBuchgruppe?Gruppennummer={1}&Beschreibung={2}";
-            
+
             string ZielAdresse = string.Format(
                        Adresse,
                        Properties.Settings.Default.UrlGatewayAPI,

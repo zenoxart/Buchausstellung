@@ -19,7 +19,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// Legt die Bücherliste fest
         /// </summary>
         /// <param name="bücher"></param>
-        private void SetListe(Gateway.DTO.Bücher bücher)
+        private static void SetListe(Gateway.DTO.Bücher bücher)
         {
             _Liste = bücher;
         }
@@ -28,7 +28,7 @@ namespace WIFI.Ausstellung.ViewModels
         /// </summary>
         /// <returns></returns>
 
-        private Gateway.DTO.Bücher GetListe()
+        private static Gateway.DTO.Bücher GetListe()
         {
             return _Liste;
         }
@@ -40,7 +40,9 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                if (GetListe() == null)
+                var liste = GetListe();
+
+                if (liste == null)
                 {
 
                     Buchausstellungsliste = new WIFI.Gateway.DTO.Bücher
@@ -62,7 +64,7 @@ namespace WIFI.Ausstellung.ViewModels
 
                 }
 
-                return GetListe();
+                return liste;
 
             }
             set
@@ -109,12 +111,14 @@ namespace WIFI.Ausstellung.ViewModels
 
                     this.StartProtokollieren();
 
-
-                    async void Load()
+                    // Läd Bücher asyncron
+                    async void HoleBücherAsync()
                     {
                         this.Buchausstellungsliste = await WIFI.Ausstellung.DBControllerManager.BuchController.HoleBücher();
                     }
-                    Load();
+
+                    // Triggert das Laden der Bücher
+                    HoleBücherAsync();
 
 
 

@@ -264,6 +264,6 @@ namespace WIFI.Ausstellung.UserControls
             set { this._BuchHinzufuegen = value; }
         }
 
-        public string BuchId { get ; set ; }
+        public string BuchId { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace WIFI.Gateway.Controller
                     // Erstelle einen Befehl mit
                     // einer MySQL-Stored-Procedure
                     using (var Befehl = new System.Data.SqlClient.SqlCommand("ErstelleVeranstaltung", Verbindung))
-                    {             
+                    {
                         Befehl.CommandType = System.Data.CommandType.StoredProcedure;
 
                         Befehl.Prepare();
@@ -139,7 +139,7 @@ namespace WIFI.Gateway.Controller
         /// wird ein DTO.AusstellungsstadiumTyp.Verbindungsfehler
         /// zurückgegeben</returns>
         public WIFI.Gateway.DTO.AusstellungsstadiumTyp VeranstaltungsStadium()
-        {        
+        {
             WIFI.Gateway.DTO.AusstellungsstadiumTyp Stadium = Gateway.DTO.AusstellungsstadiumTyp.Abholung;
 
             try

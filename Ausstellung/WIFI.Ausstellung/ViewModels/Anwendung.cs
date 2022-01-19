@@ -211,7 +211,7 @@ namespace WIFI.Ausstellung.ViewModels
                                 }
                             }
 
-                           
+
 
                             this.EndeProtokollieren();
                         },
@@ -583,7 +583,7 @@ namespace WIFI.Ausstellung.ViewModels
                    }
                );
                 }
-               
+
 
                 return this._StarteSoftware;
             }

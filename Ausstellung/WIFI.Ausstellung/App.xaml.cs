@@ -43,7 +43,7 @@ namespace WIFI.Ausstellung
             // Das ViewModel mit einem Xaml Fenster verbinden,
             // dem ViewModel die View mitteilen
             VM.Starten<WIFI.Ausstellung.MainWindow>();
-                     
+
             // Speichern der Einstellungen
             WIFI.Ausstellung.Properties.Settings.Default.Save();
 

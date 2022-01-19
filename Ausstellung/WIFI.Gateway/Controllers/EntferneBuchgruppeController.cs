@@ -34,7 +34,7 @@
         /// <param name="Beschreibung">Beschreibung
         /// der Buchgruppe</param>
         /// <returns></returns>
-        public string Get(int Gruppennr,string Beschreibung)
+        public string Get(int Gruppennr, string Beschreibung)
         {
             Gateway.DTO.Buchgruppe buchgruppe = new DTO.Buchgruppe() { Gruppennummer = Gruppennr, Beschreibung = Beschreibung };
             ClientSqlController.EntferneBuchgruppe(buchgruppe);

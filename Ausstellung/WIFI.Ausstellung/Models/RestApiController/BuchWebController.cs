@@ -45,7 +45,7 @@
                        buch.Preis.Value
                        );
             ZielAdresse = ZielAdresse.Replace(",", ".");
-            using (var Antwort = await this.HttpClient.GetAsync( ZielAdresse))
+            using (var Antwort = await this.HttpClient.GetAsync(ZielAdresse))
             {
 
                 this.AppKontext.Protokoll.Eintragen($"Der Status der Abfrage ErstelleBuch beträgt {Antwort.StatusCode}");

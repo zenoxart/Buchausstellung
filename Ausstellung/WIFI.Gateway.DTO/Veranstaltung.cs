@@ -133,7 +133,7 @@ namespace WIFI.Gateway.DTO
         {
             get
             {
-                
+
                 return this._Stadium;
             }
             set

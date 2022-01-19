@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-namespace WIFI.Anwendung
+﻿namespace WIFI.Anwendung
 {
     /// <summary>
     /// Stellt einen Dienst zum Verwalten
@@ -55,8 +53,8 @@ namespace WIFI.Anwendung
             get
             {
                 // NICHT CACHEN!!!
-               return $"_M{ GetSystemMetricsWrapper(SM_CMONITORS) }";
-                
+                return $"_M{ GetSystemMetricsWrapper(SM_CMONITORS) }";
+
             }
         }
 
@@ -188,7 +186,7 @@ namespace WIFI.Anwendung
             {
                 if (GetStandardPfad() == null)
                 {
-                    SetStandardPfad( System.IO.Path.Combine(
+                    SetStandardPfad(System.IO.Path.Combine(
                             this.AppKontext.LokalerDatenpfad,
                             "Fenster.xml"));
                 }

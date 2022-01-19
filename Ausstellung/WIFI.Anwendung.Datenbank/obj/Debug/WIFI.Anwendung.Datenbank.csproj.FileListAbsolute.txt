@@ -297,8 +297,8 @@ C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Dat
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\WIFI.Anwendung.resources.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\bin\Debug\de\PdfSharp.Charting.resources.dll
-C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csprojAssemblyReference.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CoreCompileInputs.cache
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.CopyComplete
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.dll
 C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.pdb
+C:\Users\U731233\Documents\GitHub\Buchausstellung\Ausstellung\WIFI.Anwendung.Datenbank\obj\Debug\WIFI.Anwendung.Datenbank.csproj.AssemblyReference.cache

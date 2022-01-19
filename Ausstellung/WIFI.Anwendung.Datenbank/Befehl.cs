@@ -77,7 +77,7 @@ namespace WIFI.Anwendung
         /// </summary>
         /// <param name="executeMethode">Verweis auf die Methode,
         /// die ausgeführt werden soll, wenn der Befehl benutzt wird</param>
-        public Befehl(System.Action<object> executeMethode) 
+        public Befehl(System.Action<object> executeMethode)
             : this(executeMethode, canExecuteMethode: null)
         {
 
@@ -91,7 +91,7 @@ namespace WIFI.Anwendung
         /// <param name="canExecuteMethode">Verweis auf die Methode,
         /// die prüft, ob der Befehl aktuell zulässig ist</param>
         public Befehl(
-            System.Action<object> executeMethode, 
+            System.Action<object> executeMethode,
             System.Predicate<object> canExecuteMethode)
         {
             this._ExecuteMethode = executeMethode;

@@ -18,7 +18,7 @@ namespace WIFI.Gateway
 
             if (AppKontext.Protokoll.Pfad != string.Empty) AppKontext.Protokoll.Pfad = this.Server.MapPath(AppKontext.Protokoll.Pfad);
 
-            AppKontext.SqlServer     = System.Web.Configuration.WebConfigurationManager.AppSettings["SqlServer"];
+            AppKontext.SqlServer = System.Web.Configuration.WebConfigurationManager.AppSettings["SqlServer"];
             AppKontext.DatenbankName = System.Web.Configuration.WebConfigurationManager.AppSettings["DatenbankName"];
             AppKontext.DatenbankPfad = System.Web.Configuration.WebConfigurationManager.AppSettings["DatenbankPfad"];
             AppKontext.DatenbankPfad = this.Server.MapPath(AppKontext.DatenbankPfad);

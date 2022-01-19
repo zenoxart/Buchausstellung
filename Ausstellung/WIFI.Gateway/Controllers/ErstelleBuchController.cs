@@ -35,7 +35,8 @@ namespace WIFI.Gateway.Controllers
         public object Get(int Anzahl, string Autorname, string Buchnummer, int Kategorie, int Rabatt, string Titel, string Verlag, decimal Preis)
         {
 
-            Gateway.DTO.Buch Buch = new DTO.Buch {
+            Gateway.DTO.Buch Buch = new DTO.Buch
+            {
                 VerlagName = Verlag,
                 Kategoriegruppe = Kategorie,
                 Rabattgruppe = Rabatt,
@@ -44,7 +45,7 @@ namespace WIFI.Gateway.Controllers
                 AutorName = Autorname,
                 Buchnummer = Convert.ToInt32(Buchnummer),
                 Preis = Preis
-                
+
             };
 
             ClientSqlController.BuchHinzufügen(Buch);

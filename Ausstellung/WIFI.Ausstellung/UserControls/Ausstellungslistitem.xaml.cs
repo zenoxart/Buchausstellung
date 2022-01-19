@@ -235,8 +235,8 @@ namespace WIFI.Ausstellung.UserControls
                             if (ViewModels.AusstellungsManager.AktuelleBücherbestellung.Count > 0)
                             {
                                 b = (from l in ViewModels.AusstellungsManager.AktuelleBücherbestellung
-                                         where string.Compare(l.ID.ToString(), Id, ignoreCase: true) == 0
-                                         select l).FirstOrDefault();
+                                     where string.Compare(l.ID.ToString(), Id, ignoreCase: true) == 0
+                                     select l).FirstOrDefault();
 
                             }
                             // Nehme das Erste Element welches die selbe Id schon hat
@@ -260,7 +260,7 @@ namespace WIFI.Ausstellung.UserControls
                             );
                             }
 
-                            
+
 
                         }
                         );
@@ -272,6 +272,6 @@ namespace WIFI.Ausstellung.UserControls
             set { this._BuchbestellungHinzufügen = value; }
         }
 
-        public string BuchId { get ; set; }
+        public string BuchId { get; set; }
     }
 }
