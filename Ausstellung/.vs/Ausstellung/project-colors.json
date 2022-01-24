@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6ec461ca-784d-4c67-8740-d8f3605a6423": {
+      "ProjectGuid": "6ec461ca-784d-4c67-8740-d8f3605a6423",
+      "DisplayName": "WIFI.Ausstellung",
+      "ColorIndex": 0
+    },
+    "76cbb1f3-ff4e-45f7-99bd-fb59143c08c3": {
+      "ProjectGuid": "76cbb1f3-ff4e-45f7-99bd-fb59143c08c3",
+      "DisplayName": "WIFI.Anwendung.Datenbank",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

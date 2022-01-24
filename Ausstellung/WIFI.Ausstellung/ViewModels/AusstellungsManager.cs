@@ -40,7 +40,7 @@ namespace WIFI.Ausstellung.ViewModels
         {
             get
             {
-                var liste = GetListe();
+                Gateway.DTO.Bücher liste = GetListe();
 
                 if (liste == null)
                 {
